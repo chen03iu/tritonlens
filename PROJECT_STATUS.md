@@ -4,8 +4,8 @@ Last updated: 2026-09-10
 
 ## Current Milestone
 
-Phase 1 — Mock TSS MVP completed. The project is preparing to begin
-Phase 2 structured TSS data work.
+Phase 1 — Mock TSS MVP completed. Phase 2 structured TSS data work is now in
+progress.
 
 ## Completed
 
@@ -20,6 +20,8 @@ Phase 2 structured TSS data work.
 - Added four Vitest/jsdom DOM tests.
 - Initialized Git and created the first project commit.
 - Added foundational project documentation.
+- Defined normalized `Course`, `Section`, `Instructor`, `Term`, and
+  `CourseOffering` domain types.
 
 ## Current Architecture
 
@@ -27,6 +29,7 @@ Phase 2 structured TSS data work.
 - `build.mjs`: esbuild build process.
 - `src/content.ts`: watches TSS for dynamic DOM changes.
 - `src/instructor-badges.ts`: finds instructor links and manages badges.
+- `src/domain/types.ts`: stable normalized models independent of SAP/OData.
 - `src/content.css`: badge styling.
 - `tests/instructor-badges.test.ts`: DOM behavior tests.
 
@@ -55,11 +58,10 @@ Phase 2 — Structured TSS data.
 
 Next tasks:
 
-1. Define normalized `Course`, `Section`, and `Instructor` TypeScript types.
-2. Investigate passive observation of TSS OData responses.
-3. Capture only course, section, term, and instructor information.
-4. Add parser fixtures that contain no private student data.
-5. Add parser and normalization tests.
+1. Investigate passive observation of TSS OData responses.
+2. Capture only course, section, term, and instructor information.
+3. Add parser fixtures that contain no private student data.
+4. Add parser and normalization tests.
 
 ## Blockers
 

@@ -76,6 +76,8 @@ src/
   content.ts              TSS dynamic-page observer
   instructor-badges.ts    Instructor detection and badge injection
   content.css             Injected badge styles
+  domain/
+    types.ts              Normalized course and instructor models
 tests/
   instructor-badges.test.ts
 build.mjs

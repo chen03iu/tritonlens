@@ -25,7 +25,7 @@ scope until the core TSS integration is reliable.
 
 ## Phase 2 — Structured TSS Data
 
-- [ ] Define normalized course, section, instructor, and term types.
+- [x] Define normalized course, section, instructor, and term types.
 - [ ] Observe TSS data already received by the browser without extra requests.
 - [ ] Identify the minimum relevant OData response fields.
 - [ ] Create sanitized response fixtures containing no private student data.
