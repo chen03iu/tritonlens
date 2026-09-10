@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+
+*.log
+.env
+.env.*
+!.env.example
+
+# Never commit authenticated TSS session material or raw captures.
+tss/state.json
+data/tss_raw/
+
+.DS_Store
+Thumbs.db
+
+AGENTS.md

@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "TritonLens",
+  "version": "0.1.0",
+  "description": "Instructor ratings and historical course context inside UC San Diego TSS.",
+  "content_scripts": [
+    {
+      "matches": ["https://tss.ucsd.edu/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
