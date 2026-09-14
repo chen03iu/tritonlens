@@ -13,7 +13,10 @@ export const MOCK_DATASET: LocalDataset = {
       label: 'TritonLens fictional demo data',
       category: 'mock',
       homepageUrl: null,
+      termsUrl: null,
       retrievedAt: null,
+      permissionStatus: 'approved',
+      attribution: null,
     },
   ],
   professors: [

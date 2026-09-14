@@ -1,5 +1,10 @@
 export type DatasetKind = 'mock' | 'production';
 
+export type DataPermissionStatus =
+  | 'approved'
+  | 'pending'
+  | 'prohibited';
+
 export type DataSourceCategory =
   | 'mock'
   | 'professor-ratings'
@@ -10,7 +15,10 @@ export interface DataSourceReference {
   readonly label: string;
   readonly category: DataSourceCategory;
   readonly homepageUrl: string | null;
+  readonly termsUrl: string | null;
   readonly retrievedAt: string | null;
+  readonly permissionStatus: DataPermissionStatus;
+  readonly attribution: string | null;
 }
 
 /** Professor-level data. It must not be presented as course-specific data. */

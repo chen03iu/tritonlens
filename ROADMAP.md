@@ -47,6 +47,7 @@ scope until the core TSS integration is reliable.
 ## Phase 4 — Real Data Integration
 
 - [ ] Resolve permission, redistribution, and attribution requirements.
+- [x] Add a fail-closed validation gate for provenance and data integrity.
 - [ ] Integrate an approved RateMyProfessors data source.
 - [ ] Integrate an approved historical UCSD grade source.
 - [ ] Record source dates, sample sizes, and provenance.

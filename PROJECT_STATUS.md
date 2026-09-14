@@ -51,6 +51,11 @@ in progress; real-data integration remains blocked on upstream permissions.
 - Reviewed current RMP, UCSD website, A.S. grade archive, CAPE, and Campus
   Grades access constraints.
 - Added ready-to-send permission requests for RMP and UCSD A.S.
+- Added explicit permission status, terms, and attribution metadata to data
+  source records.
+- Added a fail-closed dataset validation gate for source references,
+  production permissions, metric ranges, dates, and duplicate IDs.
+- Expanded the automated suite to 41 tests.
 
 ## Current Architecture
 
@@ -67,6 +72,8 @@ in progress; real-data integration remains blocked on upstream permissions.
   record models.
 - `src/data/mock-dataset.ts`: fictional development-only records.
 - `src/data/lookup.ts`: conservative professor and course lookup.
+- `src/data/validation.ts`: validates provenance and data integrity before a
+  dataset can be treated as production-ready.
 - `src/content.css`: badge styling.
 - `tests/*.test.ts`: badge and TSS DOM parser tests.
 
@@ -102,6 +109,8 @@ Next tasks:
 2. Send the prepared aggregate-data request to UCSD Associated Students.
 3. Preserve the Easy-A Radar permission record outside the public repository.
 4. Select an approved source path only after receiving upstream responses.
+5. Run any future imported snapshot through `validateLocalDataset()` before
+   connecting it to extension lookup.
 
 ## Blockers
 
