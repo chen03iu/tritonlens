@@ -1,3 +1,8 @@
+import {
+  lookupHistoricalCourseGrades,
+  lookupProfessor,
+} from './data/lookup';
+import { MOCK_DATASET } from './data/mock-dataset';
 import type {
   RenderedInstructorContext,
 } from './tss/instructor-context';
@@ -22,11 +27,7 @@ function createMockRatingBadge(
   const badge = document.createElement('span');
 
   badge.className = RATING_BADGE_CLASS;
-  badge.textContent = '★ 4.5 demo';
-  badge.title = 'Demo data — not a real professor rating';
-  badge.setAttribute('aria-label', 'Demo rating: 4.5 out of 5');
-
-  applyContextToBadge(badge, context);
+  applyBadgeState(badge, context);
   return badge;
 }
 
@@ -73,6 +74,92 @@ function applyContextToBadge(
   }
 }
 
+function applyLocalDataToBadge(
+  badge: HTMLSpanElement,
+  context: RenderedInstructorContext,
+): void {
+  const professorResult = lookupProfessor(
+    MOCK_DATASET,
+    context.instructor.displayName,
+  );
+
+  badge.dataset.tritonlensDatasetKind = MOCK_DATASET.kind;
+  badge.dataset.tritonlensProfessorLookup =
+    professorResult.status;
+
+  if (professorResult.status !== 'found') {
+    badge.textContent = 'Rating unavailable';
+    badge.title =
+      'Fictional demo rating data unavailable for this instructor';
+    badge.setAttribute(
+      'aria-label',
+      'Demo rating data unavailable',
+    );
+
+    delete badge.dataset.tritonlensProfessorId;
+    delete badge.dataset.tritonlensProfessorMatch;
+    delete badge.dataset.tritonlensRating;
+    delete badge.dataset.tritonlensGradeLookup;
+    delete badge.dataset.tritonlensAverageGpa;
+    return;
+  }
+
+  const professor = professorResult.record;
+  const rating = professor.rating;
+
+  badge.dataset.tritonlensProfessorId = professor.id;
+  badge.dataset.tritonlensProfessorMatch =
+    professorResult.matchMethod;
+
+  if (rating) {
+    const displayedRating = rating.overallRating.toFixed(1);
+
+    badge.textContent = '★ ' + displayedRating + ' demo';
+    badge.title =
+      'Fictional demo data — not real RMP or UCSD grade data';
+    badge.setAttribute(
+      'aria-label',
+      'Fictional demo rating: ' +
+        displayedRating +
+        ' out of 5',
+    );
+    badge.dataset.tritonlensRating = displayedRating;
+  } else {
+    badge.textContent = 'Rating unavailable';
+    badge.title =
+      'Fictional demo rating data unavailable for this instructor';
+    badge.setAttribute(
+      'aria-label',
+      'Demo rating data unavailable',
+    );
+    delete badge.dataset.tritonlensRating;
+  }
+
+  const gradeResult = lookupHistoricalCourseGrades(
+    MOCK_DATASET,
+    professor.id,
+    context.course.subjectCode,
+    context.course.catalogNumber,
+  );
+
+  badge.dataset.tritonlensGradeLookup = gradeResult.status;
+
+  if (gradeResult.status === 'found') {
+    badge.dataset.tritonlensAverageGpa =
+      gradeResult.record.averageGpa.toFixed(2);
+  } else {
+    delete badge.dataset.tritonlensAverageGpa;
+  }
+}
+
+function applyBadgeState(
+  badge: HTMLSpanElement,
+  context: RenderedInstructorContext,
+): void {
+  applyContextToBadge(badge, context);
+  applyLocalDataToBadge(badge, context);
+}
+
 function enhanceInstructorLink(
   link: HTMLAnchorElement,
   context: RenderedInstructorContext | null,
@@ -87,7 +174,7 @@ function enhanceInstructorLink(
   }
 
   if (existingBadge) {
-    applyContextToBadge(existingBadge, context);
+    applyBadgeState(existingBadge, context);
     link.setAttribute(ENHANCED_ATTRIBUTE, 'true');
     return;
   }

@@ -8,15 +8,17 @@ import type {
 
 function createContext(
   link: HTMLAnchorElement,
+  instructorName = 'Libby Butler',
+  catalogNumber = '010R',
 ): RenderedInstructorContext {
   return {
     link,
     instructor: {
-      displayName: 'Libby Butler',
+      displayName: instructorName,
     },
     course: {
       subjectCode: 'AAS',
-      catalogNumber: '010R',
+      catalogNumber,
       title: 'Introduction to African American Studies',
     },
     term: {
@@ -33,7 +35,7 @@ function createContext(
       deliveryMode: 'live-online',
       instructors: [
         {
-          displayName: 'Libby Butler',
+          displayName: instructorName,
         },
       ],
     },
@@ -77,7 +79,7 @@ describe('enhanceVisibleInstructorLinks', () => {
 
     const badge = document.querySelector('.tritonlens-rating-badge');
 
-    expect(badge?.textContent).toBe('★ 4.5 demo');
+    expect(badge?.textContent).toBe('★ 4.6 demo');
     expect(link.getAttribute('data-tritonlens-enhanced')).toBe('true');
     expect(
       badge?.getAttribute('data-tritonlens-course'),
@@ -86,6 +88,22 @@ describe('enhanceVisibleInstructorLinks', () => {
     expect(
       badge?.getAttribute('data-tritonlens-section'),
     ).toBe('001-000');
+
+    expect(
+      badge?.getAttribute('data-tritonlens-professor-lookup'),
+    ).toBe('found');
+
+    expect(
+      badge?.getAttribute('data-tritonlens-professor-match'),
+    ).toBe('exact');
+
+    expect(
+      badge?.getAttribute('data-tritonlens-grade-lookup'),
+    ).toBe('found');
+
+    expect(
+      badge?.getAttribute('data-tritonlens-average-gpa'),
+    ).toBe('3.42');
   });
 
   it('does not add duplicate badges after repeated scans', () => {
@@ -108,6 +126,54 @@ describe('enhanceVisibleInstructorLinks', () => {
     expect(
       document.querySelector('.tritonlens-rating-badge'),
     ).toBeNull();
+  });
+
+  it('shows an explicit missing-data state', () => {
+    const link = renderInstructorLink('Unknown Instructor');
+    const context = createContext(
+      link,
+      'Unknown Instructor',
+    );
+
+    enhanceVisibleInstructorLinks(document, [context]);
+
+    const badge = document.querySelector(
+      '.tritonlens-rating-badge',
+    );
+
+    expect(badge?.textContent).toBe('Rating unavailable');
+    expect(
+      badge?.getAttribute('data-tritonlens-professor-lookup'),
+    ).toBe('not-found');
+    expect(
+      badge?.hasAttribute('data-tritonlens-rating'),
+    ).toBe(false);
+  });
+
+  it('keeps professor and course-grade results separate', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const context = createContext(
+      link,
+      'Libby Butler',
+      '170',
+    );
+
+    enhanceVisibleInstructorLinks(document, [context]);
+
+    const badge = document.querySelector(
+      '.tritonlens-rating-badge',
+    );
+
+    expect(badge?.textContent).toBe('★ 4.6 demo');
+    expect(
+      badge?.getAttribute('data-tritonlens-professor-lookup'),
+    ).toBe('found');
+    expect(
+      badge?.getAttribute('data-tritonlens-grade-lookup'),
+    ).toBe('not-found');
+    expect(
+      badge?.hasAttribute('data-tritonlens-average-gpa'),
+    ).toBe(false);
   });
 
   it('removes a stale badge when the instructor becomes empty', () => {

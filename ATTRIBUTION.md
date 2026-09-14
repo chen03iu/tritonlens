@@ -37,8 +37,10 @@ versions and transitive dependencies are recorded in `package-lock.json`.
 
 ## Data Attribution
 
-No real external rating or grade dataset is currently bundled. The displayed
-`★ 4.5 demo` value is fictional test data.
+No real external rating or grade dataset is currently bundled. The local
+records and every value displayed with a `demo` label are original fictional
+test fixtures; they do not describe the named instructors or real UCSD grade
+outcomes.
 
 Future datasets must be documented in both this file and
 `DATA_SOURCES.md`, including:

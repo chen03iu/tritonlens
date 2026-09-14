@@ -4,21 +4,25 @@ TritonLens is a privacy-focused Chrome extension that adds instructor and
 historical course context directly to UC San Diego's Triton Student System
 (TSS).
 
-The project is currently an early prototype. It displays a hard-coded demo
-rating beside instructor names to validate TSS detection, dynamic page
-handling, and inline UI injection. It does not yet contain real professor
-ratings or historical grade data.
+The project is currently an early prototype. It uses a tiny fictional local
+dataset to validate TSS context extraction, conservative professor matching,
+course-specific historical-data lookup, and inline UI states. It does not yet
+contain real professor ratings or historical grade data.
 
 ## Current Features
 
 - Runs only on `https://tss.ucsd.edu/*`.
 - Detects instructor links in the TSS class-sections table.
 - Handles TSS navigation and dynamic rendering with `MutationObserver`.
-- Adds one mock rating badge per named instructor link.
+- Displays fictional per-professor demo ratings when a local match exists.
+- Displays an explicit unavailable state instead of guessing when no safe
+  match exists.
 - Removes stale badges when an instructor becomes empty.
 - Parses visible course, package, section, schedule, instructor, and seat data
   into normalized TypeScript models.
-- Includes automated DOM tests for badge and parser behavior.
+- Separates professor-level rating records from course × professor historical
+  grade records.
+- Includes automated tests for DOM behavior, parsing, matching, and lookup.
 
 ## Privacy
 
@@ -80,8 +84,13 @@ src/
   content.css             Injected badge styles
   domain/
     types.ts              Normalized course and instructor models
+  data/
+    types.ts              Source-aware local dataset models
+    mock-dataset.ts       Fictional development-only records
+    lookup.ts             Conservative professor and course lookup
   tss/
     dom-parser.ts         Visible TSS course-offering extraction
+    instructor-context.ts Rendered-link to normalized-record mapping
 tests/
   *.test.ts               Badge and parser behavior
 build.mjs
@@ -95,8 +104,8 @@ See [ROADMAP.md](ROADMAP.md) for planned work,
 
 ## Data Disclaimer
 
-The current `★ 4.5 demo` badge is fictional test data. Future historical grade
-information must be labeled as historical context, not as a prediction of
-future outcomes.
+Every badge ending in `demo` uses fictional test data. The demo values are not
+RateMyProfessors or UCSD grade records. Future historical grade information
+must be labeled as historical context, not as a prediction of future outcomes.
 
 No license has been selected for TritonLens yet.

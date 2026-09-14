@@ -37,12 +37,12 @@ scope until the core TSS integration is reliable.
 
 ## Phase 3 — Local Test Dataset
 
-- [ ] Define a small, source-aware local dataset schema.
-- [ ] Implement exact professor lookup.
-- [ ] Add conservative name normalization and known aliases.
-- [ ] Represent missing and uncertain matches explicitly.
-- [ ] Add course × professor historical lookup.
-- [ ] Test ambiguous and unusual instructor names.
+- [x] Define a small, source-aware local dataset schema.
+- [x] Implement exact professor lookup.
+- [x] Add conservative name normalization and known aliases.
+- [x] Represent missing and uncertain matches explicitly.
+- [x] Add course × professor historical lookup.
+- [x] Test ambiguous and unusual instructor names.
 
 ## Phase 4 — Real Data Integration
 

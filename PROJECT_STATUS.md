@@ -4,8 +4,8 @@ Last updated: 2026-09-14
 
 ## Current Milestone
 
-Phase 1 — Mock TSS MVP completed. Phase 2 — Structured TSS Data completed.
-The current milestone is Phase 3 — Local Test Dataset.
+Phase 1 and Phase 2 are completed. Phase 3 — Local Test Dataset is implemented
+and awaiting validation in the live TSS page.
 
 ## Completed
 
@@ -38,7 +38,12 @@ The current milestone is Phase 3 — Local Test Dataset.
 - Added contextual metadata to injected demo badges.
 - Validated live badge context for course, instructor, term, package, and
   section values in TSS.
-- Added sanitized jsdom fixtures and 21 automated tests.
+- Added a source-aware local dataset schema with clearly fictional records.
+- Added exact, normalized, and known-alias professor matching.
+- Added explicit found, not-found, and ambiguous lookup results.
+- Added independent course × professor historical-grade lookup.
+- Connected local lookup results to found and unavailable badge states.
+- Added sanitized fixtures and 33 automated tests.
 
 ## Current Architecture
 
@@ -51,12 +56,16 @@ The current milestone is Phase 3 — Local Test Dataset.
   course-offering models.
 - `src/tss/instructor-context.ts`: links normalized records to their exact
   rendered instructor elements.
+- `src/data/types.ts`: source-aware professor rating and historical grade
+  record models.
+- `src/data/mock-dataset.ts`: fictional development-only records.
+- `src/data/lookup.ts`: conservative professor and course lookup.
 - `src/content.css`: badge styling.
 - `tests/*.test.ts`: badge and TSS DOM parser tests.
 
 ## Data Status
 
-The displayed `★ 4.5 demo` value is hard-coded mock data.
+All displayed values ending in `demo` come from fictional local test data.
 
 TritonLens currently:
 
@@ -71,18 +80,19 @@ TritonLens currently:
 - Structured TSS OData observation is deferred unless DOM extraction proves
   insufficient.
 - The badge does not yet open a details card.
-- All named instructors receive the same mock rating.
+- The fictional dataset intentionally contains only two instructor records.
+- The new found and unavailable badge states have not yet been validated in
+  the live TSS page.
 
 ## Next Milestone
 
-Phase 3 — Local test dataset and conservative lookup.
+Phase 3 — Live validation of local lookup and missing-data states.
 
 Next tasks:
 
-1. Define a small source-aware local dataset schema.
-2. Add a tiny mock professor and course dataset.
-3. Implement exact professor lookup with an explicit missing-data result.
-4. Add lookup tests before connecting results to badges.
+1. Validate a known fictional match and its metadata in TSS.
+2. Validate the unavailable state for an instructor absent from the fixture.
+3. Mark Phase 3 complete after live validation.
 
 ## Blockers
 

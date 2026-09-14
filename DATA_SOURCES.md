@@ -1,7 +1,8 @@
 # TritonLens Data Sources
 
-TritonLens currently bundles no real ratings or historical grade data. The
-mock `★ 4.5 demo` value is fictional and exists only to test the extension UI.
+TritonLens currently bundles no real ratings or historical grade data. Its
+small local dataset is entirely fictional and exists only to test matching,
+lookup, missing-data behavior, and extension UI.
 
 No source may be added to the published extension until its ownership,
 license, access policy, redistribution rights, caching rules, update process,
@@ -9,6 +10,7 @@ and attribution requirements have been reviewed.
 
 | Source | Potential data or use | Access method | License or permission status | Redistribution status | Planned strategy | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
+| TritonLens fictional demo dataset | Development-only rating and historical-grade-shaped records | Bundled TypeScript object | Original fictional test fixture | May ship only while unmistakably labeled as demo data | Replace with approved sources after policy review | Values do not describe the named instructors or real UCSD outcomes |
 | UCSD Triton Student System (TSS) | Current course, section, term, and instructor | Passively observe information already delivered to the authenticated user's browser | UCSD-controlled system; use must remain limited to the user's session and applicable policy | Do not redistribute session payloads | Extract only the minimum current-course context locally | Never capture credentials, cookies, tokens, personal grades, or enrollment history |
 | [TritonPlan](https://github.com/hfjddjksaj/tritonplan) | TSS integration and parser architecture research | Public GitHub repository | MIT at the time reviewed | MIT terms permit reuse with required notices | Study architecture; attribute any code later adapted | No TritonPlan code is currently included |
 | [UCSD Easy-A Radar](https://github.com/Edwardwang66/ucsd-easy-a-radar) | Professor matching, ratings, and historical grade schema research | Public GitHub repository | No explicit open-source license was found at the time reviewed | Not approved | Do not copy or bundle code/data without permission or a suitable license | Contact the author after the independent TSS prototype is established |
