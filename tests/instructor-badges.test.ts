@@ -163,12 +163,34 @@ describe('enhanceVisibleInstructorLinks', () => {
     const developmentDataset: LocalDataset = {
       ...MOCK_DATASET,
       kind: 'development',
+      sources: [
+        {
+          ...MOCK_DATASET.sources[0],
+          id: 'test-rmp',
+          label: 'Easy-A Radar RMP snapshot',
+          category: 'professor-ratings',
+          homepageUrl:
+            'https://github.com/Edwardwang66/ucsd-easy-a-radar',
+          permissionStatus: 'pending',
+        },
+        {
+          ...MOCK_DATASET.sources[0],
+          id: 'test-grades',
+          label: 'Easy-A Radar UCSD grade snapshot',
+          category: 'historical-grades',
+          homepageUrl:
+            'https://github.com/Edwardwang66/ucsd-easy-a-radar',
+          permissionStatus: 'pending',
+        },
+      ],
       professors: [
         {
           ...MOCK_DATASET.professors[0],
           rating: {
             ...MOCK_DATASET.professors[0].rating!,
             overallRating: 1.2,
+            sourceId: 'test-rmp',
+            sourceProfessorId: '1410511',
           },
         },
       ],
@@ -176,6 +198,7 @@ describe('enhanceVisibleInstructorLinks', () => {
         {
           ...MOCK_DATASET.historicalCourseGrades[0],
           sampleSize: null,
+          sourceId: 'test-grades',
         },
       ],
     };
@@ -208,6 +231,74 @@ describe('enhanceVisibleInstructorLinks', () => {
       document.querySelector('.tritonlens-detail-card')
         ?.textContent,
     ).not.toContain('null students');
+
+    const sourceLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>(
+        '.tritonlens-detail-source-link',
+      ),
+    );
+    expect(
+      sourceLinks.map((link) => ({
+        text: link.textContent,
+        href: link.href,
+      })),
+    ).toEqual([
+      {
+        text: 'Easy-A Radar RMP snapshot',
+        href: 'https://github.com/Edwardwang66/ucsd-easy-a-radar',
+      },
+      {
+        text: 'RateMyProfessors profile',
+        href: 'https://www.ratemyprofessors.com/professor/1410511',
+      },
+      {
+        text: 'Easy-A Radar UCSD grade snapshot',
+        href: 'https://github.com/Edwardwang66/ucsd-easy-a-radar',
+      },
+    ]);
+    expect(
+      sourceLinks.every(
+        (link) =>
+          link.target === '_blank' &&
+          link.rel === 'noopener noreferrer',
+      ),
+    ).toBe(true);
+  });
+
+  it('renders unsafe or malformed source URLs as plain text', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
+    const unsafeDataset: LocalDataset = {
+      ...MOCK_DATASET,
+      kind: 'development',
+      sources: [
+        {
+          ...MOCK_DATASET.sources[0],
+          homepageUrl: 'javascript:alert(1)',
+        },
+      ],
+      professors: [
+        {
+          ...MOCK_DATASET.professors[0],
+          rating: {
+            ...MOCK_DATASET.professors[0].rating!,
+            sourceProfessorId: 'not-numeric',
+          },
+        },
+      ],
+    };
+
+    enhanceVisibleInstructorLinks(document, [context], unsafeDataset);
+    document
+      .querySelector<HTMLButtonElement>('.tritonlens-rating-badge')
+      ?.click();
+
+    expect(
+      document.querySelectorAll('.tritonlens-detail-source-link'),
+    ).toHaveLength(0);
+    expect(
+      document.querySelector('.tritonlens-detail-card')?.textContent,
+    ).toContain('TritonLens fictional demo data');
   });
 
   it('shows historical grades when a matched professor has no rating', () => {
@@ -278,6 +369,13 @@ describe('enhanceVisibleInstructorLinks', () => {
     expect(
       badge?.hasAttribute('data-tritonlens-average-gpa'),
     ).toBe(false);
+
+    (badge as HTMLButtonElement).click();
+    const cardText = document.querySelector(
+      '.tritonlens-detail-card',
+    )?.textContent;
+    expect(cardText).toContain('4.6 / 5');
+    expect(cardText).toContain('Historical grade data unavailable');
   });
 
   it('removes a stale badge when the instructor becomes empty', () => {

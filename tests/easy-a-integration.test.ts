@@ -56,4 +56,76 @@ describe('generated Easy-A development dataset', () => {
       expect(grades.record.offeringCount).toBe(4);
     }
   });
+
+  it('preserves a rating-only professor without inventing grades', () => {
+    const professor = lookupProfessor(
+      EASY_A_DATASET,
+      'Adalbert Gerald Soosai Raj',
+    );
+
+    expect(professor.status).toBe('found');
+    if (professor.status === 'found') {
+      expect(professor.record.rating).not.toBeNull();
+      expect(
+        EASY_A_DATASET.historicalCourseGrades.some(
+          (record) => record.professorId === professor.record.id,
+        ),
+      ).toBe(false);
+    }
+  });
+
+  it('preserves grade-only data without inventing a professor rating', () => {
+    const professor = lookupProfessor(
+      EASY_A_DATASET,
+      'Marco Octavio Aburto Oropeza',
+    );
+
+    expect(professor.status).toBe('found');
+    if (professor.status !== 'found') {
+      return;
+    }
+
+    expect(professor.record.rating).toBeNull();
+    expect(
+      lookupHistoricalCourseGrades(
+        EASY_A_DATASET,
+        professor.record.id,
+        'SIO',
+        '003',
+      ),
+    ).toMatchObject({
+      status: 'found',
+      record: {
+        averageGpa: 3.546,
+        offeringCount: 8,
+      },
+    });
+  });
+
+  it('preserves an explicit neither-data state', () => {
+    const professor = lookupProfessor(
+      EASY_A_DATASET,
+      'Aaron Boussina',
+    );
+
+    expect(professor.status).toBe('found');
+    if (professor.status === 'found') {
+      expect(professor.record.rating).toBeNull();
+      expect(
+        EASY_A_DATASET.historicalCourseGrades.some(
+          (record) => record.professorId === professor.record.id,
+        ),
+      ).toBe(false);
+    }
+  });
+
+  it('fails closed for an exact name with multiple source identities', () => {
+    expect(lookupProfessor(EASY_A_DATASET, 'Keolu Fox')).toMatchObject({
+      status: 'ambiguous',
+      candidates: expect.arrayContaining([
+        expect.objectContaining({ displayName: 'Keolu Fox' }),
+        expect.objectContaining({ displayName: 'Keolu Fox' }),
+      ]),
+    });
+  });
 });

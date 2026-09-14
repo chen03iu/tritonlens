@@ -108,21 +108,91 @@ function findSource(
   );
 }
 
+function safeHttpsUrl(value: string | null): string | null {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+function appendExternalLink(
+  parent: HTMLElement,
+  label: string,
+  url: string | null,
+): boolean {
+  const safeUrl = safeHttpsUrl(url);
+  if (!safeUrl) {
+    return false;
+  }
+
+  const link = document.createElement('a');
+  link.className = 'tritonlens-detail-source-link';
+  link.href = safeUrl;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = label;
+  parent.append(link);
+  return true;
+}
+
 function appendSource(
   section: HTMLElement,
   dataset: LocalDataset,
   sourceId: string,
   updatedAt: string,
+  detailLink: {
+    readonly label: string;
+    readonly url: string;
+  } | null = null,
 ): void {
   const source = findSource(dataset, sourceId);
   const sourceLabel = source?.label ?? 'Unknown source';
+  const sourceLine = document.createElement('p');
+  sourceLine.className = 'tritonlens-detail-source';
+  sourceLine.append(document.createTextNode('Source: '));
 
-  appendTextElement(
-    section,
-    'p',
-    'tritonlens-detail-source',
-    `Source: ${sourceLabel} · Updated ${updatedAt}`,
+  if (
+    !appendExternalLink(
+      sourceLine,
+      sourceLabel,
+      source?.homepageUrl ?? null,
+    )
+  ) {
+    sourceLine.append(document.createTextNode(sourceLabel));
+  }
+
+  if (detailLink) {
+    const separator = document.createTextNode(' · ');
+    sourceLine.append(separator);
+    if (
+      !appendExternalLink(
+        sourceLine,
+        detailLink.label,
+        detailLink.url,
+      )
+    ) {
+      separator.remove();
+    }
+  }
+
+  sourceLine.append(
+    document.createTextNode(` · Updated ${updatedAt}`),
   );
+  section.append(sourceLine);
+}
+
+function createRmpProfileUrl(
+  sourceProfessorId: string | null,
+): string | null {
+  return sourceProfessorId && /^\d+$/.test(sourceProfessorId)
+    ? `https://www.ratemyprofessors.com/professor/${sourceProfessorId}`
+    : null;
 }
 
 function appendProfessorRating(
@@ -194,11 +264,20 @@ function appendProfessorRating(
       ? 'Unavailable'
       : `${rating.wouldTakeAgainPercent}%`,
   );
+  const profileUrl = createRmpProfileUrl(
+    rating.sourceProfessorId,
+  );
   appendSource(
     section,
     dataset,
     rating.sourceId,
     rating.updatedAt,
+    profileUrl
+      ? {
+          label: 'RateMyProfessors profile',
+          url: profileUrl,
+        }
+      : null,
   );
 
   return result.record.id;

@@ -19,7 +19,8 @@ const buildOptions = {
   bundle: true,
   outdir: dist,
   target: 'chrome120',
-  sourcemap: true,
+  minify: !watch,
+  sourcemap: watch,
   logLevel: 'info',
 };
 
