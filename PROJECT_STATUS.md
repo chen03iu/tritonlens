@@ -4,8 +4,8 @@ Last updated: 2026-09-14
 
 ## Current Milestone
 
-Phase 1 and Phase 2 are completed. Phase 3 — Local Test Dataset is implemented
-and awaiting validation in the live TSS page.
+Phase 1, Phase 2, and Phase 3 are completed. The current milestone is Phase 4
+— source policy, permission, and real-data integration.
 
 ## Completed
 
@@ -43,6 +43,8 @@ and awaiting validation in the live TSS page.
 - Added explicit found, not-found, and ambiguous lookup results.
 - Added independent course × professor historical-grade lookup.
 - Connected local lookup results to found and unavailable badge states.
+- Validated both a known exact match and a safe not-found result in the live
+  TSS page.
 - Added sanitized fixtures and 33 automated tests.
 
 ## Current Architecture
@@ -81,18 +83,19 @@ TritonLens currently:
   insufficient.
 - The badge does not yet open a details card.
 - The fictional dataset intentionally contains only two instructor records.
-- The new found and unavailable badge states have not yet been validated in
-  the live TSS page.
+- No real rating or historical-grade source is approved for bundling yet.
 
 ## Next Milestone
 
-Phase 3 — Live validation of local lookup and missing-data states.
+Phase 4 — Resolve real-data permissions and provenance.
 
 Next tasks:
 
-1. Validate a known fictional match and its metadata in TSS.
-2. Validate the unavailable state for an instructor absent from the fixture.
-3. Mark Phase 3 complete after live validation.
+1. Verify current access, caching, and redistribution rules for candidate
+   rating and historical-grade sources.
+2. Contact the UCSD Easy-A Radar author about permission or collaboration.
+3. Select approved source paths before adding any real records.
+4. Preserve source dates, sample sizes, and attribution in generated data.
 
 ## Blockers
 
