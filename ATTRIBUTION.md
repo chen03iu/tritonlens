@@ -14,7 +14,11 @@ Their public projects informed research and architectural discussion:
 - [TritonPlan](https://github.com/hfjddjksaj/tritonplan): privacy-oriented TSS
   integration and passive observation concepts.
 - [UCSD Easy-A Radar](https://github.com/Edwardwang66/ucsd-easy-a-radar): data
-  schema and professor-matching research only. No code or data is included.
+  schema and professor-matching research only. No code or data is currently
+  included. On 2026-09-14, the user reported that the author directly granted
+  TritonLens unrestricted noncommercial use with no additional conditions.
+  This private permission is not a public repository license, and upstream
+  source restrictions still require separate review.
 - [Sahir Sharma WebReg](https://github.com/SahirSSharma/WebReg): TSS OData and
   course-data research.
 

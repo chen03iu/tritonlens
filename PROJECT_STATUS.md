@@ -4,8 +4,8 @@ Last updated: 2026-09-14
 
 ## Current Milestone
 
-Phase 1, Phase 2, and Phase 3 are completed. The current milestone is Phase 4
-— source policy, permission, and real-data integration.
+Phase 1, Phase 2, and Phase 3 are completed. Phase 4 source-policy research is
+in progress; real-data integration remains blocked on upstream permissions.
 
 ## Completed
 
@@ -46,6 +46,11 @@ Phase 1, Phase 2, and Phase 3 are completed. The current milestone is Phase 4
 - Validated both a known exact match and a safe not-found result in the live
   TSS page.
 - Added sanitized fixtures and 33 automated tests.
+- Recorded direct noncommercial permission from the Easy-A Radar author as
+  reported by the user.
+- Reviewed current RMP, UCSD website, A.S. grade archive, CAPE, and Campus
+  Grades access constraints.
+- Added ready-to-send permission requests for RMP and UCSD A.S.
 
 ## Current Architecture
 
@@ -84,18 +89,19 @@ TritonLens currently:
 - The badge does not yet open a details card.
 - The fictional dataset intentionally contains only two instructor records.
 - No real rating or historical-grade source is approved for bundling yet.
+- Easy-A Radar author permission does not by itself resolve the restrictions
+  imposed by its underlying RMP and UCSD sources.
 
 ## Next Milestone
 
-Phase 4 — Resolve real-data permissions and provenance.
+Phase 4 — Obtain direct upstream permission for redistributed data.
 
 Next tasks:
 
-1. Verify current access, caching, and redistribution rules for candidate
-   rating and historical-grade sources.
-2. Contact the UCSD Easy-A Radar author about permission or collaboration.
-3. Select approved source paths before adding any real records.
-4. Preserve source dates, sample sizes, and attribution in generated data.
+1. Send the prepared permission request to RateMyProfessors.
+2. Send the prepared aggregate-data request to UCSD Associated Students.
+3. Preserve the Easy-A Radar permission record outside the public repository.
+4. Select an approved source path only after receiving upstream responses.
 
 ## Blockers
 
