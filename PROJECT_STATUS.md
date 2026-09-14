@@ -63,6 +63,10 @@ fictional demo data only.
   historical-not-prediction labels.
 - Added outside-click, repeated-click, close-button, and Escape dismissal,
   including keyboard focus management.
+- Validated the detail card in live TSS for both a complete fictional-data
+  match and a safe unavailable-data result.
+- Confirmed that long instructor names remain complete inside the card and
+  that the card stays within the visible browser viewport.
 - Expanded the automated suite to 46 tests.
 
 ## Current Architecture
@@ -103,8 +107,8 @@ TritonLens currently:
 - Extraction currently depends on rendered TSS DOM attributes.
 - Structured TSS OData observation is deferred unless DOM extraction proves
   insufficient.
-- The detail card has automated DOM coverage but still needs visual validation
-  against the live TSS layout.
+- The detail card is intentionally a non-modal popover and can temporarily
+  cover nearby TSS rows until dismissed.
 - The fictional dataset intentionally contains only two instructor records.
 - No real rating or historical-grade source is approved for bundling yet.
 - Easy-A Radar author permission does not by itself resolve the restrictions
@@ -116,12 +120,11 @@ Phase 4 — Obtain direct upstream permission for redistributed data.
 
 Next tasks:
 
-1. Reload the unpacked extension and visually validate the detail card in TSS.
-2. Send the prepared permission request to RateMyProfessors.
-3. Send the prepared aggregate-data request to UCSD Associated Students.
-4. Preserve the Easy-A Radar permission record outside the public repository.
-5. Select an approved source path only after receiving upstream responses.
-6. Run any future imported snapshot through `validateLocalDataset()` before
+1. Send the prepared permission request to RateMyProfessors.
+2. Send the prepared aggregate-data request to UCSD Associated Students.
+3. Preserve the Easy-A Radar permission record outside the public repository.
+4. Select an approved source path only after receiving upstream responses.
+5. Run any future imported snapshot through `validateLocalDataset()` before
    connecting it to extension lookup.
 
 ## Blockers
