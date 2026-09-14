@@ -30,10 +30,10 @@ scope until the core TSS integration is reliable.
 - [x] Create sanitized DOM fixtures containing no private student data.
 - [x] Parse courses, packages, seat counts, sections, and instructors.
 - [x] Add parser tests for online, in-person, mixed, empty, and invalid values.
-- [ ] Connect normalized records to the correct rendered instructor links.
+- [x] Connect normalized records to the correct rendered instructor links.
 - [x] Validate the parser against multiple live TSS course layouts.
 - [x] Extract academic year and term.
-- [ ] Reconsider passive OData observation only if the DOM is insufficient.
+- [x] Confirm passive OData observation is unnecessary for current V1 fields.
 
 ## Phase 3 — Local Test Dataset
 

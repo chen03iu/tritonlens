@@ -5,7 +5,6 @@ import {
 } from './tss/instructor-context';
 
 let scanScheduled = false;
-let lastCourseOfferingSignature: string | null = null;
 
 function scanTssPage(): void {
   const courseOffering = extractCourseOffering(document);
@@ -17,24 +16,6 @@ function scanTssPage(): void {
   enhanceVisibleInstructorLinks(
     document,
     instructorContexts,
-  );
-
-  if (!courseOffering) {
-    lastCourseOfferingSignature = null;
-    return;
-  }
-
-  const signature = JSON.stringify(courseOffering);
-
-  if (signature === lastCourseOfferingSignature) {
-    return;
-  }
-
-  lastCourseOfferingSignature = signature;
-
-  console.log(
-    'TritonLens parsed course offering:',
-    courseOffering,
   );
 }
 

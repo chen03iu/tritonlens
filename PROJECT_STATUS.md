@@ -4,9 +4,8 @@ Last updated: 2026-09-14
 
 ## Current Milestone
 
-Phase 1 — Mock TSS MVP completed. Phase 2 structured TSS records are now
-linked to rendered instructors and awaiting final validation in the live TSS
-page.
+Phase 1 — Mock TSS MVP completed. Phase 2 — Structured TSS Data completed.
+The current milestone is Phase 3 — Local Test Dataset.
 
 ## Completed
 
@@ -28,7 +27,7 @@ page.
 - Added DOM parsers for TSS course offerings, packages, sections, instructors,
   and current seat counts.
 - Connected structured course-offering extraction to the live content-script
-  scan with duplicate console-output suppression.
+  scan.
 - Validated online, in-person, multi-package, and empty-instructor courses in
   an authenticated TSS session.
 - Extracted academic year and academic period from semantic TSS filter fields
@@ -37,6 +36,8 @@ page.
   normalized course, term, package, section, and instructor.
 - Added fail-closed matching that rejects stale packages from other courses.
 - Added contextual metadata to injected demo badges.
+- Validated live badge context for course, instructor, term, package, and
+  section values in TSS.
 - Added sanitized jsdom fixtures and 21 automated tests.
 
 ## Current Architecture
@@ -67,10 +68,6 @@ TritonLens currently:
 ## Known Limitations
 
 - Extraction currently depends on rendered TSS DOM attributes.
-- Parsed course offerings are temporarily logged for development validation;
-  they are not yet used to select badge data.
-- Rendered-instructor context metadata has not yet been inspected in the live
-  TSS page.
 - Structured TSS OData observation is deferred unless DOM extraction proves
   insufficient.
 - The badge does not yet open a details card.
@@ -78,15 +75,14 @@ TritonLens currently:
 
 ## Next Milestone
 
-Phase 2 — Live validation of rendered-instructor context mapping.
+Phase 3 — Local test dataset and conservative lookup.
 
 Next tasks:
 
-1. Validate badge course, package, section, instructor, and term metadata in
-   the live TSS page.
-2. Mark Phase 2 complete and remove temporary parser console output.
-3. Reconsider passive OData observation only if required fields cannot be
-   extracted reliably from the DOM.
+1. Define a small source-aware local dataset schema.
+2. Add a tiny mock professor and course dataset.
+3. Implement exact professor lookup with an explicit missing-data result.
+4. Add lookup tests before connecting results to badges.
 
 ## Blockers
 
