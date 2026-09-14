@@ -104,6 +104,11 @@ describe('enhanceVisibleInstructorLinks', () => {
     expect(
       badge?.getAttribute('data-tritonlens-average-gpa'),
     ).toBe('3.42');
+
+    expect(badge).toBeInstanceOf(HTMLButtonElement);
+    expect(badge?.getAttribute('type')).toBe('button');
+    expect(badge?.getAttribute('aria-expanded')).toBe('false');
+    expect(badge?.getAttribute('aria-controls')).toBeTruthy();
   });
 
   it('does not add duplicate badges after repeated scans', () => {
@@ -193,5 +198,134 @@ describe('enhanceVisibleInstructorLinks', () => {
     expect(
       link.hasAttribute('data-tritonlens-enhanced'),
     ).toBe(false);
+  });
+
+  it('opens a detail card with distinct rating and historical-grade data', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
+
+    enhanceVisibleInstructorLinks(document, [context]);
+
+    const badge = document.querySelector<HTMLButtonElement>(
+      '.tritonlens-rating-badge',
+    );
+
+    badge?.click();
+
+    const card = document.querySelector(
+      '.tritonlens-detail-card',
+    );
+
+    expect(badge?.getAttribute('aria-expanded')).toBe('true');
+    expect(card?.getAttribute('role')).toBe('dialog');
+    expect(card?.textContent).toContain('Libby Butler');
+    expect(card?.textContent).toContain('Fictional demo data');
+    expect(card?.textContent).toContain('Professor rating');
+    expect(card?.textContent).toContain('4.6 / 5');
+    expect(card?.textContent).toContain('Difficulty');
+    expect(card?.textContent).toContain('2.8 / 5');
+    expect(card?.textContent).toContain('42 ratings');
+    expect(card?.textContent).toContain('86%');
+    expect(card?.textContent).toContain(
+      'Historical AAS-010R grades',
+    );
+    expect(card?.textContent).toContain('Average GPA');
+    expect(card?.textContent).toContain('3.42');
+    expect(card?.textContent).toContain('120 students');
+    expect(card?.textContent).toContain('4 offerings');
+    expect(card?.textContent).toContain(
+      'Historical results are not a prediction.',
+    );
+    expect(document.activeElement).toBe(
+      card?.querySelector('.tritonlens-detail-close'),
+    );
+  });
+
+  it('shows unavailable states without inventing data', () => {
+    const link = renderInstructorLink('Unknown Instructor');
+    const context = createContext(link, 'Unknown Instructor');
+
+    enhanceVisibleInstructorLinks(document, [context]);
+
+    document
+      .querySelector<HTMLButtonElement>('.tritonlens-rating-badge')
+      ?.click();
+
+    const card = document.querySelector(
+      '.tritonlens-detail-card',
+    );
+
+    expect(card?.textContent).toContain('Unknown Instructor');
+    expect(card?.textContent).toContain(
+      'Professor rating unavailable',
+    );
+    expect(card?.textContent).toContain(
+      'Historical grade data unavailable',
+    );
+    expect(card?.textContent).not.toContain('4.6');
+    expect(card?.textContent).not.toContain('3.42');
+  });
+
+  it('toggles the detail card when its badge is clicked again', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
+
+    enhanceVisibleInstructorLinks(document, [context]);
+
+    const badge = document.querySelector<HTMLButtonElement>(
+      '.tritonlens-rating-badge',
+    );
+
+    badge?.click();
+    badge?.click();
+
+    expect(
+      document.querySelector('.tritonlens-detail-card'),
+    ).toBeNull();
+    expect(badge?.getAttribute('aria-expanded')).toBe('false');
+  });
+
+  it('closes the detail card on an outside click', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
+
+    enhanceVisibleInstructorLinks(document, [context]);
+
+    const badge = document.querySelector<HTMLButtonElement>(
+      '.tritonlens-rating-badge',
+    );
+
+    badge?.click();
+    document.body.click();
+
+    expect(
+      document.querySelector('.tritonlens-detail-card'),
+    ).toBeNull();
+    expect(badge?.getAttribute('aria-expanded')).toBe('false');
+  });
+
+  it('closes the detail card when Escape is pressed', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
+
+    enhanceVisibleInstructorLinks(document, [context]);
+
+    const badge = document.querySelector<HTMLButtonElement>(
+      '.tritonlens-rating-badge',
+    );
+
+    badge?.click();
+    document.dispatchEvent(
+      new KeyboardEvent('keydown', {
+        key: 'Escape',
+        bubbles: true,
+      }),
+    );
+
+    expect(
+      document.querySelector('.tritonlens-detail-card'),
+    ).toBeNull();
+    expect(badge?.getAttribute('aria-expanded')).toBe('false');
+    expect(document.activeElement).toBe(badge);
   });
 });

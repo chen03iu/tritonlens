@@ -56,8 +56,8 @@ scope until the core TSS integration is reliable.
 ## Phase 5 — UI Polish
 
 - [ ] Replace the demo badge with real missing/loading/data states.
-- [ ] Add an accessible hover or click detail card.
-- [ ] Display rating and historical-grade metrics with clear labels.
+- [x] Add an accessible click detail card.
+- [x] Display demo rating and historical-grade metrics with clear labels.
 - [ ] Add source links and last-updated dates.
 - [ ] Verify narrow-screen and keyboard behavior.
 

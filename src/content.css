@@ -1,4 +1,5 @@
 .tritonlens-rating-badge {
+  appearance: none;
   display: inline-flex;
   align-items: center;
   margin-left: 6px;
@@ -16,4 +17,136 @@
   line-height: 1.4;
   vertical-align: middle;
   white-space: nowrap;
+  cursor: pointer;
+}
+
+.tritonlens-rating-badge:hover {
+  background: #ffef9d;
+}
+
+.tritonlens-rating-badge:focus-visible {
+  outline: 2px solid #005ea8;
+  outline-offset: 2px;
+}
+
+.tritonlens-detail-card {
+  position: fixed;
+  z-index: 2147483647;
+  box-sizing: border-box;
+  width: min(320px, calc(100vw - 16px));
+  max-height: calc(100vh - 16px);
+  overflow: auto;
+  padding: 14px;
+
+  border: 1px solid #b8c2cc;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
+
+  background: #fff;
+  color: #172b4d;
+
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.tritonlens-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tritonlens-detail-title,
+.tritonlens-detail-demo-label,
+.tritonlens-detail-heading,
+.tritonlens-detail-source,
+.tritonlens-detail-note,
+.tritonlens-detail-unavailable {
+  margin: 0;
+}
+
+.tritonlens-detail-title {
+  color: #071e3d;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.tritonlens-detail-demo-label {
+  margin-top: 2px;
+  color: #7a5d00;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tritonlens-detail-close {
+  appearance: none;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: transparent;
+  color: #42526e;
+
+  font: inherit;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tritonlens-detail-close:hover,
+.tritonlens-detail-close:focus-visible {
+  background: #eef2f6;
+}
+
+.tritonlens-detail-close:focus-visible {
+  outline: 2px solid #005ea8;
+  outline-offset: 1px;
+}
+
+.tritonlens-detail-section {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #dfe4ea;
+}
+
+.tritonlens-detail-heading {
+  margin-bottom: 8px;
+  color: #172b4d;
+  font-size: 13px;
+}
+
+.tritonlens-detail-metrics {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px 12px;
+  margin: 0;
+}
+
+.tritonlens-detail-metric-label {
+  color: #5e6c84;
+}
+
+.tritonlens-detail-metric-value {
+  margin: 0;
+  color: #172b4d;
+  font-weight: 650;
+  text-align: right;
+}
+
+.tritonlens-detail-source,
+.tritonlens-detail-note,
+.tritonlens-detail-unavailable {
+  margin-top: 9px;
+  color: #5e6c84;
+  font-size: 11px;
+}
+
+.tritonlens-detail-note {
+  font-style: italic;
 }

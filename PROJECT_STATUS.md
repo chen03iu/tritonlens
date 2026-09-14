@@ -4,8 +4,9 @@ Last updated: 2026-09-14
 
 ## Current Milestone
 
-Phase 1, Phase 2, and Phase 3 are completed. Phase 4 source-policy research is
-in progress; real-data integration remains blocked on upstream permissions.
+Phase 1, Phase 2, and Phase 3 are completed. Phase 4 real-data integration is
+waiting on upstream permissions, so Phase 5 UI work is proceeding with
+fictional demo data only.
 
 ## Completed
 
@@ -55,7 +56,14 @@ in progress; real-data integration remains blocked on upstream permissions.
   source records.
 - Added a fail-closed dataset validation gate for source references,
   production permissions, metric ranges, dates, and duplicate IDs.
-- Expanded the automated suite to 41 tests.
+- Added an accessible click-triggered instructor detail card.
+- Displayed professor-level ratings separately from course × professor
+  historical-grade metrics.
+- Added explicit demo, missing-data, provenance, update-date, and
+  historical-not-prediction labels.
+- Added outside-click, repeated-click, close-button, and Escape dismissal,
+  including keyboard focus management.
+- Expanded the automated suite to 46 tests.
 
 ## Current Architecture
 
@@ -63,6 +71,8 @@ in progress; real-data integration remains blocked on upstream permissions.
 - `build.mjs`: esbuild build process.
 - `src/content.ts`: watches TSS for dynamic DOM changes.
 - `src/instructor-badges.ts`: finds instructor links and manages badges.
+- `src/professor-detail-card.ts`: renders and positions the accessible
+  instructor detail dialog and manages its lifecycle.
 - `src/domain/types.ts`: stable normalized models independent of SAP/OData.
 - `src/tss/dom-parser.ts`: converts the visible TSS DOM into normalized
   course-offering models.
@@ -93,7 +103,8 @@ TritonLens currently:
 - Extraction currently depends on rendered TSS DOM attributes.
 - Structured TSS OData observation is deferred unless DOM extraction proves
   insufficient.
-- The badge does not yet open a details card.
+- The detail card has automated DOM coverage but still needs visual validation
+  against the live TSS layout.
 - The fictional dataset intentionally contains only two instructor records.
 - No real rating or historical-grade source is approved for bundling yet.
 - Easy-A Radar author permission does not by itself resolve the restrictions
@@ -105,11 +116,12 @@ Phase 4 — Obtain direct upstream permission for redistributed data.
 
 Next tasks:
 
-1. Send the prepared permission request to RateMyProfessors.
-2. Send the prepared aggregate-data request to UCSD Associated Students.
-3. Preserve the Easy-A Radar permission record outside the public repository.
-4. Select an approved source path only after receiving upstream responses.
-5. Run any future imported snapshot through `validateLocalDataset()` before
+1. Reload the unpacked extension and visually validate the detail card in TSS.
+2. Send the prepared permission request to RateMyProfessors.
+3. Send the prepared aggregate-data request to UCSD Associated Students.
+4. Preserve the Easy-A Radar permission record outside the public repository.
+5. Select an approved source path only after receiving upstream responses.
+6. Run any future imported snapshot through `validateLocalDataset()` before
    connecting it to extension lookup.
 
 ## Blockers

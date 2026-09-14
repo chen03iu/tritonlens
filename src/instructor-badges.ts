@@ -6,11 +6,23 @@ import { MOCK_DATASET } from './data/mock-dataset';
 import type {
   RenderedInstructorContext,
 } from './tss/instructor-context';
+import {
+  closeProfessorDetailCardForTrigger,
+  toggleProfessorDetailCard,
+} from './professor-detail-card';
 
 const INSTRUCTOR_LINK_SELECTOR =
   'td[data-sap-ui-column*="socColInstructor"] a[id*="socEventInstructorLink"]';
 const ENHANCED_ATTRIBUTE = 'data-tritonlens-enhanced';
 const RATING_BADGE_CLASS = 'tritonlens-rating-badge';
+const DETAIL_CARD_ID_PREFIX = 'tritonlens-detail-card-';
+
+let nextDetailCardId = 1;
+
+const contextByBadge = new WeakMap<
+  HTMLButtonElement,
+  RenderedInstructorContext
+>();
 
 function findInstructorLinks(
   root: ParentNode = document,
@@ -23,21 +35,38 @@ function findInstructorLinks(
 
 function createMockRatingBadge(
   context: RenderedInstructorContext,
-): HTMLSpanElement {
-  const badge = document.createElement('span');
+): HTMLButtonElement {
+  const badge = document.createElement('button');
 
+  badge.type = 'button';
   badge.className = RATING_BADGE_CLASS;
+  badge.setAttribute('aria-expanded', 'false');
+  badge.setAttribute(
+    'aria-controls',
+    DETAIL_CARD_ID_PREFIX + nextDetailCardId,
+  );
+  nextDetailCardId += 1;
+
+  badge.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    const currentContext = contextByBadge.get(badge);
+    if (currentContext) {
+      toggleProfessorDetailCard(badge, currentContext);
+    }
+  });
+
   applyBadgeState(badge, context);
   return badge;
 }
 
 function findExistingRatingBadge(
   link: HTMLAnchorElement,
-): HTMLSpanElement | null {
+): HTMLElement | null {
   const sibling = link.nextElementSibling;
 
   if (
-    sibling instanceof HTMLSpanElement &&
+    sibling instanceof HTMLElement &&
     sibling.classList.contains(RATING_BADGE_CLASS)
   ) {
     return sibling;
@@ -47,7 +76,7 @@ function findExistingRatingBadge(
 }
 
 function applyContextToBadge(
-  badge: HTMLSpanElement,
+  badge: HTMLButtonElement,
   context: RenderedInstructorContext,
 ): void {
   badge.dataset.tritonlensInstructor =
@@ -75,7 +104,7 @@ function applyContextToBadge(
 }
 
 function applyLocalDataToBadge(
-  badge: HTMLSpanElement,
+  badge: HTMLButtonElement,
   context: RenderedInstructorContext,
 ): void {
   const professorResult = lookupProfessor(
@@ -153,9 +182,10 @@ function applyLocalDataToBadge(
 }
 
 function applyBadgeState(
-  badge: HTMLSpanElement,
+  badge: HTMLButtonElement,
   context: RenderedInstructorContext,
 ): void {
+  contextByBadge.set(badge, context);
   applyContextToBadge(badge, context);
   applyLocalDataToBadge(badge, context);
 }
@@ -168,16 +198,21 @@ function enhanceInstructorLink(
   const existingBadge = findExistingRatingBadge(link);
 
   if (!instructorName || !context) {
+    if (existingBadge) {
+      closeProfessorDetailCardForTrigger(existingBadge);
+    }
     existingBadge?.remove();
     link.removeAttribute(ENHANCED_ATTRIBUTE);
     return;
   }
 
-  if (existingBadge) {
+  if (existingBadge instanceof HTMLButtonElement) {
     applyBadgeState(existingBadge, context);
     link.setAttribute(ENHANCED_ATTRIBUTE, 'true');
     return;
   }
+
+  existingBadge?.remove();
 
   link.setAttribute(ENHANCED_ATTRIBUTE, 'true');
   link.insertAdjacentElement(
