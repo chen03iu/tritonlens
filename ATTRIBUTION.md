@@ -7,18 +7,20 @@ introduced.
 ## Current Project Code
 
 The current TritonLens prototype does not contain copied or adapted source
-code from TritonPlan, UCSD Easy-A Radar, or Sahir Sharma WebReg.
+code from TritonPlan, UCSD Easy-A Radar, or Sahir Sharma WebReg. TritonLens
+does contain a transformed Easy-A Radar data snapshot for local development.
 
 Their public projects informed research and architectural discussion:
 
 - [TritonPlan](https://github.com/hfjddjksaj/tritonplan): privacy-oriented TSS
   integration and passive observation concepts.
 - [UCSD Easy-A Radar](https://github.com/Edwardwang66/ucsd-easy-a-radar): data
-  schema and professor-matching research only. No code or data is currently
-  included. On 2026-09-14, the user reported that the author directly granted
-  TritonLens unrestricted noncommercial use with no additional conditions.
-  This private permission is not a public repository license, and upstream
-  source restrictions still require separate review.
+  schema and professor-matching research. A snapshot generated 2026-07-23 is
+  transformed into `src/data/easy-a-dataset.generated.json` by TritonLens's
+  own importer. On 2026-09-14, the user reported that the author directly
+  granted TritonLens unrestricted noncommercial use with no additional
+  conditions. This private permission is not a public repository license, and
+  upstream source restrictions still require separate review before release.
 - [Sahir Sharma WebReg](https://github.com/SahirSSharma/WebReg): TSS OData and
   course-data research.
 
@@ -41,10 +43,15 @@ versions and transitive dependencies are recorded in `package-lock.json`.
 
 ## Data Attribution
 
-No real external rating or grade dataset is currently bundled. The local
-records and every value displayed with a `demo` label are original fictional
-test fixtures; they do not describe the named instructors or real UCSD grade
-outcomes.
+Local development builds bundle normalized professor rating fields and
+aggregate historical course × professor grade fields from Easy-A Radar. The
+snapshot includes professor aliases, RMP profile identifiers and metrics,
+average GPA, offering count, and grade-distribution percentages. TritonLens
+does not infer unavailable student sample sizes. The UI labels this data as a
+development snapshot that is not for release.
+
+Every value displayed with a `demo` label remains an original fictional test
+fixture and does not describe a named instructor or real UCSD outcome.
 
 Future datasets must be documented in both this file and
 `DATA_SOURCES.md`, including:

@@ -4,17 +4,22 @@ TritonLens is a privacy-focused Chrome extension that adds instructor and
 historical course context directly to UC San Diego's Triton Student System
 (TSS).
 
-The project is currently an early prototype. It uses a tiny fictional local
-dataset to validate TSS context extraction, conservative professor matching,
-course-specific historical-data lookup, and inline UI states. It does not yet
-contain real professor ratings or historical grade data.
+The project is currently an early prototype. Local development builds use a
+normalized Easy-A Radar snapshot to validate TSS context extraction,
+conservative professor matching, course-specific historical-data lookup, and
+inline UI states. The snapshot is approved by the Easy-A Radar author for
+noncommercial use but is deliberately marked development-only while upstream
+redistribution questions remain under review.
 
 ## Current Features
 
 - Runs only on `https://tss.ucsd.edu/*`.
 - Detects instructor links in the TSS class-sections table.
 - Handles TSS navigation and dynamic rendering with `MutationObserver`.
-- Displays fictional per-professor demo ratings when a local match exists.
+- Displays local professor ratings and course-specific historical grade data
+  when a safe match exists.
+- Shows compact historical grade distributions without inventing unavailable
+  student sample sizes.
 - Displays an explicit unavailable state instead of guessing when no safe
   match exists.
 - Removes stale badges when an instructor becomes empty.
@@ -87,7 +92,10 @@ src/
   data/
     types.ts              Source-aware local dataset models
     mock-dataset.ts       Fictional development-only records
+    easy-a-dataset.ts     Validated development snapshot entry point
+    easy-a-dataset.generated.json  Generated local snapshot
     lookup.ts             Conservative professor and course lookup
+    validation.ts         Provenance and integrity validation
   tss/
     dom-parser.ts         Visible TSS course-offering extraction
     instructor-context.ts Rendered-link to normalized-record mapping
@@ -104,8 +112,9 @@ See [ROADMAP.md](ROADMAP.md) for planned work,
 
 ## Data Disclaimer
 
-Every badge ending in `demo` uses fictional test data. The demo values are not
-RateMyProfessors or UCSD grade records. Future historical grade information
-must be labeled as historical context, not as a prediction of future outcomes.
+Badges ending in `dev` use the Easy-A Radar development snapshot and are not
+approved release data. Badges ending in `demo` exist only in automated tests
+and use fictional fixtures. Historical grade information is labeled as
+historical context, not as a prediction of future outcomes.
 
 No license has been selected for TritonLens yet.

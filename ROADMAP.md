@@ -48,6 +48,9 @@ scope until the core TSS integration is reliable.
 
 - [ ] Resolve permission, redistribution, and attribution requirements.
 - [x] Add a fail-closed validation gate for provenance and data integrity.
+- [x] Integrate the author-approved Easy-A Radar snapshot for local
+  noncommercial development.
+- [x] Preserve aliases, offering counts, grade distributions, and source dates.
 - [ ] Integrate an approved RateMyProfessors data source.
 - [ ] Integrate an approved historical UCSD grade source.
 - [ ] Record source dates, sample sizes, and provenance.
@@ -55,10 +58,10 @@ scope until the core TSS integration is reliable.
 
 ## Phase 5 — UI Polish
 
-- [ ] Replace the demo badge with real missing/loading/data states.
+- [x] Replace the live demo badge with development-data and missing states.
 - [x] Add an accessible click detail card.
 - [x] Display demo rating and historical-grade metrics with clear labels.
-- [ ] Add source links and last-updated dates.
+- [x] Add source labels and last-updated dates.
 - [ ] Verify narrow-screen and keyboard behavior.
 
 ## Phase 6 — Reliability

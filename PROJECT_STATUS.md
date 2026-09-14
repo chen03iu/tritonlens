@@ -4,9 +4,10 @@ Last updated: 2026-09-14
 
 ## Current Milestone
 
-Phase 1, Phase 2, and Phase 3 are completed. Phase 4 real-data integration is
-waiting on upstream permissions, so Phase 5 UI work is proceeding with
-fictional demo data only.
+Phase 1, Phase 2, and Phase 3 are completed. Phase 4 now has an author-approved
+Easy-A Radar development snapshot integrated locally. Production release of
+that data still waits on upstream redistribution review. Phase 5 UI work is in
+progress using the explicitly labeled development snapshot.
 
 ## Completed
 
@@ -67,7 +68,15 @@ fictional demo data only.
   match and a safe unavailable-data result.
 - Confirmed that long instructor names remain complete inside the card and
   that the card stays within the visible browser viewport.
-- Expanded the automated suite to 46 tests.
+- Added a reproducible Easy-A Radar snapshot transformer and importer.
+- Imported 4,864 professor identity records and 11,159 historical course ×
+  professor records from the 2026-07-23 snapshot.
+- Preserved reviewed aliases and normalized zero-padded TSS catalog numbers.
+- Treated missing student counts, zero-rating profiles, and unavailable
+  percentage sentinels as unavailable instead of inventing values.
+- Connected the validated development dataset to live badges and detail cards.
+- Added compact A/B/C/D/F/W/P/NP historical grade distributions.
+- Expanded the automated suite to 61 tests.
 
 ## Current Architecture
 
@@ -85,6 +94,10 @@ fictional demo data only.
 - `src/data/types.ts`: source-aware professor rating and historical grade
   record models.
 - `src/data/mock-dataset.ts`: fictional development-only records.
+- `src/data/easy-a-dataset.ts`: validates and exposes the imported development
+  snapshot.
+- `scripts/easy-a-transform.mjs`: converts an Easy-A Radar snapshot into the
+  TritonLens schema.
 - `src/data/lookup.ts`: conservative professor and course lookup.
 - `src/data/validation.ts`: validates provenance and data integrity before a
   dataset can be treated as production-ready.
@@ -93,14 +106,16 @@ fictional demo data only.
 
 ## Data Status
 
-All displayed values ending in `demo` come from fictional local test data.
+Live values ending in `dev` come from the Easy-A Radar development snapshot.
+Values ending in `demo` are fictional fixtures used in automated tests.
 
 TritonLens currently:
 
 - makes no external network requests;
 - collects no student information;
 - stores no TSS session information;
-- contains no real RateMyProfessors or grade data.
+- makes all rating and historical-grade lookups against a bundled local
+  snapshot, with no live requests to RMP or UCSD data services.
 
 ## Known Limitations
 
@@ -109,25 +124,27 @@ TritonLens currently:
   insufficient.
 - The detail card is intentionally a non-modal popover and can temporarily
   cover nearby TSS rows until dismissed.
-- The fictional dataset intentionally contains only two instructor records.
-- No real rating or historical-grade source is approved for bundling yet.
+- Snapshot data can be incomplete or stale and is not a prediction.
+- The development snapshot is not approved for a public release build yet.
 - Easy-A Radar author permission does not by itself resolve the restrictions
   imposed by its underlying RMP and UCSD sources.
 
 ## Next Milestone
 
-Phase 4 — Obtain direct upstream permission for redistributed data.
+Phase 4/5 — Validate the development snapshot in live TSS and polish its UI.
 
 Next tasks:
 
-1. Send the prepared permission request to RateMyProfessors.
-2. Send the prepared aggregate-data request to UCSD Associated Students.
+1. Reload the unpacked extension and validate known, missing, and alias matches
+   across several live TSS departments.
+2. Verify grade-distribution layout at normal and narrow browser widths.
 3. Preserve the Easy-A Radar permission record outside the public repository.
-4. Select an approved source path only after receiving upstream responses.
-5. Run any future imported snapshot through `validateLocalDataset()` before
-   connecting it to extension lookup.
+4. Keep RMP and UCSD permission requests as release preparation rather than a
+   blocker for local development.
+5. Run every future imported snapshot through `validateLocalDataset()`.
 
 ## Blockers
 
-Real ratings and grade data must not be bundled until licensing,
-redistribution, attribution, and source-policy questions are resolved.
+No blocker remains for local noncommercial development. Public distribution of
+the development snapshot remains blocked until upstream redistribution,
+attribution, and source-policy questions are resolved.
