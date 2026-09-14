@@ -1,8 +1,34 @@
 import { enhanceVisibleInstructorLinks } from './instructor-badges';
+import { extractCourseOffering } from './tss/dom-parser';
 
 let scanScheduled = false;
+let lastCourseOfferingSignature: string | null = null;
 
-function scheduleInstructorScan(): void {
+function scanTssPage(): void {
+  enhanceVisibleInstructorLinks();
+
+  const courseOffering = extractCourseOffering(document);
+
+  if (!courseOffering) {
+    lastCourseOfferingSignature = null;
+    return;
+  }
+
+  const signature = JSON.stringify(courseOffering);
+
+  if (signature === lastCourseOfferingSignature) {
+    return;
+  }
+
+  lastCourseOfferingSignature = signature;
+
+  console.log(
+    'TritonLens parsed course offering:',
+    courseOffering,
+  );
+}
+
+function scheduleTssScan(): void {
   if (scanScheduled) {
     return;
   }
@@ -11,16 +37,16 @@ function scheduleInstructorScan(): void {
 
   requestAnimationFrame(() => {
     scanScheduled = false;
-    enhanceVisibleInstructorLinks();
+    scanTssPage();
   });
 }
 
-const instructorObserver = new MutationObserver(scheduleInstructorScan);
+const tssObserver = new MutationObserver(scheduleTssScan);
 
-instructorObserver.observe(document.body, {
+tssObserver.observe(document.body, {
   childList: true,
   subtree: true,
   characterData: true,
 });
 
-scheduleInstructorScan();
+scheduleTssScan();

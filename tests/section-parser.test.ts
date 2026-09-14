@@ -59,4 +59,47 @@ describe('extractSection', () => {
       ],
     });
   });
+
+  it('handles a section without an assigned instructor', () => {
+    document.body.innerHTML = `
+      <table>
+        <tbody>
+          <tr id="example-socEventRow">
+            <td data-sap-ui-column="example-socColSection">
+              <span id="example-socEventKeyText">001-000</span>
+              <span id="example-socEventIdText">EL00004107</span>
+            </td>
+
+            <td data-sap-ui-column="example-socColMethod">
+              Lecture
+            </td>
+
+            <td data-sap-ui-column="example-socColSched">
+              Schedule Not Defined
+            </td>
+
+            <td data-sap-ui-column="example-socColInstructor">
+              <a id="example-socEventInstructorLink"></a>
+            </td>
+
+            <td data-sap-ui-column="example-socColLocation">
+              UC San Diego
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+
+    const row = document.querySelector('tr');
+
+    if (!row) {
+      throw new Error('Test section row was not created');
+    }
+
+    const result = extractSection(row);
+
+    expect(result?.instructors).toEqual([]);
+    expect(result?.deliveryMode).toBe('unknown');
+    expect(result?.scheduleText).toBe('Schedule Not Defined');
+  });
 });

@@ -5,7 +5,8 @@ Last updated: 2026-09-14
 ## Current Milestone
 
 Phase 1 — Mock TSS MVP completed. Phase 2 DOM-based structured TSS parsing is
-implemented and awaiting validation in the live TSS page.
+implemented and validated against several live TSS course layouts. Academic
+year and term extraction remains.
 
 ## Completed
 
@@ -26,7 +27,11 @@ implemented and awaiting validation in the live TSS page.
   delivery-mode fields.
 - Added DOM parsers for TSS course offerings, packages, sections, instructors,
   and current seat counts.
-- Added sanitized jsdom fixtures and 15 automated tests.
+- Connected structured course-offering extraction to the live content-script
+  scan with duplicate console-output suppression.
+- Validated online, in-person, multi-package, and empty-instructor courses in
+  an authenticated TSS session.
+- Added sanitized jsdom fixtures and 16 automated tests.
 
 ## Current Architecture
 
@@ -54,7 +59,8 @@ TritonLens currently:
 ## Known Limitations
 
 - Extraction currently depends on rendered TSS DOM attributes.
-- The parser is not yet connected to the live content-script scan.
+- Parsed course offerings are temporarily logged for development validation;
+  they are not yet used to select badge data.
 - The academic term is not yet extracted, so `term` remains `null`.
 - Structured TSS OData observation is deferred unless DOM extraction proves
   insufficient.
@@ -63,15 +69,15 @@ TritonLens currently:
 
 ## Next Milestone
 
-Phase 2 — Live validation of structured DOM extraction.
+Phase 2 — Complete structured TSS context extraction.
 
 Next tasks:
 
-1. Connect `extractCourseOffering()` to the content-script scan.
-2. Validate online, in-person, multi-package, and empty-instructor courses in
-   TSS.
-3. Extract academic year and term from a stable visible source.
-4. Add regression fixtures for any live-page differences.
+1. Extract academic year and term from a stable visible source.
+2. Add regression fixtures for the selected term source.
+3. Connect normalized records to their corresponding rendered instructor
+   links.
+4. Remove temporary parser console output after validation.
 5. Reconsider passive OData observation only if required fields cannot be
    extracted reliably from the DOM.
 
