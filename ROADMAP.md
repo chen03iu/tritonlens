@@ -32,7 +32,7 @@ scope until the core TSS integration is reliable.
 - [x] Add parser tests for online, in-person, mixed, empty, and invalid values.
 - [ ] Connect normalized records to the correct rendered instructor links.
 - [x] Validate the parser against multiple live TSS course layouts.
-- [ ] Extract academic year and term.
+- [x] Extract academic year and term.
 - [ ] Reconsider passive OData observation only if the DOM is insufficient.
 
 ## Phase 3 — Local Test Dataset

@@ -4,10 +4,17 @@ import type {
   DeliveryMode,
   Instructor,
   Section,
+  Term,
 } from '../domain/types';
 
 const COURSE_TITLE_SELECTOR =
   '[id$="--fe::ObjectPage-headerTitle"] h2.sapMTitle > span';
+
+const ACADEMIC_YEAR_SELECTOR =
+  'input[id$="::FilterField::AcademicYear-inner-inner"]';
+
+const ACADEMIC_PERIOD_SELECTOR =
+  'input[id$="::FilterField::AcademicPeriod-inner-inner"]';
 
 const PACKAGE_SELECTOR = '.socPkgBlock';
 const PACKAGE_NAME_SELECTOR = '.socPkgName';
@@ -47,6 +54,16 @@ function readText(
   const text = root.querySelector(selector)?.textContent?.trim();
 
   return text || null;
+}
+
+function readInputValue(
+  root: ParentNode,
+  selector: string,
+): string | null {
+  const input = root.querySelector<HTMLInputElement>(selector);
+  const value = input?.value.trim();
+
+  return value || null;
 }
 
 export function extractCourseOffering(
@@ -111,7 +128,7 @@ export function extractCourseOffering(
       catalogNumber: parsedCourseLabel.catalogNumber,
       title: readText(root, COURSE_TITLE_SELECTOR),
     },
-    term: null,
+    term: extractTerm(root),
     packages,
   };
 }
@@ -207,6 +224,29 @@ export function extractSection(
       locationText,
     ),
     instructors,
+  };
+}
+
+export function extractTerm(
+  root: ParentNode = document,
+): Term | null {
+  const academicYear = readInputValue(
+    root,
+    ACADEMIC_YEAR_SELECTOR,
+  );
+
+  const academicPeriod = readInputValue(
+    root,
+    ACADEMIC_PERIOD_SELECTOR,
+  );
+
+  if (!academicYear || !academicPeriod) {
+    return null;
+  }
+
+  return {
+    academicYear,
+    academicPeriod,
   };
 }
 

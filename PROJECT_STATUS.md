@@ -5,8 +5,8 @@ Last updated: 2026-09-14
 ## Current Milestone
 
 Phase 1 — Mock TSS MVP completed. Phase 2 DOM-based structured TSS parsing is
-implemented and validated against several live TSS course layouts. Academic
-year and term extraction remains.
+implemented and validated against several live TSS course layouts. The
+remaining Phase 2 work is linking normalized records to rendered instructors.
 
 ## Completed
 
@@ -31,7 +31,9 @@ year and term extraction remains.
   scan with duplicate console-output suppression.
 - Validated online, in-person, multi-package, and empty-instructor courses in
   an authenticated TSS session.
-- Added sanitized jsdom fixtures and 16 automated tests.
+- Extracted academic year and academic period from semantic TSS filter fields
+  and validated them in the live page.
+- Added sanitized jsdom fixtures and 18 automated tests.
 
 ## Current Architecture
 
@@ -61,7 +63,6 @@ TritonLens currently:
 - Extraction currently depends on rendered TSS DOM attributes.
 - Parsed course offerings are temporarily logged for development validation;
   they are not yet used to select badge data.
-- The academic term is not yet extracted, so `term` remains `null`.
 - Structured TSS OData observation is deferred unless DOM extraction proves
   insufficient.
 - The badge does not yet open a details card.
@@ -69,16 +70,15 @@ TritonLens currently:
 
 ## Next Milestone
 
-Phase 2 — Complete structured TSS context extraction.
+Phase 2 — Link structured TSS records to rendered instructors.
 
 Next tasks:
 
-1. Extract academic year and term from a stable visible source.
-2. Add regression fixtures for the selected term source.
-3. Connect normalized records to their corresponding rendered instructor
+1. Connect normalized records to their corresponding rendered instructor
    links.
-4. Remove temporary parser console output after validation.
-5. Reconsider passive OData observation only if required fields cannot be
+2. Add regression tests for row-to-instructor association.
+3. Remove temporary parser console output after validation.
+4. Reconsider passive OData observation only if required fields cannot be
    extracted reliably from the DOM.
 
 ## Blockers

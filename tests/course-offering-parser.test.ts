@@ -6,6 +6,16 @@ import { extractCourseOffering } from '../src/tss/dom-parser';
 describe('extractCourseOffering', () => {
   it('extracts a course title and multiple packages', () => {
     document.body.innerHTML = `
+      <input
+        id="example::FilterField::AcademicYear-inner-inner"
+        value="2026/2027"
+      >
+
+      <input
+        id="example::FilterField::AcademicPeriod-inner-inner"
+        value="Fall Quarter"
+      >
+
       <div id="example--fe::ObjectPage-headerTitle">
         <div>
           <h2 class="sapMTitle">
@@ -37,7 +47,10 @@ describe('extractCourseOffering', () => {
       title: 'Introduction to African American Studies',
     });
 
-    expect(result?.term).toBeNull();
+    expect(result?.term).toEqual({
+      academicYear: '2026/2027',
+      academicPeriod: 'Fall Quarter',
+    });
 
     expect(
       result?.packages.map((coursePackage) => {

@@ -23,11 +23,11 @@ export interface Course {
 
 /** An academic term as identified and displayed by TSS. */
 export interface Term {
-  /** Stable source code when available, such as a TSS term identifier. */
-  readonly code: string;
+  /** Academic year displayed by TSS, such as `2026/2027`. */
+  readonly academicYear: string;
 
-  /** Human-readable term label shown to the user. */
-  readonly displayName: string;
+  /** Academic period displayed by TSS, such as `Fall Quarter`. */
+  readonly academicPeriod: string;
 }
 
 /** A single scheduled section or component within a course offering. */
