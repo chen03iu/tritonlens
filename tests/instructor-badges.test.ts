@@ -2,6 +2,8 @@
 
 import { beforeEach, describe, expect, it } from 'vitest';
 import { enhanceVisibleInstructorLinks } from '../src/instructor-badges';
+import { MOCK_DATASET } from '../src/data/mock-dataset';
+import type { LocalDataset } from '../src/data/types';
 import type {
   RenderedInstructorContext,
 } from '../src/tss/instructor-context';
@@ -155,6 +157,103 @@ describe('enhanceVisibleInstructorLinks', () => {
     ).toBe(false);
   });
 
+  it('uses an injected development dataset without demo labeling', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
+    const developmentDataset: LocalDataset = {
+      ...MOCK_DATASET,
+      kind: 'development',
+      professors: [
+        {
+          ...MOCK_DATASET.professors[0],
+          rating: {
+            ...MOCK_DATASET.professors[0].rating!,
+            overallRating: 1.2,
+          },
+        },
+      ],
+      historicalCourseGrades: [
+        {
+          ...MOCK_DATASET.historicalCourseGrades[0],
+          sampleSize: null,
+        },
+      ],
+    };
+
+    enhanceVisibleInstructorLinks(
+      document,
+      [context],
+      developmentDataset,
+    );
+
+    const badge = document.querySelector<HTMLButtonElement>(
+      '.tritonlens-rating-badge',
+    );
+    badge?.click();
+
+    expect(badge?.textContent).toBe('★ 1.2 dev');
+    expect(
+      document.querySelector('.tritonlens-detail-card')
+        ?.textContent,
+    ).toContain('Development snapshot — not for release');
+    expect(
+      document.querySelector('.tritonlens-detail-card')
+        ?.textContent,
+    ).toContain('Unavailable');
+    expect(
+      document.querySelector('.tritonlens-detail-card')
+        ?.textContent,
+    ).not.toContain('Fictional demo data');
+    expect(
+      document.querySelector('.tritonlens-detail-card')
+        ?.textContent,
+    ).not.toContain('null students');
+  });
+
+  it('shows historical grades when a matched professor has no rating', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
+    const gradeOnlyDataset: LocalDataset = {
+      ...MOCK_DATASET,
+      kind: 'development',
+      professors: [
+        {
+          ...MOCK_DATASET.professors[0],
+          rating: null,
+        },
+      ],
+      historicalCourseGrades: [
+        MOCK_DATASET.historicalCourseGrades[0],
+      ],
+    };
+
+    enhanceVisibleInstructorLinks(
+      document,
+      [context],
+      gradeOnlyDataset,
+    );
+
+    const badge = document.querySelector<HTMLButtonElement>(
+      '.tritonlens-rating-badge',
+    );
+    badge?.click();
+
+    const cardText = document.querySelector(
+      '.tritonlens-detail-card',
+    )?.textContent;
+
+    expect(badge?.textContent).toBe('Grades available dev');
+    expect(badge?.getAttribute('aria-label')).not.toContain('Demo');
+    expect(badge?.getAttribute('aria-label')).toContain(
+      'Historical grades available',
+    );
+    expect(badge?.title).toContain('Historical grades available');
+    expect(badge?.title).toContain('not approved for release');
+    expect(cardText).toContain('Professor rating unavailable');
+    expect(cardText).toContain('Average GPA');
+    expect(cardText).toContain('3.42');
+  });
+
   it('keeps professor and course-grade results separate', () => {
     const link = renderInstructorLink('Libby Butler');
     const context = createContext(
@@ -233,6 +332,9 @@ describe('enhanceVisibleInstructorLinks', () => {
     expect(card?.textContent).toContain('3.42');
     expect(card?.textContent).toContain('120 students');
     expect(card?.textContent).toContain('4 offerings');
+    expect(card?.textContent).toContain('Grade distribution');
+    expect(card?.textContent).toContain('A58%');
+    expect(card?.textContent).toContain('W1%');
     expect(card?.textContent).toContain(
       'Historical results are not a prediction.',
     );

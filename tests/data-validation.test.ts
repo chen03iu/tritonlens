@@ -125,6 +125,49 @@ describe('validateLocalDataset', () => {
     );
   });
 
+  it('allows an unavailable student sample size', () => {
+    const dataset: LocalDataset = {
+      ...MOCK_DATASET,
+      historicalCourseGrades: [
+        {
+          ...MOCK_DATASET.historicalCourseGrades[0],
+          sampleSize: null,
+        },
+      ],
+    };
+
+    expect(
+      validateLocalDataset(dataset).issues.some(
+        (issue) =>
+          issue.path ===
+          'historicalCourseGrades[0].sampleSize',
+      ),
+    ).toBe(false);
+  });
+
+  it('rejects grade-distribution percentages outside 0 to 100', () => {
+    const dataset: LocalDataset = {
+      ...MOCK_DATASET,
+      historicalCourseGrades: [
+        {
+          ...MOCK_DATASET.historicalCourseGrades[0],
+          gradeDistribution: {
+            ...MOCK_DATASET.historicalCourseGrades[0]
+              .gradeDistribution,
+            aPercent: 101,
+          },
+        },
+      ],
+    };
+
+    expect(validateLocalDataset(dataset).issues).toContainEqual({
+      code: 'invalid-number',
+      path:
+        'historicalCourseGrades[0].gradeDistribution.aPercent',
+      message: 'Grade percentage must be null or between 0 and 100.',
+    });
+  });
+
   it('rejects impossible calendar dates', () => {
     const dataset: LocalDataset = {
       ...MOCK_DATASET,

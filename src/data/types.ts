@@ -1,4 +1,4 @@
-export type DatasetKind = 'mock' | 'production';
+export type DatasetKind = 'mock' | 'development' | 'production';
 
 export type DataPermissionStatus =
   | 'approved'
@@ -29,6 +29,7 @@ export interface ProfessorRating {
   readonly wouldTakeAgainPercent: number | null;
   readonly sourceId: string;
   readonly updatedAt: string;
+  readonly sourceProfessorId: string | null;
 }
 
 export interface ProfessorRecord {
@@ -38,14 +39,26 @@ export interface ProfessorRecord {
   readonly rating: ProfessorRating | null;
 }
 
+export interface HistoricalGradeDistribution {
+  readonly aPercent: number | null;
+  readonly bPercent: number | null;
+  readonly cPercent: number | null;
+  readonly dPercent: number | null;
+  readonly fPercent: number | null;
+  readonly wPercent: number | null;
+  readonly pPercent: number | null;
+  readonly npPercent: number | null;
+}
+
 /** Historical course × professor data, not a prediction of future grades. */
 export interface HistoricalCourseGradeRecord {
   readonly professorId: string;
   readonly subjectCode: string;
   readonly catalogNumber: string;
   readonly averageGpa: number;
-  readonly sampleSize: number;
+  readonly sampleSize: number | null;
   readonly offeringCount: number;
+  readonly gradeDistribution: HistoricalGradeDistribution;
   readonly sourceId: string;
   readonly updatedAt: string;
 }

@@ -2,8 +2,10 @@ import {
   lookupHistoricalCourseGrades,
   lookupProfessor,
 } from './data/lookup';
-import { MOCK_DATASET } from './data/mock-dataset';
-import type { DataSourceReference } from './data/types';
+import type {
+  DataSourceReference,
+  LocalDataset,
+} from './data/types';
 import type {
   RenderedInstructorContext,
 } from './tss/instructor-context';
@@ -47,19 +49,72 @@ function appendMetric(
   );
 }
 
-function findSource(sourceId: string): DataSourceReference | null {
+function formatPercentage(value: number): string {
+  return Number.isInteger(value)
+    ? String(value)
+    : value.toFixed(1).replace(/\.0$/, '');
+}
+
+function appendGradeDistribution(
+  section: HTMLElement,
+  distribution: LocalDataset['historicalCourseGrades'][number]['gradeDistribution'],
+): void {
+  const entries = [
+    ['A', distribution.aPercent],
+    ['B', distribution.bPercent],
+    ['C', distribution.cPercent],
+    ['D', distribution.dPercent],
+    ['F', distribution.fPercent],
+    ['W', distribution.wPercent],
+    ['P', distribution.pPercent],
+    ['NP', distribution.npPercent],
+  ] as const;
+  if (!entries.some(([, value]) => value !== null)) {
+    return;
+  }
+
+  appendTextElement(
+    section,
+    'h5',
+    'tritonlens-detail-subheading',
+    'Grade distribution',
+  );
+
+  const list = document.createElement('div');
+  list.className = 'tritonlens-grade-distribution';
+  section.append(list);
+
+  for (const [label, value] of entries) {
+    if (value === null) {
+      continue;
+    }
+
+    appendTextElement(
+      list,
+      'span',
+      'tritonlens-grade-distribution-item',
+      `${label}${formatPercentage(value)}%`,
+    );
+  }
+}
+
+function findSource(
+  dataset: LocalDataset,
+  sourceId: string,
+): DataSourceReference | null {
   return (
-    MOCK_DATASET.sources.find((source) => source.id === sourceId) ??
+    dataset.sources.find((source) => source.id === sourceId) ??
     null
   );
 }
 
 function appendSource(
   section: HTMLElement,
+  dataset: LocalDataset,
   sourceId: string,
   updatedAt: string,
 ): void {
-  const source = findSource(sourceId);
+  const source = findSource(dataset, sourceId);
   const sourceLabel = source?.label ?? 'Unknown source';
 
   appendTextElement(
@@ -73,6 +128,7 @@ function appendSource(
 function appendProfessorRating(
   card: HTMLDivElement,
   context: RenderedInstructorContext,
+  dataset: LocalDataset,
 ): string | null {
   const section = document.createElement('section');
   section.className = 'tritonlens-detail-section';
@@ -85,11 +141,11 @@ function appendProfessorRating(
   card.append(section);
 
   const result = lookupProfessor(
-    MOCK_DATASET,
+    dataset,
     context.instructor.displayName,
   );
 
-  if (result.status !== 'found' || !result.record.rating) {
+  if (result.status !== 'found') {
     appendTextElement(
       section,
       'p',
@@ -97,6 +153,16 @@ function appendProfessorRating(
       'Professor rating unavailable',
     );
     return null;
+  }
+
+  if (!result.record.rating) {
+    appendTextElement(
+      section,
+      'p',
+      'tritonlens-detail-unavailable',
+      'Professor rating unavailable',
+    );
+    return result.record.id;
   }
 
   const rating = result.record.rating;
@@ -128,7 +194,12 @@ function appendProfessorRating(
       ? 'Unavailable'
       : `${rating.wouldTakeAgainPercent}%`,
   );
-  appendSource(section, rating.sourceId, rating.updatedAt);
+  appendSource(
+    section,
+    dataset,
+    rating.sourceId,
+    rating.updatedAt,
+  );
 
   return result.record.id;
 }
@@ -137,6 +208,7 @@ function appendHistoricalGrades(
   card: HTMLDivElement,
   context: RenderedInstructorContext,
   professorId: string | null,
+  dataset: LocalDataset,
 ): void {
   const courseCode =
     `${context.course.subjectCode}-${context.course.catalogNumber}`;
@@ -152,7 +224,7 @@ function appendHistoricalGrades(
 
   const result = professorId
     ? lookupHistoricalCourseGrades(
-        MOCK_DATASET,
+        dataset,
         professorId,
         context.course.subjectCode,
         context.course.catalogNumber,
@@ -180,14 +252,22 @@ function appendHistoricalGrades(
     appendMetric(
       metrics,
       'Sample size',
-      `${record.sampleSize} students`,
+      record.sampleSize === null
+        ? 'Unavailable'
+        : `${record.sampleSize} students`,
     );
     appendMetric(
       metrics,
       'Course offerings',
       `${record.offeringCount} offerings`,
     );
-    appendSource(section, record.sourceId, record.updatedAt);
+    appendGradeDistribution(section, record.gradeDistribution);
+    appendSource(
+      section,
+      dataset,
+      record.sourceId,
+      record.updatedAt,
+    );
   }
 
   appendTextElement(
@@ -201,6 +281,7 @@ function appendHistoricalGrades(
 function createDetailCard(
   trigger: HTMLButtonElement,
   context: RenderedInstructorContext,
+  dataset: LocalDataset,
 ): HTMLDivElement {
   const card = document.createElement('div');
   const cardId = trigger.getAttribute('aria-controls');
@@ -231,7 +312,11 @@ function createDetailCard(
     titleGroup,
     'p',
     'tritonlens-detail-demo-label',
-    'Fictional demo data',
+    dataset.kind === 'mock'
+      ? 'Fictional demo data'
+      : dataset.kind === 'development'
+        ? 'Development snapshot — not for release'
+        : 'Data snapshot',
   );
 
   const closeButton = appendTextElement(
@@ -248,8 +333,17 @@ function createDetailCard(
     trigger.focus();
   });
 
-  const professorId = appendProfessorRating(card, context);
-  appendHistoricalGrades(card, context, professorId);
+  const professorId = appendProfessorRating(
+    card,
+    context,
+    dataset,
+  );
+  appendHistoricalGrades(
+    card,
+    context,
+    professorId,
+    dataset,
+  );
 
   card.addEventListener('click', (event) => {
     event.stopPropagation();
@@ -323,6 +417,7 @@ export function closeProfessorDetailCardForTrigger(
 export function toggleProfessorDetailCard(
   trigger: HTMLButtonElement,
   context: RenderedInstructorContext,
+  dataset: LocalDataset,
 ): void {
   if (activeTrigger === trigger && activeCard?.isConnected) {
     closeProfessorDetailCard();
@@ -331,7 +426,7 @@ export function toggleProfessorDetailCard(
 
   closeProfessorDetailCard();
 
-  const card = createDetailCard(trigger, context);
+  const card = createDetailCard(trigger, context, dataset);
   document.body.append(card);
   positionCard(card, trigger);
 

@@ -45,6 +45,13 @@ export function normalizeInstructorName(name: string): string {
     .toLocaleLowerCase('en-US');
 }
 
+function normalizeCatalogNumber(catalogNumber: string): string {
+  return catalogNumber
+    .trim()
+    .toUpperCase()
+    .replace(/^0+(?=\d)/, '');
+}
+
 export function lookupProfessor(
   dataset: LocalDataset,
   instructorName: string,
@@ -115,14 +122,15 @@ export function lookupHistoricalCourseGrades(
   catalogNumber: string,
 ): CourseGradeLookupResult {
   const normalizedSubjectCode = subjectCode.trim().toUpperCase();
-  const normalizedCatalogNumber = catalogNumber.trim().toUpperCase();
+  const normalizedCatalogNumber =
+    normalizeCatalogNumber(catalogNumber);
 
   const matches = dataset.historicalCourseGrades.filter((record) => {
     return (
       record.professorId === professorId &&
       record.subjectCode.trim().toUpperCase() ===
         normalizedSubjectCode &&
-      record.catalogNumber.trim().toUpperCase() ===
+      normalizeCatalogNumber(record.catalogNumber) ===
         normalizedCatalogNumber
     );
   });

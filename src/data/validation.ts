@@ -204,7 +204,10 @@ export function validateLocalDataset(
       );
     }
 
-    if (!Number.isInteger(record.sampleSize) || record.sampleSize <= 0) {
+    if (
+      record.sampleSize !== null &&
+      (!Number.isInteger(record.sampleSize) || record.sampleSize <= 0)
+    ) {
       addInvalidNumber(
         `${path}.sampleSize`,
         'Sample size must be a positive integer.',
@@ -220,6 +223,20 @@ export function validateLocalDataset(
         'Offering count must be a positive integer.',
       );
     }
+
+    Object.entries(record.gradeDistribution).forEach(
+      ([key, value]) => {
+        if (
+          value !== null &&
+          (!Number.isFinite(value) || value < 0 || value > 100)
+        ) {
+          addInvalidNumber(
+            `${path}.gradeDistribution.${key}`,
+            'Grade percentage must be null or between 0 and 100.',
+          );
+        }
+      },
+    );
   });
 
   return {

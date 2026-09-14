@@ -125,6 +125,29 @@ describe('lookupHistoricalCourseGrades', () => {
     }
   });
 
+  it('matches TSS leading-zero catalog numbers to source records', () => {
+    const firstRecord =
+      MOCK_DATASET.historicalCourseGrades[0];
+    const dataset: LocalDataset = {
+      ...MOCK_DATASET,
+      historicalCourseGrades: [
+        {
+          ...firstRecord,
+          catalogNumber: '10R',
+        },
+      ],
+    };
+
+    const result = lookupHistoricalCourseGrades(
+      dataset,
+      firstRecord.professorId,
+      'AAS',
+      '010R',
+    );
+
+    expect(result.status).toBe('found');
+  });
+
   it('returns not-found for a different course', () => {
     expect(
       lookupHistoricalCourseGrades(

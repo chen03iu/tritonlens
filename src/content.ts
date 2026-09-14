@@ -1,4 +1,5 @@
 import { enhanceVisibleInstructorLinks } from './instructor-badges';
+import { EASY_A_DATASET } from './data/easy-a-dataset';
 import { extractCourseOffering } from './tss/dom-parser';
 import {
   extractInstructorContexts,
@@ -16,6 +17,7 @@ function scanTssPage(): void {
   enhanceVisibleInstructorLinks(
     document,
     instructorContexts,
+    EASY_A_DATASET,
   );
 }
 

@@ -3,6 +3,7 @@ import {
   lookupProfessor,
 } from './data/lookup';
 import { MOCK_DATASET } from './data/mock-dataset';
+import type { LocalDataset } from './data/types';
 import type {
   RenderedInstructorContext,
 } from './tss/instructor-context';
@@ -19,9 +20,12 @@ const DETAIL_CARD_ID_PREFIX = 'tritonlens-detail-card-';
 
 let nextDetailCardId = 1;
 
-const contextByBadge = new WeakMap<
+const stateByBadge = new WeakMap<
   HTMLButtonElement,
-  RenderedInstructorContext
+  {
+    readonly context: RenderedInstructorContext;
+    readonly dataset: LocalDataset;
+  }
 >();
 
 function findInstructorLinks(
@@ -33,8 +37,9 @@ function findInstructorLinks(
   return Array.from(links);
 }
 
-function createMockRatingBadge(
+function createRatingBadge(
   context: RenderedInstructorContext,
+  dataset: LocalDataset,
 ): HTMLButtonElement {
   const badge = document.createElement('button');
 
@@ -50,13 +55,17 @@ function createMockRatingBadge(
   badge.addEventListener('click', (event) => {
     event.stopPropagation();
 
-    const currentContext = contextByBadge.get(badge);
-    if (currentContext) {
-      toggleProfessorDetailCard(badge, currentContext);
+    const currentState = stateByBadge.get(badge);
+    if (currentState) {
+      toggleProfessorDetailCard(
+        badge,
+        currentState.context,
+        currentState.dataset,
+      );
     }
   });
 
-  applyBadgeState(badge, context);
+  applyBadgeState(badge, context, dataset);
   return badge;
 }
 
@@ -106,23 +115,28 @@ function applyContextToBadge(
 function applyLocalDataToBadge(
   badge: HTMLButtonElement,
   context: RenderedInstructorContext,
+  dataset: LocalDataset,
 ): void {
   const professorResult = lookupProfessor(
-    MOCK_DATASET,
+    dataset,
     context.instructor.displayName,
   );
 
-  badge.dataset.tritonlensDatasetKind = MOCK_DATASET.kind;
+  badge.dataset.tritonlensDatasetKind = dataset.kind;
   badge.dataset.tritonlensProfessorLookup =
     professorResult.status;
 
   if (professorResult.status !== 'found') {
     badge.textContent = 'Rating unavailable';
     badge.title =
-      'Fictional demo rating data unavailable for this instructor';
+      dataset.kind === 'mock'
+        ? 'Fictional demo rating data unavailable for this instructor'
+        : 'Rating data unavailable for this instructor';
     badge.setAttribute(
       'aria-label',
-      'Demo rating data unavailable',
+      dataset.kind === 'mock'
+        ? 'Demo rating data unavailable'
+        : 'Instructor rating unavailable',
     );
 
     delete badge.dataset.tritonlensProfessorId;
@@ -143,12 +157,25 @@ function applyLocalDataToBadge(
   if (rating) {
     const displayedRating = rating.overallRating.toFixed(1);
 
-    badge.textContent = '★ ' + displayedRating + ' demo';
+    const suffix =
+      dataset.kind === 'mock'
+        ? ' demo'
+        : dataset.kind === 'development'
+          ? ' dev'
+          : '';
+
+    badge.textContent = '★ ' + displayedRating + suffix;
     badge.title =
-      'Fictional demo data — not real RMP or UCSD grade data';
+      dataset.kind === 'mock'
+        ? 'Fictional demo data — not real RMP or UCSD grade data'
+        : dataset.kind === 'development'
+          ? 'Development data snapshot — not approved for release'
+          : 'Instructor rating';
     badge.setAttribute(
       'aria-label',
-      'Fictional demo rating: ' +
+      (dataset.kind === 'mock'
+        ? 'Fictional demo rating: '
+        : 'Instructor rating: ') +
         displayedRating +
         ' out of 5',
     );
@@ -156,16 +183,20 @@ function applyLocalDataToBadge(
   } else {
     badge.textContent = 'Rating unavailable';
     badge.title =
-      'Fictional demo rating data unavailable for this instructor';
+      dataset.kind === 'mock'
+        ? 'Fictional demo rating data unavailable for this instructor'
+        : 'Rating data unavailable for this instructor';
     badge.setAttribute(
       'aria-label',
-      'Demo rating data unavailable',
+      dataset.kind === 'mock'
+        ? 'Demo rating data unavailable'
+        : 'Instructor rating unavailable',
     );
     delete badge.dataset.tritonlensRating;
   }
 
   const gradeResult = lookupHistoricalCourseGrades(
-    MOCK_DATASET,
+    dataset,
     professor.id,
     context.course.subjectCode,
     context.course.catalogNumber,
@@ -176,6 +207,34 @@ function applyLocalDataToBadge(
   if (gradeResult.status === 'found') {
     badge.dataset.tritonlensAverageGpa =
       gradeResult.record.averageGpa.toFixed(2);
+
+    if (!rating) {
+      if (dataset.kind === 'mock') {
+        badge.textContent = 'Grades available demo';
+        badge.title =
+          'Fictional demo historical grades available; open instructor details';
+        badge.setAttribute(
+          'aria-label',
+          'Rating unavailable; Demo historical grades available; open instructor details',
+        );
+      } else if (dataset.kind === 'development') {
+        badge.textContent = 'Grades available dev';
+        badge.title =
+          'Historical grades available from a development snapshot — not approved for release; open instructor details';
+        badge.setAttribute(
+          'aria-label',
+          'Rating unavailable; Historical grades available from a development snapshot not approved for release; open instructor details',
+        );
+      } else {
+        badge.textContent = 'Grades available';
+        badge.title =
+          'Rating unavailable; Historical grades available; open instructor details';
+        badge.setAttribute(
+          'aria-label',
+          'Rating unavailable; Historical grades available; open instructor details',
+        );
+      }
+    }
   } else {
     delete badge.dataset.tritonlensAverageGpa;
   }
@@ -184,15 +243,20 @@ function applyLocalDataToBadge(
 function applyBadgeState(
   badge: HTMLButtonElement,
   context: RenderedInstructorContext,
+  dataset: LocalDataset,
 ): void {
-  contextByBadge.set(badge, context);
+  stateByBadge.set(badge, {
+    context,
+    dataset,
+  });
   applyContextToBadge(badge, context);
-  applyLocalDataToBadge(badge, context);
+  applyLocalDataToBadge(badge, context, dataset);
 }
 
 function enhanceInstructorLink(
   link: HTMLAnchorElement,
   context: RenderedInstructorContext | null,
+  dataset: LocalDataset,
 ): void {
   const instructorName = link.textContent?.trim() ?? '';
   const existingBadge = findExistingRatingBadge(link);
@@ -207,7 +271,7 @@ function enhanceInstructorLink(
   }
 
   if (existingBadge instanceof HTMLButtonElement) {
-    applyBadgeState(existingBadge, context);
+    applyBadgeState(existingBadge, context, dataset);
     link.setAttribute(ENHANCED_ATTRIBUTE, 'true');
     return;
   }
@@ -217,13 +281,14 @@ function enhanceInstructorLink(
   link.setAttribute(ENHANCED_ATTRIBUTE, 'true');
   link.insertAdjacentElement(
     'afterend',
-    createMockRatingBadge(context),
+    createRatingBadge(context, dataset),
   );
 }
 
 export function enhanceVisibleInstructorLinks(
   root: ParentNode = document,
   contexts: readonly RenderedInstructorContext[] = [],
+  dataset: LocalDataset = MOCK_DATASET,
 ): void {
   const contextByLink = new Map(
     contexts.map((context) => {
@@ -235,6 +300,7 @@ export function enhanceVisibleInstructorLinks(
     enhanceInstructorLink(
       link,
       contextByLink.get(link) ?? null,
+      dataset,
     );
   });
 }

@@ -60,6 +60,7 @@
 .tritonlens-detail-title,
 .tritonlens-detail-demo-label,
 .tritonlens-detail-heading,
+.tritonlens-detail-subheading,
 .tritonlens-detail-source,
 .tritonlens-detail-note,
 .tritonlens-detail-unavailable {
@@ -119,6 +120,28 @@
   margin-bottom: 8px;
   color: #172b4d;
   font-size: 13px;
+}
+
+.tritonlens-detail-subheading {
+  margin: 10px 0 5px;
+  color: #42526e;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.tritonlens-grade-distribution {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tritonlens-grade-distribution-item {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: #eef2f6;
+  color: #42526e;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
 }
 
 .tritonlens-detail-metrics {
