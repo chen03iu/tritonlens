@@ -76,7 +76,12 @@ progress using the explicitly labeled development snapshot.
   percentage sentinels as unavailable instead of inventing values.
 - Connected the validated development dataset to live badges and detail cards.
 - Added compact A/B/C/D/F/W/P/NP historical grade distributions.
-- Expanded the automated suite to 61 tests.
+- Added safe clickable Easy-A source links and direct RMP profile links when
+  a numeric source professor ID is available.
+- Added explicit integration coverage for rating-only, grade-only, neither,
+  and ambiguous real snapshot states.
+- Minified normal builds and reserved source maps for watch-mode development.
+- Expanded the automated suite to 66 tests.
 
 ## Current Architecture
 

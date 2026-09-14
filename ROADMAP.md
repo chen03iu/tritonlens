@@ -62,6 +62,8 @@ scope until the core TSS integration is reliable.
 - [x] Add an accessible click detail card.
 - [x] Display demo rating and historical-grade metrics with clear labels.
 - [x] Add source labels and last-updated dates.
+- [x] Add safe source and professor-profile links.
+- [x] Improve detail-card behavior at narrow viewport widths.
 - [ ] Verify narrow-screen and keyboard behavior.
 
 ## Phase 6 — Reliability
