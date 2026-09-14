@@ -16,7 +16,9 @@ ratings or historical grade data.
 - Handles TSS navigation and dynamic rendering with `MutationObserver`.
 - Adds one mock rating badge per named instructor link.
 - Removes stale badges when an instructor becomes empty.
-- Includes automated DOM tests for the badge behavior.
+- Parses visible course, package, section, schedule, instructor, and seat data
+  into normalized TypeScript models.
+- Includes automated DOM tests for badge and parser behavior.
 
 ## Privacy
 
@@ -78,8 +80,10 @@ src/
   content.css             Injected badge styles
   domain/
     types.ts              Normalized course and instructor models
+  tss/
+    dom-parser.ts         Visible TSS course-offering extraction
 tests/
-  instructor-badges.test.ts
+  *.test.ts               Badge and parser behavior
 build.mjs
 manifest.json
 ```

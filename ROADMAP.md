@@ -26,12 +26,14 @@ scope until the core TSS integration is reliable.
 ## Phase 2 — Structured TSS Data
 
 - [x] Define normalized course, section, instructor, and term types.
-- [ ] Observe TSS data already received by the browser without extra requests.
-- [ ] Identify the minimum relevant OData response fields.
-- [ ] Create sanitized response fixtures containing no private student data.
-- [ ] Parse and normalize structured TSS data.
-- [ ] Add parser tests for missing and unusual values.
+- [x] Identify stable DOM boundaries for course packages and section rows.
+- [x] Create sanitized DOM fixtures containing no private student data.
+- [x] Parse courses, packages, seat counts, sections, and instructors.
+- [x] Add parser tests for online, in-person, mixed, empty, and invalid values.
 - [ ] Connect normalized records to the correct rendered instructor links.
+- [ ] Validate the parser against multiple live TSS course layouts.
+- [ ] Extract academic year and term.
+- [ ] Reconsider passive OData observation only if the DOM is insufficient.
 
 ## Phase 3 — Local Test Dataset
 

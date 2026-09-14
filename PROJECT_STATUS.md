@@ -1,11 +1,11 @@
 # TritonLens Project Status
 
-Last updated: 2026-09-10
+Last updated: 2026-09-14
 
 ## Current Milestone
 
-Phase 1 — Mock TSS MVP completed. Phase 2 structured TSS data work is now in
-progress.
+Phase 1 — Mock TSS MVP completed. Phase 2 DOM-based structured TSS parsing is
+implemented and awaiting validation in the live TSS page.
 
 ## Completed
 
@@ -22,6 +22,11 @@ progress.
 - Added foundational project documentation.
 - Defined normalized `Course`, `Section`, `Instructor`, `Term`, and
   `CourseOffering` domain types.
+- Added normalized package, enrollment availability, schedule, location, and
+  delivery-mode fields.
+- Added DOM parsers for TSS course offerings, packages, sections, instructors,
+  and current seat counts.
+- Added sanitized jsdom fixtures and 15 automated tests.
 
 ## Current Architecture
 
@@ -30,8 +35,10 @@ progress.
 - `src/content.ts`: watches TSS for dynamic DOM changes.
 - `src/instructor-badges.ts`: finds instructor links and manages badges.
 - `src/domain/types.ts`: stable normalized models independent of SAP/OData.
+- `src/tss/dom-parser.ts`: converts the visible TSS DOM into normalized
+  course-offering models.
 - `src/content.css`: badge styling.
-- `tests/instructor-badges.test.ts`: DOM behavior tests.
+- `tests/*.test.ts`: badge and TSS DOM parser tests.
 
 ## Data Status
 
@@ -46,22 +53,27 @@ TritonLens currently:
 
 ## Known Limitations
 
-- Instructor detection currently depends on rendered TSS DOM attributes.
-- Course and section information is not yet extracted.
-- Structured TSS OData responses are not yet observed.
+- Extraction currently depends on rendered TSS DOM attributes.
+- The parser is not yet connected to the live content-script scan.
+- The academic term is not yet extracted, so `term` remains `null`.
+- Structured TSS OData observation is deferred unless DOM extraction proves
+  insufficient.
 - The badge does not yet open a details card.
 - All named instructors receive the same mock rating.
 
 ## Next Milestone
 
-Phase 2 — Structured TSS data.
+Phase 2 — Live validation of structured DOM extraction.
 
 Next tasks:
 
-1. Investigate passive observation of TSS OData responses.
-2. Capture only course, section, term, and instructor information.
-3. Add parser fixtures that contain no private student data.
-4. Add parser and normalization tests.
+1. Connect `extractCourseOffering()` to the content-script scan.
+2. Validate online, in-person, multi-package, and empty-instructor courses in
+   TSS.
+3. Extract academic year and term from a stable visible source.
+4. Add regression fixtures for any live-page differences.
+5. Reconsider passive OData observation only if required fields cannot be
+   extracted reliably from the DOM.
 
 ## Blockers
 

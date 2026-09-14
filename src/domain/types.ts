@@ -32,19 +32,36 @@ export interface Term {
 
 /** A single scheduled section or component within a course offering. */
 export interface Section {
-  /** Section label shown by TSS, such as `001-000`. */
   readonly sectionCode: string;
-
-  /** Lecture, discussion, laboratory, or another source-provided label. */
+  readonly eventId: string | null;
   readonly teachingMethod: string | null;
-
-  /** Zero, one, or multiple instructors assigned to this section. */
+  readonly scheduleText: string | null;
+  readonly locationText: string | null;
+  readonly deliveryMode: DeliveryMode;
   readonly instructors: readonly Instructor[];
 }
 
 /** A course and all of its known sections for one academic term. */
 export interface CourseOffering {
   readonly course: Course;
-  readonly term: Term;
+  readonly term: Term | null;
+  readonly packages: readonly CoursePackage[];
+}
+
+export type DeliveryMode =
+  | 'in-person'
+  | 'live-online'
+  | 'mixed'
+  | 'unknown';
+
+export interface EnrollmentAvailability {
+  readonly enrollmentLimit: number | null;
+  readonly availableSeats: number | null;
+  readonly waitlistCount: number | null;
+}
+
+export interface CoursePackage {
+  readonly packageCode: string;
+  readonly enrollment: EnrollmentAvailability;
   readonly sections: readonly Section[];
 }
