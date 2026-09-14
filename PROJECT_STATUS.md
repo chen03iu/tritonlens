@@ -4,9 +4,9 @@ Last updated: 2026-09-14
 
 ## Current Milestone
 
-Phase 1 — Mock TSS MVP completed. Phase 2 DOM-based structured TSS parsing is
-implemented and validated against several live TSS course layouts. The
-remaining Phase 2 work is linking normalized records to rendered instructors.
+Phase 1 — Mock TSS MVP completed. Phase 2 structured TSS records are now
+linked to rendered instructors and awaiting final validation in the live TSS
+page.
 
 ## Completed
 
@@ -33,7 +33,11 @@ remaining Phase 2 work is linking normalized records to rendered instructors.
   an authenticated TSS session.
 - Extracted academic year and academic period from semantic TSS filter fields
   and validated them in the live page.
-- Added sanitized jsdom fixtures and 18 automated tests.
+- Added rendered-instructor contexts that associate each DOM link with its
+  normalized course, term, package, section, and instructor.
+- Added fail-closed matching that rejects stale packages from other courses.
+- Added contextual metadata to injected demo badges.
+- Added sanitized jsdom fixtures and 21 automated tests.
 
 ## Current Architecture
 
@@ -44,6 +48,8 @@ remaining Phase 2 work is linking normalized records to rendered instructors.
 - `src/domain/types.ts`: stable normalized models independent of SAP/OData.
 - `src/tss/dom-parser.ts`: converts the visible TSS DOM into normalized
   course-offering models.
+- `src/tss/instructor-context.ts`: links normalized records to their exact
+  rendered instructor elements.
 - `src/content.css`: badge styling.
 - `tests/*.test.ts`: badge and TSS DOM parser tests.
 
@@ -63,6 +69,8 @@ TritonLens currently:
 - Extraction currently depends on rendered TSS DOM attributes.
 - Parsed course offerings are temporarily logged for development validation;
   they are not yet used to select badge data.
+- Rendered-instructor context metadata has not yet been inspected in the live
+  TSS page.
 - Structured TSS OData observation is deferred unless DOM extraction proves
   insufficient.
 - The badge does not yet open a details card.
@@ -70,15 +78,14 @@ TritonLens currently:
 
 ## Next Milestone
 
-Phase 2 — Link structured TSS records to rendered instructors.
+Phase 2 — Live validation of rendered-instructor context mapping.
 
 Next tasks:
 
-1. Connect normalized records to their corresponding rendered instructor
-   links.
-2. Add regression tests for row-to-instructor association.
-3. Remove temporary parser console output after validation.
-4. Reconsider passive OData observation only if required fields cannot be
+1. Validate badge course, package, section, instructor, and term metadata in
+   the live TSS page.
+2. Mark Phase 2 complete and remove temporary parser console output.
+3. Reconsider passive OData observation only if required fields cannot be
    extracted reliably from the DOM.
 
 ## Blockers

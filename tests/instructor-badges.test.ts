@@ -2,6 +2,43 @@
 
 import { beforeEach, describe, expect, it } from 'vitest';
 import { enhanceVisibleInstructorLinks } from '../src/instructor-badges';
+import type {
+  RenderedInstructorContext,
+} from '../src/tss/instructor-context';
+
+function createContext(
+  link: HTMLAnchorElement,
+): RenderedInstructorContext {
+  return {
+    link,
+    instructor: {
+      displayName: 'Libby Butler',
+    },
+    course: {
+      subjectCode: 'AAS',
+      catalogNumber: '010R',
+      title: 'Introduction to African American Studies',
+    },
+    term: {
+      academicYear: '2026/2027',
+      academicPeriod: 'Fall Quarter',
+    },
+    packageCode: 'P-001-001',
+    section: {
+      sectionCode: '001-000',
+      eventId: 'E 00004309',
+      teachingMethod: 'Lecture',
+      scheduleText: 'Live Online',
+      locationText: 'MC Online',
+      deliveryMode: 'live-online',
+      instructors: [
+        {
+          displayName: 'Libby Butler',
+        },
+      ],
+    },
+  };
+}
 
 function renderInstructorLink(name: string): HTMLAnchorElement {
   document.body.innerHTML = `
@@ -34,20 +71,29 @@ describe('enhanceVisibleInstructorLinks', () => {
 
   it('adds a rating badge for a named instructor', () => {
     const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
 
-    enhanceVisibleInstructorLinks(document);
+    enhanceVisibleInstructorLinks(document, [context]);
 
     const badge = document.querySelector('.tritonlens-rating-badge');
 
     expect(badge?.textContent).toBe('★ 4.5 demo');
     expect(link.getAttribute('data-tritonlens-enhanced')).toBe('true');
+    expect(
+      badge?.getAttribute('data-tritonlens-course'),
+    ).toBe('AAS-010R');
+
+    expect(
+      badge?.getAttribute('data-tritonlens-section'),
+    ).toBe('001-000');
   });
 
   it('does not add duplicate badges after repeated scans', () => {
-    renderInstructorLink('Libby Butler');
+    const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
 
-    enhanceVisibleInstructorLinks(document);
-    enhanceVisibleInstructorLinks(document);
+    enhanceVisibleInstructorLinks(document, [context]);
+    enhanceVisibleInstructorLinks(document, [context]);
 
     const badges = document.querySelectorAll('.tritonlens-rating-badge');
 
@@ -57,7 +103,7 @@ describe('enhanceVisibleInstructorLinks', () => {
   it('does not add a badge for an empty instructor link', () => {
     renderInstructorLink('   ');
 
-    enhanceVisibleInstructorLinks(document);
+    enhanceVisibleInstructorLinks(document, []);
 
     expect(
       document.querySelector('.tritonlens-rating-badge'),
@@ -66,10 +112,13 @@ describe('enhanceVisibleInstructorLinks', () => {
 
   it('removes a stale badge when the instructor becomes empty', () => {
     const link = renderInstructorLink('Libby Butler');
+    const context = createContext(link);
 
-    enhanceVisibleInstructorLinks(document);
+    enhanceVisibleInstructorLinks(document, [context]);
+
     link.textContent = '';
-    enhanceVisibleInstructorLinks(document);
+
+    enhanceVisibleInstructorLinks(document, []);
 
     expect(
       document.querySelector('.tritonlens-rating-badge'),

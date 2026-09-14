@@ -1,13 +1,23 @@
 import { enhanceVisibleInstructorLinks } from './instructor-badges';
 import { extractCourseOffering } from './tss/dom-parser';
+import {
+  extractInstructorContexts,
+} from './tss/instructor-context';
 
 let scanScheduled = false;
 let lastCourseOfferingSignature: string | null = null;
 
 function scanTssPage(): void {
-  enhanceVisibleInstructorLinks();
-
   const courseOffering = extractCourseOffering(document);
+
+  const instructorContexts = courseOffering
+    ? extractInstructorContexts(courseOffering, document)
+    : [];
+
+  enhanceVisibleInstructorLinks(
+    document,
+    instructorContexts,
+  );
 
   if (!courseOffering) {
     lastCourseOfferingSignature = null;
