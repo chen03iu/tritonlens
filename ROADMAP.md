@@ -72,7 +72,8 @@ scope until the core TSS integration is reliable.
 - [ ] Test TBA, multiple, empty, and unusual instructor values.
 - [ ] Test SPA navigation without a full page reload.
 - [x] Add automated reused-link and replaced-table stale-card regressions.
-- [ ] Confirm TritonLens failures never interrupt TSS behavior.
+- [x] Verify scan failures are contained and later scans recover (automated).
+- [x] Prevent extension-owned UI changes from causing observer feedback loops.
 - [x] Add regression tests for discovered TSS edge cases.
 
 ## Phase 7 — Release

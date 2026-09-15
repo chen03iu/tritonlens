@@ -87,7 +87,14 @@ validation remains pending.
   DOM links, using value snapshots rather than context object references.
 - Fixed orphaned cards when TSS removes the instructor table.
 - Verified unchanged scans preserve the existing open card.
-- Expanded the automated suite to 71 tests.
+- Added scan failure isolation with best-effort stale-UI removal and recovery
+  on subsequent TSS mutations. Warnings are generic and contain no DOM,
+  error-object, or session data.
+- Filtered extension-owned badge/card mutations to prevent self-triggered
+  scan loops while preserving mixed batches containing TSS changes.
+- Verified repeated failures, cleanup failures, and recovery with the real
+  observer/parser/badge pipeline in jsdom.
+- Expanded the automated suite to 77 tests.
 
 ## Current Architecture
 
