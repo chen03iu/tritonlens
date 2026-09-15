@@ -62,6 +62,46 @@ This separate personal noncommercial development observation is pending
 redistribution review. It is not Easy-A data or approved release data. The UI
 links to the actual profile and preserves its Extended Studies school label.
 
+## Daphne Taylor García
+
+Target: `Taylor-Garcia, Daphne` (`easy-a-taylor-garcia-daphne-33ba9d49d2`).
+Aliases: `Daphne Taylor García`, `Daphne Taylor Garcia`, `Daphne Taylor-García`.
+
+UCSD faculty and program pages use accented, unaccented, spaced, and hyphenated
+forms for the same professor and contact address dtg@ucsd.edu:
+
+- https://www.ethnicstudies.ucsd.edu/people/taylor-garcia.html
+- https://cgs.ucsd.edu/people/faculty/directors/index.html
+
+The existing RMP profile 1850822 and all ETHN/CGS history are unchanged.
+The snapshot has no AIP 197 history; no other course's grades are substituted.
+
+## Isabella Maita
+
+Canonical target: `Maita, Isabella Vincenza`
+(`easy-a-maita-isabella-vincenza-4852998842`, RMP profile 2987635).
+Reviewed empty duplicate: `Isabella Maita`
+(`easy-a-isabella-maita-1cf20dd783`).
+
+UCSD's biology offerings list Isabella Maita for BIPN 100 and BIPN 145; the
+course archive lists Maita, Isabella Vincenza for those biology courses.
+The biology faculty page uses the short name and identifies the instructor:
+
+- https://biology.ucsd.edu/research/faculty/imaita
+- https://biology.ucsd.edu/education/undergrad/course/course-offerings.html
+- https://courses.ucsd.edu/profMain.aspx?profname=Maita%2C+Isabella+Vincenza
+
+The correction removes only the exact empty duplicate from the effective
+development dataset and adds its short name to the canonical aliases. The
+generated source JSON remains untouched. Existing rating metrics and biology
+history are retained, including the snapshot's 76 percent would-take-again
+(not the user's newer screenshot's 77 percent). Neither record has AIP 197
+history, so it remains unavailable.
+
+If the shorter record gains a rating, aliases, or historical data, or if IDs,
+canonical names, or the reviewed RMP profile conflict, it is not consolidated.
+No meaningful record is silently discarded or its grades reassigned.
+
 ## Safeguards
 
 Corrections are applied separately from generated JSON, so imports preserve

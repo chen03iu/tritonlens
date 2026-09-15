@@ -95,7 +95,11 @@ checklist; broad layout coverage and clean-profile package testing remain.
   scan loops while preserving mixed batches containing TSS changes.
 - Verified repeated failures, cleanup failures, and recovery with the real
   observer/parser/badge pipeline in jsdom.
-- Expanded the automated suite to 99 tests.
+- Expanded the automated suite to 108 tests.
+- Added documented Daphne Taylor García accent/hyphen variants and
+  consolidated Isabella Maita's exact empty duplicate into the reviewed
+  full-name identity. Existing metrics and course histories are unchanged;
+  missing AIP 197 history remains unavailable.
 - Added reviewed Linnea Wilder / Linnea L. Wilder aliases, restoring the
   existing rating and ANTH 2 history without changing snapshot metrics.
 - Recorded a read-only shortened-name audit in `NAME_MATCH_AUDIT.md`: 1,691

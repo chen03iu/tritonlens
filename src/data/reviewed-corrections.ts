@@ -1,4 +1,4 @@
-import type { DataSourceReference, LocalDataset, ProfessorRating } from './types';
+import type { DataSourceReference, LocalDataset, ProfessorRating, ProfessorRecord } from './types';
 
 // Explicit identities only. Evidence is recorded in REVIEWED_IDENTITIES.md.
 const identities = [
@@ -16,6 +16,11 @@ const identities = [
     id: 'easy-a-wilder-linnea-lorene-d9d040d7f2',
     displayName: 'Wilder, Linnea Lorene',
     aliases: ['Linnea Wilder', 'Linnea L. Wilder'],
+  },
+  {
+    id: 'easy-a-taylor-garcia-daphne-33ba9d49d2',
+    displayName: 'Taylor-Garcia, Daphne',
+    aliases: ['Daphne Taylor García', 'Daphne Taylor Garcia', 'Daphne Taylor-García'],
   },
 ] as const;
 
@@ -39,6 +44,38 @@ const aaronRating: ProfessorRating = {
   updatedAt: '2026-09-15',
   sourceProfessorId: '3050657',
 };
+
+function consolidateIsabella(
+  dataset: LocalDataset,
+  professors: readonly ProfessorRecord[],
+): readonly ProfessorRecord[] {
+  const fullId = 'easy-a-maita-isabella-vincenza-4852998842';
+  const shortId = 'easy-a-isabella-maita-1cf20dd783';
+  const full = professors.filter(professor => professor.displayName === 'Maita, Isabella Vincenza');
+  const short = professors.filter(professor => professor.displayName === 'Isabella Maita');
+  if (full.length !== 1 || full[0].id !== fullId ||
+      professors.filter(professor => professor.id === fullId).length !== 1 ||
+      professors.filter(professor => professor.id === shortId).length > 1 ||
+      (full[0].rating !== null && full[0].rating.sourceProfessorId !== '2987635')) {
+    return professors;
+  }
+
+  // Only consolidate the reviewed empty stub. Preserve future substantive data.
+  if (short.length > 1 || (short.length === 1 &&
+      (short[0].id !== shortId || short[0].rating !== null || short[0].aliases.length !== 0 ||
+       dataset.historicalCourseGrades.some(record => record.professorId === shortId)))) {
+    return professors;
+  }
+  // A renamed record under the old ID needs a fresh review, not deletion.
+  if (short.length === 0 && professors.some(professor => professor.id === shortId)) return professors;
+
+  return professors
+    .filter(professor => professor.id !== shortId)
+    .map(professor => professor.id === fullId ? {
+      ...professor,
+      aliases: [...new Set([...professor.aliases, 'Isabella Maita'])],
+    } : professor);
+}
 
 export function applyReviewedCorrections(dataset: LocalDataset): LocalDataset {
   // A development observation must never be promoted by changing dataset kind.
@@ -64,7 +101,7 @@ export function applyReviewedCorrections(dataset: LocalDataset): LocalDataset {
 
   return {
     ...dataset,
-    professors,
+    professors: consolidateIsabella(dataset, professors),
     sources: addedRating ? [...dataset.sources, aaronSource] : dataset.sources,
   };
 }
