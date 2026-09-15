@@ -95,7 +95,12 @@ checklist; broad layout coverage and clean-profile package testing remain.
   scan loops while preserving mixed batches containing TSS changes.
 - Verified repeated failures, cleanup failures, and recovery with the real
   observer/parser/badge pipeline in jsdom.
-- Expanded the automated suite to 78 tests.
+- Expanded the automated suite to 96 tests.
+- Added documented, exact-identity aliases for Miles Jones and Aaron
+  Shalev/Schulman, restoring existing CSE 21 and CSE 29 historical lookups.
+- Added Aaron's separately sourced 2026-09-15 RMP development observation,
+  preserving the Extended Studies profile label and review-count limitation.
+  Its permission remains pending; it is not approved release data.
 - Added original navy-and-gold lens icons at 16, 32, 48, and 128 pixels,
   manifest registration, build copies, and a real-build packaging regression.
 - Recorded the user's 2026-09-15 live-TSS smoke pass for course switching,

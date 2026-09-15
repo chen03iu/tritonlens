@@ -66,6 +66,12 @@ Future datasets must be documented in both this file and
 
 ## Project License
 
+Explicit name corrections are based on the instructors' UCSD webpages,
+documented in `REVIEWED_IDENTITIES.md`. Aaron's separately reviewed personal
+development rating observation comes directly from RMP profile 3050657, not
+Easy-A Radar. It remains pending redistribution review and is not approved
+release data. No student review text is included.
+
 No license has been selected for TritonLens yet. Adding a project license is a
 release-phase decision and does not change the licenses of third-party
 dependencies or future datasets.

@@ -1,9 +1,11 @@
 import generatedDataset from './easy-a-dataset.generated.json';
 import type { LocalDataset } from './types';
 import { validateLocalDataset } from './validation';
+import { applyReviewedCorrections } from './reviewed-corrections';
 
-const candidateDataset =
-  generatedDataset as unknown as LocalDataset;
+const candidateDataset = applyReviewedCorrections(
+  generatedDataset as unknown as LocalDataset,
+);
 const validationResult = validateLocalDataset(candidateDataset);
 
 if (!validationResult.valid) {

@@ -1,6 +1,6 @@
 # TritonLens Data Sources
 
-Last reviewed: 2026-09-14
+Last reviewed: 2026-09-15
 
 TritonLens local development builds bundle a normalized snapshot from Easy-A
 Radar. The snapshot is marked `development`, and the UI labels it as not for
@@ -28,8 +28,11 @@ and attribution requirements have been reviewed.
 
 ## Current Decision
 
-- Do not scrape RateMyProfessors or bundle its data without direct written
-  permission from RMP.
+- Do not create an automated RMP scraping/update pipeline or bundle its data
+  in published builds without direct written permission from RMP. A single
+  user-requested, dated personal noncommercial development observation of
+  Aaron Schulman's profile is retained separately with pending permission;
+  this is not an approved reusable access method or redistribution grant.
 - Do not bulk copy or redistribute A.S. Instructor Grade Archive data without
   direct written permission from UCSD or the responsible A.S. unit.
 - Do not use Campus Grades or any report containing student-level information.
@@ -44,6 +47,24 @@ and attribution requirements have been reviewed.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.
+
+## Reviewed Development Corrections
+
+`src/data/reviewed-corrections.ts` adds explicitly verified Miles Jones and
+Aaron Shalev/Schulman name aliases after loading the generated snapshot.
+Evidence and exact reviewed IDs are documented in `REVIEWED_IDENTITIES.md`.
+No generic fuzzy or middle-name-dropping match was introduced.
+
+Aaron's missing rating is filled from profile 3050657's reported aggregate
+fields observed on 2026-09-15, not from Easy-A Radar. Its source remains
+`pending`, identifies the profile's UC San Diego Extended Studies school
+label, and notes an inconsistent review count. The visible review list did
+not agree with the reported summary. No review text is bundled and no score
+is recomputed. This correction is development-only and production validation
+rejects its pending source. Existing Easy-A historical grades stay unchanged.
+
+The record can be removed by deleting its rating correction; there is no
+automatic RMP updater. Future observations require another explicit review.
 
 ## Required Review for Each Added Source
 
