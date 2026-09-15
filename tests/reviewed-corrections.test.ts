@@ -16,6 +16,8 @@ describe('reviewed instructor corrections', () => {
   it.each([
     ['Miles Jones', 'Jones, Miles E'],
     ['Miles Eli Jones', 'Jones, Miles E'],
+    ['Linnea Wilder', 'Wilder, Linnea Lorene'],
+    ['Linnea L. Wilder', 'Wilder, Linnea Lorene'],
     ['Aaron Shalev', 'Shalev, Aaron D'],
     ['Aaron Schulman', 'Shalev, Aaron D'],
     ['Aron Shalev', 'Shalev, Aaron D'],
@@ -45,6 +47,19 @@ describe('reviewed instructor corrections', () => {
     expect(professor.record.rating).toEqual({
       overallRating: 5, difficulty: 3, ratingCount: 3, wouldTakeAgainPercent: 100,
       sourceId: 'reviewed-aaron-rmp', updatedAt: '2026-09-15', sourceProfessorId: '3050657',
+    });
+  });
+
+  it('restores Linnea ANTH 002 grades without altering snapshot metrics', () => {
+    const professor = lookupProfessor(EASY_A_DATASET, 'Linnea Wilder');
+    expect(professor.status).toBe('found');
+    if (professor.status !== 'found') return;
+    expect(professor.record.rating).toMatchObject({
+      overallRating: 3.8, difficulty: 2.5, ratingCount: 56, wouldTakeAgainPercent: 75,
+      sourceId: 'easy-a-radar-rmp', updatedAt: '2026-07-23', sourceProfessorId: '2470718',
+    });
+    expect(lookupHistoricalCourseGrades(EASY_A_DATASET, professor.record.id, 'ANTH', '002')).toMatchObject({
+      status: 'found', record: { averageGpa: 2.992, offeringCount: 7, sampleSize: null },
     });
   });
 

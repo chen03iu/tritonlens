@@ -12,6 +12,11 @@ const identities = [
     displayName: 'Shalev, Aaron D',
     aliases: ['Aaron Shalev', 'Aaron Schulman', 'Aron Shalev', 'Aaron Shaleve'],
   },
+  {
+    id: 'easy-a-wilder-linnea-lorene-d9d040d7f2',
+    displayName: 'Wilder, Linnea Lorene',
+    aliases: ['Linnea Wilder', 'Linnea L. Wilder'],
+  },
 ] as const;
 
 const aaronSource: DataSourceReference = {

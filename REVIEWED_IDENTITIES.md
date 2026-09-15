@@ -16,6 +16,22 @@ CSE contact address as the department's Miles E. Jones faculty profile:
 
 Existing Easy-A rating and historical records are retained unchanged.
 
+## Linnea Wilder
+
+Target: `Wilder, Linnea Lorene` (`easy-a-wilder-linnea-lorene-d9d040d7f2`).
+Aliases: `Linnea Wilder`, `Linnea L. Wilder`.
+
+The UCSD Anthropology lecturers page uses both short names and lists the
+contact address llwilder@ucsd.edu. A UCSD summer course report lists the full
+name Wilder, Linnea Lorene teaching ANTH 2, consistent with the snapshot.
+
+- https://anthropology.ucsd.edu/people/lecturers/index.html
+- https://summersession.ucsd.edu/_files/course-scheduling-documents/Course_Report_2019.pdf
+
+Existing snapshot metrics are retained: RMP profile 2470718, rating 3.8,
+difficulty 2.5, 56 ratings, would-take-again 75 percent; ANTH 2 historical GPA
+2.992 across 7 offerings. No new rating or historical dataset was imported.
+
 ## Aaron Shalev / Aaron Schulman
 
 Target: `Shalev, Aaron D` (`easy-a-shalev-aaron-d-1ef0bedf0d`).

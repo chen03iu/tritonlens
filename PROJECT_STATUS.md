@@ -95,7 +95,12 @@ checklist; broad layout coverage and clean-profile package testing remain.
   scan loops while preserving mixed batches containing TSS changes.
 - Verified repeated failures, cleanup failures, and recovery with the real
   observer/parser/badge pipeline in jsdom.
-- Expanded the automated suite to 96 tests.
+- Expanded the automated suite to 99 tests.
+- Added reviewed Linnea Wilder / Linnea L. Wilder aliases, restoring the
+  existing rating and ANTH 2 history without changing snapshot metrics.
+- Recorded a read-only shortened-name audit in `NAME_MATCH_AUDIT.md`: 1,691
+  unresolved hypothetical short forms, not confirmed TSS failures. No
+  unverified aliases or broader matching rules were added.
 - Added documented, exact-identity aliases for Miles Jones and Aaron
   Shalev/Schulman, restoring existing CSE 21 and CSE 29 historical lookups.
 - Added Aaron's separately sourced 2026-09-15 RMP development observation,
