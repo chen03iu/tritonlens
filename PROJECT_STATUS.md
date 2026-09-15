@@ -1,13 +1,15 @@
 # TritonLens Project Status
 
-Last updated: 2026-09-14
+Last updated: 2026-09-15
 
 ## Current Milestone
 
 Phase 1, Phase 2, and Phase 3 are completed. Phase 4 now has an author-approved
 Easy-A Radar development snapshot integrated locally. Production release of
 that data still waits on upstream redistribution review. Phase 5 UI work is in
-progress using the explicitly labeled development snapshot.
+progress using the explicitly labeled development snapshot. Phase 6 reliability
+work has started with automated SPA transition checks; live navigation
+validation remains pending.
 
 ## Completed
 
@@ -81,7 +83,11 @@ progress using the explicitly labeled development snapshot.
 - Added explicit integration coverage for rating-only, grade-only, neither,
   and ambiguous real snapshot states.
 - Minified normal builds and reserved source maps for watch-mode development.
-- Expanded the automated suite to 66 tests.
+- Fixed stale detail cards after instructor, course, or term changes on reused
+  DOM links, using value snapshots rather than context object references.
+- Fixed orphaned cards when TSS removes the instructor table.
+- Verified unchanged scans preserve the existing open card.
+- Expanded the automated suite to 71 tests.
 
 ## Current Architecture
 
@@ -116,7 +122,8 @@ Values ending in `demo` are fictional fixtures used in automated tests.
 
 TritonLens currently:
 
-- makes no external network requests;
+- makes no automatic external network requests (source links navigate only
+  when clicked by the user);
 - collects no student information;
 - stores no TSS session information;
 - makes all rating and historical-grade lookups against a bundled local
@@ -136,17 +143,20 @@ TritonLens currently:
 
 ## Next Milestone
 
-Phase 4/5 — Validate the development snapshot in live TSS and polish its UI.
+Phase 6 — Validate navigation and data states in live TSS.
 
 Next tasks:
 
-1. Reload the unpacked extension and validate known, missing, and alias matches
+1. Reload the extension, open a detail card, then switch courses repeatedly;
+   confirm the old card closes and reopened cards show current course data.
+2. Validate known, missing, and alias matches
    across several live TSS departments.
-2. Verify grade-distribution layout at normal and narrow browser widths.
-3. Preserve the Easy-A Radar permission record outside the public repository.
-4. Keep RMP and UCSD permission requests as release preparation rather than a
+3. Verify grade-distribution layout and keyboard behavior at normal and narrow
+   browser widths.
+4. Preserve the Easy-A Radar permission record outside the public repository.
+5. Keep RMP and UCSD permission requests as release preparation rather than a
    blocker for local development.
-5. Run every future imported snapshot through `validateLocalDataset()`.
+6. Run every future imported snapshot through `validateLocalDataset()`.
 
 ## Blockers
 

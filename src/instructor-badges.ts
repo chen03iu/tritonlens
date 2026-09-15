@@ -8,6 +8,7 @@ import type {
   RenderedInstructorContext,
 } from './tss/instructor-context';
 import {
+  closeDetachedProfessorDetailCard,
   closeProfessorDetailCardForTrigger,
   toggleProfessorDetailCard,
 } from './professor-detail-card';
@@ -24,6 +25,7 @@ const stateByBadge = new WeakMap<
   HTMLButtonElement,
   {
     readonly context: RenderedInstructorContext;
+    readonly contextKey: string;
     readonly dataset: LocalDataset;
   }
 >();
@@ -245,8 +247,32 @@ function applyBadgeState(
   context: RenderedInstructorContext,
   dataset: LocalDataset,
 ): void {
+  // Compare values, not object references: TSS scans recreate contexts.
+  // Keeping a snapshot also detects changes to a reused context object.
+  const contextKey = JSON.stringify([
+    context.instructor.displayName,
+    context.course.subjectCode,
+    context.course.catalogNumber,
+    context.course.title,
+    context.term?.academicYear ?? null,
+    context.term?.academicPeriod ?? null,
+    context.packageCode,
+    context.section.sectionCode,
+    context.section.eventId,
+  ]);
+  const previousState = stateByBadge.get(badge);
+
+  if (
+    previousState &&
+    (previousState.contextKey !== contextKey ||
+      previousState.dataset !== dataset)
+  ) {
+    closeProfessorDetailCardForTrigger(badge);
+  }
+
   stateByBadge.set(badge, {
     context,
+    contextKey,
     dataset,
   });
   applyContextToBadge(badge, context);
@@ -290,6 +316,8 @@ export function enhanceVisibleInstructorLinks(
   contexts: readonly RenderedInstructorContext[] = [],
   dataset: LocalDataset = MOCK_DATASET,
 ): void {
+  closeDetachedProfessorDetailCard();
+
   const contextByLink = new Map(
     contexts.map((context) => {
       return [context.link, context] as const;

@@ -71,8 +71,9 @@ scope until the core TSS integration is reliable.
 - [ ] Test multiple departments and course layouts.
 - [ ] Test TBA, multiple, empty, and unusual instructor values.
 - [ ] Test SPA navigation without a full page reload.
+- [x] Add automated reused-link and replaced-table stale-card regressions.
 - [ ] Confirm TritonLens failures never interrupt TSS behavior.
-- [ ] Add regression tests for discovered TSS edge cases.
+- [x] Add regression tests for discovered TSS edge cases.
 
 ## Phase 7 — Release
 

@@ -485,6 +485,15 @@ export function closeProfessorDetailCard(): void {
   document.removeEventListener('keydown', handleDocumentKeydown);
 }
 
+export function closeDetachedProfessorDetailCard(): void {
+  if (
+    activeTrigger &&
+    (!activeTrigger.isConnected || !activeCard?.isConnected)
+  ) {
+    closeProfessorDetailCard();
+  }
+}
+
 export function closeProfessorDetailCardForTrigger(
   trigger: HTMLElement,
 ): void {

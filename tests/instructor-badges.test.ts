@@ -3,6 +3,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { enhanceVisibleInstructorLinks } from '../src/instructor-badges';
 import { MOCK_DATASET } from '../src/data/mock-dataset';
+import { closeProfessorDetailCard } from '../src/professor-detail-card';
 import type { LocalDataset } from '../src/data/types';
 import type {
   RenderedInstructorContext,
@@ -70,6 +71,7 @@ function renderInstructorLink(name: string): HTMLAnchorElement {
 
 describe('enhanceVisibleInstructorLinks', () => {
   beforeEach(() => {
+    closeProfessorDetailCard();
     document.body.replaceChildren();
   });
 
@@ -464,6 +466,60 @@ describe('enhanceVisibleInstructorLinks', () => {
     );
     expect(card?.textContent).not.toContain('4.6');
     expect(card?.textContent).not.toContain('3.42');
+  });
+
+  it('preserves an open card across unchanged scans with recreated contexts', () => {
+    const link = renderInstructorLink('Libby Butler');
+    enhanceVisibleInstructorLinks(document, [createContext(link)]);
+    const badge = document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!;
+    badge.click();
+    const card = document.querySelector('.tritonlens-detail-card');
+    enhanceVisibleInstructorLinks(document, [createContext(link)]);
+    expect(document.querySelector('.tritonlens-detail-card')).toBe(card);
+    expect(badge.getAttribute('aria-expanded')).toBe('true');
+  });
+
+  it.each(['instructor', 'course', 'term'])(
+    'closes a stale card when the %s changes on a reused link',
+    (change) => {
+      const link = renderInstructorLink('Libby Butler');
+      const context = createContext(link);
+      enhanceVisibleInstructorLinks(document, [context]);
+      const badge = document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!;
+      badge.click();
+      const next = change === 'term' ? context : createContext(link, 'Libby Butler', '170');
+      if (change === 'instructor') {
+        link.textContent = 'Chadwick Campbell';
+        Object.assign(next.instructor, { displayName: 'Chadwick Campbell' });
+        Object.assign(next.section, {
+          instructors: [{ displayName: 'Chadwick Campbell' }],
+        });
+      } else if (change === 'term') {
+        Object.assign(next.term!, { academicPeriod: 'Winter Quarter' });
+      }
+      enhanceVisibleInstructorLinks(document, [next]);
+      expect(document.querySelector('.tritonlens-detail-card')).toBeNull();
+      expect(badge.getAttribute('aria-expanded')).toBe('false');
+      expect(document.querySelectorAll('.tritonlens-rating-badge')).toHaveLength(1);
+      badge.click();
+      expect(document.querySelector('.tritonlens-detail-title')?.textContent)
+        .toBe(change === 'instructor' ? 'Chadwick Campbell' : 'Libby Butler');
+      if (change !== 'term') {
+        expect(document.querySelector('.tritonlens-detail-card')?.textContent)
+          .toContain('Historical AAS-170 grades');
+      }
+    },
+  );
+
+  it('closes an orphaned card when TSS replaces the instructor table', () => {
+    const link = renderInstructorLink('Libby Butler');
+    enhanceVisibleInstructorLinks(document, [createContext(link)]);
+    const badge = document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!;
+    badge.click();
+    document.querySelector('table')!.remove();
+    enhanceVisibleInstructorLinks(document, []);
+    expect(document.querySelector('.tritonlens-detail-card')).toBeNull();
+    expect(badge.getAttribute('aria-expanded')).toBe('false');
   });
 
   it('toggles the detail card when its badge is clicked again', () => {
