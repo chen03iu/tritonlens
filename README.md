@@ -35,6 +35,9 @@ TritonLens currently performs all work locally in the browser. It makes no
 additional network requests, collects no analytics, and does not store or
 transmit student data, authentication data, cookies, or TSS session details.
 
+User-clicked source links open external websites under their own privacy
+practices. See [PRIVACY.md](PRIVACY.md) for the current privacy documentation.
+
 The extension must never automate enrollment or perform TSS actions on a
 student's behalf.
 
@@ -118,3 +121,7 @@ and use fictional fixtures. Historical grade information is labeled as
 historical context, not as a prediction of future outcomes.
 
 No license has been selected for TritonLens yet.
+
+See [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) for release preparation and
+the remaining publication gates. The current development bundle is not ready
+for public distribution.

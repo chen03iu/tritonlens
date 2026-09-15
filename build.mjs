@@ -10,6 +10,13 @@ const watch = process.argv.includes('--watch');
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 await copyFile(resolve(root, 'manifest.json'), resolve(dist, 'manifest.json'));
+await mkdir(resolve(dist, 'icons'), { recursive: true });
+for (const size of [16, 32, 48, 128]) {
+  await copyFile(
+    resolve(root, `icons/icon-${size}.png`),
+    resolve(dist, `icons/icon-${size}.png`),
+  );
+}
 
 const buildOptions = {
   entryPoints: [

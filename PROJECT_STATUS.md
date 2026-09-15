@@ -8,8 +8,9 @@ Phase 1, Phase 2, and Phase 3 are completed. Phase 4 now has an author-approved
 Easy-A Radar development snapshot integrated locally. Production release of
 that data still waits on upstream redistribution review. Phase 5 UI work is in
 progress using the explicitly labeled development snapshot. Phase 6 reliability
-work has started with automated SPA transition checks; live navigation
-validation remains pending.
+work includes automated SPA transition checks and a user-reported live TSS
+smoke pass. Release preparation has started with privacy documentation and a
+checklist; broad layout coverage and clean-profile package testing remain.
 
 ## Completed
 
@@ -94,7 +95,13 @@ validation remains pending.
   scan loops while preserving mixed batches containing TSS changes.
 - Verified repeated failures, cleanup failures, and recovery with the real
   observer/parser/badge pipeline in jsdom.
-- Expanded the automated suite to 77 tests.
+- Expanded the automated suite to 78 tests.
+- Added original navy-and-gold lens icons at 16, 32, 48, and 128 pixels,
+  manifest registration, build copies, and a real-build packaging regression.
+- Recorded the user's 2026-09-15 live-TSS smoke pass for course switching,
+  repeated card use, empty instructors, duplicate prevention, and TSS actions.
+- Drafted `PRIVACY.md` and `RELEASE_CHECKLIST.md`, including TSS access
+  justification, external-link behavior, and explicit publication gates.
 
 ## Current Architecture
 
@@ -150,12 +157,12 @@ TritonLens currently:
 
 ## Next Milestone
 
-Phase 6 — Validate navigation and data states in live TSS.
+Phase 6/7 — Broader reliability checks and local release preparation.
 
 Next tasks:
 
-1. Reload the extension, open a detail card, then switch courses repeatedly;
-   confirm the old card closes and reopened cards show current course data.
+1. Expand the user-reported live smoke pass to a recorded multi-department
+   matrix; do not treat it as exhaustive layout or clean-profile coverage.
 2. Validate known, missing, and alias matches
    across several live TSS departments.
 3. Verify grade-distribution layout and keyboard behavior at normal and narrow
