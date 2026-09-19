@@ -1,8 +1,37 @@
 # TritonLens Project Status
 
-Last updated: 2026-09-15
+Last updated: 2026-09-19
 
 ## Current Milestone
+
+The instructor detail card now renders available historical grade percentages
+as a compact, accessible bar chart for A/B/C/D/F/W/P/NP. Bars use the source
+percentages directly, omit unavailable categories, and expose exact values on
+hover and keyboard focus. The existing GPA, sample, offering, source, and
+historical-not-predictive context remains visible.
+
+Second external review batch (2026-09-19): 19 additional guarded short-name
+aliases accepted; 13 existing RMP profiles checked, six grade-only records kept
+without ratings. Audit: 1,608 matched, 39 ambiguous, 286 needs-evidence,
+62 no-candidate. Bernard Brown is held because his source rating points to
+Barry Brown (Communication), not the dance instructor. Full evidence and scope:
+`reports/short-name-batch-2-review.md`. Earlier counts below are historical.
+
+On 2026-09-19, externally verified Mark Anderson -> Mark Ronald Anderson
+was added as a guarded alias. His existing RMP profile 2089978 and MAE 142
+history now resolve through the effective dataset. Only his audit status changed:
+1,589 matched, 39 ambiguous, 305 needs-evidence, 62 no-candidate.
+Evidence is recorded in `src/data/reviewed-short-names.json`; a regression test
+covers the rating, MAE 142 history, and rejection of unrelated CSE 142 history.
+The first-batch counts below are historical.
+
+On 2026-09-18, the first 25 recommended short names were individually checked
+against UCSD sources and their 21 existing RMP profiles, then added as guarded
+aliases. Four grade-only records retain unavailable ratings. Audit coverage is
+now 1,588 matched, 39 ambiguous, 306 needs-evidence, and 62 no-candidate.
+The remaining recommendation queue is 284 recommended and 22 review.
+Evidence: `reports/short-name-batch-1-review.md`. Earlier counts below describe
+the preceding milestones.
 
 Phase 1, Phase 2, and Phase 3 are completed. Phase 4 now has an author-approved
 Easy-A Radar development snapshot integrated locally. Production release of
@@ -95,7 +124,43 @@ checklist; broad layout coverage and clean-profile package testing remain.
   scan loops while preserving mixed batches containing TSS changes.
 - Verified repeated failures, cleanup failures, and recovery with the real
   observer/parser/badge pipeline in jsdom.
-- Expanded the automated suite to 108 tests.
+- Expanded the automated suite to 218 tests across 23 files, including guarded
+  current-instructor stub and source-profile consolidation.
+- Added an offline batch audit of 1,995 upstream `fa` instructor names, with
+  candidate IDs, profile links, historical courses, protected report output,
+  and an input fingerprint. It is not a live-TSS capture or full external audit.
+- Consolidated 692 redundant identity records under guarded source-profile and
+  reviewed current-instructor evidence rules. The latter covers 170 exact
+  full-name reversals or shortened names corroborated by the same subject.
+  All 11,159 historical rows survive; generated JSON is untouched. Strict
+  lookup coverage is now 1,563 upstream names. The remaining audit queues
+  contain 39 ambiguous, 331 needs-evidence, and 62 no-candidate
+  names.
+- Restored Nathan Delson / Nathan J. Delson through independently reviewed
+  aliases, preserving the existing rating and MAE 3 history.
+- Resolved the 11 priority conflicting-profile cases with exact RMP identity,
+  department, and UCSD course/faculty evidence. Remaining queues are recorded
+  in `INSTRUCTOR_MATCH_REVIEW.md`; unlinked shortened/accent/hyphen candidates
+  are not accepted automatically.
+- Added evidence-backed reviewed consolidation for Alyssa Taylor/Taylor-Amos,
+  Siavash Mirarab/Mir Arabbaygi, Thomas/Tom Erbe, Timothy/Tim Gentner, and
+  Cheryl Anderson. Exact source fingerprints guard every member and preserve
+  all historical rows.
+- Added the official short-name alias `Keiko Nomura` to the existing
+  `Nomura, Keiko K.` MAE identity, restoring RMP 377111 and existing MAE
+  historical lookups without changing their source values.
+- Added official short-name aliases for Justin Opatkiewicz to the existing
+  `Opatkiewicz, Justin Paul` identity, restoring RMP 1802395 and CENG 120
+  history without changing snapshot values.
+- Kept Mark Young, Elizabeth Miller, and Natalye Harpin/Pass unresolved where
+  department-specific histories or missing surname-change evidence make a
+  global identity merge unsafe.
+- Added a deterministic offline short-name recommendation tool for the 331
+  `needs-evidence` audit entries. Its current report marks 309 unique
+  middle-name omissions with same-subject support as recommendations and
+  leaves 22 compatible names without subject overlap for review. It records
+  input hashes, produces byte-stable JSON and Markdown, and never promotes an
+  alias or edits source data automatically.
 - Added documented Daphne Taylor García accent/hyphen variants and
   consolidated Isabella Maita's exact empty duplicate into the reviewed
   full-name identity. Existing metrics and course histories are unchanged;
@@ -137,6 +202,12 @@ checklist; broad layout coverage and clean-profile package testing remain.
   snapshot.
 - `scripts/easy-a-transform.mjs`: converts an Easy-A Radar snapshot into the
   TritonLens schema.
+- `scripts/recommend-name-matches.mjs`: converts a prior instructor audit into
+  deterministic, review-only short-name recommendation reports.
+- `src/data/name-variants.ts`: classifies exact reorder, middle-name,
+  initial, accent, hyphen, spacing, and incompatible name relationships.
+- `src/data/short-name-recommendations.ts`: combines name relationships with
+  unique-candidate and same-subject evidence without changing runtime lookup.
 - `src/data/lookup.ts`: conservative professor and course lookup.
 - `src/data/validation.ts`: validates provenance and data integrity before a
   dataset can be treated as production-ready.
@@ -179,6 +250,11 @@ Next tasks:
    matrix; do not treat it as exhaustive layout or clean-profile coverage.
 2. Validate known, missing, and alias matches
    across several live TSS departments.
+   Review the 309 generated recommendations in batches before promoting any
+   alias; keep the 22 no-subject entries and all ambiguous/no-candidate cases
+   manual. Record user decisions separately from independent identity
+   verification and do not reassign conflicting grade histories from a
+   rating-profile choice.
 3. Verify grade-distribution layout and keyboard behavior at normal and narrow
    browser widths.
 4. Preserve the Easy-A Radar permission record outside the public repository.

@@ -1,6 +1,6 @@
 # Reviewed Instructor Identities
 
-Reviewed: 2026-09-15. These are explicit development corrections, not a rule
+Reviewed through: 2026-09-17. These are explicit development corrections, not a rule
 to ignore middle names or automatically match similar surnames.
 
 ## Miles Jones
@@ -101,6 +101,149 @@ history, so it remains unavailable.
 If the shorter record gains a rating, aliases, or historical data, or if IDs,
 canonical names, or the reviewed RMP profile conflict, it is not consolidated.
 No meaningful record is silently discarded or its grades reassigned.
+
+## Nathan Delson
+
+Target: `Delson, Nathan Joseph` (`easy-a-delson-nathan-joseph-e5b4df8331`).
+Reviewed aliases: `Nathan Delson`, `Nathan J. Delson`.
+
+UCSD Jacobs uses Nathan J. Delson and Nathan Delson on the same faculty profile
+with ndelson@ucsd.edu. The UCSD course archive's D listing uses the full name;
+UCSD's COSMOS faculty interview identifies Nathan Delson as the MAE 3 instructor:
+
+- https://jacobsschool.ucsd.edu/node/3294
+- https://courses.ucsd.edu/?p_letter=D
+- https://jacobsschool.ucsd.edu/sites/default/files/groups/cosmos/docs/alumni-newsletter/2012_spring_alumni.pdf
+
+The existing snapshot profile 258679 and MAE 3 history are unchanged. The
+regression checks rating 3.2, 42 ratings, and MAE 3 GPA 3.411 over 10 offerings.
+
+## Keiko Nomura
+
+Target: `Nomura, Keiko K.` (`easy-a-nomura-keiko-k-719c7f4b1c`, RMP
+profile 377111). Reviewed alias: `Keiko Nomura`.
+
+UCSD's Jacobs profile uses both Keiko Nomura and Keiko K. Nomura for the same
+MAE professor, and UCSD's course resource page lists `Nomura, Keiko K.` for MAE
+courses. The correction adds only the short alias; the existing rating and MAE
+11/101A/101B/110A historical rows are unchanged.
+
+- https://jacobsschool.ucsd.edu/people/profile/keiko-nomura
+- https://courses.ucsd.edu/profMain.aspx?profname=Nomura%2C+Keiko+K.
+
+## Justin Opatkiewicz
+
+Target: `Opatkiewicz, Justin Paul`
+(`easy-a-opatkiewicz-justin-paul-823ddc3a91`, RMP profile 1802395).
+Reviewed aliases: `Justin Opatkiewicz`, `Justin P. Opatkiewicz`.
+
+UCSD's Jacobs profile uses Justin P. Opatkiewicz, UCSD Profiles and the
+department directory use Justin Opatkiewicz, and UCSD course records use
+Justin Paul Opatkiewicz. The correction adds only the verified short forms;
+the existing rating and CENG/NANO historical records are unchanged.
+
+- https://jacobsschool.ucsd.edu/node/3527
+- https://profiles.ucsd.edu/justin.opatkiewicz
+- https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=258649&selectedTerm=S126&tabNum=tabs-sec
+
+## Reviewed Profile Conflicts
+
+The priority conflicts identified by the offline audit were reviewed on
+2026-09-15 using exact RMP profile names/departments and UCSD faculty or course
+evidence. The selected profiles are:
+
+- Danna Zhang 2276558; Florian Meyer 3051803; Jonathan Cohen 362637.
+- Juan Carlos Del Alamo 1512231; K. Wayne Yang 1121831.
+- Karen Kovaka 2855730; Kenji Nomura 2449656; Keolu Fox 2778643.
+- Li-Fan Lu 1824878; Monte Johnson 999601; Erik Johnson 3033351.
+
+The detailed rejected-profile identities and rationale are recorded in
+[INSTRUCTOR_MATCH_REVIEW.md](INSTRUCTOR_MATCH_REVIEW.md). Department/course
+corroboration included UCSD Mathematics, ECE, Philosophy, MAE, Ethnic Studies,
+Anthropology, Biology, and Management pages rather than name similarity alone.
+
+Juan Carlos Del Alamo, Karen Kovaka, and Li-Fan Lu each have two RMP profiles
+for the same professor. The retained snapshot uses the correctly named or more
+complete profile. Karen's typo profile (`Karenc Kovaka`) contributes historical
+course rows, which are remapped without deletion; the two PHIL 12 rows remain
+ambiguous. Keolu Fox retains the canonical full-name record and historical
+rows, but its incorrectly attached Patrick Fox rating is replaced by profile
+2778643.
+
+These corrections require the exact reviewed local IDs, display names, RMP
+profile IDs, and historical course sets. If a future import changes any part of
+a group, the correction refuses to run so the changed source can be reviewed.
+The generated source JSON is never edited, all 11,159 historical rows remain,
+and unrelated people such as Dong-Er Zhang, Kesong Yang, Christine Johnson,
+and Sara Johnson are not deleted. Keiko Nomura's separate MAE identity is
+preserved and receives only her independently reviewed short-name alias.
+
+## Official UCSD Name Variants
+
+The following exact snapshot groups were consolidated after UCSD pages linked
+the short/current name to the longer or alternate source form:
+
+- `Alyssa Taylor` -> `Taylor Amos, Alyssa C` (RMP 2972062). UCSD's Jacobs
+  profile calls her Alyssa Taylor and uses `atayloramos@ucsd.edu`; a UCSD BMES
+  constitution uses Alyssa Taylor-Amos.
+  - https://jacobsschool.ucsd.edu/people/profile/associate-teaching-professor-Alyssa-Taylor
+  - https://studentorg.ucsd.edu/Constitutions/DownloadConstitution/1679460
+- `Siavash Mirarab` -> `Mir Arabbaygi, Siavash` (RMP 2781321). The Jacobs
+  faculty profile presents both forms together.
+  - https://jacobsschool.ucsd.edu/people/profile/siavash-mirarab-mir-arabbaygi
+- `Thomas Erbe` -> `Erbe, Tom` (RMP 573969). The Music faculty page uses Tom
+  Erbe while the department course schedule uses Erbe, Thomas.
+  - https://music-cms.ucsd.edu/people/faculty/regular_faculty/tom-erbe/index.html
+  - https://music-web.ucsd.edu/grad/cms_classlist.php?orderby=Primary_Instructor+ASC
+- `Timothy Gentner` -> `Gentner, Tim` (RMP 632694). The Psychology profile
+  uses Timothy Gentner and the professor's UCSD lab page uses Tim Gentner.
+  - https://psychology.ucsd.edu/people/profiles/tgentner.html
+  - https://gentnerlab.ucsd.edu/people.php
+
+Cheryl Anderson's three exact same-profile snapshot records were consolidated:
+`Anderson, Cheryl`, `Cheryl Anderson`, and `Anderson, Cheryl Ann Marie` all use
+RMP 1882283 with identical metrics. The FMPH 40 and FPMU 40 histories are both
+preserved and remapped to the retained record. UCSD identifies Cheryl Anderson
+as the School of Public Health's founding dean; UCSD's program-transfer record
+documents the move of Public Health programs from Family Medicine and Public
+Health into the new school.
+
+- https://radonc.ucsd.edu/faculty/applied-sciences/anderson-cheryl.html
+- https://senate.ucsd.edu/media/430230/2020-05-11-sph-proposed-program-transfer.pdf
+
+Every group is pinned to exact local IDs, names, aliases, rating provenance,
+and historical course sets. A changed member fails closed instead of being
+merged through ordinary fuzzy matching.
+
+## Reviewed Holdouts
+
+The following remain deliberately unresolved:
+
+- `Mark Young`: CHEM history belongs to `Young, Mark`; WCWP history belongs to
+  `Young, Mark T`. The shared RMP profile is not enough to merge departments.
+- `Elizabeth Miller`: `Miller, Elizabeth Anne` has SOCI history while
+  `Miller, Elizabeth Deen` has MCWP history. Runtime matching is not yet
+  course-aware, so a global alias would be unsafe.
+- `Natalye Harpin` / `Natalye Pass`: two same-profile DOC records contain a
+  possible surname change, but no direct identity source has been recorded.
+  RMP profile 2321551 is therefore an explicit automatic-consolidation holdout.
+
+## Source-Linked Batch Consolidation
+
+See [INSTRUCTOR_MATCH_REVIEW.md](INSTRUCTOR_MATCH_REVIEW.md). Shared source
+profile IDs are snapshot linkage evidence, not fresh independent verification
+of every public RMP page. Consolidation additionally requires existing name
+linkage and fully agreeing rating provenance. Compatible shortened forms are
+accepted only inside an identical numeric source-profile group. If multiple
+members have history, every pair must share a subject; all overlapping rows
+are retained and remain ambiguous at grade lookup time.
+
+A separate generated evidence list covers 170 empty current-term stubs. Each
+entry requires either an exact full-name reversal or an exact first/last short
+form corroborated by a current and historical subject match. Diacritics may
+differ only inside this evidence-scoped rule. Changes to the record shape,
+candidate count, name relationship, or subject evidence fail closed. Neither
+rule broadens normal runtime fuzzy matching.
 
 ## Safeguards
 

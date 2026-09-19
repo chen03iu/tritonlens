@@ -28,8 +28,10 @@ added as an alias.
 
 ## Next Steps
 
-Record actual failing TSS instructor/course combinations. Check canonical
-identity against UCSD faculty/course pages and the dataset's source profile,
-then add a documented exact-ID alias and regression test only if verified.
-Retain ambiguous results when evidence is insufficient. Do not silently drop
-middle names globally or accept these generated candidates as proven aliases.
+The later batch audit now uses actual upstream `fa` snapshot names rather than
+only hypothetical short forms. See `INSTRUCTOR_MATCH_REVIEW.md` and
+`reports/instructor-audit.json` for source-linked automatic consolidation,
+coverage, user decision cases, and remaining evidence queues. The older counts
+above are historical findings, not current live-TSS failures or current batch
+coverage. Independent verification remains necessary for unlinked candidates;
+middle names are not silently dropped by runtime lookup.

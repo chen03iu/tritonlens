@@ -1,0 +1,1038 @@
+{
+  "reviewedAt": "2026-09-18",
+  "sourceAuditSha256": "ad9a450381637e72870c88c5111043eb3159c7981d8bb12f2be3b7c71fa73eb4",
+  "entries": [
+    {
+      "alias": "Anthony Burr",
+      "expectedRecord": {
+        "id": "easy-a-burr-anthony-i-a6689eb4c9",
+        "displayName": "Burr, Anthony I",
+        "aliases": [
+          "Anthony I Burr"
+        ],
+        "rating": {
+          "overallRating": 4,
+          "difficulty": 2.3,
+          "ratingCount": 29,
+          "wouldTakeAgainPercent": 75,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1095274"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1095274",
+      "ucsdEvidence": [
+        "https://music-cms.ucsd.edu/people/faculty/regular_faculty/anthony-burr/index.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Antony Lyon",
+      "expectedRecord": {
+        "id": "easy-a-lyon-antony-j-6bc3ff66b3",
+        "displayName": "Lyon, Antony J.",
+        "aliases": [
+          "Antony J. Lyon"
+        ],
+        "rating": {
+          "overallRating": 4.1,
+          "difficulty": 3.2,
+          "ratingCount": 70,
+          "wouldTakeAgainPercent": 78,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1363987"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1363987",
+      "ucsdEvidence": [
+        "https://profiles.ucsd.edu/antony.lyon",
+        "https://studyabroad.ucsd.edu/students/programs/global-seminars/statistics/index.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Arthur Atkinson",
+      "expectedRecord": {
+        "id": "easy-a-atkinson-arthur-laird-fe7080dea2",
+        "displayName": "Atkinson, Arthur Laird",
+        "aliases": [
+          "Arthur Laird Atkinson"
+        ],
+        "rating": null
+      },
+      "rmpEvidence": null,
+      "ucsdEvidence": [
+        "https://seventh.ucsd.edu/synthesis-program/synthesis-program-team.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. This is a grade-only identity review; no RMP rating is inferred or added."
+    },
+    {
+      "alias": "Ashley Juavinett",
+      "expectedRecord": {
+        "id": "easy-a-juavinett-ashley-lauren-9634c61254",
+        "displayName": "Juavinett, Ashley Lauren",
+        "aliases": [
+          "Ashley Lauren Juavinett"
+        ],
+        "rating": {
+          "overallRating": 3.1,
+          "difficulty": 3.6,
+          "ratingCount": 7,
+          "wouldTakeAgainPercent": 62,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2500195"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2500195",
+      "ucsdEvidence": [
+        "https://biology.ucsd.edu/research/faculty/ajuavinett"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Ayse Saygin",
+      "expectedRecord": {
+        "id": "easy-a-saygin-ayse-p-34c5aab2fe",
+        "displayName": "Saygin, Ayse P",
+        "aliases": [
+          "Ayse P Saygin"
+        ],
+        "rating": {
+          "overallRating": 3,
+          "difficulty": 3.4,
+          "ratingCount": 13,
+          "wouldTakeAgainPercent": 38,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1158404"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1158404",
+      "ucsdEvidence": [
+        "https://profiles.ucsd.edu/ayse.saygin",
+        "https://cogsci.ucsd.edu/people/faculty/ayse-p-saygin.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Barbara Bliss",
+      "expectedRecord": {
+        "id": "easy-a-bliss-barbara-ann-9befe91a4c",
+        "displayName": "Bliss, Barbara Ann",
+        "aliases": [
+          "Barbara Ann Bliss"
+        ],
+        "rating": {
+          "overallRating": 4.3,
+          "difficulty": 3.4,
+          "ratingCount": 14,
+          "wouldTakeAgainPercent": 71,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2603755"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2603755",
+      "ucsdEvidence": [
+        "https://rady.ucsd.edu/faculty-research/other-faculty/lecturers/barbara-bliss.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Becca Rose",
+      "expectedRecord": {
+        "id": "easy-a-rose-becca-rae-7071378a96",
+        "displayName": "Rose, Becca Rae",
+        "aliases": [
+          "Becca Rae Rose"
+        ],
+        "rating": {
+          "overallRating": 3.5,
+          "difficulty": 3.8,
+          "ratingCount": 4,
+          "wouldTakeAgainPercent": 50,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "3145025"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/3145025",
+      "ucsdEvidence": [
+        "https://sixth.ucsd.edu/_files/cat/2023-2024/spring/cat-125/spring-2024-cat-125-rose.pdf"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Bernhard Palsson",
+      "expectedRecord": {
+        "id": "easy-a-palsson-bernhard-o-dab9264bda",
+        "displayName": "Palsson, Bernhard O.",
+        "aliases": [
+          "Bernhard O. Palsson"
+        ],
+        "rating": null
+      },
+      "rmpEvidence": null,
+      "ucsdEvidence": [
+        "https://systemsbiology.ucsd.edu/node/1410",
+        "https://profiles.ucsd.edu/bernhard.palsson"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. This is a grade-only identity review; no RMP rating is inferred or added."
+    },
+    {
+      "alias": "Bhaskar Rao",
+      "expectedRecord": {
+        "id": "easy-a-rao-bhaskar-d-2ad5438792",
+        "displayName": "Rao, Bhaskar D.",
+        "aliases": [
+          "Bhaskar D. Rao"
+        ],
+        "rating": {
+          "overallRating": 2.3,
+          "difficulty": 4.7,
+          "ratingCount": 7,
+          "wouldTakeAgainPercent": 43,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2363168"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2363168",
+      "ucsdEvidence": [
+        "https://jacobsschool.ucsd.edu/faculty/profile?id=56"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Bradley Moore",
+      "expectedRecord": {
+        "id": "easy-a-moore-bradley-s-e052960984",
+        "displayName": "Moore, Bradley S.",
+        "aliases": [
+          "Bradley S. Moore"
+        ],
+        "rating": null
+      },
+      "rmpEvidence": null,
+      "ucsdEvidence": [
+        "https://bsmoore.scrippsprofiles.ucsd.edu/bio/",
+        "https://catalog.ucsd.edu/faculty/SIO.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. This is a grade-only identity review; no RMP rating is inferred or added."
+    },
+    {
+      "alias": "Bradley Werner",
+      "expectedRecord": {
+        "id": "easy-a-werner-bradley-t-0892518fcd",
+        "displayName": "Werner, Bradley T.",
+        "aliases": [
+          "Bradley T. Werner"
+        ],
+        "rating": {
+          "overallRating": 4,
+          "difficulty": 2.3,
+          "ratingCount": 6,
+          "wouldTakeAgainPercent": 100,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "972696"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/972696",
+      "ucsdEvidence": [
+        "https://catalog.ucsd.edu/faculty/APOC.html",
+        "https://cape.ucsd.edu/scripts/detailedStats.asp?SectionId=740270"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Brandon Som",
+      "expectedRecord": {
+        "id": "easy-a-som-brandon-d-4a0342835c",
+        "displayName": "Som, Brandon D",
+        "aliases": [
+          "Brandon D Som"
+        ],
+        "rating": {
+          "overallRating": 4,
+          "difficulty": 1.5,
+          "ratingCount": 6,
+          "wouldTakeAgainPercent": 83,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2232421"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2232421",
+      "ucsdEvidence": [
+        "https://literature.ucsd.edu/people/faculty/bsom.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Brendon Rhoades",
+      "expectedRecord": {
+        "id": "easy-a-rhoades-brendon-patrick-9133bdb547",
+        "displayName": "Rhoades, Brendon Patrick",
+        "aliases": [
+          "Brendon Patrick Rhoades"
+        ],
+        "rating": {
+          "overallRating": 4.4,
+          "difficulty": 3,
+          "ratingCount": 24,
+          "wouldTakeAgainPercent": 86,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1805978"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1805978",
+      "ucsdEvidence": [
+        "https://mathematics.ucsd.edu/people/profiles/brendon-rhoades",
+        "https://mathweb.ucsd.edu/~bprhoades/teaching.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Brian Aguado",
+      "expectedRecord": {
+        "id": "easy-a-aguado-brian-alberto-276cd3d920",
+        "displayName": "Aguado, Brian Alberto",
+        "aliases": [
+          "Brian Alberto Aguado"
+        ],
+        "rating": null
+      },
+      "rmpEvidence": null,
+      "ucsdEvidence": [
+        "https://jacobsschool.ucsd.edu/people/profile/brian-aguado"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. This is a grade-only identity review; no RMP rating is inferred or added."
+    },
+    {
+      "alias": "Brian Cross",
+      "expectedRecord": {
+        "id": "easy-a-cross-brian-r-1507e2c648",
+        "displayName": "Cross, Brian R",
+        "aliases": [
+          "Brian R Cross"
+        ],
+        "rating": {
+          "overallRating": 3.5,
+          "difficulty": 3,
+          "ratingCount": 12,
+          "wouldTakeAgainPercent": 60,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1973341"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1973341",
+      "ucsdEvidence": [
+        "https://www.visarts.ucsd.edu/people/faculty/brian-cross.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Brian Zid",
+      "expectedRecord": {
+        "id": "easy-a-zid-brian-m-01265d05f9",
+        "displayName": "Zid, Brian M",
+        "aliases": [
+          "Brian M Zid"
+        ],
+        "rating": {
+          "overallRating": 4.2,
+          "difficulty": 3.2,
+          "ratingCount": 122,
+          "wouldTakeAgainPercent": 78,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2182441"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2182441",
+      "ucsdEvidence": [
+        "https://chemistry.ucsd.edu/faculty/profiles/zid_brian_m.html"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Briana Iatarola",
+      "expectedRecord": {
+        "id": "easy-a-iatarola-briana-marie-f17d20ff3b",
+        "displayName": "Iatarola, Briana Marie",
+        "aliases": [
+          "Briana Marie Iatarola"
+        ],
+        "rating": null
+      },
+      "rmpEvidence": null,
+      "ucsdEvidence": [
+        "https://communication.ucsd.edu/people/grad-alumni/index.html",
+        "https://summersession.ucsd.edu/_files/Enrollment%20Snapshot/Session_2_Second_Snapshot_Report.pdf"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. This is a grade-only identity review; no RMP rating is inferred or added."
+    },
+    {
+      "alias": "Brice Semmens",
+      "expectedRecord": {
+        "id": "easy-a-semmens-brice-xavier-0236c0a93d",
+        "displayName": "Semmens, Brice Xavier",
+        "aliases": [
+          "Brice Xavier Semmens"
+        ],
+        "rating": null
+      },
+      "rmpEvidence": null,
+      "ucsdEvidence": [
+        "https://profiles.ucsd.edu/brice.semmens",
+        "https://bsemmens.scrippsprofiles.ucsd.edu/"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. This is a grade-only identity review; no RMP rating is inferred or added."
+    },
+    {
+      "alias": "Bryan Chin",
+      "expectedRecord": {
+        "id": "easy-a-chin-bryan-w-4c42164ada",
+        "displayName": "Chin, Bryan W.",
+        "aliases": [
+          "Bryan W. Chin"
+        ],
+        "rating": {
+          "overallRating": 3.1,
+          "difficulty": 3.7,
+          "ratingCount": 42,
+          "wouldTakeAgainPercent": 55,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2345822"
+        }
+      },
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2345822",
+      "ucsdEvidence": [
+        "https://cse.ucsd.edu/people/faculty-profiles/bryan-chin",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=915007&selectedTerm=FA25&tabNum=tabs-sec"
+      ],
+      "rationale": "Reviewed 2026-09-19: UCSD faculty/course evidence corroborates the compatible middle-name form and department in the source candidate. The existing RMP profile was separately opened and its UCSD affiliation, name and disciplinary/course context checked. Preserve the existing snapshot metrics."
+    },
+    {
+      "alias": "Mark Anderson",
+      "expectedRecord": {
+        "id": "easy-a-anderson-mark-ronald-9b7e2534ca",
+        "displayName": "Anderson, Mark Ronald",
+        "aliases": ["Mark Ronald Anderson"],
+        "rating": {
+          "overallRating": 4.2,
+          "difficulty": 2.3,
+          "ratingCount": 14,
+          "wouldTakeAgainPercent": 82,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2089978"
+        }
+      },
+      "ucsdEvidence": [
+        "https://sixth.ucsd.edu/about/faculty/affiliated-faculty.html",
+        "https://courses.ucsd.edu/profMain.aspx?profname=Anderson%2C+Mark+Ronald",
+        "https://mae.ucsd.edu/sites/default/files/uploads/MAE%20142.pdf"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2089978",
+      "rationale": "Reviewed 2026-09-19: UCSD lists Mark Ronald Anderson in MAE, and the MAE 142 syllabus names Mark Anderson as coordinator. The existing RMP profile names Mark Anderson at UCSD Engineering with MAE 2 reviews, agreeing with current and historical course context. This is a middle-name omission; preserve the existing rating and course-specific history."
+    },
+    {
+      "alias": "Aaron Coleman",
+      "expectedRecord": {
+        "id": "easy-a-coleman-aaron-b-e585c8a479",
+        "displayName": "Coleman, Aaron B.",
+        "aliases": [
+          "Aaron B. Coleman"
+        ],
+        "rating": {
+          "overallRating": 3.9,
+          "difficulty": 3.2,
+          "ratingCount": 97,
+          "wouldTakeAgainPercent": 59,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "958518"
+        }
+      },
+      "ucsdEvidence": [
+        "https://biology.ucsd.edu/research/faculty/abcoleman",
+        "https://roosevelt.ucsd.edu/about/faculty.html"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/958518",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Adam Bowers",
+      "expectedRecord": {
+        "id": "easy-a-bowers-adam-r-2962baa657",
+        "displayName": "Bowers, Adam R.",
+        "aliases": [
+          "Adam R. Bowers"
+        ],
+        "rating": {
+          "overallRating": 4.2,
+          "difficulty": 2.9,
+          "ratingCount": 278,
+          "wouldTakeAgainPercent": 76,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1607196"
+        }
+      },
+      "ucsdEvidence": [
+        "https://math.ucsd.edu/people/profiles/adam-bowers",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=86756&selectedTerm=SP26&tabNum=tabs-sec"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1607196",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Adam Burgasser",
+      "expectedRecord": {
+        "id": "easy-a-burgasser-adam-jonathan-fadb1c201a",
+        "displayName": "Burgasser, Adam Jonathan",
+        "aliases": [
+          "Adam Jonathan Burgasser"
+        ],
+        "rating": {
+          "overallRating": 2.7,
+          "difficulty": 3.9,
+          "ratingCount": 65,
+          "wouldTakeAgainPercent": 37,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1985041"
+        }
+      },
+      "ucsdEvidence": [
+        "https://astro.ucsd.edu/people/faculty/index.html",
+        "https://cass.ucsd.edu/~ajb/cv.pdf"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1985041",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Adrian Borsa",
+      "expectedRecord": {
+        "id": "easy-a-borsa-adrian-antal-5a3cb1ec89",
+        "displayName": "Borsa, Adrian Antal",
+        "aliases": [
+          "Adrian Antal Borsa"
+        ],
+        "rating": {
+          "overallRating": 4.8,
+          "difficulty": 1.9,
+          "ratingCount": 18,
+          "wouldTakeAgainPercent": 89,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2414966"
+        }
+      },
+      "ucsdEvidence": [
+        "https://aborsa.scrippsprofiles.ucsd.edu/biography/",
+        "https://summersession.ucsd.edu/_files/Enrollment%20Snapshot/Five%20Year%20Course%20Enrollment%20History.pdf"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2414966",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Alexander Stewart",
+      "expectedRecord": {
+        "id": "easy-a-stewart-alexander-b-3e82756abb",
+        "displayName": "Stewart, Alexander B",
+        "aliases": [
+          "Alexander B Stewart"
+        ],
+        "rating": {
+          "overallRating": 3.9,
+          "difficulty": 2.5,
+          "ratingCount": 115,
+          "wouldTakeAgainPercent": 76,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2099749"
+        }
+      },
+      "ucsdEvidence": [
+        "https://profiles.ucsd.edu/alexander.stewart",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=991948&selectedTerm=WI26&tabNum=tabs-sec"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2099749",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Alina Schimpf",
+      "expectedRecord": {
+        "id": "easy-a-schimpf-alina-m-a50425cd5e",
+        "displayName": "Schimpf, Alina M",
+        "aliases": [
+          "Alina M Schimpf"
+        ],
+        "rating": {
+          "overallRating": 4.3,
+          "difficulty": 3.3,
+          "ratingCount": 21,
+          "wouldTakeAgainPercent": 95,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2238774"
+        }
+      },
+      "ucsdEvidence": [
+        "https://catalog.ucsd.edu/faculty/CHEM.html",
+        "https://schimpflab.ucsd.edu/docs/CV.pdf"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2238774",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Alison Meyer",
+      "expectedRecord": {
+        "id": "easy-a-meyer-alison-bloomfield-17fb98df0e",
+        "displayName": "Meyer, Alison Bloomfield",
+        "aliases": [
+          "Alison Bloomfield Meyer"
+        ],
+        "rating": {
+          "overallRating": 2.4,
+          "difficulty": 2.7,
+          "ratingCount": 32,
+          "wouldTakeAgainPercent": 31,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2677573"
+        }
+      },
+      "ucsdEvidence": [
+        "https://studyabroad.ucsd.edu/students/programs/global-seminars/milan.html",
+        "https://keepteaching.ucsd.edu/resilient/assessment.html"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2677573",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Alison O'Daniel",
+      "expectedRecord": {
+        "id": "easy-a-o-daniel-alison-c-71eb82d5cc",
+        "displayName": "O'Daniel, Alison C",
+        "aliases": [
+          "Alison C O'Daniel"
+        ],
+        "rating": null
+      },
+      "ucsdEvidence": [
+        "https://visarts.ucsd.edu/people/faculty/alison-odaniel.html",
+        "https://courses.ucsd.edu/profMain.aspx?profname=O%27Daniel%2C+Alison+C"
+      ],
+      "rmpEvidence": null,
+      "rationale": "UCSD faculty and course sources corroborate the short and full names. Grade-only identity; no RMP rating is added."
+    },
+    {
+      "alias": "Alistair Russell",
+      "expectedRecord": {
+        "id": "easy-a-russell-alistair-b-8499cae940",
+        "displayName": "Russell, Alistair B",
+        "aliases": [
+          "Alistair B Russell"
+        ],
+        "rating": {
+          "overallRating": 4.3,
+          "difficulty": 3.3,
+          "ratingCount": 9,
+          "wouldTakeAgainPercent": 67,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2742577"
+        }
+      },
+      "ucsdEvidence": [
+        "https://biology.ucsd.edu/research/faculty/arussell"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2742577",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Alyson Ma",
+      "expectedRecord": {
+        "id": "easy-a-ma-alyson-chan-13dbe1ff81",
+        "displayName": "Ma, Alyson Chan",
+        "aliases": [
+          "Alyson Chan Ma"
+        ],
+        "rating": null
+      },
+      "ucsdEvidence": [
+        "https://economics.ucsd.edu/faculty-and-research/faculty-profiles/ma-alyson.html",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=917169&selectedTerm=FA25&tabNum=tabs-sec"
+      ],
+      "rmpEvidence": null,
+      "rationale": "UCSD faculty and course sources corroborate the short and full names. Grade-only identity; no RMP rating is added."
+    },
+    {
+      "alias": "Amanda Batarseh",
+      "expectedRecord": {
+        "id": "easy-a-batarseh-amanda-alicia-5278df0817",
+        "displayName": "Batarseh, Amanda Alicia",
+        "aliases": [
+          "Amanda Alicia Batarseh"
+        ],
+        "rating": null
+      },
+      "ucsdEvidence": [
+        "https://hh-literature.ucsd.edu/people/faculty/abatarseh.html",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=245720&selectedTerm=WI26&tabNum=tabs-sec"
+      ],
+      "rmpEvidence": null,
+      "rationale": "UCSD faculty and course sources corroborate the short and full names. Grade-only identity; no RMP rating is added."
+    },
+    {
+      "alias": "Amina Schartup",
+      "expectedRecord": {
+        "id": "easy-a-schartup-amina-bocary-cb7339c81c",
+        "displayName": "Schartup, Amina Bocary",
+        "aliases": [
+          "Amina Bocary Schartup"
+        ],
+        "rating": {
+          "overallRating": 4.2,
+          "difficulty": 2,
+          "ratingCount": 5,
+          "wouldTakeAgainPercent": 100,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2774769"
+        }
+      },
+      "ucsdEvidence": [
+        "https://aschartup.scrippsprofiles.ucsd.edu/",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=37977&selectedTerm=WI26&tabNum=tabs-sec"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2774769",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Amy Fox",
+      "expectedRecord": {
+        "id": "easy-a-fox-amy-rae-4efcbd9f69",
+        "displayName": "Fox, Amy Rae",
+        "aliases": [
+          "Amy Rae Fox"
+        ],
+        "rating": {
+          "overallRating": 3.3,
+          "difficulty": 2.7,
+          "ratingCount": 14,
+          "wouldTakeAgainPercent": 47,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "3144051"
+        }
+      },
+      "ucsdEvidence": [
+        "https://cogsci.ucsd.edu/people/faculty/amy-rae-fox.html"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/3144051",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Amy Kennemore",
+      "expectedRecord": {
+        "id": "easy-a-kennemore-amy-michelle-56c76f6789",
+        "displayName": "Kennemore, Amy Michelle",
+        "aliases": [
+          "Amy Michelle Kennemore"
+        ],
+        "rating": {
+          "overallRating": 4.7,
+          "difficulty": 1.8,
+          "ratingCount": 44,
+          "wouldTakeAgainPercent": 93,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2659614"
+        }
+      },
+      "ucsdEvidence": [
+        "https://las.ucsd.edu/people/faculty/index.html",
+        "https://summersession.ucsd.edu/courses/Summer_2025_remote_courses1.pdf"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2659614",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Andrea Tao",
+      "expectedRecord": {
+        "id": "easy-a-tao-andrea-rae-105ea6c7ec",
+        "displayName": "Tao, Andrea Rae",
+        "aliases": [
+          "Andrea Rae Tao"
+        ],
+        "rating": {
+          "overallRating": 2.8,
+          "difficulty": 3.8,
+          "ratingCount": 4,
+          "wouldTakeAgainPercent": 0,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1794962"
+        }
+      },
+      "ucsdEvidence": [
+        "https://jacobsschool.ucsd.edu/people/profile/andrea-tao",
+        "https://sixth.ucsd.edu/about/faculty/affiliated-faculty.html"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1794962",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Andreas Andersson",
+      "expectedRecord": {
+        "id": "easy-a-andersson-andreas-jerry-e880c36b60",
+        "displayName": "Andersson, Andreas Jerry",
+        "aliases": [
+          "Andreas Jerry Andersson"
+        ],
+        "rating": {
+          "overallRating": 3,
+          "difficulty": 4,
+          "ratingCount": 1,
+          "wouldTakeAgainPercent": null,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1884689"
+        }
+      },
+      "ucsdEvidence": [
+        "https://climatechange.ucsd.edu/research/research-areas/oceanography.html",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=239255&selectedTerm=SP26&tabNum=tabs-sec"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1884689",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Andrew Barton",
+      "expectedRecord": {
+        "id": "easy-a-barton-andrew-david-42fb26e507",
+        "displayName": "Barton, Andrew David",
+        "aliases": [
+          "Andrew David Barton"
+        ],
+        "rating": {
+          "overallRating": 3.9,
+          "difficulty": 3,
+          "ratingCount": 13,
+          "wouldTakeAgainPercent": 69,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2889040"
+        }
+      },
+      "ucsdEvidence": [
+        "https://scripps.ucsd.edu/news/scientists-life-andrew-barton",
+        "https://courses.ucsd.edu/profMain.aspx?profname=Barton%2C+Andrew+David"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2889040",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Andrew Cooper",
+      "expectedRecord": {
+        "id": "easy-a-cooper-andrew-michael-ff030f96ed",
+        "displayName": "Cooper, Andrew Michael",
+        "aliases": [
+          "Andrew Michael Cooper"
+        ],
+        "rating": {
+          "overallRating": 3.3,
+          "difficulty": 3.6,
+          "ratingCount": 210,
+          "wouldTakeAgainPercent": 54,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2397647"
+        }
+      },
+      "ucsdEvidence": [
+        "https://profiles.ucsd.edu/andrew.cooper",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=940512&selectedTerm=FA25&tabNum=tabs-sec"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2397647",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Andrew Dickson",
+      "expectedRecord": {
+        "id": "easy-a-dickson-andrew-gilmore-f8a3a0b766",
+        "displayName": "Dickson, Andrew Gilmore",
+        "aliases": [
+          "Andrew Gilmore Dickson"
+        ],
+        "rating": {
+          "overallRating": 3.2,
+          "difficulty": 3,
+          "ratingCount": 3,
+          "wouldTakeAgainPercent": 50,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1732580"
+        }
+      },
+      "ucsdEvidence": [
+        "https://adickson.scrippsprofiles.ucsd.edu/blog/",
+        "https://courses.ucsd.edu/?p_letter=D"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1732580",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Andrew Lucas",
+      "expectedRecord": {
+        "id": "easy-a-lucas-andrew-j-2573d4bb5e",
+        "displayName": "Lucas, Andrew J.",
+        "aliases": [
+          "Andrew J. Lucas"
+        ],
+        "rating": null
+      },
+      "ucsdEvidence": [
+        "https://maeweb.ucsd.edu/people/faculty-profiles",
+        "https://ajlucas.scrippsprofiles.ucsd.edu/bio/"
+      ],
+      "rmpEvidence": null,
+      "rationale": "UCSD faculty and course sources corroborate the short and full names. Grade-only identity; no RMP rating is added."
+    },
+    {
+      "alias": "Andrew Suk",
+      "expectedRecord": {
+        "id": "easy-a-suk-andrew-hoon-442dfd96bb",
+        "displayName": "Suk, Andrew Hoon",
+        "aliases": [
+          "Andrew Hoon Suk"
+        ],
+        "rating": {
+          "overallRating": 3.8,
+          "difficulty": 3.1,
+          "ratingCount": 35,
+          "wouldTakeAgainPercent": 77,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2274490"
+        }
+      },
+      "ucsdEvidence": [
+        "https://mathweb.ucsd.edu/~asuk/",
+        "https://hh-marshall.ucsd.edu/about-us/faculty.html"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2274490",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Andrew Whitworth-Smith",
+      "expectedRecord": {
+        "id": "easy-a-whitworth-smith-andrew-c-535f09bd93",
+        "displayName": "Whitworth-Smith, Andrew C",
+        "aliases": [
+          "Andrew C Whitworth-Smith"
+        ],
+        "rating": {
+          "overallRating": 4.4,
+          "difficulty": 2.5,
+          "ratingCount": 14,
+          "wouldTakeAgainPercent": 86,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "3104188"
+        }
+      },
+      "ucsdEvidence": [
+        "https://communication.ucsd.edu/people/lecturers/whitworth-smith-andrew.html",
+        "https://courses.ucsd.edu/profMain.aspx?profname=Whitworth-Smith%2C+Andrew+C"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/3104188",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Aneesh Manohar",
+      "expectedRecord": {
+        "id": "easy-a-manohar-aneesh-vasant-d1a9e64d6d",
+        "displayName": "Manohar, Aneesh Vasant",
+        "aliases": [
+          "Aneesh Vasant Manohar"
+        ],
+        "rating": {
+          "overallRating": 3.8,
+          "difficulty": 4.6,
+          "ratingCount": 11,
+          "wouldTakeAgainPercent": 67,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "286474"
+        }
+      },
+      "ucsdEvidence": [
+        "https://profiles.ucsd.edu/aneesh.manohar",
+        "https://www.physics.ucsd.edu/research/high-energy-physics"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/286474",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Angela Lowe",
+      "expectedRecord": {
+        "id": "easy-a-lowe-angela-beth-15566b4e99",
+        "displayName": "Lowe, Angela Beth",
+        "aliases": [
+          "Angela Beth Lowe"
+        ],
+        "rating": {
+          "overallRating": 4.2,
+          "difficulty": 3.1,
+          "ratingCount": 137,
+          "wouldTakeAgainPercent": 79,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "1735773"
+        }
+      },
+      "ucsdEvidence": [
+        "https://psychology.ucsd.edu/people/non-senate-instructors.html",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=32052&selectedTerm=WI26&tabNum=tabs-sec"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/1735773",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    },
+    {
+      "alias": "Annika Stone",
+      "expectedRecord": {
+        "id": "easy-a-stone-annika-britt-fc0ab08815",
+        "displayName": "Stone, Annika Britt",
+        "aliases": [
+          "Annika Britt Stone"
+        ],
+        "rating": {
+          "overallRating": 4.6,
+          "difficulty": 1.8,
+          "ratingCount": 31,
+          "wouldTakeAgainPercent": 91,
+          "sourceId": "easy-a-radar-rmp",
+          "updatedAt": "2026-07-23",
+          "sourceProfessorId": "2915658"
+        }
+      },
+      "ucsdEvidence": [
+        "https://profiles.ucsd.edu/annika.stone",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=991950&selectedTerm=WI26&tabNum=tabs-sec"
+      ],
+      "rmpEvidence": "https://www.ratemyprofessors.com/professor/2915658",
+      "rationale": "UCSD faculty/course identity and compatible middle-name form corroborate the existing UCSD RMP profile; department and course context agree."
+    }
+  ]
+}

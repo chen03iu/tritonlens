@@ -1,0 +1,5641 @@
+{
+  "schemaVersion": 1,
+  "sourceAuditSha256": "2608f0781695566290c0d54dcda58d3df6d4790d84cec6044b07defb8a646119",
+  "sourceSnapshotSha256": "b746016b93791acaaea1554e1a7ae3f75e7fbc6f64cd6bc53d6d9ae470b6266f",
+  "counts": {
+    "recommended": 264,
+    "review": 22,
+    "rejected": 0,
+    "total": 286
+  },
+  "entries": [
+    {
+      "currentName": "Bernard Brown",
+      "currentCourses": [
+        "TDMV 2",
+        "TDTR 10"
+      ],
+      "candidateId": "easy-a-brown-bernard-joseph-2fc482a7ae",
+      "candidateName": "Brown, Bernard Joseph",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "TDMV",
+        "TDTR"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: TDMV.",
+        "Shared subject: TDTR."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Camille Campion",
+      "currentCourses": [
+        "COMM 102C"
+      ],
+      "candidateId": "easy-a-campion-camille-e-48d93ca561",
+      "candidateName": "Campion, Camille E",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COMM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COMM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Carlos Coimbra",
+      "currentCourses": [
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-coimbra-carlos-f-1b444a5533",
+      "candidateName": "Coimbra, Carlos F.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Carrie Taylor",
+      "currentCourses": [
+        "SYN 2"
+      ],
+      "candidateId": "easy-a-taylor-carrie-anne-e821cddfd2",
+      "candidateName": "Taylor, Carrie Anne",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SYN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SYN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Carrie Wastal",
+      "currentCourses": [
+        "MCWP 40",
+        "MCWP 50"
+      ],
+      "candidateId": "easy-a-wastal-carrie-king-3b4b357fad",
+      "candidateName": "Wastal, Carrie King",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Celeste Morales",
+      "currentCourses": [
+        "CAT 125"
+      ],
+      "candidateId": "easy-a-morales-celeste-georgianna-b19e56aff8",
+      "candidateName": "Morales, Celeste Georgianna",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CAT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CAT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Christian Metallo",
+      "currentCourses": [
+        "BENG 299",
+        "BGGN 299"
+      ],
+      "candidateId": "easy-a-metallo-christian-michael-5f316ff3ee",
+      "candidateName": "Metallo, Christian Michael",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BENG"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BENG."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Christina Hueschen",
+      "currentCourses": [
+        "BGGN 299",
+        "BICD 194",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-hueschen-christina-lynn-6da82a0950",
+      "candidateName": "Hueschen, Christina Lynn",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BICD"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BICD."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Christine Alvarado",
+      "currentCourses": [
+        "CSE 3"
+      ],
+      "candidateId": "easy-a-alvarado-christine-j-50f46621a4",
+      "candidateName": "Alvarado, Christine J.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CSE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CSE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Christine Johnson",
+      "currentCourses": [
+        "COGS 143",
+        "COGS 17",
+        "COGS 500"
+      ],
+      "candidateId": "easy-a-johnson-christine-m-45823a4538",
+      "candidateName": "Johnson, Christine M.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COGS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COGS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Christopher Benner",
+      "currentCourses": [
+        "BENG 299",
+        "BIOM 298",
+        "BNFO 299"
+      ],
+      "candidateId": "easy-a-benner-christopher-william-973e7368ac",
+      "candidateName": "Benner, Christopher William",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BENG"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BENG."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Christopher Charles",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-charles-christopher-d-c64627f883",
+      "candidateName": "Charles, Christopher D.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Christopher Day",
+      "currentCourses": [
+        "BICD 100",
+        "BIMM 101"
+      ],
+      "candidateId": "easy-a-day-christopher-d-32f49a33c1",
+      "candidateName": "Day, Christopher D",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BICD",
+        "BIMM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BICD.",
+        "Shared subject: BIMM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Christopher Lee",
+      "currentCourses": [
+        "BGGN 299",
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-lee-christopher-tingkuang-9e8bd3100f",
+      "candidateName": "Lee, Christopher Tingkuang",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Christopher Theissen",
+      "currentCourses": [
+        "ASTR 20A"
+      ],
+      "candidateId": "easy-a-theissen-christopher-alexander-31f2145ed3",
+      "candidateName": "Theissen, Christopher Alexander",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ASTR"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ASTR."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Christopher Vogel",
+      "currentCourses": [
+        "LIGN 130"
+      ],
+      "candidateId": "easy-a-vogel-christopher-anthony-eb90e61e16",
+      "candidateName": "Vogel, Christopher Anthony",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LIGN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LIGN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Clarissa Reese",
+      "currentCourses": [
+        "HDS 1",
+        "HDS 191"
+      ],
+      "candidateId": "easy-a-reese-clarissa-jane-63e168fded",
+      "candidateName": "Reese, Clarissa Jane",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "HDS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: HDS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Claus Sorensen",
+      "currentCourses": [
+        "MATH 299"
+      ],
+      "candidateId": "easy-a-sorensen-claus-m-b9897f58a3",
+      "candidateName": "Sorensen, Claus M",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Clifford Kubiak",
+      "currentCourses": [
+        "CENG 299",
+        "CHEM 299",
+        "NANO 299"
+      ],
+      "candidateId": "easy-a-kubiak-clifford-paul-99703429ea",
+      "candidateName": "Kubiak, Clifford Paul",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Colin Campbell",
+      "currentCourses": [
+        "MGT 102",
+        "MGT 109"
+      ],
+      "candidateId": "easy-a-campbell-colin-leslie-5e872f7af5",
+      "candidateName": "Campbell, Colin Leslie",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Colleen McHugh",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-mchugh-colleen-a-325cfa4d71",
+      "candidateName": "McHugh, Colleen A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Curtis Marez",
+      "currentCourses": [
+        "ETHN 298",
+        "ETHN 299"
+      ],
+      "candidateId": "easy-a-marez-curtis-f-fc1f33048e",
+      "candidateName": "Marez, Curtis F.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ETHN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ETHN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Dahiana Arcila",
+      "currentCourses": [
+        "SIO 188",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-arcila-dahiana-k-6c6cc9a953",
+      "candidateName": "Arcila, Dahiana K",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Daniel Donoghue",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-donoghue-daniel-j-d805514b79",
+      "candidateName": "Donoghue, Daniel J.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Daniel Grier",
+      "currentCourses": [
+        "CSE 190",
+        "CSE 299",
+        "MATH 152",
+        "MATH 299"
+      ],
+      "candidateId": "easy-a-grier-daniel-t-68f4f190dd",
+      "candidateName": "Grier, Daniel T",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CSE",
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CSE.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Daniel Martinico",
+      "currentCourses": [
+        "COMM 101D",
+        "COMM 101N"
+      ],
+      "candidateId": "easy-a-martinico-daniel-j-9702c2d96f",
+      "candidateName": "Martinico, Daniel J",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COMM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COMM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Daniel Rudnick",
+      "currentCourses": [
+        "SIO 171",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-rudnick-daniel-lars-4e1f8dbaa5",
+      "candidateName": "Rudnick, Daniel Lars",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Daniel Vitkus",
+      "currentCourses": [
+        "LTEN 110",
+        "LTEN 117"
+      ],
+      "candidateId": "easy-a-vitkus-daniel-j-5f42b3d224",
+      "candidateName": "Vitkus, Daniel J.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LTEN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LTEN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Daunte Fyall",
+      "currentCourses": [
+        "TDMV 11"
+      ],
+      "candidateId": "easy-a-fyall-daunte-edward-48a8033d61",
+      "candidateName": "Fyall, Daunte Edward",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "TDMV"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: TDMV."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "David Bigham",
+      "currentCourses": [
+        "CAT 1",
+        "CAT 125"
+      ],
+      "candidateId": "easy-a-bigham-david-joseph-697e3ef5e1",
+      "candidateName": "Bigham, David Joseph",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CAT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CAT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "David Borgo",
+      "currentCourses": [
+        "MUS 20R",
+        "MUS 299",
+        "MUS 500"
+      ],
+      "candidateId": "easy-a-borgo-david-garcia-588ec0bf7c",
+      "candidateName": "Borgo, David Garcia",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MUS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MUS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "David Fisk",
+      "currentCourses": [
+        "POLI 145C",
+        "POLI 154"
+      ],
+      "candidateId": "easy-a-fisk-david-lee-58b78b4b4f",
+      "candidateName": "Fisk, David Lee",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "POLI"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: POLI."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "David Jordan",
+      "currentCourses": [
+        "ANTH 87"
+      ],
+      "candidateId": "easy-a-jordan-david-k-6c0ae66fe9",
+      "candidateName": "Jordan, David K.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ANTH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ANTH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "David Kirsh",
+      "currentCourses": [
+        "COGS 187A",
+        "COGS 500"
+      ],
+      "candidateId": "easy-a-kirsh-david-joel-80832fb4bc",
+      "candidateName": "Kirsh, David Joel",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COGS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COGS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "David Quarfoot",
+      "currentCourses": [
+        "MATH 20A"
+      ],
+      "candidateId": "easy-a-quarfoot-david-james-1a18a4a20e",
+      "candidateName": "Quarfoot, David James",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "David Sandwell",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-sandwell-david-t-d5a4c13701",
+      "candidateName": "Sandwell, David T",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "David Sworder",
+      "currentCourses": [
+        "ECE 299"
+      ],
+      "candidateId": "easy-a-sworder-david-d-fb31b79fa3",
+      "candidateName": "Sworder, David D.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ECE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ECE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Dennis Trinidad",
+      "currentCourses": [
+        "PH 40"
+      ],
+      "candidateId": "easy-a-trinidad-dennis-ryan-cd4c0b3af8",
+      "candidateName": "Trinidad, Dennis Ryan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Dimitri Deheyn",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-deheyn-dimitri-dominique-1623f28059",
+      "candidateName": "Deheyn, Dimitri Dominique",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Dionicio Siegel",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-siegel-dionicio-r-d84d7b04b3",
+      "candidateName": "Siegel, Dionicio R.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Dmitry Lyumkis",
+      "currentCourses": [
+        "BGGN 299"
+      ],
+      "candidateId": "easy-a-lyumkis-dmitry-evgenievich-d27df8d610",
+      "candidateName": "Lyumkis, Dmitry Evgenievich",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Dominik Wodarz",
+      "currentCourses": [
+        "BGGN 299",
+        "BIEB 152",
+        "BNFO 299"
+      ],
+      "candidateId": "easy-a-wodarz-dominik-franz-xave-f0c93666b1",
+      "candidateName": "Wodarz, Dominik Franz Xave",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BIEB"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BIEB."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Douglas Bartlett",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-bartlett-douglas-h-4cd9833715",
+      "candidateName": "Bartlett, Douglas H",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Douglas Smith",
+      "currentCourses": [
+        "PHYS 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-smith-douglas-e-c6bac7f1ef",
+      "candidateName": "Smith, Douglas E",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Edward Kelting",
+      "currentCourses": [
+        "LTLA 100",
+        "LTWL 101"
+      ],
+      "candidateId": "easy-a-kelting-edward-william-ae9c2da3fe",
+      "candidateName": "Kelting, Edward William",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LTLA",
+        "LTWL"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LTLA.",
+        "Shared subject: LTWL."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Elina Zuniga",
+      "currentCourses": [
+        "BGGN 299",
+        "BICD 140"
+      ],
+      "candidateId": "easy-a-zuniga-elina-i-879a762166",
+      "candidateName": "Zuniga, Elina I",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BICD"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BICD."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Elizabeth Hetherington",
+      "currentCourses": [
+        "ESYS 187A",
+        "SIO 3"
+      ],
+      "candidateId": "easy-a-hetherington-elizabeth-dorsey-2c78ed04ae",
+      "candidateName": "Hetherington, Elizabeth Dorsey",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ESYS",
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ESYS.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Elizabeth Komives",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-komives-elizabeth-a-9d98a80151",
+      "candidateName": "Komives, Elizabeth A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Elizabeth Simon",
+      "currentCourses": [
+        "CSE 298"
+      ],
+      "candidateId": "easy-a-simon-elizabeth-a-9ac8de9697",
+      "candidateName": "Simon, Elizabeth A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Ellen Beck",
+      "currentCourses": [
+        "PH 191"
+      ],
+      "candidateId": "easy-a-beck-ellen-l-cc67afa562",
+      "candidateName": "Beck, Ellen L.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Emily Grossman",
+      "currentCourses": [
+        "BIMM 101"
+      ],
+      "candidateId": "easy-a-grossman-emily-n-2f8d7d6bf4",
+      "candidateName": "Grossman, Emily N",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BIMM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BIMM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Emily Troemel",
+      "currentCourses": [
+        "BGGN 299"
+      ],
+      "candidateId": "easy-a-troemel-emily-ruth-fe532b3c57",
+      "candidateName": "Troemel, Emily Ruth",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Emma Farley",
+      "currentCourses": [
+        "BGGN 299",
+        "BNFO 299"
+      ],
+      "candidateId": "easy-a-farley-emma-kristen-307759b500",
+      "candidateName": "Farley, Emma Kristen",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Eran Mukamel",
+      "currentCourses": [
+        "BENG 299",
+        "BNFO 299",
+        "NEUG 299"
+      ],
+      "candidateId": "easy-a-mukamel-eran-a-7d3a410419",
+      "candidateName": "Mukamel, Eran A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Eric Mooshagian",
+      "currentCourses": [
+        "COGS 107A",
+        "COGS 500"
+      ],
+      "candidateId": "easy-a-mooshagian-eric-frederick-f5e18b1242",
+      "candidateName": "Mooshagian, Eric Frederick",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COGS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COGS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Eric Steiner",
+      "currentCourses": [
+        "PSYC 132",
+        "PSYC 500",
+        "PSYC 71"
+      ],
+      "candidateId": "easy-a-steiner-eric-tomas-6e740352eb",
+      "candidateName": "Steiner, Eric Tomas",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PSYC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PSYC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Erik Romero",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-romero-erik-anthony-5942fc7338",
+      "candidateName": "Romero, Erik Anthony",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Errol Browne",
+      "currentCourses": [
+        "ETHN 152",
+        "ETHN 161"
+      ],
+      "candidateId": "easy-a-browne-errol-tsekani-2b0e8ff875",
+      "candidateName": "Browne, Errol Tsekani",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ETHN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ETHN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ester Kwon",
+      "currentCourses": [
+        "BENG 199",
+        "BENG 299",
+        "CENG 299",
+        "NANO 299"
+      ],
+      "candidateId": "easy-a-kwon-ester-jihae-8348cb1661",
+      "candidateName": "Kwon, Ester Jihae",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BENG"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BENG."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Eva Fischer-Grunski",
+      "currentCourses": [
+        "LIGM 1A",
+        "LIGM 1AX",
+        "LTGM 2A"
+      ],
+      "candidateId": "easy-a-fischer-grunski-eva-k-2788dea2da",
+      "candidateName": "Fischer-Grunski, Eva K",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LIGM",
+        "LTGM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LIGM.",
+        "Shared subject: LTGM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Farhat Beg",
+      "currentCourses": [
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-beg-farhat-n-7b9bbf3cdd",
+      "candidateName": "Beg, Farhat N.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Floor Broekgaarden",
+      "currentCourses": [
+        "CSE 298",
+        "PHYS 298"
+      ],
+      "candidateId": "easy-a-broekgaarden-floor-suzan-c283627216",
+      "candidateName": "Broekgaarden, Floor Suzan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Frances Hammock",
+      "currentCourses": [
+        "MATH 20C",
+        "MATH 3B"
+      ],
+      "candidateId": "easy-a-hammock-frances-h-4e78e67d5c",
+      "candidateName": "Hammock, Frances H",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Frank Talke",
+      "currentCourses": [
+        "BENG 299",
+        "MAE 299",
+        "MATS 299"
+      ],
+      "candidateId": "easy-a-talke-frank-e-9c1cb893f0",
+      "candidateName": "Talke, Frank E",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Geoffrey Cook",
+      "currentCourses": [
+        "SIO 170",
+        "SIO 299",
+        "SIO 50"
+      ],
+      "candidateId": "easy-a-cook-geoffrey-w-ea5a95ad43",
+      "candidateName": "Cook, Geoffrey W",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Geoffrey West",
+      "currentCourses": [
+        "HUM 100",
+        "HUM 3"
+      ],
+      "candidateId": "easy-a-west-geoffrey-scott-22406ce470",
+      "candidateName": "West, Geoffrey Scott",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "HUM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: HUM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "George Fuller",
+      "currentCourses": [
+        "PHYS 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-fuller-george-michael-38864e90f6",
+      "candidateName": "Fuller, George Michael",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "George Tynan",
+      "currentCourses": [
+        "MAE 299",
+        "MATS 299"
+      ],
+      "candidateId": "easy-a-tynan-george-robert-9fb1ec5a38",
+      "candidateName": "Tynan, George Robert",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Gloria Chacon",
+      "currentCourses": [
+        "LTAM 110",
+        "LTSP 145"
+      ],
+      "candidateId": "easy-a-chacon-gloria-elizabeth-c629037cef",
+      "candidateName": "Chacon, Gloria Elizabeth",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LTAM",
+        "LTSP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LTAM.",
+        "Shared subject: LTSP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Grace Jun",
+      "currentCourses": [
+        "TDHD 175",
+        "TDMV 38"
+      ],
+      "candidateId": "easy-a-jun-grace-shin-hae-43269eae1c",
+      "candidateName": "Jun, Grace Shin Hae",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "TDHD",
+        "TDMV"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: TDHD.",
+        "Shared subject: TDMV."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Griffin Hosseinzadeh",
+      "currentCourses": [
+        "ASTR 150"
+      ],
+      "candidateId": "easy-a-hosseinzadeh-griffin-alex-908cf0e01d",
+      "candidateName": "Hosseinzadeh, Griffin Alex",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ASTR"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ASTR."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Gurol Suel",
+      "currentCourses": [
+        "BENG 299",
+        "BGGN 299",
+        "BILD 1"
+      ],
+      "candidateId": "easy-a-suel-gurol-mehmet-d7ff1aac65",
+      "candidateName": "Suel, Gurol Mehmet",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BILD"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BILD."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Haleema Welji",
+      "currentCourses": [
+        "WCWP 10A"
+      ],
+      "candidateId": "easy-a-welji-haleema-nazir-4a49476318",
+      "candidateName": "Welji, Haleema Nazir",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "WCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: WCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Hanna Tawater",
+      "currentCourses": [
+        "SYN 100",
+        "SYN 2"
+      ],
+      "candidateId": "easy-a-tawater-hanna-jean-1642b8568b",
+      "candidateName": "Tawater, Hanna Jean",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SYN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SYN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Harold Buchanan",
+      "currentCourses": [
+        "MGT 16",
+        "MGT 181"
+      ],
+      "candidateId": "easy-a-buchanan-harold-g-56b6f0905b",
+      "candidateName": "Buchanan, Harold G",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Heidi Cook-Andersen",
+      "currentCourses": [
+        "BGGN 299"
+      ],
+      "candidateId": "easy-a-cook-andersen-heidi-leigh-ff0d418fba",
+      "candidateName": "Cook-Andersen, Heidi Leigh",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Helen Fricker",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-fricker-helen-a-6696397cd6",
+      "candidateName": "Fricker, Helen A.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Helen Wang",
+      "currentCourses": [
+        "MGT 121A"
+      ],
+      "candidateId": "easy-a-wang-helen-shan-c1952fe945",
+      "candidateName": "Wang, Helen Shan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Herbert Newhouse",
+      "currentCourses": [
+        "ECON 100A"
+      ],
+      "candidateId": "easy-a-newhouse-herbert-s-9283f72714",
+      "candidateName": "Newhouse, Herbert S",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ECON"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ECON."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Hieu Pham",
+      "currentCourses": [
+        "MAE 150"
+      ],
+      "candidateId": "easy-a-pham-hieu-tan-f427cdad05",
+      "candidateName": "Pham, Hieu Tan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Hoan Nguyen",
+      "currentCourses": [
+        "LIHL 114F",
+        "LIHL 124F",
+        "LIHL 134F"
+      ],
+      "candidateId": "easy-a-nguyen-hoan-thi-4e78d81d69",
+      "candidateName": "Nguyen, Hoan Thi",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LIHL"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LIHL."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Hoang Nguyen",
+      "currentCourses": [
+        "CGS 87",
+        "LTCS 87"
+      ],
+      "candidateId": "easy-a-nguyen-hoang-tan-5a75ee5148",
+      "candidateName": "Nguyen, Hoang Tan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CGS",
+        "LTCS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CGS.",
+        "Shared subject: LTCS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ida Veimau",
+      "currentCourses": [
+        "TDMV 144"
+      ],
+      "candidateId": "easy-a-veimau-ida-ramona-5ab08486d0",
+      "candidateName": "Veimau, Ida Ramona",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "TDMV"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: TDMV."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ivan Schuller",
+      "currentCourses": [
+        "MATS 299",
+        "PHYS 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-schuller-ivan-k-dcb8fd1c73",
+      "candidateName": "Schuller, Ivan K",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jack Gilbert",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-gilbert-jack-anthony-e0dbe2ddb3",
+      "candidateName": "Gilbert, Jack Anthony",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jackson Kroopf",
+      "currentCourses": [
+        "FILM 72"
+      ],
+      "candidateId": "easy-a-kroopf-jackson-stanford-1a45972927",
+      "candidateName": "Kroopf, Jackson Stanford",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "FILM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: FILM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jacques Verstraete",
+      "currentCourses": [
+        "MATH 299"
+      ],
+      "candidateId": "easy-a-verstraete-jacques-allan-cd7ef3b766",
+      "candidateName": "Verstraete, Jacques Allan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "James Cooke",
+      "currentCourses": [
+        "BIPN 100"
+      ],
+      "candidateId": "easy-a-cooke-james-edward-2a4727b8d7",
+      "candidateName": "Cooke, James Edward",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BIPN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BIPN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "James Day",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-day-james-m-d-d3e9a35131",
+      "candidateName": "Day, James M.D.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "James Deavenport",
+      "currentCourses": [
+        "SYN 100",
+        "SYN 2"
+      ],
+      "candidateId": "easy-a-deavenport-james-cary-59ea8d6edb",
+      "candidateName": "Deavenport, James Cary",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SYN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SYN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "James Friend",
+      "currentCourses": [
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-friend-james-robert-36492cbabc",
+      "candidateName": "Friend, James Robert",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jason Bartulis",
+      "currentCourses": [
+        "MCWP 40"
+      ],
+      "candidateId": "easy-a-bartulis-jason-michael-a0effa70e6",
+      "candidateName": "Bartulis, Jason Michael",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jean Wang",
+      "currentCourses": [
+        "BGGN 299"
+      ],
+      "candidateId": "easy-a-wang-jean-yin-jen-b25ec477b4",
+      "candidateName": "Wang, Jean Yin Jen",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Jeff Bowman",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-bowman-jeff-shovlowsky-1d6958e20f",
+      "candidateName": "Bowman, Jeff Shovlowsky",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jeffrey Gee",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-gee-jeffrey-s-513940766b",
+      "candidateName": "Gee, Jeffrey S",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jeffrey Omens",
+      "currentCourses": [
+        "BENG 199"
+      ],
+      "candidateId": "easy-a-omens-jeffrey-howard-fcd2985c05",
+      "candidateName": "Omens, Jeffrey Howard",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BENG"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BENG."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jennifer Carter",
+      "currentCourses": [
+        "MCWP 40"
+      ],
+      "candidateId": "easy-a-carter-jennifer-a-59fc7d2835",
+      "candidateName": "Carter, Jennifer A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jennifer Deal",
+      "currentCourses": [
+        "MGT 52"
+      ],
+      "candidateId": "easy-a-deal-jennifer-jean-23eaf26ece",
+      "candidateName": "Deal, Jennifer Jean",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jennifer Haase",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-haase-jennifer-susan-a56b947d56",
+      "candidateName": "Haase, Jennifer Susan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Jennifer Mackinnon",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-mackinnon-jennifer-a-10b31e8430",
+      "candidateName": "Mackinnon, Jennifer A.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jennifer Marchisotto",
+      "currentCourses": [
+        "CAT 1",
+        "CAT 125"
+      ],
+      "candidateId": "easy-a-marchisotto-jennifer-anne-ae0c504321",
+      "candidateName": "Marchisotto, Jennifer Anne",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CAT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CAT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jennifer Taylor",
+      "currentCourses": [
+        "ESYS 101",
+        "SIO 125",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-taylor-jennifer-rebecca-f761003a9f",
+      "candidateName": "Taylor, Jennifer Rebecca",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ESYS",
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ESYS.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jeremy Klosterman",
+      "currentCourses": [
+        "CHEM 143B",
+        "CHEM 40A"
+      ],
+      "candidateId": "easy-a-klosterman-jeremy-k-0d0a37a709",
+      "candidateName": "Klosterman, Jeremy K",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jessica D'elena-Tweed",
+      "currentCourses": [
+        "VIS 133A",
+        "VIS 41"
+      ],
+      "candidateId": "easy-a-d-elena-tweed-jessica-erin-0a6289e8d6",
+      "candidateName": "D'Elena-Tweed, Jessica Erin",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "VIS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: VIS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jessica Graham",
+      "currentCourses": [
+        "HILD 7A"
+      ],
+      "candidateId": "easy-a-graham-jessica-lynn-f97779b93e",
+      "candidateName": "Graham, Jessica Lynn",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "HILD"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: HILD."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jessica Rusert",
+      "currentCourses": [
+        "BICD 100"
+      ],
+      "candidateId": "easy-a-rusert-jessica-marie-c8d5f7a0ef",
+      "candidateName": "Rusert, Jessica Marie",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BICD"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BICD."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jill Gladstein",
+      "currentCourses": [
+        "SYN 100"
+      ],
+      "candidateId": "easy-a-gladstein-jill-m-cdefab3571",
+      "candidateName": "Gladstein, Jill M",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SYN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SYN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Joel Wertheim",
+      "currentCourses": [
+        "BISP 194",
+        "BNFO 299"
+      ],
+      "candidateId": "easy-a-wertheim-joel-okrent-a409be2940",
+      "candidateName": "Wertheim, Joel Okrent",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BISP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BISP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Johan Perols",
+      "currentCourses": [
+        "MGT 153"
+      ],
+      "candidateId": "easy-a-perols-johan-lars-8543fa6b6d",
+      "candidateName": "Perols, Johan Lars",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "John Anderson",
+      "currentCourses": [
+        "MGT 135"
+      ],
+      "candidateId": "easy-a-anderson-john-charles-2d0b52f1e7",
+      "candidateName": "Anderson, John Charles",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "John Armenta",
+      "currentCourses": [
+        "COMM 50"
+      ],
+      "candidateId": "easy-a-armenta-john-e-6a607ff39c",
+      "candidateName": "Armenta, John E",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COMM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COMM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "John Eggers",
+      "currentCourses": [
+        "MATH 120A",
+        "MATH 142A"
+      ],
+      "candidateId": "easy-a-eggers-john-dietrich-17ba8b25d1",
+      "candidateName": "Eggers, John Dietrich",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "John Haviland",
+      "currentCourses": [
+        "ANTH 299"
+      ],
+      "candidateId": "easy-a-haviland-john-b-fc30434b30",
+      "candidateName": "Haviland, John B.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "John Hildebrand",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-hildebrand-john-a-c9cb745915",
+      "candidateName": "Hildebrand, John A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "John Hwang",
+      "currentCourses": [
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-hwang-john-t-3cd1192501",
+      "candidateName": "Hwang, John T",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jon Bialecki",
+      "currentCourses": [
+        "ANSC 124"
+      ],
+      "candidateId": "easy-a-bialecki-jon-anthony-6785eff8ac",
+      "candidateName": "Bialecki, Jon Anthony",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ANSC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ANSC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jonathan Pokorski",
+      "currentCourses": [
+        "CENG 299",
+        "CHEM 299",
+        "NANO 299"
+      ],
+      "candidateId": "easy-a-pokorski-jonathan-kyle-49961adc6d",
+      "candidateName": "Pokorski, Jonathan Kyle",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CENG",
+        "CHEM",
+        "NANO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CENG.",
+        "Shared subject: CHEM.",
+        "Shared subject: NANO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jordan Escobar",
+      "currentCourses": [
+        "WCWP 10B"
+      ],
+      "candidateId": "easy-a-escobar-jordan-christophe-cf93cd4de1",
+      "candidateName": "Escobar, Jordan Christophe",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "WCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: WCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jordan Rose",
+      "currentCourses": [
+        "VIS 124E",
+        "VIS 23"
+      ],
+      "candidateId": "easy-a-rose-jordan-m-cb93d69c8b",
+      "candidateName": "Rose, Jordan M",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "VIS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: VIS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jorge Hirsch",
+      "currentCourses": [
+        "PHYS 139",
+        "PHYS 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-hirsch-jorge-eduardo-5605fee94e",
+      "candidateName": "Hirsch, Jorge Eduardo",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Jose Burgos",
+      "currentCourses": [
+        "GLBH 111",
+        "GLBH 181"
+      ],
+      "candidateId": "easy-a-burgos-jose-l-84613d0328",
+      "candidateName": "Burgos, Jose L.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "GLBH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: GLBH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Joseph Pecore",
+      "currentCourses": [
+        "MGT 12",
+        "MGT 45"
+      ],
+      "candidateId": "easy-a-pecore-joseph-p-c5c399111b",
+      "candidateName": "Pecore, Joseph P.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Joshua Frisch",
+      "currentCourses": [
+        "MATH 299"
+      ],
+      "candidateId": "easy-a-frisch-joshua-r-a0794585d8",
+      "candidateName": "Frisch, Joshua R",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Joshua Tonies",
+      "currentCourses": [
+        "VIS 1",
+        "VIS 105A"
+      ],
+      "candidateId": "easy-a-tonies-joshua-vanjaymes-7d83245273",
+      "candidateName": "Tonies, Joshua Vanjaymes",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "VIS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: VIS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Juan Blanco",
+      "currentCourses": [
+        "TDMV 142"
+      ],
+      "candidateId": "easy-a-blanco-juan-carlos-333e60dc44",
+      "candidateName": "Blanco, Juan Carlos",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "TDMV"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: TDMV."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Judy Kim",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-kim-judy-e-e9d2bfcd90",
+      "candidateName": "Kim, Judy E.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Julia Adrian",
+      "currentCourses": [
+        "PSYC 108",
+        "PSYC 169",
+        "PSYC 500"
+      ],
+      "candidateId": "easy-a-adrian-julia-anna-d87b4c6c8e",
+      "candidateName": "Adrian, Julia Anna",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PSYC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PSYC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Julia Lewandoski",
+      "currentCourses": [
+        "HILD 2A",
+        "HIUS 114A"
+      ],
+      "candidateId": "easy-a-lewandoski-julia-mavis-0236e8a45b",
+      "candidateName": "Lewandoski, Julia Mavis",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "HILD",
+        "HIUS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: HILD.",
+        "Shared subject: HIUS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Julia Ortony",
+      "currentCourses": [
+        "CHEM 299",
+        "CHEM 6A"
+      ],
+      "candidateId": "easy-a-ortony-julia-helen-d191304765",
+      "candidateName": "Ortony, Julia Helen",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Julia Sloane",
+      "currentCourses": [
+        "ANSC 121",
+        "ANTH 108"
+      ],
+      "candidateId": "easy-a-sloane-julia-kathryn-a67e32c626",
+      "candidateName": "Sloane, Julia Kathryn",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ANSC",
+        "ANTH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ANSC.",
+        "Shared subject: ANTH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Julia Stauber",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-stauber-julia-megan-b313d1aea5",
+      "candidateName": "Stauber, Julia Megan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Julie Wartell",
+      "currentCourses": [
+        "USP 161"
+      ],
+      "candidateId": "easy-a-wartell-julie-dara-0cc4db8571",
+      "candidateName": "Wartell, Julie Dara",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "USP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: USP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Junko Simpson",
+      "currentCourses": [
+        "JAPN 10A",
+        "JAPN 137A"
+      ],
+      "candidateId": "easy-a-simpson-junko-tokuda-4bfa70b038",
+      "candidateName": "Simpson, Junko Tokuda",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "JAPN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: JAPN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kam Arnold",
+      "currentCourses": [
+        "ASTR 18",
+        "PHYS 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-arnold-kam-s-39f361e34a",
+      "candidateName": "Arnold, Kam S",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ASTR",
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ASTR.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kara Mack",
+      "currentCourses": [
+        "TDMV 3",
+        "TDPF 160"
+      ],
+      "candidateId": "easy-a-mack-kara-shanai-f18eb018ca",
+      "candidateName": "Mack, Kara Shanai'",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "TDMV",
+        "TDPF"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: TDMV.",
+        "Shared subject: TDPF."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Katharine Lacefield",
+      "currentCourses": [
+        "PSYC 154",
+        "PSYC 188",
+        "PSYC 500"
+      ],
+      "candidateId": "easy-a-lacefield-katharine-i-c755290b89",
+      "candidateName": "Lacefield, Katharine I",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PSYC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PSYC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Katharine Ricke",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-ricke-katharine-l-c150e09e74",
+      "candidateName": "Ricke, Katharine L",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Katherine Petrie",
+      "currentCourses": [
+        "BIEB 146",
+        "BIMM 121"
+      ],
+      "candidateId": "easy-a-petrie-katherine-lynn-70a475fa91",
+      "candidateName": "Petrie, Katherine Lynn",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BIEB",
+        "BIMM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BIEB.",
+        "Shared subject: BIMM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kathryn Garcia",
+      "currentCourses": [
+        "CCE 1",
+        "CCE 120"
+      ],
+      "candidateId": "easy-a-garcia-kathryn-mary-7894be2617",
+      "candidateName": "Garcia, Kathryn Mary",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CCE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CCE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kayoko Ross",
+      "currentCourses": [
+        "JAPN 10A",
+        "JAPN 130A"
+      ],
+      "candidateId": "easy-a-ross-kayoko-f-b0a48a7d5c",
+      "candidateName": "Ross, Kayoko F",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "JAPN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: JAPN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Keith Mccleary",
+      "currentCourses": [
+        "WCWP 10A"
+      ],
+      "candidateId": "easy-a-mccleary-keith-long-75955c64b8",
+      "candidateName": "McCleary, Keith Long",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "WCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: WCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kelly Silva",
+      "currentCourses": [
+        "MCWP 40"
+      ],
+      "candidateId": "easy-a-silva-kelly-b-56514c091f",
+      "candidateName": "Silva, Kelly B",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kenneth Bates",
+      "currentCourses": [
+        "MGT 105"
+      ],
+      "candidateId": "easy-a-bates-kenneth-walter-f29f2c11ba",
+      "candidateName": "Bates, Kenneth Walter",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kensy Cooperrider",
+      "currentCourses": [
+        "COGS 155",
+        "COGS 500"
+      ],
+      "candidateId": "easy-a-cooperrider-kensy-a-ffe5b03a44",
+      "candidateName": "Cooperrider, Kensy A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COGS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COGS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kerry White",
+      "currentCourses": [
+        "CCE 2"
+      ],
+      "candidateId": "easy-a-white-kerry-marlene-7ff0c6e672",
+      "candidateName": "White, Kerry Marlene",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CCE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CCE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kevin Lewis",
+      "currentCourses": [
+        "SOCI 122",
+        "SOCI 143V"
+      ],
+      "candidateId": "easy-a-lewis-kevin-michael-d542f46635",
+      "candidateName": "Lewis, Kevin Michael",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SOCI"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SOCI."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kim Albizati",
+      "currentCourses": [
+        "CHEM 40A"
+      ],
+      "candidateId": "easy-a-albizati-kim-f-37bc31a7c2",
+      "candidateName": "Albizati, Kim F.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kimberly Prather",
+      "currentCourses": [
+        "CHEM 299",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-prather-kimberly-a-7fcfe27fc0",
+      "candidateName": "Prather, Kimberly A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "King Britt",
+      "currentCourses": [
+        "MUS 19R",
+        "MUS 500"
+      ],
+      "candidateId": "easy-a-britt-king-james-aa2cc067a1",
+      "candidateName": "Britt, King James",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MUS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MUS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kirstyn Hom",
+      "currentCourses": [
+        "SYN 100"
+      ],
+      "candidateId": "easy-a-hom-kirstyn-courtney-bbe43cf8bd",
+      "candidateName": "Hom, Kirstyn Courtney",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SYN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SYN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kristine Ehrich",
+      "currentCourses": [
+        "MGT 103"
+      ],
+      "candidateId": "easy-a-ehrich-kristine-r-067eb2a688",
+      "candidateName": "Ehrich, Kristine R",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Kyle Blair",
+      "currentCourses": [
+        "MUS 32VM"
+      ],
+      "candidateId": "easy-a-blair-kyle-adam-10cdd2343b",
+      "candidateName": "Blair, Kyle Adam",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MUS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MUS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "LaTisha Hammond",
+      "currentCourses": [
+        "BILD 3"
+      ],
+      "candidateId": "easy-a-hammond-latisha-marie-b08dfb094f",
+      "candidateName": "Hammond, LaTisha Marie",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BILD"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BILD."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Lauren Gilmore",
+      "currentCourses": [
+        "AWP 4B"
+      ],
+      "candidateId": "easy-a-gilmore-lauren-monica-624cbf10f7",
+      "candidateName": "Gilmore, Lauren Monica",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "AWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: AWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Lauren Shipp",
+      "currentCourses": [
+        "ESYS 187A",
+        "SIO 136"
+      ],
+      "candidateId": "easy-a-shipp-lauren-elizabeth-8f156db4b7",
+      "candidateName": "Shipp, Lauren Elizabeth",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ESYS",
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ESYS.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Lauryn Smith",
+      "currentCourses": [
+        "CAT 125R"
+      ],
+      "candidateId": "easy-a-smith-lauryn-alissa-1bb0afcd51",
+      "candidateName": "Smith, Lauryn Alissa",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CAT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CAT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Leslie Lewis",
+      "currentCourses": [
+        "USP 141A"
+      ],
+      "candidateId": "easy-a-lewis-leslie-r-336dc532e3",
+      "candidateName": "Lewis, Leslie R",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "USP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: USP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Leticia Pagkalinawan",
+      "currentCourses": [
+        "LIHL 112F",
+        "LIHL 132F"
+      ],
+      "candidateId": "easy-a-pagkalinawan-leticia-cant-5bd348f2f1",
+      "candidateName": "Pagkalinawan, Leticia Cant",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LIHL"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LIHL."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Liam Mueller",
+      "currentCourses": [
+        "BILD 5"
+      ],
+      "candidateId": "easy-a-mueller-liam-o-connor-1ff5aeb45e",
+      "candidateName": "Mueller, Liam O'Connor",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BILD"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BILD."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Lisa Levin",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-levin-lisa-ann-7f58241a3d",
+      "candidateName": "Levin, Lisa Ann",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Louis Dunn",
+      "currentCourses": [
+        "MGT 187"
+      ],
+      "candidateId": "easy-a-dunn-louis-jean-3f6e409264",
+      "candidateName": "Dunn, Louis Jean",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ludmil Alexandrov",
+      "currentCourses": [
+        "BENG 299",
+        "BNFO 299"
+      ],
+      "candidateId": "easy-a-alexandrov-ludmil-b-4fb8c6b321",
+      "candidateName": "Alexandrov, Ludmil B",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BENG"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BENG."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Lynn Russell",
+      "currentCourses": [
+        "SIO 20R",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-russell-lynn-m-898fbae6c4",
+      "candidateName": "Russell, Lynn M.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Lynne Talley",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-talley-lynne-d-f7a01481f0",
+      "candidateName": "Talley, Lynne D",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Mamadou Diagne",
+      "currentCourses": [
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-diagne-mamadou-lamine-a5057a5ec5",
+      "candidateName": "Diagne, Mamadou Lamine",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Marc Marino",
+      "currentCourses": [
+        "BIPN 140",
+        "BIPN 145"
+      ],
+      "candidateId": "easy-a-marino-marc-j-43f8a2a3c6",
+      "candidateName": "Marino, Marc J",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BIPN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BIPN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Marcus Benna",
+      "currentCourses": [
+        "BGGN 299",
+        "BIPN 194",
+        "CSE 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-benna-marcus-k-de6196bf2e",
+      "candidateName": "Benna, Marcus K",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BIPN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BIPN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Margaret Roberts",
+      "currentCourses": [
+        "POLI 121D"
+      ],
+      "candidateId": "easy-a-roberts-margaret-earling-0856e26566",
+      "candidateName": "Roberts, Margaret Earling",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "POLI"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: POLI."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Maria Candido",
+      "currentCourses": [
+        "ECON 120B",
+        "ECON 120C"
+      ],
+      "candidateId": "easy-a-candido-maria-teresa-ab55d1019c",
+      "candidateName": "Candido, Maria Teresa",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ECON"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ECON."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Mark Herzik",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-herzik-mark-anthony-f5396a53b8",
+      "candidateName": "Herzik, Mark Anthony",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Mary Boyle",
+      "currentCourses": [
+        "COGS 160",
+        "COGS 163",
+        "COGS 2",
+        "COGS 500"
+      ],
+      "candidateId": "easy-a-boyle-mary-e-t-afc94cec5a",
+      "candidateName": "Boyle, Mary E. T.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COGS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COGS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Mary McKay",
+      "currentCourses": [
+        "MGT 164"
+      ],
+      "candidateId": "easy-a-mckay-mary-a-b573804aec",
+      "candidateName": "McKay, Mary A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Mattheus Stephens",
+      "currentCourses": [
+        "POLI 104M"
+      ],
+      "candidateId": "easy-a-stephens-mattheus-e-f6d918b8fb",
+      "candidateName": "Stephens, Mattheus E",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "POLI"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: POLI."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Matthew Crum",
+      "currentCourses": [
+        "HUM 100"
+      ],
+      "candidateId": "easy-a-crum-matthew-stephen-c7cd8ae542",
+      "candidateName": "Crum, Matthew Stephen",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "HUM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: HUM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Matthew Henson",
+      "currentCourses": [
+        "MUS 95E"
+      ],
+      "candidateId": "easy-a-henson-matthew-alexander-1be9c91db4",
+      "candidateName": "Henson, Matthew Alexander",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MUS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MUS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Matthew Irwin",
+      "currentCourses": [
+        "CAT 125"
+      ],
+      "candidateId": "easy-a-irwin-matthew-joseph-8c20095ddd",
+      "candidateName": "Irwin, Matthew Joseph",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CAT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CAT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Matthew Stone",
+      "currentCourses": [
+        "PH 45"
+      ],
+      "candidateId": "easy-a-stone-matthew-david-9158b15ed0",
+      "candidateName": "Stone, Matthew David",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "May Elsherif",
+      "currentCourses": [
+        "CSE 299"
+      ],
+      "candidateId": "easy-a-elsherif-may-elhussein-fe301ad2f3",
+      "candidateName": "Elsherif, May Elhussein",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CSE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CSE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Mayumi Mckee",
+      "currentCourses": [
+        "JAPN 10A",
+        "JAPN 140A"
+      ],
+      "candidateId": "easy-a-mckee-mayumi-mochizuki-79fcec2beb",
+      "candidateName": "McKee, Mayumi Mochizuki",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "JAPN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: JAPN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Megan Strom",
+      "currentCourses": [
+        "DOC 1"
+      ],
+      "candidateId": "easy-a-strom-megan-c-f6bbfab2cc",
+      "candidateName": "Strom, Megan C.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "DOC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: DOC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Melissa Warstadt",
+      "currentCourses": [
+        "HDS 124",
+        "HDS 60"
+      ],
+      "candidateId": "easy-a-warstadt-melissa-fawn-43a9cd273b",
+      "candidateName": "Warstadt, Melissa Fawn",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "HDS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: HDS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Meredith Crane",
+      "currentCourses": [
+        "ECON 100B",
+        "ECON 2"
+      ],
+      "candidateId": "easy-a-crane-meredith-helen-0a5e76d49d",
+      "candidateName": "Crane, Meredith Helen",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ECON"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ECON."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michael Burkart",
+      "currentCourses": [
+        "CHEM 299",
+        "CHEM 40B",
+        "MATS 299"
+      ],
+      "candidateId": "easy-a-burkart-michael-d-e354c3fb66",
+      "candidateName": "Burkart, Michael D",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michael Calderon-Zaks",
+      "currentCourses": [
+        "SOCI 125",
+        "SOCI 180"
+      ],
+      "candidateId": "easy-a-calderon-zaks-michael-aar-b64c594214",
+      "candidateName": "Calderon-Zaks, Michael Aar",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SOCI"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SOCI."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michael Davidson",
+      "currentCourses": [
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-davidson-michael-r-1334bed5e3",
+      "candidateName": "Davidson, Michael R",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michael Fogler",
+      "currentCourses": [
+        "PHYS 212A",
+        "PHYS 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-fogler-michael-m-8d63a017f1",
+      "candidateName": "Fogler, Michael M.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michael Holmes",
+      "currentCourses": [
+        "USP 150"
+      ],
+      "candidateId": "easy-a-holmes-michael-joseph-32036c2edd",
+      "candidateName": "Holmes, Michael Joseph",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "USP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: USP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michael Landry",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-landry-michael-raymond-2db28b5ccd",
+      "candidateName": "Landry, Michael Raymond",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michael McKay",
+      "currentCourses": [
+        "MGT 18"
+      ],
+      "candidateId": "easy-a-mckay-michael-j-db07de0bd1",
+      "candidateName": "McKay, Michael J",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michael Morshed",
+      "currentCourses": [
+        "MCWP 40"
+      ],
+      "candidateId": "easy-a-morshed-michael-james-46b39411e2",
+      "candidateName": "Morshed, Michael James",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michael Sailor",
+      "currentCourses": [
+        "BENG 299",
+        "CENG 299",
+        "CHEM 299",
+        "MATS 299",
+        "NANO 299"
+      ],
+      "candidateId": "easy-a-sailor-michael-joseph-35f1f4271d",
+      "candidateName": "Sailor, Michael Joseph",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Michele Bigley",
+      "currentCourses": [
+        "CCE 120"
+      ],
+      "candidateId": "easy-a-bigley-michele-heather-8d8d2282cd",
+      "candidateName": "Bigley, Michele Heather",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CCE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CCE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Mitchell Warachka",
+      "currentCourses": [
+        "MGT 183"
+      ],
+      "candidateId": "easy-a-warachka-mitchell-c-024c54c42a",
+      "candidateName": "Warachka, Mitchell C",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Mohammad Bahadori",
+      "currentCourses": [
+        "MAE 181"
+      ],
+      "candidateId": "easy-a-bahadori-mohammad-yousef-6834350429",
+      "candidateName": "Bahadori, Mohammad Yousef",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Moira Decima",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-decima-moira-r-0f74a66cc7",
+      "candidateName": "Decima, Moira R.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Monica Allen",
+      "currentCourses": [
+        "MATS 299",
+        "PHYS 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-allen-monica-t-caff612bbe",
+      "candidateName": "Allen, Monica T",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Monika Gosin",
+      "currentCourses": [
+        "ETHN 298",
+        "ETHN 299"
+      ],
+      "candidateId": "easy-a-gosin-monika-n-fca6f23758",
+      "candidateName": "Gosin, Monika N.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ETHN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ETHN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Muhammed Chowdhury",
+      "currentCourses": [
+        "USP 144"
+      ],
+      "candidateId": "easy-a-chowdhury-muhammed-zohir-0739cca17b",
+      "candidateName": "Chowdhury, Muhammed Zohir",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "USP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: USP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Nathan Lewis",
+      "currentCourses": [
+        "BENG 299",
+        "BNFO 299"
+      ],
+      "candidateId": "easy-a-lewis-nathan-e-97a4de7303",
+      "candidateName": "Lewis, Nathan E",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BENG"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BENG."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Nathan Moeder",
+      "currentCourses": [
+        "USP 152B"
+      ],
+      "candidateId": "easy-a-moeder-nathan-l-ac7345f24f",
+      "candidateName": "Moeder, Nathan L",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "USP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: USP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Nathan Romero",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-romero-nathan-a-fe0addbc6e",
+      "candidateName": "Romero, Nathan A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Neal Driscoll",
+      "currentCourses": [
+        "SIO 105",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-driscoll-neal-w-f20944b843",
+      "candidateName": "Driscoll, Neal W.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Niall Twohig",
+      "currentCourses": [
+        "WCWP 10A"
+      ],
+      "candidateId": "easy-a-twohig-niall-ivan-fec6785071",
+      "candidateName": "Twohig, Niall Ivan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "WCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: WCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Nicholas Boechler",
+      "currentCourses": [
+        "MAE 107",
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-boechler-nicholas-sebastia-03127df20b",
+      "candidateName": "Boechler, Nicholas Sebastia",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Nicholas Gravish",
+      "currentCourses": [
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-gravish-nicholas-g-f4299d3d70",
+      "candidateName": "Gravish, Nicholas G",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Nicholas Lutsko",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-lutsko-nicholas-j-d756a7c429",
+      "candidateName": "Lutsko, Nicholas J.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Nirelia Moranton",
+      "currentCourses": [
+        "PSYC 102",
+        "PSYC 500"
+      ],
+      "candidateId": "easy-a-moranton-nirelia-melbina-ecfc6dec11",
+      "candidateName": "Moranton, Nirelia Melbina-",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PSYC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PSYC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Noah Rose",
+      "currentCourses": [
+        "BGGN 299"
+      ],
+      "candidateId": "easy-a-rose-noah-hartmann-75588927d3",
+      "candidateName": "Rose, Noah Hartmann",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Nora Schwaller",
+      "currentCourses": [
+        "USP 4"
+      ],
+      "candidateId": "easy-a-schwaller-nora-louise-6462982bee",
+      "candidateName": "Schwaller, Nora Louise",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "USP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: USP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Nuno Bandeira",
+      "currentCourses": [
+        "BENG 299",
+        "CSE 298",
+        "CSE 299"
+      ],
+      "candidateId": "easy-a-bandeira-nuno-filipe-cabrita-7c0c29c058",
+      "candidateName": "Bandeira, Nuno Filipe Cabrita",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CSE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CSE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Pamela Smith",
+      "currentCourses": [
+        "MGT 299"
+      ],
+      "candidateId": "easy-a-smith-pamela-karen-e5d2c582d9",
+      "candidateName": "Smith, Pamela Karen",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Paterno Castillo",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-castillo-paterno-r-e0f5964c33",
+      "candidateName": "Castillo, Paterno R.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Patricia Hemans",
+      "currentCourses": [
+        "TMC 15"
+      ],
+      "candidateId": "easy-a-hemans-patricia-ann-benitez-5ba1a1e422",
+      "candidateName": "Hemans, Patricia Ann Benitez",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "TMC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: TMC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Patricia Jennings",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-jennings-patricia-a-a56e8d7cc2",
+      "candidateName": "Jennings, Patricia A.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Patricia Wells",
+      "currentCourses": [
+        "LTRU 104B",
+        "LTRU 1A",
+        "LTRU 2A",
+        "LTWL 500"
+      ],
+      "candidateId": "easy-a-wells-patricia-rebecca-bf7ccf5543",
+      "candidateName": "Wells, Patricia Rebecca",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LTRU"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LTRU."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Patrick Adamiak",
+      "currentCourses": [
+        "MMW 11"
+      ],
+      "candidateId": "easy-a-adamiak-patrick-john-49d2eb0ab2",
+      "candidateName": "Adamiak, Patrick John",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MMW"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MMW."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Patrick Rohner",
+      "currentCourses": [
+        "BGGN 299"
+      ],
+      "candidateId": "easy-a-rohner-patrick-thomas-ba79a1b21d",
+      "candidateName": "Rohner, Patrick Thomas",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Paul Jensen",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-jensen-paul-r-d61ea1fd2e",
+      "candidateName": "Jensen, Paul R.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Paulo Lima",
+      "currentCourses": [
+        "TDMV 140"
+      ],
+      "candidateId": "easy-a-lima-paulo-henrique-9499cec377",
+      "candidateName": "Lima, Paulo Henrique",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "TDMV"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: TDMV."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Pavel Pevzner",
+      "currentCourses": [
+        "BNFO 299",
+        "CSE 298",
+        "CSE 299"
+      ],
+      "candidateId": "easy-a-pevzner-pavel-arkadjevich-011068f646",
+      "candidateName": "Pevzner, Pavel Arkadjevich",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CSE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CSE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Peter Chi",
+      "currentCourses": [
+        "DSC 10"
+      ],
+      "candidateId": "easy-a-chi-peter-benjamin-10874577ce",
+      "candidateName": "Chi, Peter Benjamin",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "DSC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: DSC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Philip Guo",
+      "currentCourses": [
+        "COGS 124",
+        "COGS 500",
+        "CSE 298"
+      ],
+      "candidateId": "easy-a-guo-philip-j-c7553272f3",
+      "candidateName": "Guo, Philip J",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COGS",
+        "CSE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COGS.",
+        "Shared subject: CSE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Phoebe Bronstein",
+      "currentCourses": [
+        "CAT 1"
+      ],
+      "candidateId": "easy-a-bronstein-phoebe-malan-108cacbb25",
+      "candidateName": "Bronstein, Phoebe Malan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CAT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CAT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Pranav Upadrashta",
+      "currentCourses": [
+        "MATH 109"
+      ],
+      "candidateId": "easy-a-upadrashta-pranav-kumar-9c34222d30",
+      "candidateName": "Upadrashta, Pranav Kumar",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Quang Bach",
+      "currentCourses": [
+        "MATH 20E"
+      ],
+      "candidateId": "easy-a-bach-quang-tran-ce14547adf",
+      "candidateName": "Bach, Quang Tran",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Quinn Konopacky",
+      "currentCourses": [
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-konopacky-quinn-morgan-4d147930e6",
+      "candidateName": "Konopacky, Quinn Morgan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ralph Keeling",
+      "currentCourses": [
+        "SIO 117",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-keeling-ralph-f-6b57c8c9da",
+      "candidateName": "Keeling, Ralph F.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Randolph Hampton",
+      "currentCourses": [
+        "BIBC 102"
+      ],
+      "candidateId": "easy-a-hampton-randolph-y-6cf360de79",
+      "candidateName": "Hampton, Randolph Y.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BIBC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BIBC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ravi Bajaj",
+      "currentCourses": [
+        "USP 169"
+      ],
+      "candidateId": "easy-a-bajaj-ravi-siddharth-1ae2272e14",
+      "candidateName": "Bajaj, Ravi Siddharth",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "USP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: USP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Richard Averitt",
+      "currentCourses": [
+        "MATS 299",
+        "PHYS 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-averitt-richard-douglas-fe0f87a5d2",
+      "candidateName": "Averitt, Richard Douglas",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Richard Norris",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-norris-richard-d-32f1fc3aee",
+      "candidateName": "Norris, Richard D.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Robert Campbell",
+      "currentCourses": [
+        "MGT 16"
+      ],
+      "candidateId": "easy-a-campbell-robert-harold-3bfd3c37c9",
+      "candidateName": "Campbell, Robert Harold",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Rommie Amaro",
+      "currentCourses": [
+        "BGGN 299",
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-amaro-rommie-e-23feb622cd",
+      "candidateName": "Amaro, Rommie E",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ronald Burton",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-burton-ronald-s-94c49e14f2",
+      "candidateName": "Burton, Ronald S.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ronald Evans",
+      "currentCourses": [
+        "BENG 299"
+      ],
+      "candidateId": "easy-a-evans-ronald-j-50f777f74f",
+      "candidateName": "Evans, Ronald J.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Ryan Betschart",
+      "currentCourses": [
+        "FILM 73"
+      ],
+      "candidateId": "easy-a-betschart-ryan-michael-e45e368313",
+      "candidateName": "Betschart, Ryan Michael",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "FILM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: FILM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ryan Hechinger",
+      "currentCourses": [
+        "SIO 132",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-hechinger-ryan-f-4e06b51abd",
+      "candidateName": "Hechinger, Ryan F.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ryan Hibbs",
+      "currentCourses": [
+        "BIOM 298"
+      ],
+      "candidateId": "easy-a-hibbs-ryan-e-718c5fbfe8",
+      "candidateName": "Hibbs, Ryan E.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Samantha Trumbo",
+      "currentCourses": [
+        "ASTR 65"
+      ],
+      "candidateId": "easy-a-trumbo-samantha-kathleen-206c8a1b28",
+      "candidateName": "Trumbo, Samantha Kathleen",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ASTR"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ASTR."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Samuel Museus",
+      "currentCourses": [
+        "ETHN 122A",
+        "ETHN 298",
+        "ETHN 299",
+        "ETHN 87"
+      ],
+      "candidateId": "easy-a-museus-samuel-david-03d2f1b9be",
+      "candidateName": "Museus, Samuel David",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ETHN"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ETHN."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Sandra Brown",
+      "currentCourses": [
+        "PSYC 112"
+      ],
+      "candidateId": "easy-a-brown-sandra-a-d2a49e6efd",
+      "candidateName": "Brown, Sandra A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PSYC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PSYC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Sarah Gille",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-gille-sarah-t-5f9a79ea97",
+      "candidateName": "Gille, Sarah T",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Sarah Stockwell",
+      "currentCourses": [
+        "BILD 3"
+      ],
+      "candidateId": "easy-a-stockwell-sarah-r-0e9d6d2b20",
+      "candidateName": "Stockwell, Sarah R",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BILD"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BILD."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Satomi Rash-Zeigler",
+      "currentCourses": [
+        "USP 136"
+      ],
+      "candidateId": "easy-a-rash-zeigler-satomi-jessica-45b0cf4727",
+      "candidateName": "Rash-Zeigler, Satomi Jessica",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "USP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: USP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Sergey Kryazhimskiy",
+      "currentCourses": [
+        "BGGN 299"
+      ],
+      "candidateId": "easy-a-kryazhimskiy-sergey-a-9101cb4361",
+      "candidateName": "Kryazhimskiy, Sergey A",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Seth Cohen",
+      "currentCourses": [
+        "MATS 299"
+      ],
+      "candidateId": "easy-a-cohen-seth-m-8d8e92d0f2",
+      "candidateName": "Cohen, Seth M",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Shannon Ellis",
+      "currentCourses": [
+        "COGS 108",
+        "COGS 137",
+        "COGS 500"
+      ],
+      "candidateId": "easy-a-ellis-shannon-elizabeth-c760dd1b64",
+      "candidateName": "Ellis, Shannon Elizabeth",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COGS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COGS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Shelley Wright",
+      "currentCourses": [
+        "ASTR 1"
+      ],
+      "candidateId": "easy-a-wright-shelley-adams-88127e5870",
+      "candidateName": "Wright, Shelley Adams",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ASTR"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ASTR."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Sherry Hayes",
+      "currentCourses": [
+        "MGT 173"
+      ],
+      "candidateId": "easy-a-hayes-sherry-lorine-a217254633",
+      "candidateName": "Hayes, Sherry Lorine",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Soohyun Liao",
+      "currentCourses": [
+        "DSC 106"
+      ],
+      "candidateId": "easy-a-liao-soohyun-nam-96d5efa6d7",
+      "candidateName": "Liao, Soohyun Nam",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "DSC"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: DSC."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Sophia Merrifield",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-merrifield-sophia-t-9532e698a9",
+      "candidateName": "Merrifield, Sophia T",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Soraya Abuelhiga",
+      "currentCourses": [
+        "COMM 110M",
+        "COMM 127"
+      ],
+      "candidateId": "easy-a-abuelhiga-soraya-jill-d3a4cbfcee",
+      "candidateName": "Abuelhiga, Soraya Jill",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "COMM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: COMM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Stefan Llewellyn Smith",
+      "currentCourses": [
+        "MAE 152",
+        "MAE 299",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-llewellyn-smith-stefan-g-b17c29b65b",
+      "candidateName": "Llewellyn Smith, Stefan G.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Stephanie Fraley",
+      "currentCourses": [
+        "BENG 199",
+        "BENG 299"
+      ],
+      "candidateId": "easy-a-fraley-stephanie-i-c7effce40e",
+      "candidateName": "Fraley, Stephanie I.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BENG"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BENG."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Stephen Ross",
+      "currentCourses": [
+        "ECON 186"
+      ],
+      "candidateId": "easy-a-ross-stephen-geoffrey-2d9688b730",
+      "candidateName": "Ross, Stephen Geoffrey",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ECON"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ECON."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Steven Boggs",
+      "currentCourses": [
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-boggs-steven-edward-b273727ba3",
+      "candidateName": "Boggs, Steven Edward",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Steven Constable",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-constable-steven-c-3f2794d790",
+      "candidateName": "Constable, Steven C",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Steven Levkoff",
+      "currentCourses": [
+        "ECON 1"
+      ],
+      "candidateId": "easy-a-levkoff-steven-b-b792741631",
+      "candidateName": "Levkoff, Steven B.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ECON"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ECON."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Steven Sam",
+      "currentCourses": [
+        "MATH 188",
+        "MATH 190A",
+        "MATH 299"
+      ],
+      "candidateId": "easy-a-sam-steven-v-d011bbcfae",
+      "candidateName": "Sam, Steven V",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Stuart Sandin",
+      "currentCourses": [
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-sandin-stuart-adrian-627d209294",
+      "candidateName": "Sandin, Stuart Adrian",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Tatiana Mishanina",
+      "currentCourses": [
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-mishanina-tatiana-v-838e11d78f",
+      "candidateName": "Mishanina, Tatiana V",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Tatiana Zavodny",
+      "currentCourses": [
+        "HUM 100"
+      ],
+      "candidateId": "easy-a-zavodny-tatiana-sophia-c97f306026",
+      "candidateName": "Zavodny, Tatiana Sophia",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "HUM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: HUM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Terrence Sejnowski",
+      "currentCourses": [
+        "BENG 299"
+      ],
+      "candidateId": "easy-a-sejnowski-terrence-j-a6228da1b4",
+      "candidateName": "Sejnowski, Terrence J",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Terry Jernigan",
+      "currentCourses": [
+        "NEUG 299"
+      ],
+      "candidateId": "easy-a-jernigan-terry-lynne-d94170afe7",
+      "candidateName": "Jernigan, Terry Lynne",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Thomas Bussey",
+      "currentCourses": [
+        "CHEM 299",
+        "CHEM 4",
+        "CHEM 96",
+        "EDS 31"
+      ],
+      "candidateId": "easy-a-bussey-thomas-j-e205684fd2",
+      "candidateName": "Bussey, Thomas J",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM",
+        "EDS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM.",
+        "Shared subject: EDS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Tina Hyland",
+      "currentCourses": [
+        "CAT 125R"
+      ],
+      "candidateId": "easy-a-hyland-tina-mae-b630e228ab",
+      "candidateName": "Hyland, Tina Mae",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CAT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CAT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Todd Henry",
+      "currentCourses": [
+        "HIEA 150"
+      ],
+      "candidateId": "easy-a-henry-todd-a-ed41a56dbb",
+      "candidateName": "Henry, Todd A.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "HIEA"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: HIEA."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Todd Kontje",
+      "currentCourses": [
+        "LTEU 110"
+      ],
+      "candidateId": "easy-a-kontje-todd-curtis-a2b625de61",
+      "candidateName": "Kontje, Todd Curtis",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LTEU"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LTEU."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Todd Martz",
+      "currentCourses": [
+        "SIO 179",
+        "SIO 299"
+      ],
+      "candidateId": "easy-a-martz-todd-r-cb6bbab74c",
+      "candidateName": "Martz, Todd R.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "SIO"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: SIO."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Tomas Yufik",
+      "currentCourses": [
+        "HDS 150"
+      ],
+      "candidateId": "easy-a-yufik-tomas-y-5a0d087130",
+      "candidateName": "Yufik, Tomas Y",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "HDS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: HDS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Troy Kokinis",
+      "currentCourses": [
+        "LATI 166",
+        "LATI 50"
+      ],
+      "candidateId": "easy-a-kokinis-troy-andreas-e07112fb94",
+      "candidateName": "Kokinis, Troy Andreas",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LATI"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LATI."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Ulrich Muller",
+      "currentCourses": [
+        "CHEM 109",
+        "CHEM 299"
+      ],
+      "candidateId": "easy-a-muller-ulrich-k-21cb64c35c",
+      "candidateName": "Muller, Ulrich K.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Vabianna Santos",
+      "currentCourses": [
+        "CCE 2"
+      ],
+      "candidateId": "easy-a-santos-vabianna-daria-886059356b",
+      "candidateName": "Santos, Vabianna Daria",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CCE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CCE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Vicki Grassian",
+      "currentCourses": [
+        "CENG 299",
+        "CHEM 299",
+        "NANO 299"
+      ],
+      "candidateId": "easy-a-grassian-vicki-helene-b25b728884",
+      "candidateName": "Grassian, Vicki Helene",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CHEM"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CHEM."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Victor Vianu",
+      "currentCourses": [
+        "CSE 299"
+      ],
+      "candidateId": "easy-a-vianu-victor-dan-e726ecbfaf",
+      "candidateName": "Vianu, Victor Dan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "CSE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: CSE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Vincent Pham",
+      "currentCourses": [
+        "MCWP 40"
+      ],
+      "candidateId": "easy-a-pham-vincent-minhduc-f13e07852c",
+      "candidateName": "Pham, Vincent Minhduc",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MCWP"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MCWP."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Vinciane Van Moer",
+      "currentCourses": [
+        "LIFR 1A",
+        "LIFR 1AX",
+        "LIFR 1B",
+        "LIFR 1BX",
+        "LIFR 1D",
+        "LIFR 1DX"
+      ],
+      "candidateId": "easy-a-van-moer-vinciane-g-d3aea7a293",
+      "candidateName": "Van Moer, Vinciane G",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "LIFR"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: LIFR."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Vira Kravets",
+      "currentCourses": [
+        "BENG 299"
+      ],
+      "candidateId": "easy-a-kravets-vira-v-0bd83bff45",
+      "candidateName": "Kravets, Vira V.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "BENG"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: BENG."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Vishal Patil",
+      "currentCourses": [
+        "MATH 299",
+        "PHYS 298"
+      ],
+      "candidateId": "easy-a-patil-vishal-prakash-dfa95a81d9",
+      "candidateName": "Patil, Vishal Prakash",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MATH"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MATH."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Vitali Nesterenko",
+      "currentCourses": [
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-nesterenko-vitali-f-e7bbc5fdb4",
+      "candidateName": "Nesterenko, Vitali F",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Vivek Sharma",
+      "currentCourses": [
+        "PHYS 12",
+        "PHYS 298",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-sharma-vivek-a-fa1a8bf322",
+      "candidateName": "Sharma, Vivek A.",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Vu Nguyen",
+      "currentCourses": [
+        "BGGN 299"
+      ],
+      "candidateId": "easy-a-nguyen-vu-quang-a7a47b43b8",
+      "candidateName": "Nguyen, Vu Quang",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted."
+      ],
+      "conflictingEvidence": [
+        "No shared course subject was found."
+      ],
+      "recommendation": "review",
+      "reason": "The name form is compatible, but there is no shared course subject."
+    },
+    {
+      "currentName": "Wade Lindenberger",
+      "currentCourses": [
+        "MGT 12",
+        "MGT 137",
+        "MGT 16"
+      ],
+      "candidateId": "easy-a-lindenberger-wade-douglas-eb830a470c",
+      "candidateName": "Lindenberger, Wade Douglas",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MGT"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MGT."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "William Mceneaney",
+      "currentCourses": [
+        "MAE 180",
+        "MAE 299"
+      ],
+      "candidateId": "easy-a-mceneaney-william-michael-4149656003",
+      "candidateName": "McEneaney, William Michael",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "MAE"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: MAE."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Wouter Rappel",
+      "currentCourses": [
+        "BENG 299",
+        "PHYS 299"
+      ],
+      "candidateId": "easy-a-rappel-wouter-jan-e7539226fd",
+      "candidateName": "Rappel, Wouter Jan",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "PHYS"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: PHYS."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    },
+    {
+      "currentName": "Yuan Tang",
+      "currentCourses": [
+        "ECON 130"
+      ],
+      "candidateId": "easy-a-tang-yuan-emily-96679efb8d",
+      "candidateName": "Tang, Yuan Emily",
+      "relationship": "middle-omitted",
+      "sharedSubjects": [
+        "ECON"
+      ],
+      "supportingEvidence": [
+        "Name relationship: middle-omitted.",
+        "Shared subject: ECON."
+      ],
+      "conflictingEvidence": [],
+      "recommendation": "recommended",
+      "reason": "Compatible name form and a shared course subject provide deterministic support."
+    }
+  ]
+}

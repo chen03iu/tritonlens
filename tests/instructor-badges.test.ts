@@ -443,6 +443,41 @@ describe('enhanceVisibleInstructorLinks', () => {
     );
   });
 
+  it('renders an accessible proportional bar chart for historical grade percentages', () => {
+    const link = renderInstructorLink('Libby Butler');
+    enhanceVisibleInstructorLinks(document, [createContext(link)]);
+
+    document
+      .querySelector<HTMLButtonElement>('.tritonlens-rating-badge')
+      ?.click();
+
+    const chart = document.querySelector<HTMLElement>(
+      '.tritonlens-grade-distribution',
+    );
+    const aBar = chart?.querySelector<HTMLElement>(
+      '[data-tritonlens-grade="A"]',
+    );
+    const aFill = aBar?.querySelector<HTMLElement>(
+      '.tritonlens-grade-distribution-fill',
+    );
+
+    expect(chart?.getAttribute('role')).toBe('group');
+    expect(chart?.getAttribute('aria-label')).toBe(
+      'Historical grade distribution',
+    );
+    expect(chart?.querySelectorAll(
+      '.tritonlens-grade-distribution-item',
+    )).toHaveLength(6);
+    expect(aBar?.getAttribute('tabindex')).toBe('0');
+    expect(aBar?.getAttribute('aria-label')).toBe('A: 58%');
+    expect(aBar?.title).toBe('A: 58%');
+    expect(aFill?.style.getPropertyValue(
+      '--tritonlens-grade-percent',
+    )).toBe('58%');
+    expect(chart?.querySelector('[data-tritonlens-grade="P"]'))
+      .toBeNull();
+  });
+
   it('shows unavailable states without inventing data', () => {
     const link = renderInstructorLink('Unknown Instructor');
     const context = createContext(link, 'Unknown Instructor');

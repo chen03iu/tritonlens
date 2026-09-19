@@ -72,6 +72,12 @@ development rating observation comes directly from RMP profile 3050657, not
 Easy-A Radar. It remains pending redistribution review and is not approved
 release data. No student review text is included.
 
+The batch audit uses Easy-A Radar's public `fa` snapshot as development input.
+Its source-profile/name links provide the evidence for conservative duplicate
+consolidation; this is not new independent RMP verification. TritonLens's own
+audit/consolidation code retains all historical rows and source metadata.
+See `INSTRUCTOR_MATCH_REVIEW.md` for safeguards and unresolved cases.
+
 No license has been selected for TritonLens yet. Adding a project license is a
 release-phase decision and does not change the licenses of third-party
 dependencies or future datasets.

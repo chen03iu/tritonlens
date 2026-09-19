@@ -119,13 +119,10 @@ describe('generated Easy-A development dataset', () => {
     }
   });
 
-  it('fails closed for an exact name with multiple source identities', () => {
+  it('uses the independently reviewed Keolu Fox identity', () => {
     expect(lookupProfessor(EASY_A_DATASET, 'Keolu Fox')).toMatchObject({
-      status: 'ambiguous',
-      candidates: expect.arrayContaining([
-        expect.objectContaining({ displayName: 'Keolu Fox' }),
-        expect.objectContaining({ displayName: 'Keolu Fox' }),
-      ]),
+      status: 'found',
+      record: { rating: { sourceProfessorId: '2778643' } },
     });
   });
 });

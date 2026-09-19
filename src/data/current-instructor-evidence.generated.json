@@ -1,0 +1,1328 @@
+{
+  "schemaVersion": 1,
+  "instructorSnapshotSha256": "b746016b93791acaaea1554e1a7ae3f75e7fbc6f64cd6bc53d6d9ae470b6266f",
+  "criteria": "One empty exact-name stub and one fuller Last, First record, with either an exact full-name reversal or an exact shortened first/last name plus overlapping current/historical subject code.",
+  "entries": [
+    {
+      "name": "Adam Feist",
+      "courses": [
+        "BENG 168",
+        "BENG 299",
+        "BENG 501"
+      ]
+    },
+    {
+      "name": "Ainsley Morse",
+      "courses": [
+        "LTWL 100"
+      ]
+    },
+    {
+      "name": "Alan Daly",
+      "courses": [
+        "EDS 285",
+        "EDS 286",
+        "EDS 299"
+      ]
+    },
+    {
+      "name": "Alessandro Marinoni",
+      "courses": [
+        "MAE 190",
+        "MAE 208",
+        "MAE 299",
+        "MATS 299"
+      ]
+    },
+    {
+      "name": "Alexander Kocurek",
+      "courses": [
+        "PHIL 1",
+        "PHIL 199",
+        "PHIL 290",
+        "PHIL 295",
+        "PHIL 299",
+        "PHIL 500"
+      ]
+    },
+    {
+      "name": "Alexander Warstadt",
+      "courses": [
+        "LIGN 167",
+        "LIGN 199",
+        "LIGN 296",
+        "LIGN 299",
+        "LIGN 502"
+      ]
+    },
+    {
+      "name": "Alexandro Segade",
+      "courses": [
+        "VIS 295",
+        "VIS 70N"
+      ]
+    },
+    {
+      "name": "Alina Bokovikova",
+      "courses": [
+        "TDDE 111",
+        "TDGR 276",
+        "TDGR 279"
+      ]
+    },
+    {
+      "name": "Alison Black",
+      "courses": [
+        "EDS 149",
+        "EDS 351",
+        "EDS 379A"
+      ]
+    },
+    {
+      "name": "Alison Smith",
+      "courses": [
+        "TDMV 110",
+        "TDMV 20",
+        "TDTR 115"
+      ]
+    },
+    {
+      "name": "Amato Evan",
+      "courses": [
+        "PHYS 299",
+        "SIO 299",
+        "SIOC 217A"
+      ]
+    },
+    {
+      "name": "Amelia Glaser",
+      "courses": [
+        "LTCO 297",
+        "LTEU 150A",
+        "LTRU 110A"
+      ]
+    },
+    {
+      "name": "Amy Sara Carroll",
+      "courses": [
+        "LTWR 295"
+      ]
+    },
+    {
+      "name": "Anastasia Kiyonaga",
+      "courses": [
+        "COGS 165",
+        "COGS 290",
+        "COGS 500"
+      ]
+    },
+    {
+      "name": "Andrea Caban",
+      "courses": [
+        "TDAC 108",
+        "TDGR 212",
+        "TDGR 221A"
+      ]
+    },
+    {
+      "name": "Andrew Kehler",
+      "courses": [
+        "LIGN 17",
+        "LIGN 199",
+        "LIGN 296",
+        "LIGN 299",
+        "LIGN 502"
+      ]
+    },
+    {
+      "name": "Andrew Phuong",
+      "courses": [
+        "EDS 296",
+        "EDS 299"
+      ]
+    },
+    {
+      "name": "Aniket De",
+      "courses": [
+        "HISA 122",
+        "HITO 194"
+      ]
+    },
+    {
+      "name": "Anthony Harb",
+      "courses": [
+        "COMM 110X",
+        "COMM 182"
+      ]
+    },
+    {
+      "name": "April Lukowski",
+      "courses": [
+        "CHEM 299",
+        "SIO 299",
+        "SIOB 262"
+      ]
+    },
+    {
+      "name": "Areana Chen",
+      "courses": [
+        "LIHL 118F",
+        "LIHL 138F"
+      ]
+    },
+    {
+      "name": "Armin Schwartzman",
+      "courses": [
+        "DSC 152",
+        "DSC 294",
+        "PHB 241"
+      ]
+    },
+    {
+      "name": "Arthur Edwards Jr.",
+      "courses": [
+        "COMM 119",
+        "COMM 80"
+      ]
+    },
+    {
+      "name": "Arya Mazumdar",
+      "courses": [
+        "DSC 140A"
+      ]
+    },
+    {
+      "name": "Ayelet Gneezy",
+      "courses": [
+        "MGT 262",
+        "MGT 296"
+      ]
+    },
+    {
+      "name": "Aysan Celik",
+      "courses": [
+        "TDGE 125",
+        "TDGR 295"
+      ]
+    },
+    {
+      "name": "Beatrice Basso",
+      "courses": [
+        "TDAC 108"
+      ]
+    },
+    {
+      "name": "Behram Wali",
+      "courses": [
+        "USP 165C",
+        "USP 265C",
+        "USP 60"
+      ]
+    },
+    {
+      "name": "Benjamin Appel",
+      "courses": [
+        "GPCO 408",
+        "INTL 190"
+      ]
+    },
+    {
+      "name": "Biwei Huang",
+      "courses": [
+        "CSE 293",
+        "DSC 294"
+      ]
+    },
+    {
+      "name": "Carlos Avenancio-Leon",
+      "courses": [
+        "MGT 296"
+      ]
+    },
+    {
+      "name": "Casandra Lopez",
+      "courses": [
+        "LTWR 102W",
+        "LTWR 113C",
+        "LTWR 295"
+      ]
+    },
+    {
+      "name": "Chadwick Campbell",
+      "courses": [
+        "AAS 170",
+        "PH 157"
+      ]
+    },
+    {
+      "name": "Christoforos Mamas",
+      "courses": [
+        "EDS 256",
+        "EDS 296"
+      ]
+    },
+    {
+      "name": "Christopher Halter",
+      "courses": [
+        "EDS 103",
+        "EDS 203"
+      ]
+    },
+    {
+      "name": "Christopher Perreira",
+      "courses": [
+        "ETHN 230",
+        "ETHN 298",
+        "ETHN 299"
+      ]
+    },
+    {
+      "name": "Chung Cheng",
+      "courses": [
+        "CSE 293",
+        "CSE 298",
+        "CSE 299"
+      ]
+    },
+    {
+      "name": "Clinton Tolley",
+      "courses": [
+        "PHIL 199",
+        "PHIL 277",
+        "PHIL 281",
+        "PHIL 290",
+        "PHIL 295",
+        "PHIL 299",
+        "PHIL 500"
+      ]
+    },
+    {
+      "name": "Colleen Petrik",
+      "courses": [
+        "SIO 299",
+        "SIOB 278",
+        "SIOB 279"
+      ]
+    },
+    {
+      "name": "Cristian Popescu",
+      "courses": [
+        "MATH 100A",
+        "MATH 104A",
+        "MATH 299"
+      ]
+    },
+    {
+      "name": "Daniel Fragiadakis",
+      "courses": [
+        "MGT 405",
+        "MGT 410",
+        "MGT 499"
+      ]
+    },
+    {
+      "name": "Daniel Green",
+      "courses": [
+        "PHYS 130B",
+        "PHYS 298",
+        "PHYS 299"
+      ]
+    },
+    {
+      "name": "Daniel Parker",
+      "courses": [
+        "PHYS 211A",
+        "PHYS 298",
+        "PHYS 299"
+      ]
+    },
+    {
+      "name": "Daniel Sievenpiper",
+      "courses": [
+        "ECE 200",
+        "ECE 299"
+      ]
+    },
+    {
+      "name": "Daniela Valdez-Jasso",
+      "courses": [
+        "BENG 199",
+        "BENG 299",
+        "BENG 501"
+      ]
+    },
+    {
+      "name": "David Fortunato",
+      "courses": [
+        "INTL 100",
+        "POLI 124A"
+      ]
+    },
+    {
+      "name": "dean erdmann",
+      "courses": [
+        "VIS 165",
+        "VIS 183B"
+      ]
+    },
+    {
+      "name": "Deanna Greene",
+      "courses": [
+        "COGS 116",
+        "COGS 195P",
+        "COGS 290"
+      ]
+    },
+    {
+      "name": "Deirdre Lyons",
+      "courses": [
+        "SIO 299",
+        "SIOB 297"
+      ]
+    },
+    {
+      "name": "Douglas Nitz",
+      "courses": [
+        "COGS 210A",
+        "COGS 290"
+      ]
+    },
+    {
+      "name": "Duncan Watson-Parris",
+      "courses": [
+        "DSC 200",
+        "DSC 294"
+      ]
+    },
+    {
+      "name": "Elizabeth Campbell",
+      "courses": [
+        "MGT 296"
+      ]
+    },
+    {
+      "name": "Elizabeth Pappas",
+      "courses": [
+        "EDS 351",
+        "EDS 352A",
+        "EDS 369A"
+      ]
+    },
+    {
+      "name": "Elizabeth Popko",
+      "courses": [
+        "CAT 200"
+      ]
+    },
+    {
+      "name": "Eric Yorkston",
+      "courses": [
+        "MGT 103",
+        "MGT 497",
+        "MGT 499"
+      ]
+    },
+    {
+      "name": "Erica Heinzman",
+      "courses": [
+        "EDS 129A",
+        "EDS 139",
+        "EDS 379A"
+      ]
+    },
+    {
+      "name": "Ethan Nadler",
+      "courses": [
+        "ASTR 122",
+        "ASTR 251"
+      ]
+    },
+    {
+      "name": "Fabian Trottner",
+      "courses": [
+        "ECON 110B",
+        "ECON 297"
+      ]
+    },
+    {
+      "name": "Fanny Chapelin",
+      "courses": [
+        "BENG 299",
+        "BGGN 271"
+      ]
+    },
+    {
+      "name": "Farinaz Koushanfar",
+      "courses": [
+        "ECE 111",
+        "ECE 200",
+        "ECE 226",
+        "ECE 299",
+        "ECE 501"
+      ]
+    },
+    {
+      "name": "Francisco Contijoch",
+      "courses": [
+        "BENG 135",
+        "BENG 299",
+        "BENG 501"
+      ]
+    },
+    {
+      "name": "Gal Mishne",
+      "courses": [
+        "DSC 294",
+        "ECE 299",
+        "NEUG 299"
+      ]
+    },
+    {
+      "name": "Garrison Cottrell",
+      "courses": [
+        "CSE 293",
+        "CSE 298",
+        "CSE 299"
+      ]
+    },
+    {
+      "name": "Gaurav Khanna",
+      "courses": [
+        "INTL 102"
+      ]
+    },
+    {
+      "name": "Gedeon Deak",
+      "courses": [
+        "COGS 115",
+        "COGS 195P"
+      ]
+    },
+    {
+      "name": "Georgios Tsampras",
+      "courses": [
+        "SE 203A",
+        "SE 296",
+        "SE 299"
+      ]
+    },
+    {
+      "name": "Gregory Rouse",
+      "courses": [
+        "BGGN 271",
+        "SIO 299"
+      ]
+    },
+    {
+      "name": "Haiwang Yong",
+      "courses": [
+        "CHEM 130",
+        "CHEM 231",
+        "CHEM 299",
+        "MATS 299"
+      ]
+    },
+    {
+      "name": "Haojian Jin",
+      "courses": [
+        "DSC 102",
+        "DSC 294"
+      ]
+    },
+    {
+      "name": "Holly Johnston",
+      "courses": [
+        "TDMV 2",
+        "TDPF 160"
+      ]
+    },
+    {
+      "name": "Hyo Duk Shin",
+      "courses": [
+        "MGT 296"
+      ]
+    },
+    {
+      "name": "Hyonny Kim",
+      "courses": [
+        "SE 296",
+        "SE 299"
+      ]
+    },
+    {
+      "name": "Ingrid Tomac",
+      "courses": [
+        "SE 296",
+        "SE 299"
+      ]
+    },
+    {
+      "name": "Jaclyn Jemc",
+      "courses": [
+        "LTWL 500",
+        "LTWR 215",
+        "LTWR 295",
+        "LTWR 8A"
+      ]
+    },
+    {
+      "name": "James Crawford",
+      "courses": [
+        "CCE 110",
+        "CCE 500"
+      ]
+    },
+    {
+      "name": "Janelle Iglesias",
+      "courses": [
+        "VIS 295"
+      ]
+    },
+    {
+      "name": "Jeffrey Schonberg",
+      "courses": [
+        "GLBH 100",
+        "GLBH 200"
+      ]
+    },
+    {
+      "name": "Jian Luo",
+      "courses": [
+        "CENG 299",
+        "ECE 238A",
+        "MAE 271A",
+        "MATS 201A",
+        "MATS 299",
+        "NANO 148",
+        "NANO 265",
+        "NANO 299"
+      ]
+    },
+    {
+      "name": "Jorge Poveda Fonseca",
+      "courses": [
+        "ECE 200",
+        "ECE 299"
+      ]
+    },
+    {
+      "name": "Jorge Sanchez Cruz",
+      "courses": [
+        "LTSP 87"
+      ]
+    },
+    {
+      "name": "Jose Unpingco",
+      "courses": [
+        "ECE 501"
+      ]
+    },
+    {
+      "name": "Joseph Engelberg",
+      "courses": [
+        "MGT 296",
+        "MGT 299"
+      ]
+    },
+    {
+      "name": "Joseph Hankins",
+      "courses": [
+        "ANTH 295",
+        "ANTH 296",
+        "ANTH 299"
+      ]
+    },
+    {
+      "name": "Julian Betts",
+      "courses": [
+        "ECON 291",
+        "ECON 297"
+      ]
+    },
+    {
+      "name": "Juliana Idoyaga",
+      "courses": [
+        "BGGN 271",
+        "BGGN 299",
+        "CHEM 299"
+      ]
+    },
+    {
+      "name": "Jun-Kun Wang",
+      "courses": [
+        "DSC 40A",
+        "ECE 200"
+      ]
+    },
+    {
+      "name": "Kamau Kenyatta",
+      "courses": [
+        "MUS 131",
+        "MUS 132",
+        "MUS 137A",
+        "MUS 137D",
+        "MUS 32",
+        "MUS 95JC"
+      ]
+    },
+    {
+      "name": "Karola Obermueller",
+      "courses": [
+        "MUS 103A",
+        "MUS 103D",
+        "MUS 203D",
+        "MUS 299"
+      ]
+    },
+    {
+      "name": "Kathrina Mendez",
+      "courses": [
+        "EDS 368",
+        "EDS 369A",
+        "EDS 370A"
+      ]
+    },
+    {
+      "name": "Kathryn Walkiewicz",
+      "courses": [
+        "LTCS 297"
+      ]
+    },
+    {
+      "name": "Keming Chen",
+      "courses": [
+        "PHIL 199",
+        "PHIL 290",
+        "PHIL 295",
+        "PHIL 299",
+        "PHIL 500"
+      ]
+    },
+    {
+      "name": "Kent Griffith",
+      "courses": [
+        "CHEM 299",
+        "CHEM 87",
+        "MATS 299"
+      ]
+    },
+    {
+      "name": "Kiran Kedlaya",
+      "courses": [
+        "MATH 197",
+        "MATH 299"
+      ]
+    },
+    {
+      "name": "Kristopher Kohler",
+      "courses": [
+        "SOCI 187"
+      ]
+    },
+    {
+      "name": "Lamar Perry",
+      "courses": [
+        "TDAC 122",
+        "TDDR 190",
+        "TDGR 245",
+        "TDGR 297",
+        "TDGR 299",
+        "TDHT 109"
+      ]
+    },
+    {
+      "name": "Laurel Riek",
+      "courses": [
+        "CSE 293",
+        "CSE 298",
+        "CSE 299"
+      ]
+    },
+    {
+      "name": "Lianhui Qin",
+      "courses": [
+        "CSE 293",
+        "CSE 299"
+      ]
+    },
+    {
+      "name": "Lillian Lu",
+      "courses": [
+        "LTEN 125",
+        "LTEN 22",
+        "LTWL 500"
+      ]
+    },
+    {
+      "name": "Lisa Jones",
+      "courses": [
+        "CHEM 117",
+        "CHEM 163",
+        "CHEM 263",
+        "CHEM 299"
+      ]
+    },
+    {
+      "name": "Lisa Porter",
+      "courses": [
+        "TDGR 280A",
+        "TDGR 288",
+        "TDGR 296"
+      ]
+    },
+    {
+      "name": "Lorena Mostajo",
+      "courses": [
+        "VIS 295"
+      ]
+    },
+    {
+      "name": "Loris D'Antoni",
+      "courses": [
+        "CSE 150B",
+        "CSE 239B",
+        "CSE 293",
+        "CSE 299"
+      ]
+    },
+    {
+      "name": "Lucas Buzaglo",
+      "courses": [
+        "MATH 109",
+        "MATH 20B"
+      ]
+    },
+    {
+      "name": "Lucy Lai",
+      "courses": [
+        "COGS 109",
+        "COGS 118D",
+        "COGS 500"
+      ]
+    },
+    {
+      "name": "Lutz Warnke",
+      "courses": [
+        "MATH 196",
+        "MATH 264A",
+        "MATH 269",
+        "MATH 299"
+      ]
+    },
+    {
+      "name": "Malik Gaines",
+      "courses": [
+        "VIS 295"
+      ]
+    },
+    {
+      "name": "Marcos Duran",
+      "courses": [
+        "TDMV 123",
+        "TDTR 120"
+      ]
+    },
+    {
+      "name": "Maria Aragon",
+      "courses": [
+        "EDS 296",
+        "EDS 299"
+      ]
+    },
+    {
+      "name": "Mariana Katz",
+      "courses": [
+        "HITO 194"
+      ]
+    },
+    {
+      "name": "Mark Merrifield",
+      "courses": [
+        "SIO 175",
+        "SIO 299",
+        "SIOC 208"
+      ]
+    },
+    {
+      "name": "Maryam Entezam",
+      "courses": [
+        "USP 179"
+      ]
+    },
+    {
+      "name": "Massimiliano Di Ventra",
+      "courses": [
+        "PHYS 298",
+        "PHYS 299",
+        "PHYS 2D"
+      ]
+    },
+    {
+      "name": "Matthias Morzfeld",
+      "courses": [
+        "SIO 299",
+        "SIOG 223A"
+      ]
+    },
+    {
+      "name": "Maud Arnal",
+      "courses": [
+        "SOCI 173",
+        "SOCI 60"
+      ]
+    },
+    {
+      "name": "Meenakshi Khosla",
+      "courses": [
+        "COGS 210A",
+        "COGS 290",
+        "CSE 293"
+      ]
+    },
+    {
+      "name": "Megan Hopkins",
+      "courses": [
+        "EDS 253",
+        "EDS 283",
+        "EDS 296",
+        "EDS 299"
+      ]
+    },
+    {
+      "name": "Megan Wesling",
+      "courses": [
+        "CGS 87",
+        "LTCS 110",
+        "LTEU 141"
+      ]
+    },
+    {
+      "name": "Mehran Tehrani",
+      "courses": [
+        "MATS 299",
+        "SE 296",
+        "SE 299"
+      ]
+    },
+    {
+      "name": "Melissa Gymrek",
+      "courses": [
+        "BIOM 298",
+        "BNFO 299",
+        "CSE 293",
+        "CSE 298",
+        "CSE 299"
+      ]
+    },
+    {
+      "name": "Michael Frazier",
+      "courses": [
+        "MAE 203",
+        "MAE 299",
+        "MATS 299"
+      ]
+    },
+    {
+      "name": "Michael Reher",
+      "courses": [
+        "MGT 499",
+        "MGTF 415"
+      ]
+    },
+    {
+      "name": "Michael Todd",
+      "courses": [
+        "SE 197",
+        "SE 296",
+        "SE 299"
+      ]
+    },
+    {
+      "name": "Mikhail Belkin",
+      "courses": [
+        "CSE 298",
+        "DSC 294"
+      ]
+    },
+    {
+      "name": "Munseob Lee",
+      "courses": [
+        "GPEC 431",
+        "GPEC 485"
+      ]
+    },
+    {
+      "name": "Nayeli Jiménez Cano",
+      "courses": [
+        "ANAR 166",
+        "ANTH 295",
+        "ANTH 296",
+        "ANTH 299",
+        "LATI 180",
+        "SIO 166"
+      ]
+    },
+    {
+      "name": "Nicholas Spitzer",
+      "courses": [
+        "BGGN 271"
+      ]
+    },
+    {
+      "name": "Nicole Steinmetz",
+      "courses": [
+        "BENG 299",
+        "BGGN 271",
+        "CENG 299",
+        "NANO 299"
+      ]
+    },
+    {
+      "name": "Nuria Gonzalez Prelcic",
+      "courses": [
+        "ECE 155",
+        "ECE 200",
+        "ECE 299"
+      ]
+    },
+    {
+      "name": "Nydia Pineda de Avila",
+      "courses": [
+        "HIGR 202A",
+        "HILA 135",
+        "HITO 194"
+      ]
+    },
+    {
+      "name": "Oumelbanine Zhiri",
+      "courses": [
+        "LTAF 120",
+        "LTFR 104",
+        "LTFR 2A"
+      ]
+    },
+    {
+      "name": "Pamela Cosman",
+      "courses": [
+        "ECE 200",
+        "ECE 299"
+      ]
+    },
+    {
+      "name": "Ping Zhu",
+      "courses": [
+        "LTCO 201",
+        "LTTH 210A"
+      ]
+    },
+    {
+      "name": "Rachel Rudolph",
+      "courses": [
+        "PHIL 199",
+        "PHIL 290",
+        "PHIL 295",
+        "PHIL 299",
+        "PHIL 500"
+      ]
+    },
+    {
+      "name": "Rajee Samarasinghe",
+      "courses": [
+        "FILM 71"
+      ]
+    },
+    {
+      "name": "Raphael Flauger",
+      "courses": [
+        "PHYS 225A",
+        "PHYS 298",
+        "PHYS 299"
+      ]
+    },
+    {
+      "name": "Reema Sanghvi",
+      "courses": [
+        "GLBH 141",
+        "GLBH 241"
+      ]
+    },
+    {
+      "name": "Robert Montgomery",
+      "courses": [
+        "MGT 446",
+        "MGT 71"
+      ]
+    },
+    {
+      "name": "Romain Delaville",
+      "courses": [
+        "CAT 124"
+      ]
+    },
+    {
+      "name": "Ronghui Xu",
+      "courses": [
+        "BNFO 299",
+        "MATH 299",
+        "PHB 241"
+      ]
+    },
+    {
+      "name": "Ross Parnell-Turner",
+      "courses": [
+        "SIO 103",
+        "SIO 299",
+        "SIOG 240"
+      ]
+    },
+    {
+      "name": "Sara Mcmenamin",
+      "courses": [
+        "PH 120R",
+        "PH 496B",
+        "PH 499"
+      ]
+    },
+    {
+      "name": "Sarah Creel",
+      "courses": [
+        "COGS 14A",
+        "COGS 290",
+        "COGS 500"
+      ]
+    },
+    {
+      "name": "Sarah Fine",
+      "courses": [
+        "EDS 201",
+        "EDS 296",
+        "EDS 299"
+      ]
+    },
+    {
+      "name": "Sharon Fargason",
+      "courses": [
+        "EDS 205A",
+        "EDS 361A",
+        "EDS 369A"
+      ]
+    },
+    {
+      "name": "Sherice Clarke",
+      "courses": [
+        "EDS 102",
+        "EDS 115",
+        "EDS 296",
+        "MSED 295"
+      ]
+    },
+    {
+      "name": "Simone Baumann-Pickering",
+      "courses": [
+        "SIO 299",
+        "SIOC 222"
+      ]
+    },
+    {
+      "name": "Soichiro Yamauchi",
+      "courses": [
+        "POLI 172",
+        "POLI 195",
+        "POLI 279"
+      ]
+    },
+    {
+      "name": "Stephen Buescher",
+      "courses": [
+        "TDAC 115",
+        "TDGR 212",
+        "TDGR 223A"
+      ]
+    },
+    {
+      "name": "Steven Barrera",
+      "courses": [
+        "COGS 1",
+        "COGS 101A",
+        "COGS 197",
+        "COGS 500"
+      ]
+    },
+    {
+      "name": "Steven Dow",
+      "courses": [
+        "COGS 123",
+        "COGS 210A",
+        "COGS 290",
+        "COGS 500",
+        "CSE 293"
+      ]
+    },
+    {
+      "name": "Steven Swanson",
+      "courses": [
+        "CSE 191",
+        "CSE 290",
+        "CSE 293",
+        "CSE 299"
+      ]
+    },
+    {
+      "name": "Tarun Grover",
+      "courses": [
+        "PHYS 217",
+        "PHYS 299"
+      ]
+    },
+    {
+      "name": "Tauhidur Rahman",
+      "courses": [
+        "CSE 293",
+        "DSC 209R",
+        "DSC 80"
+      ]
+    },
+    {
+      "name": "Thandeka Chapman",
+      "courses": [
+        "EDS 112",
+        "EDS 250",
+        "EDS 296",
+        "EDS 299"
+      ]
+    },
+    {
+      "name": "Theresa Gaasterland",
+      "courses": [
+        "BENG 199",
+        "BNFO 281",
+        "BNFO 298",
+        "BNFO 299",
+        "BNFO 500",
+        "SIO 299"
+      ]
+    },
+    {
+      "name": "Timothy McCormack",
+      "courses": [
+        "MUS 14",
+        "MUS 203D",
+        "MUS 299",
+        "MUS 500"
+      ]
+    },
+    {
+      "name": "Tod Pascal",
+      "courses": [
+        "CENG 299",
+        "MATS 299",
+        "NANO 202",
+        "NANO 299"
+      ]
+    },
+    {
+      "name": "Tricia Gallagher-Geurtsen",
+      "courses": [
+        "EDS 253",
+        "ETHN 171"
+      ]
+    },
+    {
+      "name": "Tse Nga Ng",
+      "courses": [
+        "ECE 103",
+        "ECE 200",
+        "ECE 299",
+        "MATS 299"
+      ]
+    },
+    {
+      "name": "Vanessa Stalling",
+      "courses": [
+        "TDGE 199",
+        "TDGR 219",
+        "TDGR 229",
+        "TDGR 240"
+      ]
+    },
+    {
+      "name": "Victoria Petrovich",
+      "courses": [
+        "TDDE 131",
+        "TDGR 229",
+        "TDGR 278",
+        "TDGR 279",
+        "TDGR 297"
+      ]
+    },
+    {
+      "name": "William Geibel",
+      "courses": [
+        "CAT 125",
+        "CAT 125R",
+        "CAT 90"
+      ]
+    },
+    {
+      "name": "Xinyu Zhang",
+      "courses": [
+        "ECE 200",
+        "ECE 299"
+      ]
+    },
+    {
+      "name": "Yen Espiritu",
+      "courses": [
+        "ETHN 155",
+        "ETHN 197",
+        "ETHN 298",
+        "ETHN 299"
+      ]
+    },
+    {
+      "name": "Yeshaiahu Fainman",
+      "courses": [
+        "ECE 191",
+        "ECE 200",
+        "ECE 299",
+        "MATS 299"
+      ]
+    },
+    {
+      "name": "Yizhak Fadlon",
+      "courses": [
+        "ECON 141",
+        "ECON 191A"
+      ]
+    },
+    {
+      "name": "Yousaf Habib",
+      "courses": [
+        "MATH 20B",
+        "MATH 20C"
+      ]
+    },
+    {
+      "name": "Yufei Ding",
+      "courses": [
+        "CSE 293",
+        "CSE 298",
+        "CSE 299"
+      ]
+    },
+    {
+      "name": "Yuri Fialko",
+      "courses": [
+        "SIO 299",
+        "SIOG 200B",
+        "SIOG 225"
+      ]
+    },
+    {
+      "name": "Zhiting Hu",
+      "courses": [
+        "DSC 297"
+      ]
+    }
+  ]
+}

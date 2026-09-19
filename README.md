@@ -28,6 +28,9 @@ redistribution questions remain under review.
 - Separates professor-level rating records from course × professor historical
   grade records.
 - Includes automated tests for DOM behavior, parsing, matching, and lookup.
+- Includes an offline batch instructor audit and conservative source-linked
+  duplicate consolidation. See [INSTRUCTOR_MATCH_REVIEW.md](INSTRUCTOR_MATCH_REVIEW.md)
+  for coverage, unresolved cases, and review decisions.
 
 ## Privacy
 

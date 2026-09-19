@@ -66,10 +66,12 @@ describe('reviewed name variants and empty duplicate consolidation', () => {
   });
 
   it('does not mutate source data and is idempotent after consolidation', () => {
+    const before = structuredClone(source);
     const corrected = applyReviewedCorrections(source);
     expect(corrected.professors.some(professor => professor.id === shortId)).toBe(false);
     expect(source.professors.find(professor => professor.id === shortId)?.aliases).toEqual([]);
     expect(applyReviewedCorrections(corrected)).toEqual(corrected);
-    expect(corrected.historicalCourseGrades).toBe(source.historicalCourseGrades);
+    expect(corrected.historicalCourseGrades).toHaveLength(source.historicalCourseGrades.length);
+    expect(source).toEqual(before);
   });
 });

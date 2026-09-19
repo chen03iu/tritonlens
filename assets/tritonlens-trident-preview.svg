@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" role="img" aria-labelledby="title desc">
+  <title id="title">TritonLens diagonal trident preview</title>
+  <desc id="desc">A gold trident points upper-left behind the original navy lens and its long tapered handle. Preview only.</desc>
+  <defs>
+    <!-- Isolate navy pixels from the original raster; remove its gold arc.
+         Composite with the source alpha to preserve the transparent edges. -->
+    <filter id="original-navy" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        -10 0 10 0 0" result="navyMask"/>
+      <feComposite in="navyMask" in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+  <!-- Gold first, navy second: the lens occludes the trident at overlaps.
+       -45 degrees rotates an upright trident toward the upper-left. -->
+  <g fill="#E4B343" transform="rotate(-45 552 540)">
+    <path d="M 517 106 L 552 25 L 587 106 L 575 106
+      L 575 380 L 681 380 Q 716 380 716 345 L 716 196
+      L 681 196 L 739 102 L 797 196 L 762 196 L 762 345
+      Q 762 426 681 426 L 575 426 L 575 820
+      Q 575 843 552 843 Q 529 843 529 820 L 529 426
+      L 423 426 Q 342 426 342 345 L 342 196 L 307 196
+      L 365 102 L 423 196 L 388 196 L 388 345
+      Q 388 380 423 380 L 529 380 L 529 106 Z"/>
+  </g>
+  <image href="tritonlens-icon-source.png" x="0" y="0" width="1254" height="1254" filter="url(#original-navy)"/>
+</svg>

@@ -82,6 +82,8 @@ function appendGradeDistribution(
 
   const list = document.createElement('div');
   list.className = 'tritonlens-grade-distribution';
+  list.setAttribute('role', 'group');
+  list.setAttribute('aria-label', 'Historical grade distribution');
   section.append(list);
 
   for (const [label, value] of entries) {
@@ -89,11 +91,40 @@ function appendGradeDistribution(
       continue;
     }
 
+    const percentage = `${formatPercentage(value)}%`;
+    const item = document.createElement('div');
+    item.className = 'tritonlens-grade-distribution-item';
+    item.dataset.tritonlensGrade = label;
+    item.tabIndex = 0;
+    item.setAttribute('aria-label', `${label}: ${percentage}`);
+    item.title = `${label}: ${percentage}`;
+    list.append(item);
+
     appendTextElement(
-      list,
+      item,
       'span',
-      'tritonlens-grade-distribution-item',
-      `${label}${formatPercentage(value)}%`,
+      'tritonlens-grade-distribution-label',
+      label,
+    );
+
+    const track = document.createElement('span');
+    track.className = 'tritonlens-grade-distribution-track';
+    track.setAttribute('aria-hidden', 'true');
+    item.append(track);
+
+    const fill = document.createElement('span');
+    fill.className = 'tritonlens-grade-distribution-fill';
+    fill.style.setProperty(
+      '--tritonlens-grade-percent',
+      percentage,
+    );
+    track.append(fill);
+
+    appendTextElement(
+      item,
+      'span',
+      'tritonlens-grade-distribution-value',
+      percentage,
     );
   }
 }
