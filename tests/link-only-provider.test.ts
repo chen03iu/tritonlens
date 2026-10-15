@@ -41,6 +41,7 @@ describe('link-only instructor data service', () => {
 
     expect(insight).toEqual({
       mode: 'link-only',
+      modeLabel: 'External links only',
       identity: { status: 'not-found' },
       professorRating: { status: 'not-found' },
       historicalGrades: { status: 'not-found' },

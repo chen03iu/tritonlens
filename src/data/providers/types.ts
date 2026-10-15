@@ -61,6 +61,7 @@ export interface ExternalDataLink {
 
 export interface InstructorInsight {
   readonly mode: ProviderMode;
+  readonly modeLabel: string;
   readonly identity: IdentityLookupResult;
   readonly professorRating: ProfessorRatingLookupResult;
   readonly historicalGrades: HistoricalGradesLookupResult;
@@ -98,6 +99,7 @@ export interface ExternalLinkProvider {
 
 export interface InstructorDataServiceOptions {
   readonly mode: ProviderMode;
+  readonly modeLabel: string;
   readonly identityProvider: InstructorIdentityProvider;
   readonly ratingProvider: ProfessorRatingProvider;
   readonly gradesProvider: HistoricalGradesProvider;
@@ -106,5 +108,5 @@ export interface InstructorDataServiceOptions {
 
 export type LocalDatasetProviderSet = Omit<
   InstructorDataServiceOptions,
-  'mode'
+  'mode' | 'modeLabel'
 >;

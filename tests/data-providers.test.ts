@@ -45,6 +45,7 @@ function createContext(
 function createService(dataset: LocalDataset) {
   return createInstructorDataService({
     mode: 'development-snapshot',
+    modeLabel: 'Development snapshot — not for release',
     ...createLocalDatasetProviderSet(dataset),
   });
 }
@@ -223,6 +224,7 @@ describe('instructor data service failure containment', () => {
     const source = MOCK_DATASET.sources[0];
     return {
       mode: 'development-snapshot',
+      modeLabel: 'Development snapshot — not for release',
       identityProvider: {
         lookup: () => ({ status: 'found', identity }),
       },

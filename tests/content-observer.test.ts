@@ -60,12 +60,37 @@ describe('TSS content observer', () => {
   it('settles after badge injection instead of scheduling itself forever', async () => {
     await import('../src/content');
     await flushFrame();
+    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('View ratings');
+    expect(frames).toHaveLength(0);
+  });
+
+  it('keeps the Easy-A snapshot behind the development entry', async () => {
+    await import('../src/content-development');
+    await flushFrame();
     expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('★ 2.7 dev');
     expect(frames).toHaveLength(0);
   });
 
+  it('disconnects its observer and removes extension UI on cleanup', async () => {
+    const { startTritonLens } = await import('../src/content-runtime');
+    const { createLinkOnlyInstructorDataService } = await import(
+      '../src/data/providers/link-only'
+    );
+    const stop = startTritonLens(
+      createLinkOnlyInstructorDataService(),
+    );
+    await flushFrame();
+    expect(document.querySelector('.tritonlens-rating-badge')).not.toBeNull();
+
+    stop();
+    expect(document.querySelector('.tritonlens-rating-badge')).toBeNull();
+    document.querySelector('a')!.textContent = 'Changed Instructor';
+    await Promise.resolve();
+    expect(frames).toHaveLength(0);
+  });
+
   it('processes TSS changes even when the mutation batch includes badge changes', async () => {
-    await import('../src/content');
+    await import('../src/content-development');
     await flushFrame();
     document.querySelector('.tritonlens-rating-badge')!.textContent = 'Temporary UI update';
     document.querySelector('a')!.textContent = 'Unknown Instructor';
@@ -77,7 +102,7 @@ describe('TSS content observer', () => {
   });
 
   it('does not rescan for detail-card insertion or removal', async () => {
-    await import('../src/content');
+    await import('../src/content-development');
     await flushFrame();
     document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!.click();
     await Promise.resolve();
@@ -91,7 +116,7 @@ describe('TSS content observer', () => {
 
   it('contains a failed scan and recovers on the next TSS mutation', async () => {
     const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    await import('../src/content');
+    await import('../src/content-development');
     vi.spyOn(document, 'querySelectorAll').mockImplementationOnce(() => {
       throw new Error('Sensitive fixture detail must not be logged');
     });
@@ -112,7 +137,7 @@ describe('TSS content observer', () => {
 
   it('contains cleanup failures and retries without repeated warning spam', async () => {
     const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    await import('../src/content');
+    await import('../src/content-development');
     const failingDom = vi.spyOn(document, 'querySelectorAll').mockImplementation(() => {
       throw new Error('Persistent fixture DOM failure');
     });
@@ -134,7 +159,7 @@ describe('TSS content observer', () => {
 
   it('removes stale extension UI after a scan fails without removing TSS nodes', async () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {});
-    await import('../src/content');
+    await import('../src/content-development');
     await flushFrame();
     document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!.click();
     const link = document.querySelector('a')!;

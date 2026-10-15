@@ -71,6 +71,7 @@ export function createInstructorDataService(
 
       return {
         mode: options.mode,
+        modeLabel: options.modeLabel,
         identity,
         professorRating,
         historicalGrades,

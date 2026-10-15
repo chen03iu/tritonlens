@@ -33,6 +33,12 @@ function createSnapshotService(
 
   return createInstructorDataService({
     mode,
+    modeLabel:
+      mode === 'mock'
+        ? 'Fictional demo data'
+        : mode === 'development-snapshot'
+          ? 'Development snapshot — not for release'
+          : 'Data snapshot',
     ...createLocalDatasetProviderSet(dataset),
   });
 }

@@ -4,8 +4,18 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
-const dist = resolve(root, 'dist');
 const watch = process.argv.includes('--watch');
+const useDevelopmentData = process.argv.includes('--development-data');
+const outdirArgument = process.argv.find((argument) =>
+  argument.startsWith('--outdir='),
+);
+const dist = resolve(
+  root,
+  outdirArgument?.slice('--outdir='.length) || 'dist',
+);
+const contentEntry = useDevelopmentData
+  ? 'src/content-development.ts'
+  : 'src/content.ts';
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
@@ -20,12 +30,13 @@ for (const size of [16, 32, 48, 128]) {
 
 const buildOptions = {
   entryPoints: [
-    resolve(root, 'src/content.ts'),
-    resolve(root, 'src/content.css'),
+    { in: resolve(root, contentEntry), out: 'content' },
+    { in: resolve(root, 'src/content.css'), out: 'content' },
   ],
   bundle: true,
   outdir: dist,
   target: 'chrome120',
+  charset: 'utf8',
   minify: !watch,
   sourcemap: watch,
   logLevel: 'info',

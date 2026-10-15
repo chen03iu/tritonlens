@@ -13,6 +13,7 @@ const UCSD_GRADE_ARCHIVE_URL =
 export function createLinkOnlyInstructorDataService(): InstructorDataService {
   return createInstructorDataService({
     mode: 'link-only',
+    modeLabel: 'External links only',
     identityProvider: {
       lookup: () => ({ status: 'not-found' }),
     },

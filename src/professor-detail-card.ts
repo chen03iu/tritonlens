@@ -251,19 +251,6 @@ function appendLinkOnlyContent(
   card.append(section);
 }
 
-function modeLabel(insight: InstructorInsight): string {
-  switch (insight.mode) {
-    case 'mock':
-      return 'Fictional demo data';
-    case 'development-snapshot':
-      return 'Development snapshot — not for release';
-    case 'production-snapshot':
-      return 'Data snapshot';
-    case 'link-only':
-      return 'External links only';
-  }
-}
-
 function createDetailCard(
   trigger: HTMLButtonElement,
   context: RenderedInstructorContext,
@@ -288,7 +275,12 @@ function createDetailCard(
   );
   title.id = `${card.id}-title`;
   card.setAttribute('aria-labelledby', title.id);
-  appendTextElement(titleGroup, 'p', 'tritonlens-detail-demo-label', modeLabel(insight));
+  appendTextElement(
+    titleGroup,
+    'p',
+    'tritonlens-detail-demo-label',
+    insight.modeLabel,
+  );
   const closeButton = appendTextElement(header, 'button', 'tritonlens-detail-close', '×');
   closeButton.type = 'button';
   closeButton.setAttribute('aria-label', 'Close instructor details');

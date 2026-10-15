@@ -6,6 +6,7 @@
   "description": "Instructor ratings and historical course context inside UC San Diego TSS.",
   "scripts": {
     "build": "node build.mjs",
+    "build:development-data": "node build.mjs --development-data",
     "watch": "node build.mjs --watch",
     "import:easy-a": "node scripts/import-easy-a.mjs",
     "audit:instructors": "node scripts/audit-instructor-matches.mjs",
