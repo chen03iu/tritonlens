@@ -1,13 +1,51 @@
 // @vitest-environment jsdom
 
 import { beforeEach, describe, expect, it } from 'vitest';
-import { enhanceVisibleInstructorLinks } from '../src/instructor-badges';
+import {
+  enhanceVisibleInstructorLinks as enhanceWithService,
+} from '../src/instructor-badges';
 import { MOCK_DATASET } from '../src/data/mock-dataset';
+import {
+  createInstructorDataService,
+} from '../src/data/providers/instructor-data-service';
+import {
+  createLocalDatasetProviderSet,
+} from '../src/data/providers/local-dataset-providers';
 import { closeProfessorDetailCard } from '../src/professor-detail-card';
 import type { LocalDataset } from '../src/data/types';
 import type {
+  InstructorDataService,
+  ProviderMode,
+} from '../src/data/providers/types';
+import type {
   RenderedInstructorContext,
 } from '../src/tss/instructor-context';
+
+function createSnapshotService(
+  dataset: LocalDataset,
+): InstructorDataService {
+  const mode: ProviderMode =
+    dataset.kind === 'mock'
+      ? 'mock'
+      : dataset.kind === 'production'
+        ? 'production-snapshot'
+        : 'development-snapshot';
+
+  return createInstructorDataService({
+    mode,
+    ...createLocalDatasetProviderSet(dataset),
+  });
+}
+
+const MOCK_SERVICE = createSnapshotService(MOCK_DATASET);
+
+function enhanceVisibleInstructorLinks(
+  root: ParentNode = document,
+  contexts: readonly RenderedInstructorContext[] = [],
+  service: InstructorDataService = MOCK_SERVICE,
+): void {
+  enhanceWithService(root, contexts, service);
+}
 
 function createContext(
   link: HTMLAnchorElement,
@@ -208,7 +246,7 @@ describe('enhanceVisibleInstructorLinks', () => {
     enhanceVisibleInstructorLinks(
       document,
       [context],
-      developmentDataset,
+      createSnapshotService(developmentDataset),
     );
 
     const badge = document.querySelector<HTMLButtonElement>(
@@ -290,7 +328,11 @@ describe('enhanceVisibleInstructorLinks', () => {
       ],
     };
 
-    enhanceVisibleInstructorLinks(document, [context], unsafeDataset);
+    enhanceVisibleInstructorLinks(
+      document,
+      [context],
+      createSnapshotService(unsafeDataset),
+    );
     document
       .querySelector<HTMLButtonElement>('.tritonlens-rating-badge')
       ?.click();
@@ -323,7 +365,7 @@ describe('enhanceVisibleInstructorLinks', () => {
     enhanceVisibleInstructorLinks(
       document,
       [context],
-      gradeOnlyDataset,
+      createSnapshotService(gradeOnlyDataset),
     );
 
     const badge = document.querySelector<HTMLButtonElement>(

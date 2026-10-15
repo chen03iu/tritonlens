@@ -245,6 +245,16 @@
   overflow-wrap: anywhere;
 }
 
+.tritonlens-detail-external-links {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tritonlens-detail-external-links .tritonlens-detail-source-link {
+  width: fit-content;
+}
+
 .tritonlens-detail-source-link {
   color: #005ea8;
   text-decoration: underline;

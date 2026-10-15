@@ -1,5 +1,11 @@
 import { enhanceVisibleInstructorLinks } from './instructor-badges';
 import { EASY_A_DATASET } from './data/easy-a-dataset';
+import {
+  createInstructorDataService,
+} from './data/providers/instructor-data-service';
+import {
+  createLocalDatasetProviderSet,
+} from './data/providers/local-dataset-providers';
 import { closeProfessorDetailCard } from './professor-detail-card';
 import { extractCourseOffering } from './tss/dom-parser';
 import {
@@ -8,6 +14,11 @@ import {
 
 let scanScheduled = false;
 let scanFailed = false;
+
+const DEVELOPMENT_DATA_SERVICE = createInstructorDataService({
+  mode: 'development-snapshot',
+  ...createLocalDatasetProviderSet(EASY_A_DATASET),
+});
 
 const OWN_UI_SELECTOR =
   '.tritonlens-rating-badge, .tritonlens-detail-card';
@@ -51,7 +62,7 @@ function scanTssPage(): void {
   enhanceVisibleInstructorLinks(
     document,
     instructorContexts,
-    EASY_A_DATASET,
+    DEVELOPMENT_DATA_SERVICE,
   );
 }
 

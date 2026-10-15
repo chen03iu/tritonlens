@@ -1,11 +1,11 @@
-import {
-  lookupHistoricalCourseGrades,
-  lookupProfessor,
-} from './data/lookup';
 import type {
   DataSourceReference,
-  LocalDataset,
+  HistoricalGradeDistribution,
 } from './data/types';
+import type {
+  ExternalDataLink,
+  InstructorInsight,
+} from './data/providers/types';
 import type {
   RenderedInstructorContext,
 } from './tss/instructor-context';
@@ -35,18 +35,8 @@ function appendMetric(
   label: string,
   value: string,
 ): void {
-  appendTextElement(
-    list,
-    'dt',
-    'tritonlens-detail-metric-label',
-    label,
-  );
-  appendTextElement(
-    list,
-    'dd',
-    'tritonlens-detail-metric-value',
-    value,
-  );
+  appendTextElement(list, 'dt', 'tritonlens-detail-metric-label', label);
+  appendTextElement(list, 'dd', 'tritonlens-detail-metric-value', value);
 }
 
 function formatPercentage(value: number): string {
@@ -57,7 +47,7 @@ function formatPercentage(value: number): string {
 
 function appendGradeDistribution(
   section: HTMLElement,
-  distribution: LocalDataset['historicalCourseGrades'][number]['gradeDistribution'],
+  distribution: HistoricalGradeDistribution,
 ): void {
   const entries = [
     ['A', distribution.aPercent],
@@ -73,13 +63,7 @@ function appendGradeDistribution(
     return;
   }
 
-  appendTextElement(
-    section,
-    'h5',
-    'tritonlens-detail-subheading',
-    'Grade distribution',
-  );
-
+  appendTextElement(section, 'h5', 'tritonlens-detail-subheading', 'Grade distribution');
   const list = document.createElement('div');
   list.className = 'tritonlens-grade-distribution';
   list.setAttribute('role', 'group');
@@ -90,7 +74,6 @@ function appendGradeDistribution(
     if (value === null) {
       continue;
     }
-
     const percentage = `${formatPercentage(value)}%`;
     const item = document.createElement('div');
     item.className = 'tritonlens-grade-distribution-item';
@@ -99,51 +82,23 @@ function appendGradeDistribution(
     item.setAttribute('aria-label', `${label}: ${percentage}`);
     item.title = `${label}: ${percentage}`;
     list.append(item);
-
-    appendTextElement(
-      item,
-      'span',
-      'tritonlens-grade-distribution-label',
-      label,
-    );
-
+    appendTextElement(item, 'span', 'tritonlens-grade-distribution-label', label);
     const track = document.createElement('span');
     track.className = 'tritonlens-grade-distribution-track';
     track.setAttribute('aria-hidden', 'true');
     item.append(track);
-
     const fill = document.createElement('span');
     fill.className = 'tritonlens-grade-distribution-fill';
-    fill.style.setProperty(
-      '--tritonlens-grade-percent',
-      percentage,
-    );
+    fill.style.setProperty('--tritonlens-grade-percent', percentage);
     track.append(fill);
-
-    appendTextElement(
-      item,
-      'span',
-      'tritonlens-grade-distribution-value',
-      percentage,
-    );
+    appendTextElement(item, 'span', 'tritonlens-grade-distribution-value', percentage);
   }
-}
-
-function findSource(
-  dataset: LocalDataset,
-  sourceId: string,
-): DataSourceReference | null {
-  return (
-    dataset.sources.find((source) => source.id === sourceId) ??
-    null
-  );
 }
 
 function safeHttpsUrl(value: string | null): string | null {
   if (!value) {
     return null;
   }
-
   try {
     const url = new URL(value);
     return url.protocol === 'https:' ? url.href : null;
@@ -161,7 +116,6 @@ function appendExternalLink(
   if (!safeUrl) {
     return false;
   }
-
   const link = document.createElement('a');
   link.className = 'tritonlens-detail-source-link';
   link.href = safeUrl;
@@ -174,120 +128,52 @@ function appendExternalLink(
 
 function appendSource(
   section: HTMLElement,
-  dataset: LocalDataset,
-  sourceId: string,
+  source: DataSourceReference,
   updatedAt: string,
-  detailLink: {
-    readonly label: string;
-    readonly url: string;
-  } | null = null,
+  detailLink: ExternalDataLink | null = null,
 ): void {
-  const source = findSource(dataset, sourceId);
-  const sourceLabel = source?.label ?? 'Unknown source';
   const sourceLine = document.createElement('p');
   sourceLine.className = 'tritonlens-detail-source';
   sourceLine.append(document.createTextNode('Source: '));
-
-  if (
-    !appendExternalLink(
-      sourceLine,
-      sourceLabel,
-      source?.homepageUrl ?? null,
-    )
-  ) {
-    sourceLine.append(document.createTextNode(sourceLabel));
+  if (!appendExternalLink(sourceLine, source.label, source.homepageUrl)) {
+    sourceLine.append(document.createTextNode(source.label));
   }
-
   if (detailLink) {
     const separator = document.createTextNode(' · ');
     sourceLine.append(separator);
-    if (
-      !appendExternalLink(
-        sourceLine,
-        detailLink.label,
-        detailLink.url,
-      )
-    ) {
+    if (!appendExternalLink(sourceLine, detailLink.label, detailLink.url)) {
       separator.remove();
     }
   }
-
-  sourceLine.append(
-    document.createTextNode(` · Updated ${updatedAt}`),
-  );
+  sourceLine.append(document.createTextNode(` · Updated ${updatedAt}`));
   section.append(sourceLine);
-}
-
-function createRmpProfileUrl(
-  sourceProfessorId: string | null,
-): string | null {
-  return sourceProfessorId && /^\d+$/.test(sourceProfessorId)
-    ? `https://www.ratemyprofessors.com/professor/${sourceProfessorId}`
-    : null;
 }
 
 function appendProfessorRating(
   card: HTMLDivElement,
-  context: RenderedInstructorContext,
-  dataset: LocalDataset,
-): string | null {
+  insight: InstructorInsight,
+): void {
   const section = document.createElement('section');
   section.className = 'tritonlens-detail-section';
-  appendTextElement(
-    section,
-    'h4',
-    'tritonlens-detail-heading',
-    'Professor rating',
-  );
+  appendTextElement(section, 'h4', 'tritonlens-detail-heading', 'Professor rating');
   card.append(section);
 
-  const result = lookupProfessor(
-    dataset,
-    context.instructor.displayName,
-  );
-
-  if (result.status !== 'found') {
-    appendTextElement(
-      section,
-      'p',
-      'tritonlens-detail-unavailable',
-      'Professor rating unavailable',
-    );
-    return null;
+  if (insight.professorRating.status !== 'found') {
+    appendTextElement(section, 'p', 'tritonlens-detail-unavailable', 'Professor rating unavailable');
+    return;
   }
 
-  if (!result.record.rating) {
-    appendTextElement(
-      section,
-      'p',
-      'tritonlens-detail-unavailable',
-      'Professor rating unavailable',
-    );
-    return result.record.id;
-  }
-
-  const rating = result.record.rating;
+  const { rating, source } = insight.professorRating.data;
   const metrics = document.createElement('dl');
   metrics.className = 'tritonlens-detail-metrics';
   section.append(metrics);
-
-  appendMetric(
-    metrics,
-    'Rating',
-    `${rating.overallRating.toFixed(1)} / 5`,
-  );
+  appendMetric(metrics, 'Rating', `${rating.overallRating.toFixed(1)} / 5`);
   appendMetric(
     metrics,
     'Difficulty',
-    rating.difficulty === null
-      ? 'Unavailable'
-      : `${rating.difficulty.toFixed(1)} / 5`,
+    rating.difficulty === null ? 'Unavailable' : `${rating.difficulty.toFixed(1)} / 5`,
   );
-  appendMetric(
-    metrics,
-    'Rating count',
-    `${rating.ratingCount} ratings`,
-  );
+  appendMetric(metrics, 'Rating count', `${rating.ratingCount} ratings`);
   appendMetric(
     metrics,
     'Would take again',
@@ -295,33 +181,20 @@ function appendProfessorRating(
       ? 'Unavailable'
       : `${rating.wouldTakeAgainPercent}%`,
   );
-  const profileUrl = createRmpProfileUrl(
-    rating.sourceProfessorId,
-  );
   appendSource(
     section,
-    dataset,
-    rating.sourceId,
+    source,
     rating.updatedAt,
-    profileUrl
-      ? {
-          label: 'RateMyProfessors profile',
-          url: profileUrl,
-        }
-      : null,
+    insight.links.find((link) => link.kind === 'professor-ratings') ?? null,
   );
-
-  return result.record.id;
 }
 
 function appendHistoricalGrades(
   card: HTMLDivElement,
   context: RenderedInstructorContext,
-  professorId: string | null,
-  dataset: LocalDataset,
+  insight: InstructorInsight,
 ): void {
-  const courseCode =
-    `${context.course.subjectCode}-${context.course.catalogNumber}`;
+  const courseCode = `${context.course.subjectCode}-${context.course.catalogNumber}`;
   const section = document.createElement('section');
   section.className = 'tritonlens-detail-section';
   appendTextElement(
@@ -332,54 +205,23 @@ function appendHistoricalGrades(
   );
   card.append(section);
 
-  const result = professorId
-    ? lookupHistoricalCourseGrades(
-        dataset,
-        professorId,
-        context.course.subjectCode,
-        context.course.catalogNumber,
-      )
-    : { status: 'not-found' as const };
-
-  if (result.status !== 'found') {
-    appendTextElement(
-      section,
-      'p',
-      'tritonlens-detail-unavailable',
-      'Historical grade data unavailable',
-    );
+  if (insight.historicalGrades.status !== 'found') {
+    appendTextElement(section, 'p', 'tritonlens-detail-unavailable', 'Historical grade data unavailable');
   } else {
-    const record = result.record;
+    const { record, source } = insight.historicalGrades.data;
     const metrics = document.createElement('dl');
     metrics.className = 'tritonlens-detail-metrics';
     section.append(metrics);
-
-    appendMetric(
-      metrics,
-      'Average GPA',
-      record.averageGpa.toFixed(2),
-    );
+    appendMetric(metrics, 'Average GPA', record.averageGpa.toFixed(2));
     appendMetric(
       metrics,
       'Sample size',
-      record.sampleSize === null
-        ? 'Unavailable'
-        : `${record.sampleSize} students`,
+      record.sampleSize === null ? 'Unavailable' : `${record.sampleSize} students`,
     );
-    appendMetric(
-      metrics,
-      'Course offerings',
-      `${record.offeringCount} offerings`,
-    );
+    appendMetric(metrics, 'Course offerings', `${record.offeringCount} offerings`);
     appendGradeDistribution(section, record.gradeDistribution);
-    appendSource(
-      section,
-      dataset,
-      record.sourceId,
-      record.updatedAt,
-    );
+    appendSource(section, source, record.updatedAt);
   }
-
   appendTextElement(
     section,
     'p',
@@ -388,27 +230,56 @@ function appendHistoricalGrades(
   );
 }
 
+function appendLinkOnlyContent(
+  card: HTMLDivElement,
+  insight: InstructorInsight,
+): void {
+  const section = document.createElement('section');
+  section.className = 'tritonlens-detail-section tritonlens-detail-link-only';
+  appendTextElement(
+    section,
+    'p',
+    'tritonlens-detail-unavailable',
+    'Ratings and historical grades are not included in this build.',
+  );
+  const links = document.createElement('div');
+  links.className = 'tritonlens-detail-external-links';
+  section.append(links);
+  for (const link of insight.links) {
+    appendExternalLink(links, link.label, link.url);
+  }
+  card.append(section);
+}
+
+function modeLabel(insight: InstructorInsight): string {
+  switch (insight.mode) {
+    case 'mock':
+      return 'Fictional demo data';
+    case 'development-snapshot':
+      return 'Development snapshot — not for release';
+    case 'production-snapshot':
+      return 'Data snapshot';
+    case 'link-only':
+      return 'External links only';
+  }
+}
+
 function createDetailCard(
   trigger: HTMLButtonElement,
   context: RenderedInstructorContext,
-  dataset: LocalDataset,
+  insight: InstructorInsight,
 ): HTMLDivElement {
   const card = document.createElement('div');
-  const cardId = trigger.getAttribute('aria-controls');
-
   card.className = CARD_CLASS;
-  card.id = cardId ?? '';
+  card.id = trigger.getAttribute('aria-controls') ?? '';
   card.setAttribute('role', 'dialog');
   card.setAttribute('aria-modal', 'false');
-
   const header = document.createElement('div');
   header.className = 'tritonlens-detail-header';
   card.append(header);
-
   const titleGroup = document.createElement('div');
   titleGroup.className = 'tritonlens-detail-title-group';
   header.append(titleGroup);
-
   const title = appendTextElement(
     titleGroup,
     'h3',
@@ -417,24 +288,8 @@ function createDetailCard(
   );
   title.id = `${card.id}-title`;
   card.setAttribute('aria-labelledby', title.id);
-
-  appendTextElement(
-    titleGroup,
-    'p',
-    'tritonlens-detail-demo-label',
-    dataset.kind === 'mock'
-      ? 'Fictional demo data'
-      : dataset.kind === 'development'
-        ? 'Development snapshot — not for release'
-        : 'Data snapshot',
-  );
-
-  const closeButton = appendTextElement(
-    header,
-    'button',
-    'tritonlens-detail-close',
-    '×',
-  );
+  appendTextElement(titleGroup, 'p', 'tritonlens-detail-demo-label', modeLabel(insight));
+  const closeButton = appendTextElement(header, 'button', 'tritonlens-detail-close', '×');
   closeButton.type = 'button';
   closeButton.setAttribute('aria-label', 'Close instructor details');
   closeButton.addEventListener('click', (event) => {
@@ -443,53 +298,35 @@ function createDetailCard(
     trigger.focus();
   });
 
-  const professorId = appendProfessorRating(
-    card,
-    context,
-    dataset,
-  );
-  appendHistoricalGrades(
-    card,
-    context,
-    professorId,
-    dataset,
-  );
-
-  card.addEventListener('click', (event) => {
-    event.stopPropagation();
-  });
-
+  if (insight.mode === 'link-only') {
+    appendLinkOnlyContent(card, insight);
+  } else {
+    appendProfessorRating(card, insight);
+    appendHistoricalGrades(card, context, insight);
+  }
+  card.addEventListener('click', (event) => event.stopPropagation());
   return card;
 }
 
-function positionCard(
-  card: HTMLDivElement,
-  trigger: HTMLButtonElement,
-): void {
+function positionCard(card: HTMLDivElement, trigger: HTMLButtonElement): void {
   const triggerRect = trigger.getBoundingClientRect();
   const cardRect = card.getBoundingClientRect();
   const maximumLeft = Math.max(
     VIEWPORT_MARGIN,
     window.innerWidth - cardRect.width - VIEWPORT_MARGIN,
   );
-  const left = Math.min(
-    Math.max(VIEWPORT_MARGIN, triggerRect.left),
-    maximumLeft,
-  );
+  const left = Math.min(Math.max(VIEWPORT_MARGIN, triggerRect.left), maximumLeft);
   let top = triggerRect.bottom + CARD_GAP;
-
   if (
     top + cardRect.height > window.innerHeight - VIEWPORT_MARGIN &&
     triggerRect.top - cardRect.height - CARD_GAP >= VIEWPORT_MARGIN
   ) {
     top = triggerRect.top - cardRect.height - CARD_GAP;
   }
-
   const maximumTop = Math.max(
     VIEWPORT_MARGIN,
     window.innerHeight - cardRect.height - VIEWPORT_MARGIN,
   );
-
   card.style.left = `${Math.round(left)}px`;
   card.style.top = `${Math.round(Math.min(top, maximumTop))}px`;
 }
@@ -511,23 +348,17 @@ export function closeProfessorDetailCard(): void {
   activeTrigger?.setAttribute('aria-expanded', 'false');
   activeCard = null;
   activeTrigger = null;
-
   document.removeEventListener('click', handleDocumentClick);
   document.removeEventListener('keydown', handleDocumentKeydown);
 }
 
 export function closeDetachedProfessorDetailCard(): void {
-  if (
-    activeTrigger &&
-    (!activeTrigger.isConnected || !activeCard?.isConnected)
-  ) {
+  if (activeTrigger && (!activeTrigger.isConnected || !activeCard?.isConnected)) {
     closeProfessorDetailCard();
   }
 }
 
-export function closeProfessorDetailCardForTrigger(
-  trigger: HTMLElement,
-): void {
+export function closeProfessorDetailCardForTrigger(trigger: HTMLElement): void {
   if (activeTrigger === trigger) {
     closeProfessorDetailCard();
   }
@@ -536,27 +367,20 @@ export function closeProfessorDetailCardForTrigger(
 export function toggleProfessorDetailCard(
   trigger: HTMLButtonElement,
   context: RenderedInstructorContext,
-  dataset: LocalDataset,
+  insight: InstructorInsight,
 ): void {
   if (activeTrigger === trigger && activeCard?.isConnected) {
     closeProfessorDetailCard();
     return;
   }
-
   closeProfessorDetailCard();
-
-  const card = createDetailCard(trigger, context, dataset);
+  const card = createDetailCard(trigger, context, insight);
   document.body.append(card);
   positionCard(card, trigger);
-
   activeCard = card;
   activeTrigger = trigger;
   trigger.setAttribute('aria-expanded', 'true');
-
   document.addEventListener('click', handleDocumentClick);
   document.addEventListener('keydown', handleDocumentKeydown);
-
-  card
-    .querySelector<HTMLButtonElement>('.tritonlens-detail-close')
-    ?.focus();
+  card.querySelector<HTMLButtonElement>('.tritonlens-detail-close')?.focus();
 }

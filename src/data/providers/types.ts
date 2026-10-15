@@ -10,6 +10,7 @@ import type {
 
 export type ProviderMode =
   | 'link-only'
+  | 'mock'
   | 'development-snapshot'
   | 'production-snapshot';
 
