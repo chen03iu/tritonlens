@@ -1,10 +1,16 @@
 # TritonLens Data Sources
 
-Last reviewed: 2026-09-15
+Last reviewed: 2026-10-15
 
-TritonLens local development builds bundle a normalized snapshot from Easy-A
-Radar. The snapshot is marked `development`, and the UI labels it as not for
-release. Fictional fixtures remain available only for automated tests.
+The default TritonLens release build is link-only. It bundles no Easy-A Radar,
+RateMyProfessors (RMP), or UCSD historical-grade metrics. It offers external
+RMP search and UCSD A.S. grade-archive links that make no request until the
+user clicks them.
+
+The separate `npm run build:development-data` build bundles a normalized
+Easy-A Radar snapshot for local noncommercial development. Its UI is marked
+`Development snapshot — not for release`. Fictional fixtures remain available
+only for automated tests.
 
 This document is an engineering risk record, not legal advice. A publicly
 accessible page is not automatically approved for copying, caching, or
@@ -28,6 +34,9 @@ and attribution requirements have been reviewed.
 
 ## Current Decision
 
+- Keep `npm run build` link-only and safe by default. Enabling a bundled metric
+  provider for a public build requires documented permission and provenance;
+  changing UI labels is not sufficient.
 - Do not create an automated RMP scraping/update pipeline or bundle its data
   in published builds without direct written permission from RMP. A single
   user-requested, dated personal noncommercial development observation of
@@ -41,6 +50,9 @@ and attribution requirements have been reviewed.
   retains provenance and remains subject to its source restrictions.
 - Keep the imported snapshot classified as `development`; do not publish it as
   a production dataset until upstream redistribution questions are resolved.
+- Keep release and development entry points separate so the release dependency
+  graph cannot import the generated snapshot accidentally. Automated packaging
+  tests verify the separation on every test run.
 - Treat Easy-A's `n` field as course-offering count, not student sample size.
 - Treat RMP rows with zero rating count and `-1` percentage sentinels as
   unavailable rather than displaying misleading zero values.

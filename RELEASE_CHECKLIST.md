@@ -1,8 +1,9 @@
 # TritonLens Release Checklist
 
-This is a preparation checklist, not approval to publish. The current Easy-A
-Radar snapshot remains development-only. Do not upload or publicly distribute
-the current bundle while its redistribution review is unresolved.
+This is a preparation checklist, not approval to publish. The default build is
+link-only and excludes the Easy-A/RMP/UCSD metric snapshot. The separate
+development-data build remains development-only and must not be uploaded or
+publicly distributed while its redistribution review is unresolved.
 
 ## Data and Provenance
 
@@ -10,10 +11,11 @@ the current bundle while its redistribution review is unresolved.
   `DATA_SOURCES.md`; retain private permission evidence outside Git.
 - [ ] Review attribution and select a license for original TritonLens code.
   A code license does not automatically license bundled third-party data.
-- [ ] Validate the intended release dataset with `validateLocalDataset()` in
-  production mode; do not simply remove development labels.
-- [ ] Confirm source dates, safe identity matches, unavailable values, and
-  historical-not-prediction labels in the intended release build.
+- [x] Verify the default release bundle contains no Easy-A/RMP/UCSD metric
+  snapshot and does not import the development entry point.
+- [ ] If a future release enables bundled metrics, validate its dataset in
+  production mode and confirm permissions, source dates, safe identity matches,
+  unavailable values, and historical-not-prediction labels.
 
 ## Privacy and User Information
 
@@ -29,6 +31,13 @@ the current bundle while its redistribution review is unresolved.
 - [x] Add extension icons and copy them into the build output.
 - [ ] Choose a release version and keep package and manifest versions aligned.
 - [ ] Run `npm.cmd test`, `npm.cmd run typecheck`, and `npm.cmd run build`.
+- [ ] Confirm the default badge says `View ratings`, its card contains no score,
+  GPA, grade graph, or update date, and both outbound links are HTTPS.
+- [ ] Confirm neither opening TSS nor scanning its DOM makes an automatic RMP
+  or UCSD grade-source request; requests occur only after a user clicks a link.
+- [ ] Inspect `dist/content.js` for excluded development markers and a known
+  generated-only identity; run `npm.cmd run build:development-data` only into a
+  separate local output when that build is intentionally needed.
 - [ ] Review the production package: include only required runtime files;
   exclude `AGENTS.md`, raw captures, credentials, tests, and source maps.
 - [ ] Test loading the package in a clean Chrome profile. Any authenticated

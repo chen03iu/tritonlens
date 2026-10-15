@@ -1,9 +1,10 @@
 # TritonLens Privacy
 
-Last updated: 2026-09-15
+Last updated: 2026-10-15
 
-This document describes the current local development version of TritonLens.
-It must be reviewed again before public distribution or changes to data use.
+This document describes the default link-only TritonLens build. The separate
+development-data build is not intended for public distribution. This document
+must be reviewed again before public distribution or changes to data use.
 
 ## Local Processing
 
@@ -12,8 +13,11 @@ instructor, term, section, schedule, location, and enrollment-count information
 to associate its badges with the correct course entries. These values are
 processed in browser memory and are not saved by the extension.
 
-Professor ratings and historical course grades are looked up in a bundled
-static dataset. They are not the user's personal grades.
+The default build does not bundle professor ratings or historical-grade
+metrics. It creates user-clicked links to external rating and aggregate-grade
+resources. A separate, explicitly labeled development build can perform local
+lookups against a bundled static snapshot; those values are not the user's
+personal grades.
 
 ## Information Not Collected
 
@@ -27,10 +31,12 @@ requests. It does not automate enrollment or other TSS actions.
 
 ## Source Links
 
-If you choose to click a source or professor-profile link, your browser opens
-the external website. That website receives the normal request associated
-with your visit and operates under its own privacy practices. TritonLens does
-not send extracted TSS context to it.
+If you choose to click a source link, your browser opens the external website.
+The RMP search link includes the displayed instructor name as its search query;
+the UCSD A.S. link opens the grade archive landing page. The external website
+then receives the normal request associated with your visit and operates under
+its own privacy practices. TritonLens does not send course, section, enrollment,
+student, authentication, or session information to either site.
 
 ## Access and Diagnostics
 

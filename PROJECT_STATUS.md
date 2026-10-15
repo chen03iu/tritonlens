@@ -1,8 +1,16 @@
 # TritonLens Project Status
 
-Last updated: 2026-09-19
+Last updated: 2026-10-15
 
 ## Current Milestone
+
+The public-build architecture is now independent of Easy-A Radar. A normalized
+provider boundary supplies the badge and detail card. The default release entry
+uses a network-free, link-only provider and produces a roughly 16 KB content
+bundle with no Easy-A snapshot records. A separate development entry produces
+the approximately 4.3 MB snapshot build and remains visibly marked not for
+release. Automated tests build release, development, then release again to
+guard against mode leakage.
 
 The instructor detail card now renders available historical grade percentages
 as a compact, accessible bar chart for A/B/C/D/F/W/P/NP. Bars use the source
@@ -181,12 +189,24 @@ checklist; broad layout coverage and clean-profile package testing remain.
   repeated card use, empty instructors, duplicate prevention, and TSS actions.
 - Drafted `PRIVACY.md` and `RELEASE_CHECKLIST.md`, including TSS access
   justification, external-link behavior, and explicit publication gates.
+- Added replaceable identity, rating, historical-grade, and external-link
+  provider contracts with exception-contained, fail-closed composition.
+- Made the default build link-only, with user-clicked RMP search and UCSD A.S.
+  archive links and no automatic external request.
+- Split release and development entry points so only the explicit
+  `build:development-data` command imports the Easy-A snapshot.
+- Added automated bundle-exclusion, consecutive-build isolation, runtime
+  cleanup, and link-only accessibility regressions. The suite now contains
+  264 tests across 28 files.
 
 ## Current Architecture
 
 - `manifest.json`: Chrome extension configuration.
 - `build.mjs`: esbuild build process.
-- `src/content.ts`: watches TSS for dynamic DOM changes.
+- `src/content.ts`: safe release entry using the link-only provider.
+- `src/content-development.ts`: explicit development-snapshot entry.
+- `src/content-runtime.ts`: provider-injected TSS observer and cleanup runtime.
+- `src/data/providers/`: replaceable data contracts and provider compositions.
 - `src/instructor-badges.ts`: finds instructor links and manages badges.
 - `src/professor-detail-card.ts`: renders and positions the accessible
   instructor detail dialog and manages its lifecycle.
@@ -216,7 +236,8 @@ checklist; broad layout coverage and clean-profile package testing remain.
 
 ## Data Status
 
-Live values ending in `dev` come from the Easy-A Radar development snapshot.
+The default build shows `View ratings` and contains no metric snapshot. Values
+ending in `dev` exist only in the explicit Easy-A Radar development build.
 Values ending in `demo` are fictional fixtures used in automated tests.
 
 TritonLens currently:
@@ -225,8 +246,10 @@ TritonLens currently:
   when clicked by the user);
 - collects no student information;
 - stores no TSS session information;
-- makes all rating and historical-grade lookups against a bundled local
-  snapshot, with no live requests to RMP or UCSD data services.
+- makes no rating or historical-grade lookup in the default build; user-clicked
+  links navigate to RMP search or the UCSD A.S. archive;
+- makes development-only metric lookups against a bundled local snapshot, with
+  no live requests to RMP or UCSD data services.
 
 ## Known Limitations
 
@@ -242,7 +265,7 @@ TritonLens currently:
 
 ## Next Milestone
 
-Phase 6/7 — Broader reliability checks and local release preparation.
+Phase 6/7 — Broader reliability checks and link-only release preparation.
 
 Next tasks:
 
@@ -261,9 +284,12 @@ Next tasks:
 5. Keep RMP and UCSD permission requests as release preparation rather than a
    blocker for local development.
 6. Run every future imported snapshot through `validateLocalDataset()`.
+7. Load the default link-only package in a clean Chrome profile and complete
+   the multi-department, narrow-layout, and keyboard release matrix.
 
 ## Blockers
 
-No blocker remains for local noncommercial development. Public distribution of
-the development snapshot remains blocked until upstream redistribution,
-attribution, and source-policy questions are resolved.
+No data-permission blocker remains for a link-only build that is otherwise
+ready for release review. Public distribution of the development snapshot
+remains blocked until upstream redistribution, attribution, and source-policy
+questions are resolved.

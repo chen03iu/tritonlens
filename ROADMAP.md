@@ -48,6 +48,8 @@ scope until the core TSS integration is reliable.
 
 - [ ] Resolve permission, redistribution, and attribution requirements.
 - [x] Add a fail-closed validation gate for provenance and data integrity.
+- [x] Add replaceable provider contracts and a link-only release provider.
+- [x] Separate release and development build dependency graphs.
 - [x] Integrate the author-approved Easy-A Radar snapshot for local
   noncommercial development.
 - [x] Preserve aliases, offering counts, grade distributions, and source dates.
@@ -63,6 +65,7 @@ scope until the core TSS integration is reliable.
 - [x] Display demo rating and historical-grade metrics with clear labels.
 - [x] Add source labels and last-updated dates.
 - [x] Add safe source and professor-profile links.
+- [x] Add neutral link-only badge and detail-card states for release builds.
 - [x] Improve detail-card behavior at narrow viewport widths.
 - [ ] Verify narrow-screen and keyboard behavior.
 
@@ -75,6 +78,7 @@ scope until the core TSS integration is reliable.
 - [x] Verify scan failures are contained and later scans recover (automated).
 - [x] Prevent extension-owned UI changes from causing observer feedback loops.
 - [x] Add regression tests for discovered TSS edge cases.
+- [x] Verify release/development/release builds do not leak data modes.
 
 ## Phase 7 — Release
 
@@ -82,5 +86,6 @@ scope until the core TSS integration is reliable.
 - [ ] Add extension icons and release screenshots.
 - [ ] Prepare a privacy policy and permission justification.
 - [ ] Complete attribution and data-source documentation.
+- [x] Default release packaging to link-only with no bundled metric snapshot.
 - [ ] Test the packaged extension from a clean Chrome profile.
 - [ ] Prepare the Chrome Web Store listing.
