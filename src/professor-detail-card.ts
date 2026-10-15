@@ -251,6 +251,33 @@ function appendLinkOnlyContent(
   card.append(section);
 }
 
+function appendSnapshotFallbackLinks(
+  card: HTMLDivElement,
+  insight: InstructorInsight,
+): void {
+  if (
+    insight.professorRating.status === 'found' ||
+    insight.links.length === 0
+  ) {
+    return;
+  }
+  const section = document.createElement('section');
+  section.className = 'tritonlens-detail-section';
+  appendTextElement(
+    section,
+    'h4',
+    'tritonlens-detail-heading',
+    'External resources',
+  );
+  const links = document.createElement('div');
+  links.className = 'tritonlens-detail-external-links';
+  section.append(links);
+  for (const link of insight.links) {
+    appendExternalLink(links, link.label, link.url);
+  }
+  card.append(section);
+}
+
 function createDetailCard(
   trigger: HTMLButtonElement,
   context: RenderedInstructorContext,
@@ -295,6 +322,7 @@ function createDetailCard(
   } else {
     appendProfessorRating(card, insight);
     appendHistoricalGrades(card, context, insight);
+    appendSnapshotFallbackLinks(card, insight);
   }
   card.addEventListener('click', (event) => event.stopPropagation());
   return card;

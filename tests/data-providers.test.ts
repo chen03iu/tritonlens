@@ -160,6 +160,30 @@ describe('local dataset provider adapters', () => {
     expect(insight.identity.status).toBe('ambiguous');
     expect(insight.professorRating.status).toBe('not-found');
     expect(insight.historicalGrades.status).toBe('not-found');
+    expect(insight.links.map((link) => link.kind)).toEqual([
+      'professor-ratings',
+      'historical-grades',
+    ]);
+  });
+
+  it('rejects unapproved metric sources in production mode', () => {
+    const dataset: LocalDataset = {
+      ...MOCK_DATASET,
+      kind: 'production',
+      sources: MOCK_DATASET.sources.map((source) => ({
+        ...source,
+        permissionStatus: 'pending',
+      })),
+    };
+    const insight = createInstructorDataService({
+      mode: 'production-snapshot',
+      modeLabel: 'Data snapshot',
+      ...createLocalDatasetProviderSet(dataset),
+    }).getInsight(createContext('Libby Butler'));
+
+    expect(insight.identity.status).toBe('found');
+    expect(insight.professorRating.status).toBe('not-found');
+    expect(insight.historicalGrades.status).toBe('not-found');
   });
 
   it('rejects metric records whose source is missing', () => {

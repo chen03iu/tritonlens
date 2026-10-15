@@ -109,7 +109,29 @@ export function createLocalDatasetProviderSet(
       },
     },
     linkProvider: {
-      getLinks(_context, _identity, ratingResult) {
+      getLinks(context, identity, ratingResult) {
+        if (identity.status === 'ambiguous') {
+          const searchUrl = new URL(
+            'https://www.ratemyprofessors.com/search/professors/1079',
+          );
+          searchUrl.searchParams.set(
+            'q',
+            context.instructor.displayName,
+          );
+          return [
+            {
+              kind: 'professor-ratings',
+              label: 'View ratings on RateMyProfessors',
+              url: searchUrl.href,
+            },
+            {
+              kind: 'historical-grades',
+              label: 'Open the UCSD A.S. grade archive',
+              url: 'https://dev-as.ucsd.edu/Home/InstructorGradeArchive',
+            },
+          ];
+        }
+
         if (ratingResult.status !== 'found') {
           return [];
         }

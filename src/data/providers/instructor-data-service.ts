@@ -17,6 +17,28 @@ const NO_GRADES: HistoricalGradesLookupResult = {
   status: 'not-found',
 };
 
+function releaseApprovedRating(
+  mode: InstructorDataServiceOptions['mode'],
+  result: ProfessorRatingLookupResult,
+): ProfessorRatingLookupResult {
+  return mode === 'production-snapshot' &&
+    result.status === 'found' &&
+    result.data.source.permissionStatus !== 'approved'
+    ? NO_RATING
+    : result;
+}
+
+function releaseApprovedGrades(
+  mode: InstructorDataServiceOptions['mode'],
+  result: HistoricalGradesLookupResult,
+): HistoricalGradesLookupResult {
+  return mode === 'production-snapshot' &&
+    result.status === 'found' &&
+    result.data.source.permissionStatus !== 'approved'
+    ? NO_GRADES
+    : result;
+}
+
 export function createInstructorDataService(
   options: InstructorDataServiceOptions,
 ): InstructorDataService {
@@ -38,18 +60,22 @@ export function createInstructorDataService(
 
       if (identity.status === 'found') {
         try {
-          professorRating = options.ratingProvider.lookup(
-            identity.identity,
+          professorRating = releaseApprovedRating(
+            options.mode,
+            options.ratingProvider.lookup(identity.identity),
           );
         } catch {
           professorRating = NO_RATING;
         }
 
         try {
-          historicalGrades = options.gradesProvider.lookup(
-            identity.identity,
-            context.course.subjectCode,
-            context.course.catalogNumber,
+          historicalGrades = releaseApprovedGrades(
+            options.mode,
+            options.gradesProvider.lookup(
+              identity.identity,
+              context.course.subjectCode,
+              context.course.catalogNumber,
+            ),
           );
         } catch {
           historicalGrades = NO_GRADES;

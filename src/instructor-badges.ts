@@ -24,6 +24,7 @@ const stateByBadge = new WeakMap<
   {
     readonly context: RenderedInstructorContext;
     readonly contextKey: string;
+    readonly insightKey: string;
     readonly service: InstructorDataService;
     readonly insight: InstructorInsight;
   }
@@ -194,17 +195,25 @@ function applyBadgeState(
     context.section.eventId,
   ]);
   const previousState = stateByBadge.get(badge);
+  const insight = service.getInsight(context);
+  const insightKey = JSON.stringify(insight);
 
   if (
     previousState &&
     (previousState.contextKey !== contextKey ||
-      previousState.service !== service)
+      previousState.service !== service ||
+      previousState.insightKey !== insightKey)
   ) {
     closeProfessorDetailCardForTrigger(badge);
   }
 
-  const insight = service.getInsight(context);
-  stateByBadge.set(badge, { context, contextKey, service, insight });
+  stateByBadge.set(badge, {
+    context,
+    contextKey,
+    insightKey,
+    service,
+    insight,
+  });
   applyContextToBadge(badge, context);
   badge.dataset.tritonlensDatasetKind = insight.mode;
 

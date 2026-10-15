@@ -551,6 +551,65 @@ describe('enhanceVisibleInstructorLinks', () => {
     expect(card?.textContent).not.toContain('3.42');
   });
 
+  it('offers generic links without metrics for an ambiguous identity', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const duplicate = MOCK_DATASET.professors[0];
+    const ambiguousDataset: LocalDataset = {
+      ...MOCK_DATASET,
+      kind: 'development',
+      professors: [duplicate, { ...duplicate, id: 'duplicate-libby' }],
+    };
+
+    enhanceVisibleInstructorLinks(
+      document,
+      [createContext(link)],
+      createSnapshotService(ambiguousDataset),
+    );
+    document
+      .querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!
+      .click();
+
+    const card = document.querySelector('.tritonlens-detail-card');
+    expect(card?.textContent).toContain('Professor rating unavailable');
+    expect(card?.textContent).toContain('Historical grade data unavailable');
+    expect(card?.querySelectorAll('.tritonlens-detail-source-link'))
+      .toHaveLength(2);
+  });
+
+  it('closes an open card when provider results change on a rescan', () => {
+    const link = renderInstructorLink('Libby Butler');
+    const providers = createLocalDatasetProviderSet(MOCK_DATASET);
+    let ratingFails = false;
+    const service = createInstructorDataService({
+      mode: 'mock',
+      modeLabel: 'Fictional demo data',
+      ...providers,
+      ratingProvider: {
+        lookup(identity) {
+          if (ratingFails) {
+            throw new Error('temporary rating failure');
+          }
+          return providers.ratingProvider.lookup(identity);
+        },
+      },
+    });
+    const context = createContext(link);
+    enhanceVisibleInstructorLinks(document, [context], service);
+    const badge = document.querySelector<HTMLButtonElement>(
+      '.tritonlens-rating-badge',
+    )!;
+    badge.click();
+    expect(document.querySelector('.tritonlens-detail-card')?.textContent)
+      .toContain('4.6 / 5');
+
+    ratingFails = true;
+    enhanceVisibleInstructorLinks(document, [createContext(link)], service);
+
+    expect(document.querySelector('.tritonlens-detail-card')).toBeNull();
+    expect(badge.getAttribute('aria-expanded')).toBe('false');
+    expect(badge.textContent).toBe('Grades available demo');
+  });
+
   it('preserves an open card across unchanged scans with recreated contexts', () => {
     const link = renderInstructorLink('Libby Butler');
     enhanceVisibleInstructorLinks(document, [createContext(link)]);
