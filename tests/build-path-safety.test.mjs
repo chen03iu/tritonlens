@@ -11,6 +11,15 @@ describe('build output safety', () => {
     ['project root', root],
     ['project parent', dirname(root)],
     ['drive root', parse(root).root],
+    ['source directory', resolve(root, 'src')],
+    ['Git metadata', resolve(root, '.git')],
+    ['dependencies', resolve(root, 'node_modules')],
+    ['system temp root', resolve(tmpdir())],
+    ['unrelated user directory', dirname(tmpdir())],
+    [
+      'another drive root',
+      parse(root).root.toUpperCase().startsWith('C:') ? 'D:\\' : 'C:\\',
+    ],
   ])('rejects the %s as a recursive-clean target', (_label, target) => {
     expect(() => assertSafeBuildOutdir(root, target)).toThrow(
       /refusing unsafe build output directory/i,
