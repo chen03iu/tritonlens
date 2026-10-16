@@ -2,9 +2,9 @@
 
 Last updated: 2026-10-15
 
-This document describes the default link-only TritonLens build. The separate
-development-data build is not intended for public distribution. This document
-must be reviewed again before public distribution or changes to data use.
+This document describes the default TritonLens build, which includes a static
+data snapshot, and the optional link-only build. It must be reviewed again if
+the extension adds remote data access, storage, analytics, or new permissions.
 
 ## Local Processing
 
@@ -13,11 +13,10 @@ instructor, term, section, schedule, location, and enrollment-count information
 to associate its badges with the correct course entries. These values are
 processed in browser memory and are not saved by the extension.
 
-The default build does not bundle professor ratings or historical-grade
-metrics. It creates user-clicked links to external rating and aggregate-grade
-resources. A separate, explicitly labeled development build can perform local
-lookups against a bundled static snapshot; those values are not the user's
-personal grades.
+The default build performs local lookups against a bundled static snapshot of
+professor ratings and aggregate historical-grade metrics. Those values are not
+the user's personal grades. The optional link-only build omits the snapshot and
+provides user-clicked external resource links instead.
 
 ## Information Not Collected
 

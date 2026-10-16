@@ -25,29 +25,26 @@ function build(name, ...flags) {
   };
 }
 
-test('release and development builds use isolated data graphs', () => {
+test('default metrics and explicit link-only builds use isolated data graphs', () => {
   const release = build('release');
   expect(release.content).toContain(
+    'Data snapshot — source permissions pending',
+  );
+  expect(release.content).toContain('easy-a-radar-rmp');
+  expect(release.content).toContain('Libby Butler');
+
+  const linkOnly = build('link-only', '--link-only');
+  expect(linkOnly.content).toContain(
     'Ratings and historical grades are not included in this build.',
   );
-  expect(release.content).not.toContain(
-    'Development snapshot — not for release',
+  expect(linkOnly.content).not.toContain(
+    'Data snapshot — source permissions pending',
   );
-  expect(release.content).not.toContain('easy-a-radar-rmp');
-  expect(release.content).not.toContain('Libby Butler');
-
-  const development = build('development', '--development-data');
-  expect(development.content).toContain(
-    'Development snapshot — not for release',
-  );
-  expect(development.content).toContain('easy-a-radar-rmp');
-  expect(development.content).toContain('Libby Butler');
-  expect(development.size).toBeGreaterThan(release.size * 2);
+  expect(linkOnly.content).not.toContain('easy-a-radar-rmp');
+  expect(linkOnly.content).not.toContain('Libby Butler');
+  expect(release.size).toBeGreaterThan(linkOnly.size * 2);
 
   const releaseAgain = build('release-again');
-  expect(releaseAgain.content).toContain(
-    'Ratings and historical grades are not included in this build.',
-  );
-  expect(releaseAgain.content).not.toContain('easy-a-radar-rmp');
+  expect(releaseAgain.content).toContain('easy-a-radar-rmp');
   expect(releaseAgain.content).toBe(release.content);
 });

@@ -4,12 +4,12 @@ TritonLens is a privacy-focused Chrome extension that adds instructor and
 historical course context directly to UC San Diego's Triton Student System
 (TSS).
 
-The project is currently an early prototype. Local development builds use a
-normalized Easy-A Radar snapshot to validate TSS context extraction,
-conservative professor matching, course-specific historical-data lookup, and
-inline UI states. The snapshot is approved by the Easy-A Radar author for
-noncommercial use but is deliberately marked development-only while upstream
-redistribution questions remain under review.
+The project is currently an early prototype. Its default build uses a
+normalized Easy-A Radar snapshot for conservative professor matching,
+course-specific historical-data lookup, and inline UI states. The user reports
+noncommercial permission from the Easy-A Radar author; direct upstream RMP and
+UCSD redistribution permission remains unresolved, so the UI labels the
+snapshot permissions as pending.
 
 ## Current Features
 
@@ -64,6 +64,12 @@ Build the extension:
 npm.cmd run build
 ```
 
+Build the no-snapshot fallback instead:
+
+```powershell
+npm.cmd run build:link-only
+```
+
 Load the generated extension:
 
 1. Open `chrome://extensions` in Chrome.
@@ -98,7 +104,7 @@ src/
   data/
     types.ts              Source-aware local dataset models
     mock-dataset.ts       Fictional development-only records
-    easy-a-dataset.ts     Validated development snapshot entry point
+    easy-a-dataset.ts     Validated local snapshot entry point
     easy-a-dataset.generated.json  Generated local snapshot
     lookup.ts             Conservative professor and course lookup
     validation.ts         Provenance and integrity validation
@@ -118,13 +124,12 @@ See [ROADMAP.md](ROADMAP.md) for planned work,
 
 ## Data Disclaimer
 
-Badges ending in `dev` use the Easy-A Radar development snapshot and are not
-approved release data. Badges ending in `demo` exist only in automated tests
-and use fictional fixtures. Historical grade information is labeled as
-historical context, not as a prediction of future outcomes.
+The default detail card labels the Easy-A-derived snapshot as
+`Data snapshot — source permissions pending`. Badges ending in `demo` exist
+only in automated tests and use fictional fixtures. Historical grade
+information is labeled as context, not as a prediction of future outcomes.
 
 No license has been selected for TritonLens yet.
 
 See [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) for release preparation and
-the remaining publication gates. The current development bundle is not ready
-for public distribution.
+the remaining permission and publication checks.

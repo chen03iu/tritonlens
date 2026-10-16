@@ -60,14 +60,18 @@ describe('TSS content observer', () => {
   it('settles after badge injection instead of scheduling itself forever', async () => {
     await import('../src/content');
     await flushFrame();
-    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('View ratings');
+    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('★ 2.7');
+    expect(
+      document.querySelector<HTMLElement>('.tritonlens-rating-badge')?.dataset
+        .tritonlensDatasetKind,
+    ).toBe('pending-permission-snapshot');
     expect(frames).toHaveLength(0);
   });
 
-  it('keeps the Easy-A snapshot behind the development entry', async () => {
-    await import('../src/content-development');
+  it('keeps the link-only package available as an explicit entry', async () => {
+    await import('../src/content-link-only');
     await flushFrame();
-    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('★ 2.7 dev');
+    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('View ratings');
     expect(frames).toHaveLength(0);
   });
 
@@ -90,7 +94,7 @@ describe('TSS content observer', () => {
   });
 
   it('processes TSS changes even when the mutation batch includes badge changes', async () => {
-    await import('../src/content-development');
+    await import('../src/content');
     await flushFrame();
     document.querySelector('.tritonlens-rating-badge')!.textContent = 'Temporary UI update';
     document.querySelector('a')!.textContent = 'Unknown Instructor';
@@ -102,7 +106,7 @@ describe('TSS content observer', () => {
   });
 
   it('does not rescan for detail-card insertion or removal', async () => {
-    await import('../src/content-development');
+    await import('../src/content');
     await flushFrame();
     document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!.click();
     await Promise.resolve();
@@ -116,7 +120,7 @@ describe('TSS content observer', () => {
 
   it('contains a failed scan and recovers on the next TSS mutation', async () => {
     const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    await import('../src/content-development');
+    await import('../src/content');
     vi.spyOn(document, 'querySelectorAll').mockImplementationOnce(() => {
       throw new Error('Sensitive fixture detail must not be logged');
     });
@@ -131,13 +135,13 @@ describe('TSS content observer', () => {
     document.querySelector('a')!.textContent = 'Libby Butler ';
     await Promise.resolve();
     await flushFrame();
-    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('★ 2.7 dev');
+    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('★ 2.7');
     expect(frames).toHaveLength(0);
   });
 
   it('contains cleanup failures and retries without repeated warning spam', async () => {
     const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    await import('../src/content-development');
+    await import('../src/content');
     const failingDom = vi.spyOn(document, 'querySelectorAll').mockImplementation(() => {
       throw new Error('Persistent fixture DOM failure');
     });
@@ -154,12 +158,12 @@ describe('TSS content observer', () => {
     document.getElementById('tss-action')!.append('Page recovered');
     await Promise.resolve();
     await flushFrame();
-    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('★ 2.7 dev');
+    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('★ 2.7');
   });
 
   it('removes stale extension UI after a scan fails without removing TSS nodes', async () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {});
-    await import('../src/content-development');
+    await import('../src/content');
     await flushFrame();
     document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!.click();
     const link = document.querySelector('a')!;
@@ -178,6 +182,6 @@ describe('TSS content observer', () => {
     link.textContent = 'Libby Butler';
     await Promise.resolve();
     await flushFrame();
-    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('★ 2.7 dev');
+    expect(document.querySelector('.tritonlens-rating-badge')?.textContent).toBe('★ 2.7');
   });
 });

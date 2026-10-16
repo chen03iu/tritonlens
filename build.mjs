@@ -6,7 +6,7 @@ import { assertSafeBuildOutdir } from './scripts/build-paths.mjs';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const watch = process.argv.includes('--watch');
-const useDevelopmentData = process.argv.includes('--development-data');
+const useLinkOnlyData = process.argv.includes('--link-only');
 const outdirArgument = process.argv.find((argument) =>
   argument.startsWith('--outdir='),
 );
@@ -14,8 +14,8 @@ const dist = assertSafeBuildOutdir(
   root,
   resolve(root, outdirArgument?.slice('--outdir='.length) || 'dist'),
 );
-const contentEntry = useDevelopmentData
-  ? 'src/content-development.ts'
+const contentEntry = useLinkOnlyData
+  ? 'src/content-link-only.ts'
   : 'src/content.ts';
 
 await rm(dist, { recursive: true, force: true });

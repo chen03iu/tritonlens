@@ -4,13 +4,12 @@ Last updated: 2026-10-15
 
 ## Current Milestone
 
-The public-build architecture is now independent of Easy-A Radar. A normalized
-provider boundary supplies the badge and detail card. The default release entry
-uses a network-free, link-only provider and produces a roughly 16 KB content
-bundle with no Easy-A snapshot records. A separate development entry produces
-the approximately 4.3 MB snapshot build and remains visibly marked not for
-release. Automated tests build release, development, then release again to
-guard against mode leakage.
+A normalized provider boundary supplies the badge and detail card. The default
+build is a network-free, approximately 4.3 MB package that includes the Easy-A
+snapshot and labels it `Data snapshot — source permissions pending`. An
+explicit link-only entry produces a roughly 16 KB fallback with no snapshot
+records. Automated tests build default, link-only, then default again to guard
+against mode leakage.
 
 The instructor detail card now renders available historical grade percentages
 as a compact, accessible bar chart for A/B/C/D/F/W/P/NP. Bars use the source
@@ -41,13 +40,12 @@ The remaining recommendation queue is 284 recommended and 22 review.
 Evidence: `reports/short-name-batch-1-review.md`. Earlier counts below describe
 the preceding milestones.
 
-Phase 1, Phase 2, and Phase 3 are completed. Phase 4 now has an author-approved
-Easy-A Radar development snapshot integrated locally. Production release of
-that data still waits on upstream redistribution review. Phase 5 UI work is in
-progress using the explicitly labeled development snapshot. Phase 6 reliability
+Phase 1, Phase 2, and Phase 3 are completed. Phase 4 has an Easy-A-author-
+approved noncommercial snapshot integrated locally; direct upstream RMP and
+UCSD redistribution permission remains unresolved and is disclosed in the
+public-build UI. Phase 5 UI work uses that labeled snapshot. Phase 6 reliability
 work includes automated SPA transition checks and a user-reported live TSS
-smoke pass. Release preparation has started with privacy documentation and a
-checklist; broad layout coverage and clean-profile package testing remain.
+smoke pass. Broad layout coverage and clean-profile package testing remain.
 
 ## Completed
 
@@ -180,9 +178,10 @@ checklist; broad layout coverage and clean-profile package testing remain.
   unverified aliases or broader matching rules were added.
 - Added documented, exact-identity aliases for Miles Jones and Aaron
   Shalev/Schulman, restoring existing CSE 21 and CSE 29 historical lookups.
-- Added Aaron's separately sourced 2026-09-15 RMP development observation,
+- Added Aaron's separately sourced 2026-09-15 RMP observation,
   preserving the Extended Studies profile label and review-count limitation.
-  Its permission remains pending; it is not approved release data.
+  It is included in the pending-permission snapshot and remains unapproved by
+  the upstream source.
 - Added original navy-and-gold lens icons at 16, 32, 48, and 128 pixels,
   manifest registration, build copies, and a real-build packaging regression.
 - Recorded the user's 2026-09-15 live-TSS smoke pass for course switching,
@@ -191,20 +190,21 @@ checklist; broad layout coverage and clean-profile package testing remain.
   justification, external-link behavior, and explicit publication gates.
 - Added replaceable identity, rating, historical-grade, and external-link
   provider contracts with exception-contained, fail-closed composition.
-- Made the default build link-only, with user-clicked RMP search and UCSD A.S.
-  archive links and no automatic external request.
-- Split release and development entry points so only the explicit
-  `build:development-data` command imports the Easy-A snapshot.
-- Added automated bundle-exclusion, consecutive-build isolation, runtime
-  cleanup, and link-only accessibility regressions. The suite now contains
-  264 tests across 28 files.
+- Added a link-only provider with user-clicked RMP search and UCSD A.S. archive
+  links and no automatic external request.
+- Made the Easy-A snapshot the default build while retaining the explicit
+  `build:link-only` fallback and a visible pending-permission label.
+- Added automated bundle isolation, consecutive-build, runtime cleanup, and
+  link-only accessibility regressions.
 
 ## Current Architecture
 
 - `manifest.json`: Chrome extension configuration.
 - `build.mjs`: esbuild build process.
-- `src/content.ts`: safe release entry using the link-only provider.
-- `src/content-development.ts`: explicit development-snapshot entry.
+- `src/content.ts`: default pending-permission snapshot entry.
+- `src/content-link-only.ts`: explicit no-snapshot fallback entry.
+- `src/content-development.ts`: legacy development-snapshot entry retained for
+  local compatibility.
 - `src/content-runtime.ts`: provider-injected TSS observer and cleanup runtime.
 - `src/data/providers/`: replaceable data contracts and provider compositions.
 - `src/instructor-badges.ts`: finds instructor links and manages badges.
@@ -236,9 +236,10 @@ checklist; broad layout coverage and clean-profile package testing remain.
 
 ## Data Status
 
-The default build shows `View ratings` and contains no metric snapshot. Values
-ending in `dev` exist only in the explicit Easy-A Radar development build.
-Values ending in `demo` are fictional fixtures used in automated tests.
+The default build shows available ratings and historical grades from the local
+snapshot without a `dev` suffix; its detail card discloses that source
+permissions are pending. The link-only build shows `View ratings` and contains
+no metric snapshot. Values ending in `demo` are fictional test fixtures.
 
 TritonLens currently:
 
@@ -246,10 +247,10 @@ TritonLens currently:
   when clicked by the user);
 - collects no student information;
 - stores no TSS session information;
-- makes no rating or historical-grade lookup in the default build; user-clicked
-  links navigate to RMP search or the UCSD A.S. archive;
-- makes development-only metric lookups against a bundled local snapshot, with
-  no live requests to RMP or UCSD data services.
+- makes rating and historical-grade lookups against a bundled local snapshot,
+  with no live requests to RMP or UCSD data services;
+- retains a separate link-only build for user-clicked RMP search and UCSD A.S.
+  archive navigation.
 
 ## Known Limitations
 
@@ -259,13 +260,13 @@ TritonLens currently:
 - The detail card is intentionally a non-modal popover and can temporarily
   cover nearby TSS rows until dismissed.
 - Snapshot data can be incomplete or stale and is not a prediction.
-- The development snapshot is not approved for a public release build yet.
+- Direct upstream permission for public redistribution remains unresolved.
 - Easy-A Radar author permission does not by itself resolve the restrictions
   imposed by its underlying RMP and UCSD sources.
 
 ## Next Milestone
 
-Phase 6/7 — Broader reliability checks and link-only release preparation.
+Phase 6/7 — Broader reliability checks and public snapshot release preparation.
 
 Next tasks:
 
@@ -284,12 +285,12 @@ Next tasks:
 5. Keep RMP and UCSD permission requests as release preparation rather than a
    blocker for local development.
 6. Run every future imported snapshot through `validateLocalDataset()`.
-7. Load the default link-only package in a clean Chrome profile and complete
-   the multi-department, narrow-layout, and keyboard release matrix.
+7. Load both the default and link-only packages in a clean Chrome profile and
+   complete the multi-department, narrow-layout, and keyboard release matrix.
 
 ## Blockers
 
-No data-permission blocker remains for a link-only build that is otherwise
-ready for release review. Public distribution of the development snapshot
-remains blocked until upstream redistribution, attribution, and source-policy
-questions are resolved.
+The user has chosen to prepare a public snapshot build while direct RMP and
+UCSD redistribution permission remains unresolved. The implementation labels
+that status truthfully, but the label does not remove the legal or store-review
+risk. The link-only build remains the lower-risk fallback.

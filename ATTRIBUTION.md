@@ -43,12 +43,15 @@ versions and transitive dependencies are recorded in `package-lock.json`.
 
 ## Data Attribution
 
-Local development builds bundle normalized professor rating fields and
-aggregate historical course × professor grade fields from Easy-A Radar. The
-snapshot includes professor aliases, RMP profile identifiers and metrics,
-average GPA, offering count, and grade-distribution percentages. TritonLens
-does not infer unavailable student sample sizes. The UI labels this data as a
-development snapshot that is not for release.
+The default build bundles normalized professor rating fields and aggregate
+historical course × professor grade fields from Easy-A Radar. The snapshot
+includes professor aliases, RMP profile identifiers and metrics, average GPA,
+offering count, and grade-distribution percentages. TritonLens does not infer
+unavailable student sample sizes. The UI labels it `Data snapshot — source
+permissions pending`: the user reports noncommercial permission from the
+Easy-A Radar author, while direct upstream RMP and UCSD redistribution
+permission remains unresolved. `npm run build:link-only` creates a fallback
+package that omits this snapshot.
 
 Every value displayed with a `demo` label remains an original fictional test
 fixture and does not describe a named instructor or real UCSD outcome.
@@ -68,11 +71,12 @@ Future datasets must be documented in both this file and
 
 Explicit name corrections are based on the instructors' UCSD webpages,
 documented in `REVIEWED_IDENTITIES.md`. Aaron's separately reviewed personal
-development rating observation comes directly from RMP profile 3050657, not
-Easy-A Radar. It remains pending redistribution review and is not approved
-release data. No student review text is included.
+rating observation comes directly from RMP profile 3050657, not Easy-A Radar.
+It is included in the default pending-permission snapshot, remains unapproved
+for upstream redistribution, and is rejected by `production-snapshot` mode.
+No student review text is included.
 
-The batch audit uses Easy-A Radar's public `fa` snapshot as development input.
+The batch audit uses Easy-A Radar's public `fa` snapshot as its input.
 Its source-profile/name links provide the evidence for conservative duplicate
 consolidation; this is not new independent RMP verification. TritonLens's own
 audit/consolidation code retains all historical rows and source metadata.

@@ -49,7 +49,7 @@ scope until the core TSS integration is reliable.
 - [ ] Resolve permission, redistribution, and attribution requirements.
 - [x] Add a fail-closed validation gate for provenance and data integrity.
 - [x] Add replaceable provider contracts and a link-only release provider.
-- [x] Separate release and development build dependency graphs.
+- [x] Separate default snapshot and link-only build dependency graphs.
 - [x] Integrate the author-approved Easy-A Radar snapshot for local
   noncommercial development.
 - [x] Preserve aliases, offering counts, grade distributions, and source dates.
@@ -86,6 +86,7 @@ scope until the core TSS integration is reliable.
 - [ ] Add extension icons and release screenshots.
 - [ ] Prepare a privacy policy and permission justification.
 - [ ] Complete attribution and data-source documentation.
-- [x] Default release packaging to link-only with no bundled metric snapshot.
+- [x] Default packaging to the metric snapshot with a visible
+  pending-permission disclosure and retain an explicit link-only fallback.
 - [ ] Test the packaged extension from a clean Chrome profile.
 - [ ] Prepare the Chrome Web Store listing.

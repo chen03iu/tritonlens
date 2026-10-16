@@ -12,6 +12,7 @@ export type ProviderMode =
   | 'link-only'
   | 'mock'
   | 'development-snapshot'
+  | 'pending-permission-snapshot'
   | 'production-snapshot';
 
 export interface ProfessorIdentity {

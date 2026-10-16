@@ -186,6 +186,28 @@ describe('local dataset provider adapters', () => {
     expect(insight.historicalGrades.status).toBe('not-found');
   });
 
+  it('exposes pending sources only when the mode labels them as pending', () => {
+    const dataset: LocalDataset = {
+      ...MOCK_DATASET,
+      sources: MOCK_DATASET.sources.map((source) => ({
+        ...source,
+        permissionStatus: 'pending',
+      })),
+    };
+    const insight = createInstructorDataService({
+      mode: 'pending-permission-snapshot',
+      modeLabel: 'Data snapshot — source permissions pending',
+      ...createLocalDatasetProviderSet(dataset),
+    }).getInsight(createContext('Libby Butler'));
+
+    expect(insight.mode).toBe('pending-permission-snapshot');
+    expect(insight.modeLabel).toBe(
+      'Data snapshot — source permissions pending',
+    );
+    expect(insight.professorRating.status).toBe('found');
+    expect(insight.historicalGrades.status).toBe('found');
+  });
+
   it('rejects metric records whose source is missing', () => {
     const dataset = createIndependentDataset();
     const missingSources: LocalDataset = {

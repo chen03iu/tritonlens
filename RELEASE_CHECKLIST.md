@@ -1,9 +1,9 @@
 # TritonLens Release Checklist
 
-This is a preparation checklist, not approval to publish. The default build is
-link-only and excludes the Easy-A/RMP/UCSD metric snapshot. The separate
-development-data build remains development-only and must not be uploaded or
-publicly distributed while its redistribution review is unresolved.
+This is a preparation checklist, not legal approval to publish. The default
+build includes the Easy-A-derived RMP/UCSD metric snapshot and labels its
+source permissions as pending. `npm run build:link-only` remains available as
+the no-snapshot fallback.
 
 ## Data and Provenance
 
@@ -11,11 +11,11 @@ publicly distributed while its redistribution review is unresolved.
   `DATA_SOURCES.md`; retain private permission evidence outside Git.
 - [ ] Review attribution and select a license for original TritonLens code.
   A code license does not automatically license bundled third-party data.
-- [x] Verify the default release bundle contains no Easy-A/RMP/UCSD metric
-  snapshot and does not import the development entry point.
-- [ ] If a future release enables bundled metrics, validate its dataset in
-  production mode and confirm permissions, source dates, safe identity matches,
-  unavailable values, and historical-not-prediction labels.
+- [x] Verify the default bundle contains the snapshot and the explicit
+  pending-permission disclosure.
+- [x] Verify the link-only bundle contains no Easy-A/RMP/UCSD metric snapshot.
+- [ ] Resolve direct RMP and UCSD redistribution permission before describing
+  the snapshot as approved or production-authorized.
 
 ## Privacy and User Information
 
@@ -31,13 +31,13 @@ publicly distributed while its redistribution review is unresolved.
 - [x] Add extension icons and copy them into the build output.
 - [ ] Choose a release version and keep package and manifest versions aligned.
 - [ ] Run `npm.cmd test`, `npm.cmd run typecheck`, and `npm.cmd run build`.
-- [ ] Confirm the default badge says `View ratings`, its card contains no score,
-  GPA, grade graph, or update date, and both outbound links are HTTPS.
+- [ ] Confirm the default badge shows available ratings and its card shows the
+  pending-permission label, source dates, and historical-not-prediction note.
 - [ ] Confirm neither opening TSS nor scanning its DOM makes an automatic RMP
   or UCSD grade-source request; requests occur only after a user clicks a link.
-- [ ] Inspect `dist/content.js` for excluded development markers and a known
-  generated-only identity; run `npm.cmd run build:development-data` only into a
-  separate local output when that build is intentionally needed.
+- [ ] Inspect `dist/content.js` for the pending-permission marker and a known
+  generated identity; separately verify `npm.cmd run build:link-only` excludes
+  both.
 - [ ] Review the production package: include only required runtime files;
   exclude `AGENTS.md`, raw captures, credentials, tests, and source maps.
 - [ ] Test loading the package in a clean Chrome profile. Any authenticated
