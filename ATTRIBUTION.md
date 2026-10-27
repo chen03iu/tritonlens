@@ -8,7 +8,7 @@ introduced.
 
 The current TritonLens prototype does not contain copied or adapted source
 code from TritonPlan, UCSD Easy-A Radar, or Sahir Sharma WebReg. TritonLens
-does contain a transformed Easy-A Radar data snapshot for local development.
+does contain a transformed Easy-A Radar data snapshot in its default build.
 
 Their public projects informed research and architectural discussion:
 
@@ -20,7 +20,7 @@ Their public projects informed research and architectural discussion:
   own importer. On 2026-09-14, the user reported that the author directly
   granted TritonLens unrestricted noncommercial use with no additional
   conditions. This private permission is not a public repository license, and
-  upstream source restrictions still require separate review before release.
+  direct upstream RMP and UCSD redistribution permission remains unresolved.
 - [Sahir Sharma WebReg](https://github.com/SahirSSharma/WebReg): TSS OData and
   course-data research.
 

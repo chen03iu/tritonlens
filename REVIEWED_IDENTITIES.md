@@ -1,7 +1,7 @@
 # Reviewed Instructor Identities
 
-Reviewed through: 2026-09-17. These are explicit development corrections, not a rule
-to ignore middle names or automatically match similar surnames.
+Reviewed through: 2026-09-17. These are explicit snapshot corrections, not a
+rule to ignore middle names or automatically match similar surnames.
 
 ## Miles Jones
 
@@ -58,9 +58,10 @@ which disagrees with those reported totals. We preserve the site's aggregate
 fields as an observation, not a recomputed score or guaranteed current value.
 No review text or student identities are bundled.
 
-This separate personal noncommercial development observation is pending
-redistribution review. It is not Easy-A data or approved release data. The UI
-links to the actual profile and preserves its Extended Studies school label.
+This separate personal noncommercial observation is included in the default
+pending-permission snapshot. It is not Easy-A data, remains unapproved by the
+upstream source, and is rejected by `production-snapshot` mode. The UI links
+to the actual profile and preserves its Extended Studies school label.
 
 ## Daphne Taylor García
 
@@ -92,7 +93,7 @@ The biology faculty page uses the short name and identifies the instructor:
 - https://courses.ucsd.edu/profMain.aspx?profname=Maita%2C+Isabella+Vincenza
 
 The correction removes only the exact empty duplicate from the effective
-development dataset and adds its short name to the canonical aliases. The
+local snapshot and adds its short name to the canonical aliases. The
 generated source JSON remains untouched. Existing rating metrics and biology
 history are retained, including the snapshot's 76 percent would-take-again
 (not the user's newer screenshot's 77 percent). Neither record has AIP 197

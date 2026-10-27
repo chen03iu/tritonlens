@@ -40,15 +40,14 @@ requirements should be reviewed and recorded here.
   and historical grades are core product behavior. The UI and source records
   explicitly state that upstream permissions remain pending.
 - Keep `npm run build:link-only` as the no-snapshot fallback.
-- Do not create an automated RMP scraping/update pipeline or bundle its data
-  in published builds without direct written permission from RMP. A single
-  user-requested, dated personal noncommercial development observation of
-  Aaron Schulman's profile is retained separately with pending permission;
-  this is not an approved reusable access method or redistribution grant.
-- Do not bulk copy or redistribute A.S. Instructor Grade Archive data without
-  direct written permission from UCSD or the responsible A.S. unit.
+- Do not create an automated RMP scraping/update pipeline. A single
+  user-requested, dated personal observation of Aaron Schulman's profile is
+  included in the default pending-permission snapshot; it is not an approved
+  reusable access method or redistribution grant.
+- Direct RMP and UCSD/A.S. redistribution permission remains unresolved. Do
+  not describe the bundled snapshot as approved by those upstream sources.
 - Do not use Campus Grades or any report containing student-level information.
-- Easy-A Radar is used for TritonLens's local noncommercial development under
+- Easy-A Radar is used in TritonLens's default noncommercial snapshot under
   the author's direct permission as reported by the user. Each upstream field
   retains provenance and remains subject to its source restrictions.
 - Keep the imported snapshot classified as `development`; the public build's

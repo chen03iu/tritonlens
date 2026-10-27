@@ -112,7 +112,7 @@ smoke pass. Broad layout coverage and clean-profile package testing remain.
 - Preserved reviewed aliases and normalized zero-padded TSS catalog numbers.
 - Treated missing student counts, zero-rating profiles, and unavailable
   percentage sentinels as unavailable instead of inventing values.
-- Connected the validated development dataset to live badges and detail cards.
+- Connected the validated local snapshot to live badges and detail cards.
 - Added compact A/B/C/D/F/W/P/NP historical grade distributions.
 - Added safe clickable Easy-A source links and direct RMP profile links when
   a numeric source professor ID is available.
@@ -218,7 +218,7 @@ smoke pass. Broad layout coverage and clean-profile package testing remain.
 - `src/data/types.ts`: source-aware professor rating and historical grade
   record models.
 - `src/data/mock-dataset.ts`: fictional development-only records.
-- `src/data/easy-a-dataset.ts`: validates and exposes the imported development
+- `src/data/easy-a-dataset.ts`: validates and exposes the imported local
   snapshot.
 - `scripts/easy-a-transform.mjs`: converts an Easy-A Radar snapshot into the
   TritonLens schema.
