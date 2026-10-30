@@ -39,6 +39,7 @@ export interface ProfessorRecord {
   readonly rating: ProfessorRating | null;
   /** Stable identity link, retained even when a profile has no ratings. */
   readonly sourceProfessorId?: string;
+  readonly ratingUpdatedAt?: string;
 }
 
 export interface HistoricalGradeDistribution {

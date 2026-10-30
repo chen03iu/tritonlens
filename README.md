@@ -5,8 +5,9 @@ historical course context directly to UC San Diego's Triton Student System
 (TSS).
 
 The project is currently an early prototype. Its default build uses a
-normalized Easy-A Radar snapshot for conservative professor matching,
-course-specific historical-data lookup, and inline UI states. The user reports
+normalized direct-source snapshot for conservative professor matching,
+course-specific historical-data lookup, and inline UI states. Reviewed names
+and the migration baseline come from the earlier Easy-A Radar snapshot. The user reports
 noncommercial permission from the Easy-A Radar author; direct upstream RMP and
 UCSD redistribution permission remains unresolved, so the UI labels the
 snapshot permissions as pending.
@@ -20,6 +21,10 @@ snapshot permissions as pending.
   when a safe match exists.
 - Shows compact historical grade distributions without inventing unavailable
   student sample sizes.
+- Lets you select individual historical terms, initially showing the latest
+  available term. GPA and percentages describe that term, not a pooled average.
+- Marks all-zero distributions unavailable and explains short percentage totals
+  without filling or rescaling the missing share.
 - Displays an explicit unavailable state instead of guessing when no safe
   match exists.
 - Removes stale badges when an instructor becomes empty.
@@ -83,6 +88,35 @@ For automatic rebuilds during development:
 ```powershell
 npm.cmd run watch
 ```
+
+## Offline Source Refresh
+
+Source collection runs separately in the private data pipeline. This repository
+imports only aggregate JSON files; it has no crawler or credential handling.
+
+```powershell
+npm.cmd run import:direct -- <rmp.json> <browser-candidate.json> --allow-partial-archive
+```
+
+The first import starts from the corrected legacy snapshot so reviewed IDs and
+aliases survive numeric updates. Later imports use the current validated direct
+snapshot, preserving newer observations and previously collected terms. It
+validates source fields and original cell conversions,
+generates `src/data/direct-source-dataset.generated.json`, and saves a local
+hash/diff/identity-review report under `reports/data-sync/`. The previous generated
+file is retained in ignored `.cache/` before same-directory replacement.
+An optional `--outdir=<directory>` stages a candidate without replacing the runtime
+file. Raw inputs, reports, backups, and collection scripts are excluded from builds.
+
+The source file contains 30,146 term records, through Spring 2026. Of these, 29,994
+have safe identity links in the direct snapshot; 152 ambiguous term rows are held
+for review, with existing older histories retained where available. The QA archive
+has known gaps, including 2018 and 2019; the import flag acknowledges that partial
+coverage rather than declaring it complete. RMP metrics were retrieved on
+2026-10-29. Profiles that cannot safely refresh retain their own earlier source
+dates and appear in the local identity-review report. A readable review queue is
+written to `reports/data-sync/direct-source-identity-review.md`. Source permission remains
+pending. Building or importing does not publish a GitHub release.
 
 ## Quality Checks
 

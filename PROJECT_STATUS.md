@@ -1,8 +1,61 @@
 # TritonLens Project Status
 
-Last updated: 2026-10-15
+Last updated: 2026-10-29
 
 ## Current Milestone
+
+Direct-source integration is implemented on the local `feat/direct-source-data`
+branch. The default entry now reads a separately generated, validated direct
+snapshot; the legacy Easy-A baseline and all reviewed ID/alias evidence remain
+intact. No collection scripts or authentication code were added to this repo.
+
+The 2026-10-29 import refreshed 2,261 existing profile observations and added
+1,583 previously absent profiles (including unrated profiles). There are 3,273
+direct-source rated identities; 180 earlier observations retain their own source
+dates. Another 195 source profiles have ambiguous existing identity links (78),
+competing source names (100), or conflicting profile IDs (17) and were held in
+the ignored review report.
+No conflicting profile is substituted automatically.
+
+Of 30,146 UCSD source rows, 29,994 attach safely to existing corrected identities,
+producing 11,084 direct course/instructor histories. The 152 ambiguous term rows
+are held; 48 older aggregate histories retain their original source/date. The
+result has 11,132 histories total. Direct histories carry actual terms, with the
+latest selected initially and older terms available in the card. No unweighted
+term percentage/GPA aggregate is invented. The prior 11,159 aggregate entries
+remain in the legacy baseline. Student sample sizes remain unavailable.
+
+QA coverage is explicitly partial: 2018/2019, Winter 2015, Fall 2017, Winter 2022,
+and summer terms are absent. Latest observed term: Spring 2026. All-zero
+distributions (61) display unavailable percentages; 6,958 short totals remain
+unscaled with an explanatory note. Zero GPA without letter-grade shares is
+unavailable, while an evidenced zero letter-grade GPA remains valid. Permission
+status stays pending and source URLs/dates remain visible.
+
+Independent whole-branch review found source-name first-row selection, stale
+repeat imports, and course-overlap-only grade disambiguation. Regression tests
+were observed failing, then passing after fixes. Later imports now use the
+validated current snapshot; source-name collisions are preflighted, older
+observations cannot overwrite newer ones (including unrated profiles), previously
+collected terms are retained, and exact-name grade ambiguity stays unresolved.
+The first corrected dataset was regenerated from the untouched legacy baseline,
+not from an earlier experimental import.
+
+Build location: `.worktrees/direct-data/dist` in the original project checkout.
+No merge, push, GitHub release, or extension-store upload has been performed.
+
+Local integration verification: 308/308 tests across 33 files pass; typecheck and
+the default build pass. Content bundle is 9,819,042 bytes (about 9.4 MiB), reflecting
+individual term history rather than only legacy aggregates. Automated default /
+link-only / default builds confirm isolation and byte-stable rebuilds. The
+manifest still has no API or host permissions beyond its TSS content-script
+match. Raw source cells are absent from the bundle. Live Chrome/TSS smoke testing
+of this new build remains for the user's signed-in session.
+
+The remainder of this document records earlier milestones. Its former bundle
+sizes and snapshot counts describe the legacy build, not the direct import.
+
+### Earlier provider and snapshot milestones
 
 A normalized provider boundary supplies the badge and detail card. The default
 build is a network-free, approximately 4.3 MB package that includes the Easy-A

@@ -43,6 +43,38 @@ describe('direct-source transformation',()=>{
   const {dataset,report}=transformDirectSources(base,roster([]),archive());
   expect(dataset.historicalCourseGrades).toEqual([]);expect(report.grades.unmatchedRows).toBe(1);
  });
+ it('does not choose the first of two source profiles for an unlinked exact name',()=>{
+  const original=baseline();const base={...original,professors:[{...original.professors[0],rating:null}]};
+  const rows=[teacher(),teacher({legacyId:202,rating:1})];
+  for(const items of [rows,[...rows].reverse()]){
+   const result=transformDirectSources(base,roster(items),archive());
+   expect(result.dataset.professors).toHaveLength(1);expect(result.dataset.professors[0].rating).toBeNull();
+   expect(result.report.identityReview).toHaveLength(2);
+  }
+ });
+ it('holds duplicate new source names instead of showing the first rating confidently',()=>{
+  const rows=[teacher({legacyId:201,displayName:'New Person'}),teacher({legacyId:202,displayName:'New Person',rating:1})];
+  const result=transformDirectSources(baseline(),roster(rows),archive());
+  expect(result.dataset.professors.some(p=>p.displayName==='New Person')).toBe(false);
+  expect(result.report.identityReview).toHaveLength(2);
+ });
+ it('does not use course overlap alone to resolve an ambiguous exact grade name',()=>{
+  const original=baseline();const existingGrade=transformDirectSources(original,roster(),archive()).dataset.historicalCourseGrades[0];
+  const base={...original,professors:[...original.professors,{...original.professors[0],id:'another-jane',rating:null}],historicalCourseGrades:[existingGrade],sources:[...original.sources,{...source,id:'direct-ucsd-grades',category:'historical-grades' as const}]};
+  const result=transformDirectSources(base,roster([]),archive());
+  expect(result.report.grades.unmatchedRows).toBe(1);
+  expect(result.report.identityReview).toContainEqual(expect.objectContaining({reason:'ambiguous-grade'}));
+ });
+ it('retains previously collected terms missing from a later partial response',()=>{
+  const initial=transformDirectSources(baseline(),roster(),archive([row({year:'25',quarter:'FA'}),row()])).dataset;
+  const later=archive();later.retrievedAt='2026-10-30T08:00:00Z';
+  expect(transformDirectSources(initial,roster(),later).dataset.historicalCourseGrades[0].terms).toHaveLength(2);
+ });
+ it('does not resurrect an older rating after a newer unrated observation',()=>{
+  const initial=transformDirectSources(baseline(),roster([teacher({rating:null,ratingCount:0,difficulty:null,wouldTakeAgainPercent:null})]),archive()).dataset;
+  const later=transformDirectSources(initial,roster([teacher({retrievedAt:'2026-10-01T08:00:00Z'})]),archive()).dataset;
+  expect(later.professors[0].rating).toBeNull();
+ });
  it('marks zero distributions and pass-only zero GPA unavailable without inventing weights',()=>{
   const zero={A:0,B:0,C:0,D:0,F:0,W:0,P:0,NP:0};const zeros=Object.fromEntries(Object.keys(zero).map(k=>[k,'0%']));
   const {dataset}=transformDirectSources(baseline(),roster(),archive([row({gpa:0,grades:zero,sourceCells:{gpa:'0',grades:zeros}})]));

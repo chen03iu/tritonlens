@@ -1,8 +1,8 @@
 # TritonLens Data Sources
 
-Last reviewed: 2026-10-15
+Last reviewed: 2026-10-29
 
-The default TritonLens build bundles a normalized Easy-A Radar snapshot and
+The default TritonLens build bundles a normalized direct-source snapshot and
 shows professor ratings and historical grade metrics locally. Its detail card
 is marked `Data snapshot — source permissions pending`. It makes no automatic
 request to RMP, UCSD, or Easy-A Radar. `npm run build:link-only` produces a
@@ -29,8 +29,8 @@ requirements should be reviewed and recorded here.
 | [TritonPlan](https://github.com/hfjddjksaj/tritonplan) | TSS integration and parser architecture research | Public GitHub repository | MIT at the time reviewed | MIT terms permit reuse with required notices | Study architecture; attribute any code later adapted | No TritonPlan code is currently included |
 | [UCSD Easy-A Radar](https://github.com/Edwardwang66/ucsd-easy-a-radar) | Professor aliases, RMP snapshot metrics, and aggregate historical grade distributions | Author's public static `data.json`, transformed locally by `scripts/import-easy-a.mjs` | No public license found; the user reports that the author directly granted TritonLens unrestricted noncommercial use with no additional conditions | Easy-A author permission reported; upstream RMP/UCSD public redistribution remains unresolved | Bundle in the default build with an explicit pending-permission label; retain a link-only fallback | Snapshot generated 2026-07-23; 4,864 professor identity records and 11,159 historical course × professor records after normalization |
 | [Sahir Sharma WebReg](https://github.com/SahirSSharma/WebReg) | TSS OData research, tools, and course data | Public GitHub repository | MIT at the time reviewed | MIT terms permit reuse with required notices | Study research; attribute any code or data later adapted | No WebReg code or data is currently included |
-| [RateMyProfessors](https://www.ratemyprofessors.com/terms-of-use) | Professor rating, difficulty, rating count, and possibly would-take-again | No approved access method | Official Terms limit use to personal noncommercial use, prohibit third-party reproduction or distribution without prior written consent, and prohibit automated scraping without prior permission | Not approved | Request written permission from RMP; otherwise provide source links without bundling RMP data | Permission from an intermediary does not necessarily override RMP terms |
-| [UCSD A.S. Instructor Grade Archive](https://dev-as.ucsd.edu/Home/InstructorGradeArchive) | Public aggregate course × instructor grade distributions | Public search page; no approved bulk access method | Page is © Regents; UCSD Website Terms prohibit copying or redistribution without explicit permission beyond limited personal use | Not approved pending written permission | Ask A.S. and UCSD for permission to transform and redistribute aggregate records in a free extension | Historical results must never be presented as predictions |
+| [RateMyProfessors](https://www.ratemyprofessors.com/terms-of-use) | Professor rating, difficulty, rating count, would-take-again | Aggregate roster collected separately in the private pipeline; offline JSON import here | Official terms restrict automated collection and redistribution; written permission unresolved | Pending; not described as approved | Developer-run dated imports; no requests from the extension | 4,039 main-campus profiles retrieved 2026-10-29; conflicting IDs and ambiguous identities are not substituted |
+| [UCSD A.S. Instructor Grade Archive](https://qa-as.ucsd.edu/Home/InstructorGradeArchive) | Aggregate course × instructor × term GPA and grade distributions | User-initiated export from an existing authorized QA browser session; offline JSON import here | Access to a session is not redistribution permission; written permission unresolved | Pending; not described as approved | Retain actual term values and provenance; ask A.S. about missing terms and unexplained shares | 30,146 rows through Spring 2026; 2018/2019 and other terms absent; QA provenance and full coverage unconfirmed |
 | [UCSD Campus Grades](https://blink.ucsd.edu/instructors/student-reporting/enroll-grades/grades.html) | Internal student-, section-, and instructor-level grading reports | Restricted Business Analytics Hub access requiring training and authorization | Restricted institutional data containing student-level fields | Prohibited source for TritonLens | Do not access, request, collect, or use | This is not the public A.S. aggregate archive |
 | [UCSD CAPE statistics](https://cape.ucsd.edu/scripts/stats.asp) and SET-related data | Historical public numerical teaching feedback and possible aggregate grade metrics | Public CAPE search page; SET availability varies | UCSD-controlled content; general UCSD redistribution terms require explicit permission | Not approved pending written permission | Evaluate only after core rating and grade sources are resolved | Keep teaching-feedback metrics distinct from grades and RMP ratings |
 
@@ -40,10 +40,10 @@ requirements should be reviewed and recorded here.
   and historical grades are core product behavior. The UI and source records
   explicitly state that upstream permissions remain pending.
 - Keep `npm run build:link-only` as the no-snapshot fallback.
-- Do not create an automated RMP scraping/update pipeline. A single
-  user-requested, dated personal observation of Aaron Schulman's profile is
-  included in the default pending-permission snapshot; it is not an approved
-  reusable access method or redistribution grant.
+- Source collection is isolated in the private pipeline. The public repository
+  contains an offline importer, not network collection or authentication code.
+  The user has authorized local integration while accepting the unresolved
+  source-policy risk; no new source permission is asserted.
 - Direct RMP and UCSD/A.S. redistribution permission remains unresolved. Do
   not describe the bundled snapshot as approved by those upstream sources.
 - Do not use Campus Grades or any report containing student-level information.
@@ -57,6 +57,16 @@ requirements should be reviewed and recorded here.
 - Treat Easy-A's `n` field as course-offering count, not student sample size.
 - Treat RMP rows with zero rating count and `-1` percentage sentinels as
   unavailable rather than displaying misleading zero values.
+- Preserve the corrected Easy-A identities before the first refresh. Subsequent
+  imports start from the current validated direct snapshot and preserve newer
+  metrics and previously collected terms. The direct runtime file does not
+  replay snapshot-specific metric fingerprints.
+- Do not average term percentages without student counts. Direct-source records
+  carry all observed terms and use the latest term as the initial display.
+- Treat all-zero distributions and zero GPA without letter-grade shares as
+  unavailable; retain genuine zero GPA when letter-grade evidence exists.
+- Retain reported percentages even when they total below 99%. The remainder is
+  not identified as a specific grade or rescaled away. No student counts exist.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.
@@ -76,10 +86,12 @@ not agree with the reported summary. No review text is bundled and no score
 is recomputed. This correction is included in the default pending-permission
 snapshot but remains unapproved for upstream redistribution;
 `production-snapshot` validation rejects its pending source. Existing Easy-A
-historical grades stay unchanged.
+historical data remains available in the migration baseline; the direct runtime
+now uses individual source terms with the reviewed identity preserved.
 
-The record can be removed by deleting its rating correction; there is no
-automatic RMP updater. Future observations require another explicit review.
+The Extended Studies observation is retained with its original date when absent
+from the main-campus roster. A missing roster entry does not authorize assigning
+a different profile with the same name.
 
 ## Required Review for Each Added Source
 

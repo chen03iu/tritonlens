@@ -2,6 +2,13 @@
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+// Observer lifecycle tests use fixed data, independently of source-file size or
+// updates. The full real snapshot is exercised in direct-dataset/build tests.
+vi.mock('../src/data/direct-dataset', async () => {
+  const {MOCK_DATASET}=await import('../src/data/mock-dataset');
+  return {DIRECT_DATASET:{...MOCK_DATASET,professors:MOCK_DATASET.professors.map(p=>p.rating?{...p,rating:{...p.rating,overallRating:2.7}}:p)}};
+});
+
 const NativeObserver = window.MutationObserver;
 let observers: MutationObserver[];
 let frames: FrameRequestCallback[];

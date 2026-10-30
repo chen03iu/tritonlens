@@ -31,6 +31,10 @@ test('default metrics and explicit link-only builds use isolated data graphs', (
     'Data snapshot — source permissions pending',
   );
   expect(release.content).toContain('easy-a-radar-rmp');
+  expect(release.content).toContain('direct-rmp');
+  expect(release.content).toContain('direct-ucsd-grades');
+  expect(release.content).toContain('Historical term');
+  expect(release.content).not.toContain('sourceCells');
   expect(release.content).toContain('Libby Butler');
 
   const linkOnly = build('link-only', '--link-only');
@@ -41,6 +45,8 @@ test('default metrics and explicit link-only builds use isolated data graphs', (
     'Data snapshot — source permissions pending',
   );
   expect(linkOnly.content).not.toContain('easy-a-radar-rmp');
+  expect(linkOnly.content).not.toContain('direct-rmp');
+  expect(linkOnly.content).not.toContain('direct-ucsd-grades');
   expect(linkOnly.content).not.toContain('Libby Butler');
   expect(release.size).toBeGreaterThan(linkOnly.size * 2);
 

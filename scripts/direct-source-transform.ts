@@ -15,7 +15,6 @@ function date(value:unknown):string{const s=text(value);assert(Number.isFinite(D
 const catalog=(value:string)=>value.trim().toUpperCase().replace(/^0+(?=\d)/,'');
 const course=(subject:string,num:string)=>`${subject.trim().toUpperCase()}\0${catalog(num)}`;
 function forms(name:string):string[]{const parts=name.split(',').map(s=>s.trim());return [...new Set([name,...(parts.length===2&&parts.every(Boolean)?[`${parts[1]} ${parts[0]}`]:[])].map(normalizeInstructorName))];}
-function matches(professors:readonly ProfessorRecord[],name:string):ProfessorRecord[]{const keys=new Set(forms(name));return professors.filter(p=>[p.displayName,...p.aliases].some(alias=>forms(alias).some(k=>keys.has(k))));}
 function source(id:string,category:DataSourceReference['category'],retrievedAt:string,url:string,label:string):DataSourceReference{return {id,label,category,homepageUrl:url,termsUrl:category==='professor-ratings'?'https://www.ratemyprofessors.com/terms-of-use':'https://www.ucsd.edu/about/terms-of-use.html',retrievedAt,permissionStatus:'pending',attribution:category==='historical-grades'?'UCSD A.S. aggregate archive, QA environment; historical coverage incomplete.':'RateMyProfessors public aggregate profile snapshot.'};}
 
 export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gradeInput:unknown){
@@ -30,8 +29,14 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
  assert(Object.keys(query).length===5&&filters.every(k=>query[k]===''),'Filtered archive input');
  assert(Array.isArray(archive.parseIssues)&&archive.parseIssues.length===0,'Unresolved archive parsing');
  assert(Array.isArray(archive.rows)&&archive.rows.length>0&&archive.rows.length<=100000&&coverage.complete===false&&coverage.recordCount===archive.rows.length&&coverage.query==='all-filters-blank'&&coverage.requiresPipelineValidation===true,'Invalid archive coverage');
- const report={ratings:{inputRows:rmp.rows.length,refreshed:0,addedProfiles:0,retained:0},grades:{inputRows:archive.rows.length,matchedRows:0,unmatchedRows:0,addedIdentities:0,courseRecords:0,allZeroRows:0,shortTotalRows:0},archive:{complete:false,environment:'qa',observedTerms:[] as string[]},identityReview:[] as {reason:string;sourceProfessorId?:string;name:string;candidateIds:string[];course?:string}[]};
+ const report={ratings:{inputRows:rmp.rows.length,refreshed:0,addedProfiles:0,retained:0},grades:{inputRows:archive.rows.length,matchedRows:0,unmatchedRows:0,addedIdentities:0,courseRecords:0,allZeroRows:0,shortTotalRows:0},archive:{complete:false,environment:'qa',observedTerms:[] as string[]},identityReview:[] as {reason:string;sourceProfessorId?:string;name:string;candidateIds:string[];course?:string;term?:string}[]};
  let professors:ProfessorRecord[]=baseline.professors.map(p=>({...p,aliases:[...p.aliases]}));
+ const byId=new Map(professors.map(p=>[p.id,p]));
+ const sourceNames=new Map<string,Set<string>>();
+ for(const value of rmp.rows){const row=object(value);for(const form of forms(text(row.displayName))){const ids=sourceNames.get(form)??new Set<string>();ids.add(String(row.legacyId));sourceNames.set(form,ids);}}
+ const ratingNames=new Map<string,Set<string>>();
+ function indexRatingName(p:ProfessorRecord){for(const alias of [p.displayName,...p.aliases])for(const form of forms(alias)){const ids=ratingNames.get(form)??new Set<string>();ids.add(p.id);ratingNames.set(form,ids);}}
+ professors.forEach(indexRatingName);
  const rmpIds=new Set<string>(),rmpDates:string[]=[];
  for(const value of rmp.rows){
   const row=object(value);const legacy=number(row.legacyId,1,Number.MAX_SAFE_INTEGER);assert(Number.isInteger(legacy),'Invalid profile ID');
@@ -45,20 +50,30 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
   assert(count===0?overall===null:overall!==null&&overall>=1,'Inconsistent rated profile');
   const rating:ProfessorRating|null=count>0&&overall!==null?{overallRating:overall,difficulty,ratingCount:count,wouldTakeAgainPercent:again,sourceId:'direct-rmp',updatedAt,sourceProfessorId:id}:null;
   const linked=professors.filter(p=>(p.sourceProfessorId??p.rating?.sourceProfessorId)===id);
-  const named=linked.length?linked:matches(professors,name);
+  const named=linked.length?linked:[...new Set(forms(name).flatMap(form=>[...(ratingNames.get(form)??[])]))].map(id=>byId.get(id)!);
+  if(!linked.length){
+   const names=[name,...named.flatMap(p=>[p.displayName,...p.aliases])];
+   const competing=new Set(names.flatMap(n=>forms(n).flatMap(form=>[...(sourceNames.get(form)??[])])));
+   if(competing.size>1){report.identityReview.push({reason:'ambiguous-source-name',sourceProfessorId:id,name,candidateIds:named.map(p=>p.id)});continue;}
+  }
   if(named.length>1){report.identityReview.push({reason:'ambiguous-profile',sourceProfessorId:id,name,candidateIds:named.map(p=>p.id)});continue;}
   const existing=named[0];
   if(existing){
    const oldId=existing.sourceProfessorId??existing.rating?.sourceProfessorId;
    if(oldId&&oldId!==id){report.identityReview.push({reason:'conflicting-profile',sourceProfessorId:id,name,candidateIds:[existing.id]});continue;}
-   if(existing.rating&&existing.rating.updatedAt>updatedAt){report.ratings.retained++;continue;}
-   professors=professors.map(p=>p.id===existing.id?{...p,sourceProfessorId:id,rating}:p);report.ratings.refreshed++;
+   if((existing.ratingUpdatedAt??existing.rating?.updatedAt??'')>updatedAt){report.ratings.retained++;continue;}
+   const refreshed={...existing,sourceProfessorId:id,ratingUpdatedAt:updatedAt,rating};
+   professors=professors.map(p=>p.id===existing.id?refreshed:p);byId.set(existing.id,refreshed);report.ratings.refreshed++;
   }else{
-   professors.push({id:`direct-rmp-${id}`,displayName:name,aliases:[],sourceProfessorId:id,rating});report.ratings.addedProfiles++;
+   const added={id:`direct-rmp-${id}`,displayName:name,aliases:[],sourceProfessorId:id,ratingUpdatedAt:updatedAt,rating};
+   professors.push(added);byId.set(added.id,added);indexRatingName(added);report.ratings.addedProfiles++;
   }
  }
  // Exact names and already reviewed aliases only; no new fuzzy identity rules.
  const groups=new Map<string,{professorId:string;subject:string;catalog:string;terms:HistoricalGradeTerm[]}>();
+ const gradeNames=new Map<string,Map<string,ProfessorRecord>>();
+ function indexGradeName(professor:ProfessorRecord){for(const alias of [professor.displayName,...professor.aliases])for(const form of forms(alias)){const entries=gradeNames.get(form)??new Map<string,ProfessorRecord>();entries.set(professor.id,professor);gradeNames.set(form,entries);}}
+ professors.forEach(indexGradeName);
  const seen=new Set<string>(),observedTerms=new Set<string>();
  for(const value of archive.rows){
   const row=object(value);const subject=text(row.subject).toUpperCase(),num=catalog(text(row.courseNumber)),name=text(row.instructor),rawYear=text(row.year),quarter=text(row.quarter);
@@ -74,15 +89,15 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
   if(total===0)report.grades.allZeroRows++;else if(total<99)report.grades.shortTotalRows++;
   const distribution=Object.fromEntries(fields.map((field,i)=>[field,total===0?null:values[i]])) as unknown as HistoricalGradeDistribution;
   const term:HistoricalGradeTerm={year,quarter:quarter as HistoricalGradeTerm['quarter'],averageGpa:total===0||(gpa===0&&letters===0)?null:gpa,gradeDistribution:distribution};
-  let candidates=matches(professors,name);
-  if(candidates.length>1){const withCourse=candidates.filter(p=>baseline.historicalCourseGrades.some(g=>g.professorId===p.id&&course(g.subjectCode,g.catalogNumber)===course(subject,num)));if(withCourse.length===1)candidates=withCourse;}
-  if(candidates.length>1){report.grades.unmatchedRows++;report.identityReview.push({reason:'ambiguous-grade',name,candidateIds:candidates.map(p=>p.id),course:`${subject} ${num}`});continue;}
+  let candidates=[...new Map(forms(name).flatMap(form=>[...(gradeNames.get(form)?.values()??[])].map(p=>[p.id,p] as const))).values()];
+  if(candidates.length>1){report.grades.unmatchedRows++;report.identityReview.push({reason:'ambiguous-grade',name,candidateIds:candidates.map(p=>p.id),course:`${subject} ${num}`,term:`${year}-${quarter}`});continue;}
   let professor=candidates[0];
   if(!professor){
    // A reversible Unicode key avoids both runtime crypto dependencies and hash collisions.
    const nameId=Array.from(normalizeInstructorName(name)).map(char=>char.codePointAt(0)!.toString(36)).join('-');
    professor={id:`grade-name-${nameId}`,displayName:name,aliases:name.includes(',')?[name.split(',').map(s=>s.trim()).reverse().join(' ')]:[],rating:null};
    professors.push(professor);report.grades.addedIdentities++;
+   indexGradeName(professor);
   }
   const groupId=`${professor.id}\0${course(subject,num)}`;
   const group=groups.get(groupId)??{professorId:professor.id,subject,catalog:num,terms:[]};
@@ -90,13 +105,16 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
   group.terms.push(term);groups.set(groupId,group);report.grades.matchedRows++;
  }
  const replacements:HistoricalCourseGradeRecord[]=[...groups.values()].map(group=>{
-  const terms=group.terms.sort((a,b)=>b.year-a.year||order[b.quarter]-order[a.quarter]);
+  const old=baseline.historicalCourseGrades.find(g=>g.professorId===group.professorId&&course(g.subjectCode,g.catalogNumber)===course(group.subject,group.catalog));
+  const incoming=new Set(group.terms.map(term=>`${term.year}-${term.quarter}`));
+  const terms=[...group.terms,...(old?.terms??[]).filter(term=>!incoming.has(`${term.year}-${term.quarter}`))].sort((a,b)=>b.year-a.year||order[b.quarter]-order[a.quarter]);
   return {professorId:group.professorId,subjectCode:group.subject,catalogNumber:group.catalog,averageGpa:terms[0].averageGpa,sampleSize:null,offeringCount:terms.length,gradeDistribution:terms[0].gradeDistribution,sourceId:'direct-ucsd-grades',updatedAt:gradeDate,terms};
  });
  const replaced=new Set(replacements.map(g=>`${g.professorId}\0${course(g.subjectCode,g.catalogNumber)}`));
  const retained=baseline.historicalCourseGrades.filter(g=>!replaced.has(`${g.professorId}\0${course(g.subjectCode,g.catalogNumber)}`)||g.updatedAt>gradeDate);
  const newer=new Set(retained.map(g=>`${g.professorId}\0${course(g.subjectCode,g.catalogNumber)}`));
- const sources=[...baseline.sources.filter(s=>!['direct-rmp','direct-ucsd-grades'].includes(s.id)),source('direct-rmp','professor-ratings',rmpDates.sort().at(-1)??gradeDate,'https://www.ratemyprofessors.com/school/1079','RateMyProfessors'),source('direct-ucsd-grades','historical-grades',gradeDate,String(archive.sourceUrl),'UCSD A.S. grade archive (QA; partial coverage)')];
+ const latestDate=(id:string,incoming:string)=>[baseline.sources.find(s=>s.id===id)?.retrievedAt??'',incoming].sort().at(-1)!;
+ const sources=[...baseline.sources.filter(s=>!['direct-rmp','direct-ucsd-grades'].includes(s.id)),source('direct-rmp','professor-ratings',latestDate('direct-rmp',rmpDates.sort().at(-1)??gradeDate),'https://www.ratemyprofessors.com/school/1079','RateMyProfessors'),source('direct-ucsd-grades','historical-grades',latestDate('direct-ucsd-grades',gradeDate),String(archive.sourceUrl),'UCSD A.S. grade archive (QA; partial coverage)')];
  const dataset:LocalDataset={...baseline,sources,professors:professors.sort((a,b)=>a.id.localeCompare(b.id)),historicalCourseGrades:[...retained,...replacements.filter(g=>!newer.has(`${g.professorId}\0${course(g.subjectCode,g.catalogNumber)}`))].sort((a,b)=>`${a.professorId}\0${course(a.subjectCode,a.catalogNumber)}`.localeCompare(`${b.professorId}\0${course(b.subjectCode,b.catalogNumber)}`))};
  report.grades.courseRecords=replacements.length;report.archive.observedTerms=[...observedTerms].sort();
  assert(validateLocalDataset(dataset).valid,'Transformed dataset failed validation');

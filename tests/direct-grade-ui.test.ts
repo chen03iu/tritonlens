@@ -9,11 +9,11 @@ import type {HistoricalGradeTerm,LocalDataset} from '../src/data/types';
 import type {RenderedInstructorContext} from '../src/tss/instructor-context';
 
 const original=MOCK_DATASET.historicalCourseGrades[0];
-function mount(terms:HistoricalGradeTerm[]){
+function mount(terms:HistoricalGradeTerm[],withoutRating=false){
  document.body.innerHTML='<table><tbody><tr><td data-sap-ui-column="socColInstructor"><a id="socEventInstructorLink">Libby Butler</a></td></tr></tbody></table>';
  const link=document.querySelector<HTMLAnchorElement>('a')!;
  const context:RenderedInstructorContext={link,instructor:{displayName:'Libby Butler'},course:{subjectCode:'AAS',catalogNumber:'010R',title:'Example'},term:null,packageCode:'P-001-001',section:{sectionCode:'001-000',eventId:null,teachingMethod:'Lecture',scheduleText:'',locationText:'',deliveryMode:'unknown',instructors:[{displayName:'Libby Butler'}]}};
- const dataset:LocalDataset={...MOCK_DATASET,historicalCourseGrades:[{...original,sampleSize:null,averageGpa:terms[0].averageGpa,gradeDistribution:terms[0].gradeDistribution,offeringCount:terms.length,terms}]};
+ const dataset:LocalDataset={...MOCK_DATASET,professors:withoutRating?MOCK_DATASET.professors.map(p=>({...p,rating:null})):MOCK_DATASET.professors,historicalCourseGrades:[{...original,sampleSize:null,averageGpa:terms[0].averageGpa,gradeDistribution:terms[0].gradeDistribution,offeringCount:terms.length,terms}]};
  const service=createInstructorDataService({mode:'pending-permission-snapshot',modeLabel:'Data snapshot',...createLocalDatasetProviderSet(dataset)});
  enhanceVisibleInstructorLinks(document,[context],service);const button=document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!;button.click();return {button,card:document.querySelector<HTMLElement>('.tritonlens-detail-card')!};
 }
@@ -42,4 +42,9 @@ it('reports short totals without filling the remainder or rescaling chart bars',
  expect(card.textContent).toContain('Reported percentages total 80%');
  expect(card.textContent).toContain('The archive does not identify the remaining share.');
  expect(card.querySelector('[data-tritonlens-grade="A"]')?.getAttribute('aria-label')).toBe('A: 50%');
+});
+it('does not advertise available grades when every stored term has no usable metrics',()=>{
+ const empty=Object.fromEntries(Object.keys(original.gradeDistribution).map(k=>[k,null])) as unknown as typeof original.gradeDistribution;
+ const {button}=mount([{year:2026,quarter:'SP',averageGpa:null,gradeDistribution:empty}],true);
+ expect(button.textContent).toBe('Rating unavailable');
 });

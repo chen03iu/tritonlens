@@ -1,6 +1,6 @@
 # TritonLens Privacy
 
-Last updated: 2026-10-15
+Last updated: 2026-10-29
 
 This document describes the default TritonLens build, which includes a static
 data snapshot, and the optional link-only build. It must be reviewed again if
@@ -15,7 +15,8 @@ processed in browser memory and are not saved by the extension.
 
 The default build performs local lookups against a bundled static snapshot of
 professor ratings and aggregate historical-grade metrics. Those values are not
-the user's personal grades. The optional link-only build omits the snapshot and
+the user's personal grades. Historical term selection is a local lookup and
+does not request or upload data. The optional link-only build omits the snapshot and
 provides user-clicked external resource links instead.
 
 ## Information Not Collected
@@ -27,6 +28,10 @@ analytics, advertising, accounts, backend, or cloud synchronization.
 
 The extension does not use browser storage or make automatic network
 requests. It does not automate enrollment or other TSS actions.
+
+The separately operated private data pipeline is not bundled in the extension.
+Its authorized browser export helper is a separate local tool; TritonLens does
+not acquire browser-session access or additional permissions from that tool.
 
 ## Source Links
 

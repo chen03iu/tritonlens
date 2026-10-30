@@ -151,6 +151,10 @@ function applySnapshotBadge(
   if (insight.professorRating.status === 'found') {
     return;
   }
+  const record = insight.historicalGrades.data.record;
+  const hasValues = (value: typeof record | NonNullable<typeof record.terms>[number]): boolean =>
+    value.averageGpa !== null || Object.values(value.gradeDistribution).some(percentage => percentage !== null);
+  if (!hasValues(record) && !record.terms?.some(hasValues)) return;
 
   if (insight.mode === 'mock') {
     badge.textContent = 'Grades available demo';

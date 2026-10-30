@@ -43,15 +43,29 @@ versions and transitive dependencies are recorded in `package-lock.json`.
 
 ## Data Attribution
 
-The default build bundles normalized professor rating fields and aggregate
-historical course × professor grade fields from Easy-A Radar. The snapshot
-includes professor aliases, RMP profile identifiers and metrics, average GPA,
-offering count, and grade-distribution percentages. TritonLens does not infer
+The default build now uses directly collected RMP aggregate fields and UCSD A.S.
+term-level grade fields, imported offline from the separate private pipeline.
+Reviewed professor IDs/aliases and any explicitly retained older observations
+come from the earlier Easy-A Radar baseline and reviewed corrections.
+RMP roster retrieval date: 2026-10-29. UCSD aggregate retrieval date: 2026-10-29,
+using the QA archive through an authorized user-initiated browser export.
+The archive's 30,146 rows have partial historical coverage through Spring 2026;
+29,994 safely matched term rows are used, while ambiguous rows stay in the local
+review queue. Source values are not represented as a complete archive.
+
+The snapshot includes professor aliases, RMP profile identifiers and metrics,
+offering count, and individual term GPA and grade percentages. Percentages are
+not pooled or rescaled. TritonLens does not infer
 unavailable student sample sizes. The UI labels it `Data snapshot — source
 permissions pending`: the user reports noncommercial permission from the
 Easy-A Radar author, while direct upstream RMP and UCSD redistribution
 permission remains unresolved. `npm run build:link-only` creates a fallback
 package that omits this snapshot.
+
+Sources: [RateMyProfessors](https://www.ratemyprofessors.com/school/1079) and
+[UCSD A.S. Instructor Grade Archive (QA)](https://qa-as.ucsd.edu/Home/InstructorGradeArchive).
+Zero-information grade rows display unavailable metrics; unexplained percentage
+remainders remain unexplained. Source permissions are still pending.
 
 Every value displayed with a `demo` label remains an original fictional test
 fixture and does not describe a named instructor or real UCSD outcome.

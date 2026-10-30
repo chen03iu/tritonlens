@@ -134,6 +134,10 @@ export function validateLocalDataset(
     }
 
     seenProfessorIds.add(professor.id);
+    if (professor.ratingUpdatedAt !== undefined) validateDate(professor.ratingUpdatedAt, `professors[${index}].ratingUpdatedAt`);
+    if (professor.sourceProfessorId !== undefined && (!/^\d+$/.test(professor.sourceProfessorId) || (professor.rating?.sourceProfessorId && professor.rating.sourceProfessorId !== professor.sourceProfessorId))) {
+      issues.push({code:'invalid-history',path:`professors[${index}].sourceProfessorId`,message:'Stable profile ID must be numeric and agree with the rating profile.'});
+    }
 
     const rating = professor.rating;
     if (!rating) {
