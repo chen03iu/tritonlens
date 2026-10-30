@@ -108,9 +108,16 @@ file is retained in ignored `.cache/` before same-directory replacement.
 An optional `--outdir=<directory>` stages a candidate without replacing the runtime
 file. Raw inputs, reports, backups, and collection scripts are excluded from builds.
 
-The source file contains 30,146 term records, through Spring 2026. Of these, 29,994
-have safe identity links in the direct snapshot; 152 ambiguous term rows are held
-for review, with existing older histories retained where available. The QA archive
+The import reconciles compatible internal duplicates before refreshing metrics.
+Retired IDs retain validated redirects; aliases and course history are preserved.
+Incompatible reused profile links are withheld rather than used as rating donors.
+Source evidence older than an existing observation cannot revoke that link.
+Readable cleanup details are saved to `reports/data-sync/direct-source-identity-cleanup.md`,
+and per-import JSON audits persist in `reports/data-sync/history/`.
+
+The source file contains 30,146 term records, through Spring 2026. All now have
+safe identity links after internal duplicate reconciliation; the former 152-row
+grade-identity queue is resolved. The QA archive
 has known gaps, including 2018 and 2019; the import flag acknowledges that partial
 coverage rather than declaring it complete. RMP metrics were retrieved on
 2026-10-29. Profiles that cannot safely refresh retain their own earlier source

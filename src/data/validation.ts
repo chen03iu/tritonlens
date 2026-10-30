@@ -267,6 +267,12 @@ export function validateLocalDataset(
     }
   });
 
+  for (const [retiredId, targetId] of Object.entries(dataset.professorIdRedirects ?? {})) {
+    if (seenProfessorIds.has(retiredId) || !seenProfessorIds.has(targetId) || retiredId === targetId || dataset.professorIdRedirects?.[targetId]) {
+      issues.push({code:'invalid-history',path:`professorIdRedirects.${retiredId}`,message:'Retired IDs must resolve directly to one retained identity.'});
+    }
+  }
+
   return {
     valid: issues.length === 0,
     issues,

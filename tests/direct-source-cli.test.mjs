@@ -1,4 +1,4 @@
-import {mkdtemp,writeFile,readFile,rm,mkdir} from 'node:fs/promises';
+import {mkdtemp,writeFile,readFile,rm,mkdir,readdir} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {execFileSync} from 'node:child_process';
@@ -19,6 +19,9 @@ it('imports offline, hashes inputs, and retains a rollback copy on replacement',
  expect(report.inputHashes.rmp).toMatch(/^[a-f0-9]{64}$/);expect(report.archive.complete).toBe(false);
  expect(JSON.stringify(out)).not.toContain('sourceCells');
  run(s,'--allow-partial-archive');expect(await readFile(join(s.output,'direct-source-dataset.previous.json'),'utf8')).toBe(JSON.stringify(out)+'\n');
+ const history=await readdir(join(s.output,'history'));
+ const audits=await Promise.all(history.map(file=>readFile(join(s.output,'history',file),'utf8')));
+ expect(audits.some(bytes=>JSON.parse(bytes).baselineSha256===report.baselineSha256)).toBe(true);
 });
 it('preserves the prior dataset when validation fails',async()=>{
  const s=await setup();await mkdir(s.output);const output=join(s.output,'direct-source-dataset.generated.json');await writeFile(output,'previous valid snapshot');

@@ -60,7 +60,7 @@ describe('direct-source transformation',()=>{
  });
  it('does not use course overlap alone to resolve an ambiguous exact grade name',()=>{
   const original=baseline();const existingGrade=transformDirectSources(original,roster(),archive()).dataset.historicalCourseGrades[0];
-  const base={...original,professors:[...original.professors,{...original.professors[0],id:'another-jane',rating:null}],historicalCourseGrades:[existingGrade],sources:[...original.sources,{...source,id:'direct-ucsd-grades',category:'historical-grades' as const}]};
+  const base={...original,professors:[...original.professors,{...original.professors[0],id:'another-jane',rating:{...oldRating,sourceProfessorId:'202'}}],historicalCourseGrades:[existingGrade],sources:[...original.sources,{...source,id:'direct-ucsd-grades',category:'historical-grades' as const}]};
   const result=transformDirectSources(base,roster([]),archive());
   expect(result.report.grades.unmatchedRows).toBe(1);
   expect(result.report.identityReview).toContainEqual(expect.objectContaining({reason:'ambiguous-grade'}));
@@ -69,6 +69,14 @@ describe('direct-source transformation',()=>{
   const initial=transformDirectSources(baseline(),roster(),archive([row({year:'25',quarter:'FA'}),row()])).dataset;
   const later=archive();later.retrievedAt='2026-10-30T08:00:00Z';
   expect(transformDirectSources(initial,roster(),later).dataset.historicalCourseGrades[0].terms).toHaveLength(2);
+ });
+ it('reconciles an internal duplicate before refreshing its rating and assigning term rows',()=>{
+  const original=baseline();const base={...original,professors:[...original.professors,{...original.professors[0],id:'duplicate',displayName:'Jane Mary Doe',aliases:[]}],historicalCourseGrades:[{professorId:'reviewed-jane',subjectCode:'MATH',catalogNumber:'10',averageGpa:3.2,sampleSize:null,offeringCount:1,gradeDistribution:{aPercent:50,bPercent:50,cPercent:0,dPercent:0,fPercent:0,wPercent:0,pPercent:0,npPercent:0},sourceId:'old',updatedAt:'2026-07-23'}]};
+  const result=transformDirectSources(base,roster(),archive());
+  expect(result.dataset.professors).toHaveLength(1);
+  expect(result.dataset.professors[0].rating?.sourceId).toBe('direct-rmp');
+  expect(result.dataset.historicalCourseGrades[0].terms).toHaveLength(1);
+  expect(result.report.identityReconciliation.remaps).toHaveLength(1);
  });
  it('does not resurrect an older rating after a newer unrated observation',()=>{
   const initial=transformDirectSources(baseline(),roster([teacher({rating:null,ratingCount:0,difficulty:null,wouldTakeAgainPercent:null})]),archive()).dataset;
@@ -94,6 +102,13 @@ describe('direct-source transformation',()=>{
  it('rejects incomplete or wrong-school RMP rosters',()=>{
   expect(()=>transformDirectSources(baseline(),{...roster(),coverage:{complete:false,recordCount:1}},archive())).toThrow();
   expect(()=>transformDirectSources(baseline(),roster([teacher({schoolGraphId:'wrong-school'})]),archive())).toThrow();
+ });
+ it('does not let stale identity evidence revoke a newer profile and strand its next refresh',()=>{
+  const original=baseline();const base={...original,professors:[{...original.professors[0],displayName:'Jane Doe',rating:{...oldRating,updatedAt:'2026-10-29'},ratingUpdatedAt:'2026-10-29'},{...original.professors[0],id:'mark',displayName:'Mark Brown',aliases:[]}]};
+  const first=transformDirectSources(base,roster([teacher({displayName:'Mark Brown',retrievedAt:'2026-01-01T08:00:00Z'})]),archive()).dataset;
+  const next=transformDirectSources(first,roster([teacher({displayName:'Jane Doe',retrievedAt:'2026-10-30T08:00:00Z'})]),archive()).dataset;
+  expect(next.professors.find(p=>p.id==='reviewed-jane')?.rating).toMatchObject({overallRating:4.5,updatedAt:'2026-10-30',sourceProfessorId:'101'});
+  expect(next.professors.find(p=>p.id==='mark')?.rating).toBeNull();
  });
  it('validates all saved terms and requires the summary to match the latest term',()=>{
   const {dataset}=transformDirectSources(baseline(),roster(),archive());

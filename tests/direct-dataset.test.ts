@@ -7,7 +7,7 @@ import {validateLocalDataset} from '../src/data/validation';
 it('uses validated direct metrics while preserving all baseline identities and reviewed aliases',()=>{
  expect(validateLocalDataset(DIRECT_DATASET).valid).toBe(true);
  const ids=new Map(DIRECT_DATASET.professors.map(p=>[p.id,p]));
- for(const p of EASY_A_DATASET.professors){expect(ids.get(p.id)?.displayName).toBe(p.displayName);expect(ids.get(p.id)?.aliases).toEqual(p.aliases);}
+ for(const p of EASY_A_DATASET.professors){const current=ids.get(DIRECT_DATASET.professorIdRedirects?.[p.id]??p.id);expect(current).toBeDefined();for(const alias of p.aliases)expect([current!.displayName,...current!.aliases]).toContain(alias);expect([current!.displayName,...current!.aliases]).toContain(p.displayName);}
  for(const name of ['Mark Anderson','Keiko Nomura','Justin Opatkiewicz','Aaron Shalev','Daphne Taylor García','Linnea Wilder','Nathan Delson']){
   const before=lookupProfessor(EASY_A_DATASET,name),after=lookupProfessor(DIRECT_DATASET,name);
   expect(before.status).toBe('found');expect(after.status).toBe('found');

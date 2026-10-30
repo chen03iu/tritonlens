@@ -82,4 +82,6 @@ export interface LocalDataset {
   readonly professors: readonly ProfessorRecord[];
   readonly historicalCourseGrades:
     readonly HistoricalCourseGradeRecord[];
+  /** Retired internal duplicate IDs resolve directly to a retained identity. */
+  readonly professorIdRedirects?: Readonly<Record<string, string>>;
 }

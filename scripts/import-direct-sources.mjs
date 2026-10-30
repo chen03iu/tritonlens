@@ -15,11 +15,12 @@ const reportDir=outputArg?outdir:join(root,'reports/data-sync');
 const backup=outputArg?join(outdir,'direct-source-dataset.previous.json'):join(root,'.cache/tritonlens/direct-source-dataset.previous.json');
 const reportPath=join(reportDir,'direct-source-import-report.json');
 const reviewPath=join(reportDir,'direct-source-identity-review.md');
+const cleanupPath=join(reportDir,'direct-source-identity-cleanup.md');
 const legacyPath=join(root,'src/data/easy-a-dataset.generated.json');
 const key=path=>process.platform==='win32'?path.toLowerCase():path;
 const protectedPaths=await Promise.all([args[0],args[1],legacyPath].map(path=>realpath(resolve(path))));
 async function prospective(path){try{return await realpath(path);}catch(error){if(error.code!=='ENOENT')throw error;const parent=dirname(path);if(parent===path)throw error;return join(await prospective(parent),path.slice(parent.length+1));}}
-const targets=[output,backup,reportPath,reviewPath];
+const targets=[output,backup,reportPath,reviewPath,cleanupPath];
 for(const path of targets){const target=key(await prospective(path));if(protectedPaths.some(input=>key(input)===target))throw Error('Output would overwrite a protected input');}
 async function load(path){const info=await stat(path);if(!info.isFile()||info.size>64*1024*1024)throw Error('Input must be a JSON file smaller than 64 MB');const bytes=await readFile(path);if(bytes.length>64*1024*1024)throw Error('Input exceeds size limit');return {doc:JSON.parse(bytes.toString('utf8')),sha256:createHash('sha256').update(bytes).digest('hex')};}
 const rmp=await load(args[0]),grades=await load(args[1]);
@@ -38,7 +39,7 @@ report.baselineSha256=createHash('sha256').update(JSON.stringify(baseline)).dige
 report.datasetCounts={before:{professors:baseline.professors.length,grades:baseline.historicalCourseGrades.length},after:{professors:dataset.professors.length,grades:dataset.historicalCourseGrades.length}};
 const baselineProfessors=new Map(baseline.professors.map(p=>[p.id,p]));
 const updatedProfessors=new Map(dataset.professors.map(p=>[p.id,p]));
-const gradeKey=g=>`${g.professorId}|${g.subjectCode.trim().toUpperCase()}|${g.catalogNumber.trim().toUpperCase().replace(/^0+(?=\d)/,'')}`;
+const gradeKey=g=>`${dataset.professorIdRedirects?.[g.professorId]??g.professorId}|${g.subjectCode.trim().toUpperCase()}|${g.catalogNumber.trim().toUpperCase().replace(/^0+(?=\d)/,'')}`;
 const oldGradeKeys=new Set(baseline.historicalCourseGrades.map(gradeKey));
 const newGradeKeys=new Set(dataset.historicalCourseGrades.map(gradeKey));
 report.diff={
@@ -50,16 +51,23 @@ report.diff={
  collapsedDuplicateGradeEntries:baseline.historicalCourseGrades.length-oldGradeKeys.size,
  gradeSemantics:'Direct grade summaries use the latest actual term, replacing legacy unweighted aggregates; percentages are not pooled.'
 };
-if(report.diff.removedProfessorIds.length||report.diff.removedCourseKeys.length)throw Error('Import would remove a baseline identity or course history');
+const justifiedRemaps=new Map(report.identityReconciliation.remaps.map(entry=>[entry.fromId,entry.toId]));
+report.diff.remappedProfessorIds=report.diff.removedProfessorIds.filter(id=>justifiedRemaps.get(id)===dataset.professorIdRedirects?.[id]);
+if(report.diff.removedProfessorIds.some(id=>!justifiedRemaps.has(id)||justifiedRemaps.get(id)!==dataset.professorIdRedirects?.[id])||report.diff.removedCourseKeys.length)throw Error('Import would remove an unexplained baseline identity or course history');
 report.sourceDates=dataset.sources.map(({id,retrievedAt})=>({id,retrievedAt}));
 const bytes=JSON.stringify(dataset)+'\n';
 if(!validateLocalDataset(JSON.parse(bytes)).valid)throw Error('Serialized candidate failed validation');
 report.outputSha256=createHash('sha256').update(bytes).digest('hex');
+const historyPath=join(reportDir,'history',`${randomUUID()}.json`);
+const canonicalHistory=key(await prospective(historyPath));
+if(protectedPaths.some(input=>key(input)===canonicalHistory))throw Error('Audit history would overwrite a protected input');
+targets.push(historyPath);
 const groups=new Map();
 for(const entry of report.identityReview){const id=JSON.stringify([entry.reason,entry.name,[...entry.candidateIds].sort()]);const group=groups.get(id)??{...entry,profiles:new Set(),courses:new Set(),terms:new Set()};if(entry.sourceProfessorId)group.profiles.add(entry.sourceProfessorId);if(entry.course)group.courses.add(entry.course);if(entry.term)group.terms.add(entry.term);groups.set(id,group);}
 const escape=value=>String(value).replace(/[|\r\n]/g,' ');
 const review=['# Direct source identity review','','These cases were held; no new identity decision was accepted. Existing observations retain their own provenance.','','| Name | Reason | Incoming profiles | Existing candidates | Courses / terms |','| --- | --- | --- | --- | --- |',...[...groups.values()].map(entry=>`| ${escape(entry.name)} | ${entry.reason} | ${[...entry.profiles].map(id=>`[${id}](https://www.ratemyprofessors.com/professor/${id})`).join(', ')||'—'} | ${entry.candidateIds.map(id=>{const p=baselineProfessors.get(id);return escape(`${p?.displayName??id} (${id}; RMP ${p?.sourceProfessorId??p?.rating?.sourceProfessorId??'unlinked'})`);}).join('; ')||'No unique existing identity'} | ${escape([...entry.courses].join(', '))} ${escape([...entry.terms].sort().join(', '))} |`),''];
-await mkdir(outdir,{recursive:true});await mkdir(reportDir,{recursive:true});await mkdir(dirname(backup),{recursive:true});
+const cleanup=['# Direct source identity cleanup','','## Retired internal duplicate IDs','','Retired IDs resolve directly to retained identities. All course-history rows are remapped; no term percentages or student counts are pooled.','','| Previous identity | Retained identity | Shared profile | Evidence |','| --- | --- | --- | --- |',...report.identityReconciliation.remaps.map(entry=>`| ${escape(`${entry.fromName} (${entry.fromId})`)} | ${escape(`${entry.toName} (${entry.toId})`)} | ${entry.sourceProfessorId??'No rating transferred'} | ${escape(entry.reason)} |`),'','## Withheld conflicting legacy links','','These old links were not accepted as evidence of identity. The direct roster gives a different full name; possible initials, prefixes, reviewed aliases, and the existing held rename remain unresolved.','','| Local identity | Previous profile | Direct profile name | Current rating state |','| --- | --- | --- | --- |',...report.identityReconciliation.withheldRatings.map(entry=>{const id=dataset.professorIdRedirects?.[entry.professorId]??entry.professorId;const current=updatedProfessors.get(id);return `| ${escape(entry.name)} | [${entry.sourceProfessorId}](https://www.ratemyprofessors.com/professor/${entry.sourceProfessorId}) | ${escape(entry.sourceName)} | ${current?.rating?`Profile ${current.rating.sourceProfessorId}; ${current.rating.updatedAt}`:'Unavailable pending correct identity evidence'} |`;}),''];
+await mkdir(outdir,{recursive:true});await mkdir(reportDir,{recursive:true});await mkdir(dirname(backup),{recursive:true});await mkdir(dirname(historyPath),{recursive:true});
 for(const path of targets){const info=await lstat(path).catch(error=>{if(error.code!=='ENOENT')throw error;return null;});if(info?.isSymbolicLink()||info&& !info.isFile())throw Error('Import target must be a regular file');}
 const temporary=join(outdir,`.direct-source-${randomUUID()}.tmp`);
 try{
@@ -67,6 +75,8 @@ try{
  if(createHash('sha256').update(await readFile(temporary)).digest('hex')!==report.outputSha256)throw Error('Written candidate hash mismatch');
  await writeFile(reportPath,JSON.stringify(report,null,2)+'\n');
  await writeFile(reviewPath,review.join('\n'));
+ await writeFile(cleanupPath,cleanup.join('\n'));
+ await writeFile(historyPath,JSON.stringify(report,null,2)+'\n',{flag:'wx'});
  const exists=await stat(output).then(()=>true,error=>{if(error.code!=='ENOENT')throw error;return false;});
  if(exists)await copyFile(output,backup);
  // Same-directory replacement preserves the previous snapshot if rename fails.

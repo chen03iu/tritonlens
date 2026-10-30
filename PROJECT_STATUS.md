@@ -4,6 +4,43 @@ Last updated: 2026-10-29
 
 ## Current Milestone
 
+### Identity-cleanup preview (2026-10-29)
+
+Local branch `fix/direct-identity-duplicates` reconciles 30 internal duplicate
+records with validated old-ID redirects. The runtime snapshot has 5,698 retained
+identities, 3,320 direct-source ratings and 69 older sourced observations. All
+30,146 downloaded UCSD term rows now attach safely to 11,132 course/instructor
+histories; none remain ambiguous. Archive coverage itself is still partial.
+
+Thirty-nine incompatible shared legacy profile links were withheld pending
+correct identity evidence. They are not used as rating donors. Possible initials,
+preferred middle names, prefixes, spelling/token-order variants, and reviewed
+aliases are protected from being treated as definitive mismatches. The existing
+Natalye Harpin/Pass holdout remains unchanged. Source-name ambiguity still holds
+148 roster profiles: 32 shared-profile cases, 100 competing source-name cases,
+and 16 conflicting-profile cases. These are profiles, not 148 distinct people.
+
+Jim/James Kadonaga and Nadia/Nadezhda Polikarpova have profile-scoped UCSD-source
+evidence in `scripts/reconcile-direct-identities.ts`; this is not a generic
+nickname matching rule. Other unresolved variants do not gain new aliases.
+
+One fresh read-only review found stale identity evidence revoking newer links
+and an initials-only exact-name bypass. Both findings were reproduced with
+failing tests and fixed. Source freshness gates link revocation, initials need
+full-name corroboration, and newer same-profile observations may settle tied
+legacy metric rounding without selecting the more favorable value.
+
+Verification: 327/327 tests across 34 files pass. Real repeat import is byte
+identical with no further remaps or withheld links. No course keys or earlier
+terms were lost. Original legacy generated data is unchanged. Reports and
+per-import audit history remain ignored under `reports/data-sync/`; the readable
+cleanup report is `direct-source-identity-cleanup.md`.
+
+This cleanup is local to the preview branch; it has not been merged or pushed.
+The existing preview `dist` path is retained for extension reload testing.
+
+### Initial direct-source integration (historical counts)
+
 Direct-source integration is implemented on the local `feat/direct-source-data`
 branch. The default entry now reads a separately generated, validated direct
 snapshot; the legacy Easy-A baseline and all reviewed ID/alias evidence remain

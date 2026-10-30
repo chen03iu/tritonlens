@@ -1,6 +1,7 @@
 import type {DataSourceReference,HistoricalCourseGradeRecord,HistoricalGradeDistribution,HistoricalGradeTerm,LocalDataset,ProfessorRating,ProfessorRecord} from '../src/data/types';
 import {normalizeInstructorName} from '../src/data/lookup';
 import {validateLocalDataset} from '../src/data/validation';
+import {reconcileDirectIdentities} from './reconcile-direct-identities';
 
 const buckets=['A','B','C','D','F','W','P','NP'] as const;
 const fields=['aPercent','bPercent','cPercent','dPercent','fPercent','wPercent','pPercent','npPercent'] as const;
@@ -29,26 +30,29 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
  assert(Object.keys(query).length===5&&filters.every(k=>query[k]===''),'Filtered archive input');
  assert(Array.isArray(archive.parseIssues)&&archive.parseIssues.length===0,'Unresolved archive parsing');
  assert(Array.isArray(archive.rows)&&archive.rows.length>0&&archive.rows.length<=100000&&coverage.complete===false&&coverage.recordCount===archive.rows.length&&coverage.query==='all-filters-blank'&&coverage.requiresPipelineValidation===true,'Invalid archive coverage');
- const report={ratings:{inputRows:rmp.rows.length,refreshed:0,addedProfiles:0,retained:0},grades:{inputRows:archive.rows.length,matchedRows:0,unmatchedRows:0,addedIdentities:0,courseRecords:0,allZeroRows:0,shortTotalRows:0},archive:{complete:false,environment:'qa',observedTerms:[] as string[]},identityReview:[] as {reason:string;sourceProfessorId?:string;name:string;candidateIds:string[];course?:string;term?:string}[]};
+ const identities=rmp.rows.map(value=>{
+  const row=object(value),legacy=number(row.legacyId,1,Number.MAX_SAFE_INTEGER);assert(Number.isInteger(legacy)&&row.schoolGraphId==='U2Nob29sLTEwNzk=','Invalid profile identity evidence');
+  const id=String(legacy),displayName=text(row.displayName),observedAt=date(row.retrievedAt);
+  const count=number(row.ratingCount,0,Number.MAX_SAFE_INTEGER);assert(Number.isInteger(count),'Invalid rating count');
+  const overall=row.rating===null?null:number(row.rating,0,5),difficulty=row.difficulty===null?null:number(row.difficulty,0,5),again=row.wouldTakeAgainPercent===null?null:number(row.wouldTakeAgainPercent,0,100);
+  assert(count===0?overall===null:overall!==null&&overall>=1,'Inconsistent rated profile');
+  const rating:ProfessorRating|null=count>0&&overall!==null?{overallRating:overall,difficulty,ratingCount:count,wouldTakeAgainPercent:again,sourceId:'direct-rmp',updatedAt:observedAt,sourceProfessorId:id}:null;
+  return {id,displayName,observedAt,rating};
+ });
+ const reconciliation=reconcileDirectIdentities(baseline,identities);
+ baseline=reconciliation.dataset;
+ const report={identityReconciliation:{remaps:reconciliation.remaps,withheldRatings:reconciliation.withheldRatings},ratings:{inputRows:rmp.rows.length,refreshed:0,addedProfiles:0,retained:0},grades:{inputRows:archive.rows.length,matchedRows:0,unmatchedRows:0,addedIdentities:0,courseRecords:0,allZeroRows:0,shortTotalRows:0},archive:{complete:false,environment:'qa',observedTerms:[] as string[]},identityReview:[] as {reason:string;sourceProfessorId?:string;name:string;candidateIds:string[];course?:string;term?:string}[]};
  let professors:ProfessorRecord[]=baseline.professors.map(p=>({...p,aliases:[...p.aliases]}));
  const byId=new Map(professors.map(p=>[p.id,p]));
  const sourceNames=new Map<string,Set<string>>();
- for(const value of rmp.rows){const row=object(value);for(const form of forms(text(row.displayName))){const ids=sourceNames.get(form)??new Set<string>();ids.add(String(row.legacyId));sourceNames.set(form,ids);}}
+ for(const row of identities){for(const form of forms(row.displayName)){const ids=sourceNames.get(form)??new Set<string>();ids.add(row.id);sourceNames.set(form,ids);}}
  const ratingNames=new Map<string,Set<string>>();
  function indexRatingName(p:ProfessorRecord){for(const alias of [p.displayName,...p.aliases])for(const form of forms(alias)){const ids=ratingNames.get(form)??new Set<string>();ids.add(p.id);ratingNames.set(form,ids);}}
  professors.forEach(indexRatingName);
  const rmpIds=new Set<string>(),rmpDates:string[]=[];
- for(const value of rmp.rows){
-  const row=object(value);const legacy=number(row.legacyId,1,Number.MAX_SAFE_INTEGER);assert(Number.isInteger(legacy),'Invalid profile ID');
-  const id=String(legacy);assert(!rmpIds.has(id),'Duplicate source profile');rmpIds.add(id);
-  assert(row.schoolGraphId==='U2Nob29sLTEwNzk=','Wrong-school RMP profile');
-  const name=text(row.displayName),updatedAt=date(row.retrievedAt);rmpDates.push(updatedAt);
-  const count=number(row.ratingCount,0,Number.MAX_SAFE_INTEGER);assert(Number.isInteger(count),'Invalid rating count');
-  const overall=row.rating===null?null:number(row.rating,0,5);
-  const difficulty=row.difficulty===null?null:number(row.difficulty,0,5);
-  const again=row.wouldTakeAgainPercent===null?null:number(row.wouldTakeAgainPercent,0,100);
-  assert(count===0?overall===null:overall!==null&&overall>=1,'Inconsistent rated profile');
-  const rating:ProfessorRating|null=count>0&&overall!==null?{overallRating:overall,difficulty,ratingCount:count,wouldTakeAgainPercent:again,sourceId:'direct-rmp',updatedAt,sourceProfessorId:id}:null;
+ for(const row of identities){
+  const {id,rating}=row;assert(!rmpIds.has(id),'Duplicate source profile');rmpIds.add(id);
+  const name=row.displayName,updatedAt=row.observedAt;rmpDates.push(updatedAt);
   const linked=professors.filter(p=>(p.sourceProfessorId??p.rating?.sourceProfessorId)===id);
   const named=linked.length?linked:[...new Set(forms(name).flatMap(form=>[...(ratingNames.get(form)??[])]))].map(id=>byId.get(id)!);
   if(!linked.length){

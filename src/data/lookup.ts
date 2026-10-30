@@ -121,6 +121,7 @@ export function lookupHistoricalCourseGrades(
   subjectCode: string,
   catalogNumber: string,
 ): CourseGradeLookupResult {
+  professorId = dataset.professorIdRedirects?.[professorId] ?? professorId;
   const normalizedSubjectCode = subjectCode.trim().toUpperCase();
   const normalizedCatalogNumber =
     normalizeCatalogNumber(catalogNumber);

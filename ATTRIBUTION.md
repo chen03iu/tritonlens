@@ -50,8 +50,8 @@ come from the earlier Easy-A Radar baseline and reviewed corrections.
 RMP roster retrieval date: 2026-10-29. UCSD aggregate retrieval date: 2026-10-29,
 using the QA archive through an authorized user-initiated browser export.
 The archive's 30,146 rows have partial historical coverage through Spring 2026;
-29,994 safely matched term rows are used, while ambiguous rows stay in the local
-review queue. Source values are not represented as a complete archive.
+all rows now have safe term-level identity links after internal duplicate cleanup.
+Source values are not represented as a complete archive.
 
 The snapshot includes professor aliases, RMP profile identifiers and metrics,
 offering count, and individual term GPA and grade percentages. Percentages are
