@@ -6,10 +6,10 @@ Last updated: 2026-10-30
 
 ### Identity-cleanup preview (2026-10-30)
 
-Local branch `fix/direct-identity-duplicates` reconciles 31 internal duplicate
-records with validated old-ID redirects. The runtime snapshot has 5,697 retained
-identities, 3,321 direct-source ratings and 67 older sourced observations. All
-30,146 downloaded UCSD term rows now attach safely to 11,128 course/instructor
+Local branch `fix/direct-identity-duplicates` reconciles 51 internal duplicate
+records with validated old-ID redirects. The runtime snapshot has 5,677 retained
+identities, 3,340 direct-source ratings and 28 older sourced observations. All
+30,146 downloaded UCSD term rows now attach safely to 11,123 course/instructor
 histories; none remain ambiguous. Archive coverage itself is still partial.
 
 Thirty-nine incompatible shared legacy profile links were withheld pending
@@ -17,8 +17,8 @@ correct identity evidence. They are not used as rating donors. Possible initials
 preferred middle names, prefixes, spelling/token-order variants, and reviewed
 aliases are protected from being treated as definitive mismatches. The existing
 Natalye Harpin/Pass holdout remains unchanged. Source-name ambiguity still holds
-147 roster profiles: 31 shared-profile cases, 100 competing source-name cases,
-and 16 conflicting-profile cases. These are profiles, not 147 distinct people.
+128 roster profiles: 12 shared-profile cases, 100 competing source-name cases,
+and 16 conflicting-profile cases. These are profiles, not 128 distinct people.
 
 Jim/James Kadonaga, Nadia/Nadezhda Polikarpova, and Alexander Niema/Niema Moshiri
 have profile-scoped primary-source evidence in `scripts/reconcile-direct-identities.ts`;
@@ -28,13 +28,20 @@ same-course records combine only for explicitly verified identities with compati
 source terms. Conflicting same-term values and aggregate-only duplicates are not pooled.
 Other unresolved variants do not gain new aliases.
 
+The [next primary-source batch](docs/primary-source-identity-review-2026-10-30.md)
+resolves 19 additional shared-profile cases and retires 20 duplicate IDs.
+Verified names persist as aliases on later imports. A fresh read-only review
+found no actionable issues; an exact before/after comparison confirms every
+source term, grade value, original name, and alias remains represented.
+
 One fresh read-only review found stale identity evidence revoking newer links
 and an initials-only exact-name bypass. Both findings were reproduced with
 failing tests and fixed. Source freshness gates link revocation, initials need
 full-name corroboration, and newer same-profile observations may settle tied
 legacy metric rounding without selecting the more favorable value.
 
-Verification: 330/330 tests across 34 files pass. Real repeat import is byte
+Verification: 349/349 tests across 34 files pass; typecheck and default build pass.
+Real repeat import is byte
 identical with no further remaps or withheld links. No course keys or earlier
 terms were lost. Original legacy generated data is unchanged. Reports and
 per-import audit history remain ignored under `reports/data-sync/`; the readable

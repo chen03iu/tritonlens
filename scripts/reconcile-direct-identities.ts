@@ -6,11 +6,30 @@ interface ProfileEvidence {readonly id:string;readonly displayName:string;readon
 export interface IdentityRemap {readonly fromId:string;readonly toId:string;readonly fromName:string;readonly toName:string;readonly sourceProfessorId:string|null;readonly reason:string}
 export interface WithheldRating {readonly professorId:string;readonly name:string;readonly sourceProfessorId:string;readonly sourceName:string;readonly reason:string}
 const holdouts=new Set(['2321551']);
-// Instructor and UCSD pages explicitly connect these names; profile IDs guard the scope.
+// Primary sources corroborate these reviewed variants; profile IDs guard the scope.
 const reviewedVariants=[
   {id:'1315910',names:['Jim Kadonaga','James Kadonaga'],evidence:'https://biology.ucsd.edu/research/faculty/jkadonaga.html'},
   {id:'2371412',names:['Nadia Polikarpova','Nadezhda Polikarpova'],evidence:'https://jacobsschool.ucsd.edu/people/profile/nadezhda-polikarpova'},
   {id:'2279559',names:['Alexander Niema Moshiri','Niema Moshiri'],evidence:'https://niema.net/'},
+  {id:'983140',names:['Faik Tezcan','Akif Tezcan','Faik Akif Tezcan'],evidence:'https://chem-web.ucsd.edu/faculty/profiles/tezcan_faik_a.html'},
+  {id:'585032',names:['Prabhakar Bandaru','Prab Bandaru'],evidence:'https://nanomaterials.ucsd.edu/'},
+  {id:'2439345',names:['William Francis Styler','Will Styler','William Styler'],evidence:'https://wstyler.ucsd.edu/docs/personalbranding.html'},
+  {id:'3110381',names:['Tsui-Wei (lily) Weng','Lily Weng'],evidence:'https://lilyweng.github.io/'},
+  {id:'1615201',names:['Alireza Salehi Golsefidy','Alireza Golsefidy'],evidence:'https://roosevelt.ucsd.edu/about/faculty.html'},
+  {id:'3160883',names:['Shabnam Jandaghi Semnani','Shabnam Semnani'],evidence:'https://jacobsschool.ucsd.edu/people/profile/shabnam-semnani'},
+  {id:'1423581',names:['Saba Bazargan-Forward','Saba Bazargan'],evidence:'https://philosophy.ucsd.edu/people/faculty-sites/sbazargan.html'},
+  {id:'1422275',names:['Jade Yukana Power','Jade Power-Sotomayor','Jade Power'],evidence:'https://theatre.ucsd.edu/people/faculty/performance-studies/jade-power-sotomayor.html'},
+  {id:'1550608',names:['Steven James Swanson','Steve Swanson'],evidence:'https://jacobsschool.ucsd.edu/faculty/profile?id=259'},
+  {id:'1483312',names:['Yuan-Yuan Zhou','Yuanyuan Zhou'],evidence:'https://cseweb.ucsd.edu/~yyzhou/'},
+  {id:'2577289',names:['Yizhuang You','Yi-Zhuang You'],evidence:'https://everettyou.github.io/people/YZYou'},
+  {id:'826389',names:['Andrew Douglas Mc Culloch','Andrew Douglas McCulloch','Andrew McCulloch'],evidence:'https://matsci.ucsd.edu/faculty/andrew-mcculloch'},
+  {id:'3044664',names:['Zeinab Jahed Motlagh','Zeinab Jahed'],evidence:'https://profiles.ucsd.edu/zeinab.jahedmotlagh'},
+  {id:'2989468',names:['Parinaz Naghizadeh Ardabili','Parinaz Naghizadeh'],evidence:'https://parinazn.com/teaching/'},
+  {id:'2554105',names:['Adalbert Geral Soosai Raj','Adalbert Gerald Soosai Raj'],evidence:'https://cse.ucsd.edu/people/faculty-profiles/adalbert-gerald-soosai-raj'},
+  {id:'154631',names:['Robert Lugannani','Lugannani, Robert,','Robert, Lugannani'],evidence:'https://jacobsschool.ucsd.edu/people/profile/robert-lugannani'},
+  {id:'289991',names:['Philip Clarion Larson','Phillip Larson','Philip Larson'],evidence:'https://music-cms.ucsd.edu/people/faculty/emeritus_faculty/philip-larson/index.html'},
+  {id:'2942764',names:['William H Molloie Jr.','William Molloie'],evidence:'https://rady.ucsd.edu/_files/faculty-research/cv/William-Molloie-CV.pdf'},
+  {id:'2703985',names:['Shelley Adams Wright','Shelly Adams Wright','Shelley Wright','Shelly Wright'],evidence:'https://www.seti.org/news-archive/news-archive-detail?id=5013'},
 ];
 const profile=(p:ProfessorRecord)=>p.sourceProfessorId??p.rating?.sourceProfessorId??null;
 const natural=(name:string)=>{const parts=name.split(',').map(x=>x.trim());return parts.length===2?`${parts[1]} ${parts[0]}`:name;};
@@ -134,8 +153,9 @@ export function reconcileDirectIdentities(input:LocalDataset,profiles:readonly P
         ||professors.some(p=>profile(p)===shared&&!group.some(member=>member.id===p.id)))return;
       donor={...keeper,rating:source.rating,sourceProfessorId:shared!,ratingUpdatedAt:source.observedAt};
     }
-    const replacement:ProfessorRecord={...keeper,aliases:[...new Set([...(keeper.aliases),...group.filter(p=>p.id!==keeper.id).flatMap(p=>[p.displayName,...p.aliases])])].filter(name=>name!==keeper.displayName),rating:donor.rating,...(shared?{sourceProfessorId:shared}:{}),...(stamp(donor)?{ratingUpdatedAt:stamp(donor)}:{})};
-    if(shared&&group.every(a=>group.every(b=>reviewedPair(shared,a.displayName,b.displayName))))coalesceTargets.add(keeper.id);
+    const reviewed=shared&&group.every(a=>group.every(b=>reviewedPair(shared,a.displayName,b.displayName)))?reviewedVariants.find(entry=>entry.id===shared):undefined;
+    const replacement:ProfessorRecord={...keeper,aliases:[...new Set([...(keeper.aliases),...(reviewed?.names??[]),...group.filter(p=>p.id!==keeper.id).flatMap(p=>[p.displayName,...p.aliases])])].filter(name=>name!==keeper.displayName),rating:donor.rating,...(shared?{sourceProfessorId:shared}:{}),...(stamp(donor)?{ratingUpdatedAt:stamp(donor)}:{})};
+    if(reviewed)coalesceTargets.add(keeper.id);
     const groupIds=new Set(group.map(p=>p.id));
     professors=professors.filter(p=>!groupIds.has(p.id)||p.id===keeper.id).map(p=>p.id===keeper.id?replacement:p);
     for(const member of group)if(member.id!==keeper.id){replacements.set(member.id,keeper.id);remaps.push({fromId:member.id,toId:keeper.id,fromName:member.displayName,toName:keeper.displayName,sourceProfessorId:shared,reason});}

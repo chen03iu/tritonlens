@@ -11,6 +11,35 @@ const grade=(professorId:string,subjectCode='MATH',catalogNumber='1')=>({profess
 const evidence=(id:string,displayName:string)=>({id,displayName,observedAt:'2026-10-29'});
 function dataset(professors:ProfessorRecord[]):LocalDataset{return {schemaVersion:1,kind:'development',sources:[{id:'rmp',label:'RMP',category:'professor-ratings',homepageUrl:null,termsUrl:null,retrievedAt:'2026-07-23',permissionStatus:'pending',attribution:null},{id:'grades',label:'Grades',category:'historical-grades',homepageUrl:null,termsUrl:null,retrievedAt:'2026-07-23',permissionStatus:'pending',attribution:null}],professors,historicalCourseGrades:[]};}
 
+it.each([
+ ['983140','Tezcan, Faik','Akif Tezcan','Faik Akif Tezcan'],
+ ['585032','Bandaru, Prabhakar','Bandaru, Prab','Prab Bandaru'],
+ ['2439345','Styler, William Francis','Will Styler','William Styler'],
+ ['3110381','Weng, Tsui-Wei (lily)','Lily Weng','Lily Weng'],
+ ['1615201','Salehi Golsefidy, Alireza','Alireza Golsefidy','Alireza Salehi Golsefidy'],
+ ['3160883','Jandaghi Semnani, Shabnam','Shabnam Semnani','Shabnam Semnani'],
+ ['1423581','Bazargan-Forward, Saba','Bazargan, Saba','Saba Bazargan'],
+ ['1422275','Power, Jade Yukana','Jade Power-Sotomayor','Jade Power'],
+ ['1550608','Swanson, Steven James','Swanson, Steve','Steve Swanson'],
+ ['1483312','Zhou, Yuan-Yuan','Yuanyuan Zhou','Yuanyuan Zhou'],
+ ['2577289','You, Yizhuang','You, Yi-Zhuang','Yi-Zhuang You'],
+ ['826389','Mc Culloch, Andrew Douglas','Andrew McCulloch','Andrew McCulloch'],
+ ['3044664','Jahed Motlagh, Zeinab','Zeinab Jahed','Zeinab Jahed'],
+ ['2989468','Naghizadeh Ardabili, Parinaz','Parinaz Naghizadeh','Parinaz Naghizadeh'],
+ ['2554105','Soosai Raj, Adalbert Geral','Adalbert Gerald Soosai Raj','Adalbert Gerald Soosai Raj'],
+ ['154631','Lugannani, Robert','Lugannani, Robert,','Robert, Lugannani'],
+ ['289991','Larson, Philip Clarion','Larson, Phillip','Phillip Larson'],
+ ['2942764','Molloie Jr., William H','Molloie, William','William Molloie'],
+ ['2703985','Wright, Shelley Adams','Wright, Shelly Adams','Shelley Wright'],
+])('reconciles externally corroborated names within profile %s',(id,canonical,preferred,source)=>{
+ const input={...dataset([person('canonical',canonical,id),person('stub',preferred,id)]),historicalCourseGrades:[grade('canonical')]};
+ const result=reconcileDirectIdentities(input,[evidence(id,source)]);
+ expect(result.remaps).toHaveLength(1);
+ for(const name of [canonical,preferred,source])expect(lookupProfessor(result.dataset,name)).toMatchObject({status:'found',record:{id:'canonical'}});
+ expect(result.dataset.historicalCourseGrades).toEqual(input.historicalCourseGrades);
+ expect(reconcileDirectIdentities(result.dataset,[evidence(id,source)]).dataset).toEqual(result.dataset);
+});
+
 it('reconciles the personally documented Alexander Niema / Niema identity within its existing profile',()=>{
  const input={...dataset([person('canonical','Moshiri, Alexander Niema','2279559'),person('short','Moshiri, Niema','2279559')]),historicalCourseGrades:[grade('canonical','CSE','100'),grade('short','CSE','185')]};
  const result=reconcileDirectIdentities(input,[evidence('2279559','Niema Moshiri')]);
