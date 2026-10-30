@@ -37,6 +37,8 @@ export interface ProfessorRecord {
   readonly displayName: string;
   readonly aliases: readonly string[];
   readonly rating: ProfessorRating | null;
+  /** Stable identity link, retained even when a profile has no ratings. */
+  readonly sourceProfessorId?: string;
 }
 
 export interface HistoricalGradeDistribution {
@@ -50,17 +52,26 @@ export interface HistoricalGradeDistribution {
   readonly npPercent: number | null;
 }
 
+export interface HistoricalGradeTerm {
+  readonly year: number;
+  readonly quarter: 'FA' | 'WI' | 'SP' | 'SU' | 'S1' | 'S2';
+  readonly averageGpa: number | null;
+  readonly gradeDistribution: HistoricalGradeDistribution;
+}
+
 /** Historical course × professor data, not a prediction of future grades. */
 export interface HistoricalCourseGradeRecord {
   readonly professorId: string;
   readonly subjectCode: string;
   readonly catalogNumber: string;
-  readonly averageGpa: number;
+  readonly averageGpa: number | null;
   readonly sampleSize: number | null;
   readonly offeringCount: number;
   readonly gradeDistribution: HistoricalGradeDistribution;
   readonly sourceId: string;
   readonly updatedAt: string;
+  /** When present, summary values are the latest term, never a pooled mean. */
+  readonly terms?: readonly HistoricalGradeTerm[];
 }
 
 export interface LocalDataset {

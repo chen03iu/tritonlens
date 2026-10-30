@@ -145,8 +145,9 @@ function applySnapshotBadge(
     return;
   }
 
-  badge.dataset.tritonlensAverageGpa =
-    insight.historicalGrades.data.record.averageGpa.toFixed(2);
+  const gpa = insight.historicalGrades.data.record.averageGpa;
+  if (gpa === null) delete badge.dataset.tritonlensAverageGpa;
+  else badge.dataset.tritonlensAverageGpa = gpa.toFixed(2);
   if (insight.professorRating.status === 'found') {
     return;
   }

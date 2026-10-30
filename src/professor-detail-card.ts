@@ -40,9 +40,7 @@ function appendMetric(
 }
 
 function formatPercentage(value: number): string {
-  return Number.isInteger(value)
-    ? String(value)
-    : value.toFixed(1).replace(/\.0$/, '');
+  return String(value);
 }
 
 function appendGradeDistribution(
@@ -209,17 +207,56 @@ function appendHistoricalGrades(
     appendTextElement(section, 'p', 'tritonlens-detail-unavailable', 'Historical grade data unavailable');
   } else {
     const { record, source } = insight.historicalGrades.data;
+    const terms = record.terms;
+    const values = document.createElement('div');
+    if (terms?.length) {
+      const quarterNames = {WI:'Winter',SP:'Spring',FA:'Fall',SU:'Summer',S1:'Summer Session 1',S2:'Summer Session 2'};
+      if (terms.length > 1) {
+        const label = appendTextElement(section, 'label', 'tritonlens-term-label', 'Historical term');
+        const select = document.createElement('select');
+        select.className = 'tritonlens-term-select';
+        select.setAttribute('aria-label', 'Historical term');
+        terms.forEach((term, index) => {
+          const option = document.createElement('option');
+          option.value = String(index);
+          option.textContent = `${quarterNames[term.quarter]} ${term.year}`;
+          select.append(option);
+        });
+        label.append(select);
+        select.addEventListener('change', () => {
+          renderValues(Number(select.value));
+          if (activeTrigger) positionCard(card, activeTrigger);
+        });
+      } else {
+        appendTextElement(section, 'p', 'tritonlens-detail-note', `${quarterNames[terms[0].quarter]} ${terms[0].year}`);
+      }
+    }
+    section.append(values);
+    function renderValues(index: number): void {
+      values.replaceChildren();
+      const selected = terms?.[index] ?? record;
     const metrics = document.createElement('dl');
     metrics.className = 'tritonlens-detail-metrics';
-    section.append(metrics);
-    appendMetric(metrics, 'Average GPA', record.averageGpa.toFixed(2));
+    values.append(metrics);
+    appendMetric(metrics, terms ? 'Term GPA' : 'Average GPA', selected.averageGpa === null ? 'Unavailable' : selected.averageGpa.toFixed(2));
     appendMetric(
       metrics,
       'Sample size',
       record.sampleSize === null ? 'Unavailable' : `${record.sampleSize} students`,
     );
     appendMetric(metrics, 'Course offerings', `${record.offeringCount} offerings`);
-    appendGradeDistribution(section, record.gradeDistribution);
+    appendGradeDistribution(values, selected.gradeDistribution);
+    if (terms) {
+      const percentages = Object.values(selected.gradeDistribution).filter((value): value is number => value !== null);
+      if (!percentages.length) {
+        appendTextElement(values, 'p', 'tritonlens-detail-note', 'No grade percentages were reported for this term.');
+      } else {
+        const total = percentages.reduce((sum, value) => sum + value, 0);
+        if (total < 99) appendTextElement(values, 'p', 'tritonlens-detail-note', `Reported percentages total ${Number(total.toFixed(2))}%. The archive does not identify the remaining share.`);
+      }
+    }
+    }
+    renderValues(0);
     appendSource(section, source, record.updatedAt);
   }
   appendTextElement(

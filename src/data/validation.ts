@@ -7,7 +7,9 @@ export type DatasetValidationIssueCode =
   | 'invalid-number'
   | 'invalid-date'
   | 'duplicate-source-id'
-  | 'duplicate-professor-id';
+  | 'duplicate-professor-id'
+  | 'invalid-history'
+  | 'unknown-professor';
 
 export interface DatasetValidationIssue {
   readonly code: DatasetValidationIssueCode;
@@ -190,17 +192,20 @@ export function validateLocalDataset(
 
   dataset.historicalCourseGrades.forEach((record, index) => {
     const path = `historicalCourseGrades[${index}]`;
+    if (!seenProfessorIds.has(record.professorId)) {
+      issues.push({code:'unknown-professor',path:`${path}.professorId`,message:'Historical record references an unknown professor.'});
+    }
     validateSourceReference(record.sourceId, `${path}.sourceId`);
     validateDate(record.updatedAt, `${path}.updatedAt`);
 
     if (
-      !Number.isFinite(record.averageGpa) ||
+      record.averageGpa !== null && (!Number.isFinite(record.averageGpa) ||
       record.averageGpa < 0 ||
-      record.averageGpa > 4
+      record.averageGpa > 4)
     ) {
       addInvalidNumber(
         `${path}.averageGpa`,
-        'Average GPA must be between 0 and 4.',
+        'Average GPA must be null or between 0 and 4.',
       );
     }
 
@@ -237,6 +242,25 @@ export function validateLocalDataset(
         }
       },
     );
+    if (record.terms !== undefined) {
+      const fields=['aPercent','bPercent','cPercent','dPercent','fPercent','wPercent','pPercent','npPercent'] as const;
+      const quarters=['WI','SP','S1','SU','S2','FA'];
+      const seen=new Set<string>();
+      let previous=Infinity;
+      let invalid=!Array.isArray(record.terms)||!record.terms.length||record.offeringCount!==record.terms.length||record.sampleSize!==null;
+      for (const term of record.terms) {
+        const key=`${term.year}-${term.quarter}`;
+        const rank=term.year*10+quarters.indexOf(term.quarter);
+        if (!Number.isInteger(term.year)||term.year<1900||term.year>2100||!quarters.includes(term.quarter)
+          ||seen.has(key)||rank>=previous
+          ||(term.averageGpa!==null&&(!Number.isFinite(term.averageGpa)||term.averageGpa<0||term.averageGpa>4))
+          ||!term.gradeDistribution||fields.some(field=>term.gradeDistribution[field]!==null&&(!Number.isFinite(term.gradeDistribution[field])||term.gradeDistribution[field]!<0||term.gradeDistribution[field]!>100))) invalid=true;
+        seen.add(key);previous=rank;
+      }
+      const latest=record.terms[0];
+      if (!latest||latest.averageGpa!==record.averageGpa||fields.some(field=>latest.gradeDistribution?.[field]!==record.gradeDistribution[field])) invalid=true;
+      if (invalid) issues.push({code:'invalid-history',path:`${path}.terms`,message:'Terms must be unique, newest first, valid, and agree with the latest-term summary.'});
+    }
   });
 
   return {

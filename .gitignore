@@ -2,6 +2,10 @@ node_modules/
 dist/
 coverage/
 .worktrees/
+.superpowers/
+.cache/
+reports/data-sync/
+data/candidates/
 
 *.log
 .env
