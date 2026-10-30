@@ -41,16 +41,18 @@ collected terms are retained, and exact-name grade ambiguity stays unresolved.
 The first corrected dataset was regenerated from the untouched legacy baseline,
 not from an earlier experimental import.
 
-Build location: `.worktrees/direct-data/dist` in the original project checkout.
-No merge, push, GitHub release, or extension-store upload has been performed.
+The user accepted the local preview on 2026-10-29. Local integration into `main`
+is prepared; no push, GitHub release, or extension-store upload is included.
+The `.worktrees/direct-data/dist` preview and its ignored identity-review report
+are retained so an unpacked extension using that directory continues to work.
 
 Local integration verification: 308/308 tests across 33 files pass; typecheck and
 the default build pass. Content bundle is 9,819,042 bytes (about 9.4 MiB), reflecting
 individual term history rather than only legacy aggregates. Automated default /
 link-only / default builds confirm isolation and byte-stable rebuilds. The
 manifest still has no API or host permissions beyond its TSS content-script
-match. Raw source cells are absent from the bundle. Live Chrome/TSS smoke testing
-of this new build remains for the user's signed-in session.
+match. Raw source cells are absent from the bundle. No automated signed-in
+Chrome/TSS test was run; the local preview was accepted by the user.
 
 The remainder of this document records earlier milestones. Its former bundle
 sizes and snapshot counts describe the legacy build, not the direct import.
