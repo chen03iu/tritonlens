@@ -73,9 +73,10 @@ requirements should be reviewed and recorded here.
 - Withhold incompatible shared legacy links instead of transferring their
   metrics into a same-name history. Preserve possible nicknames/spelling changes
   for review; stale roster evidence cannot revoke newer observations.
-- Two profile-scoped name variants have direct UCSD corroboration:
-  [James/Jim Kadonaga](https://biology.ucsd.edu/research/faculty/jkadonaga.html)
-  and [Nadezhda/Nadia Polikarpova](https://jacobsschool.ucsd.edu/people/profile/nadezhda-polikarpova).
+- Three profile-scoped name variants have direct primary-source corroboration:
+  [James/Jim Kadonaga](https://biology.ucsd.edu/research/faculty/jkadonaga.html),
+  [Nadezhda/Nadia Polikarpova](https://jacobsschool.ucsd.edu/people/profile/nadezhda-polikarpova),
+  and [Alexander Niema/Niema Moshiri](https://niema.net/).
   No generic nickname dictionary is used to accept other identities.
 
 Ready-to-send requests are maintained in

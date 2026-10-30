@@ -11,6 +11,35 @@ const grade=(professorId:string,subjectCode='MATH',catalogNumber='1')=>({profess
 const evidence=(id:string,displayName:string)=>({id,displayName,observedAt:'2026-10-29'});
 function dataset(professors:ProfessorRecord[]):LocalDataset{return {schemaVersion:1,kind:'development',sources:[{id:'rmp',label:'RMP',category:'professor-ratings',homepageUrl:null,termsUrl:null,retrievedAt:'2026-07-23',permissionStatus:'pending',attribution:null},{id:'grades',label:'Grades',category:'historical-grades',homepageUrl:null,termsUrl:null,retrievedAt:'2026-07-23',permissionStatus:'pending',attribution:null}],professors,historicalCourseGrades:[]};}
 
+it('reconciles the personally documented Alexander Niema / Niema identity within its existing profile',()=>{
+ const input={...dataset([person('canonical','Moshiri, Alexander Niema','2279559'),person('short','Moshiri, Niema','2279559')]),historicalCourseGrades:[grade('canonical','CSE','100'),grade('short','CSE','185')]};
+ const result=reconcileDirectIdentities(input,[evidence('2279559','Niema Moshiri')]);
+ expect(result.remaps).toHaveLength(1);expect(result.dataset.historicalCourseGrades).toHaveLength(2);
+ const full=lookupProfessor(result.dataset,'Moshiri, Alexander Niema'),short=lookupProfessor(result.dataset,'Moshiri, Niema');
+ expect(full.status).toBe('found');expect(short.status).toBe('found');
+ if(full.status==='found'&&short.status==='found')expect(full.record.id).toBe(short.record.id);
+ const distinct={...input,professors:[input.professors[0],person('short','Moshiri, Niema','999')]};
+ expect(reconcileDirectIdentities(distinct,[evidence('2279559','Niema Moshiri')]).remaps).toEqual([]);
+});
+it('preserves distinct terms of the same course when an explicitly verified identity spans both names',()=>{
+ const a={...grade('a','CSE','100'),terms:[{year:2025,quarter:'FA' as const,averageGpa:3.5,gradeDistribution:distribution}]};
+ const b={...grade('b','CSE','100'),terms:[{year:2026,quarter:'SP' as const,averageGpa:3.5,gradeDistribution:distribution}]};
+ const input={...dataset([person('a','Moshiri, Alexander Niema','2279559'),person('b','Moshiri, Niema','2279559')]),historicalCourseGrades:[a,b]};
+ const result=reconcileDirectIdentities(input,[evidence('2279559','Niema Moshiri')]);
+ expect(result.remaps).toHaveLength(1);expect(result.dataset.historicalCourseGrades).toHaveLength(1);
+ expect(result.dataset.historicalCourseGrades[0]).toMatchObject({offeringCount:2,sampleSize:null,terms:[{year:2026},{year:2025}]});
+ expect(validateLocalDataset(result.dataset).valid).toBe(true);
+ const conflicting={...input,historicalCourseGrades:[a,{...b,terms:[{...a.terms[0],averageGpa:2}]}]};
+ expect(reconcileDirectIdentities(conflicting,[evidence('2279559','Niema Moshiri')]).remaps).toEqual([]);
+});
+it('does not pool preexisting aggregate-only duplicates while reconciling a verified empty stub',()=>{
+ const canonical=person('a','Kadonaga, James','1315910'),stub=person('b','Jim Kadonaga','1315910');
+ const input={...dataset([canonical,stub]),historicalCourseGrades:[grade('a'),{...grade('a'),averageGpa:2}]};
+ const result=reconcileDirectIdentities(input,[evidence('1315910','James Kadonaga')]);
+ expect(result.remaps).toHaveLength(1);expect(result.dataset.historicalCourseGrades).toHaveLength(2);
+ expect(lookupHistoricalCourseGrades(result.dataset,'a','MATH','1').status).toBe('ambiguous');
+});
+
 it('merges exact same-profile duplicates inside a group containing an unrelated person',()=>{
  const input={...dataset([person('canonical','Doe, Jane'),person('stub','Jane Doe'),person('wrong','Other Person')]),historicalCourseGrades:[grade('canonical')]};
  const result=reconcileDirectIdentities(input,[evidence('101','Jane Doe')]);

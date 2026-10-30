@@ -1,15 +1,15 @@
 # TritonLens Project Status
 
-Last updated: 2026-10-29
+Last updated: 2026-10-30
 
 ## Current Milestone
 
-### Identity-cleanup preview (2026-10-29)
+### Identity-cleanup preview (2026-10-30)
 
-Local branch `fix/direct-identity-duplicates` reconciles 30 internal duplicate
-records with validated old-ID redirects. The runtime snapshot has 5,698 retained
-identities, 3,320 direct-source ratings and 69 older sourced observations. All
-30,146 downloaded UCSD term rows now attach safely to 11,132 course/instructor
+Local branch `fix/direct-identity-duplicates` reconciles 31 internal duplicate
+records with validated old-ID redirects. The runtime snapshot has 5,697 retained
+identities, 3,321 direct-source ratings and 67 older sourced observations. All
+30,146 downloaded UCSD term rows now attach safely to 11,128 course/instructor
 histories; none remain ambiguous. Archive coverage itself is still partial.
 
 Thirty-nine incompatible shared legacy profile links were withheld pending
@@ -17,12 +17,16 @@ correct identity evidence. They are not used as rating donors. Possible initials
 preferred middle names, prefixes, spelling/token-order variants, and reviewed
 aliases are protected from being treated as definitive mismatches. The existing
 Natalye Harpin/Pass holdout remains unchanged. Source-name ambiguity still holds
-148 roster profiles: 32 shared-profile cases, 100 competing source-name cases,
-and 16 conflicting-profile cases. These are profiles, not 148 distinct people.
+147 roster profiles: 31 shared-profile cases, 100 competing source-name cases,
+and 16 conflicting-profile cases. These are profiles, not 147 distinct people.
 
-Jim/James Kadonaga and Nadia/Nadezhda Polikarpova have profile-scoped UCSD-source
-evidence in `scripts/reconcile-direct-identities.ts`; this is not a generic
-nickname matching rule. Other unresolved variants do not gain new aliases.
+Jim/James Kadonaga, Nadia/Nadezhda Polikarpova, and Alexander Niema/Niema Moshiri
+have profile-scoped primary-source evidence in `scripts/reconcile-direct-identities.ts`;
+this is not a generic nickname matching rule. [Niema's own introduction](https://niema.net/)
+explicitly connects both names. His seven course histories retain all 36 terms;
+same-course records combine only for explicitly verified identities with compatible
+source terms. Conflicting same-term values and aggregate-only duplicates are not pooled.
+Other unresolved variants do not gain new aliases.
 
 One fresh read-only review found stale identity evidence revoking newer links
 and an initials-only exact-name bypass. Both findings were reproduced with
@@ -30,7 +34,7 @@ failing tests and fixed. Source freshness gates link revocation, initials need
 full-name corroboration, and newer same-profile observations may settle tied
 legacy metric rounding without selecting the more favorable value.
 
-Verification: 327/327 tests across 34 files pass. Real repeat import is byte
+Verification: 330/330 tests across 34 files pass. Real repeat import is byte
 identical with no further remaps or withheld links. No course keys or earlier
 terms were lost. Original legacy generated data is unchanged. Reports and
 per-import audit history remain ignored under `reports/data-sync/`; the readable

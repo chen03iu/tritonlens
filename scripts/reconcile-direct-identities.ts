@@ -6,10 +6,11 @@ interface ProfileEvidence {readonly id:string;readonly displayName:string;readon
 export interface IdentityRemap {readonly fromId:string;readonly toId:string;readonly fromName:string;readonly toName:string;readonly sourceProfessorId:string|null;readonly reason:string}
 export interface WithheldRating {readonly professorId:string;readonly name:string;readonly sourceProfessorId:string;readonly sourceName:string;readonly reason:string}
 const holdouts=new Set(['2321551']);
-// UCSD faculty pages explicitly connect these names; profile IDs guard the scope.
+// Instructor and UCSD pages explicitly connect these names; profile IDs guard the scope.
 const reviewedVariants=[
   {id:'1315910',names:['Jim Kadonaga','James Kadonaga'],evidence:'https://biology.ucsd.edu/research/faculty/jkadonaga.html'},
   {id:'2371412',names:['Nadia Polikarpova','Nadezhda Polikarpova'],evidence:'https://jacobsschool.ucsd.edu/people/profile/nadezhda-polikarpova'},
+  {id:'2279559',names:['Alexander Niema Moshiri','Niema Moshiri'],evidence:'https://niema.net/'},
 ];
 const profile=(p:ProfessorRecord)=>p.sourceProfessorId??p.rating?.sourceProfessorId??null;
 const natural=(name:string)=>{const parts=name.split(',').map(x=>x.trim());return parts.length===2?`${parts[1]} ${parts[0]}`:name;};
@@ -54,6 +55,11 @@ function initialMatches(initial:string,full:string):boolean {
     &&a.given.length<=b.given.length&&a.given.every((token,index)=>token===b.given[index]||(token.length===1&&b.given[index].startsWith(token)));
 }
 const courseKey=(grade:LocalDataset['historicalCourseGrades'][number])=>`${grade.subjectCode.trim().toUpperCase()}|${grade.catalogNumber.trim().toUpperCase().replace(/^0+(?=\d)/,'')}`;
+function compatibleTerms(left:LocalDataset['historicalCourseGrades'][number],right:LocalDataset['historicalCourseGrades'][number]):boolean {
+  if(!left.terms?.length||!right.terms?.length||left.sourceId!==right.sourceId||left.sampleSize!==null||right.sampleSize!==null)return false;
+  const prior=new Map(left.terms.map(term=>[`${term.year}-${term.quarter}`,term]));
+  return right.terms.every(term=>!prior.has(`${term.year}-${term.quarter}`)||JSON.stringify(prior.get(`${term.year}-${term.quarter}`))===JSON.stringify(term));
+}
 
 /** Offline only: same-profile clusters are not assumed to be one person. */
 export function reconcileDirectIdentities(input:LocalDataset,profiles:readonly ProfileEvidence[]){
@@ -75,15 +81,22 @@ export function reconcileDirectIdentities(input:LocalDataset,profiles:readonly P
     return {...rest,rating:null};
   });
   const replacements=new Map<string,string>();
+  const coalesceTargets=new Set<string>();
   const resolve=(id:string):string=>{while(replacements.has(id))id=replacements.get(id)!;return id;};
   const history=(id:string)=>[...histories.entries()].filter(([key])=>resolve(key)===id).flatMap(([,rows])=>rows);
   function compatibleHistory(group:ProfessorRecord[]):boolean {
+    const id=profile(group[0]);
+    const verified=!!id&&group.every(a=>profile(a)===id&&group.every(b=>reviewedPair(id,a.displayName,b.displayName)));
     const rows=group.map(p=>history(p.id)).filter(rows=>rows.length);
     for(let i=0;i<rows.length;i++)for(let j=i+1;j<rows.length;j++){
       const subjects=new Set(rows[i].map(g=>g.subjectCode.trim().toUpperCase()));
       if(!rows[j].some(g=>subjects.has(g.subjectCode.trim().toUpperCase())))return false;
       const keys=new Set(rows[i].map(courseKey));
-      if(rows[j].some(g=>keys.has(courseKey(g))))return false;
+      for(const right of rows[j])if(keys.has(courseKey(right))){
+        for(const left of rows[i].filter(g=>courseKey(g)===courseKey(right))){
+          if(!verified||!compatibleTerms(left,right))return false;
+        }
+      }
     }
     return true;
   }
@@ -122,6 +135,7 @@ export function reconcileDirectIdentities(input:LocalDataset,profiles:readonly P
       donor={...keeper,rating:source.rating,sourceProfessorId:shared!,ratingUpdatedAt:source.observedAt};
     }
     const replacement:ProfessorRecord={...keeper,aliases:[...new Set([...(keeper.aliases),...group.filter(p=>p.id!==keeper.id).flatMap(p=>[p.displayName,...p.aliases])])].filter(name=>name!==keeper.displayName),rating:donor.rating,...(shared?{sourceProfessorId:shared}:{}),...(stamp(donor)?{ratingUpdatedAt:stamp(donor)}:{})};
+    if(shared&&group.every(a=>group.every(b=>reviewedPair(shared,a.displayName,b.displayName))))coalesceTargets.add(keeper.id);
     const groupIds=new Set(group.map(p=>p.id));
     professors=professors.filter(p=>!groupIds.has(p.id)||p.id===keeper.id).map(p=>p.id===keeper.id?replacement:p);
     for(const member of group)if(member.id!==keeper.id){replacements.set(member.id,keeper.id);remaps.push({fromId:member.id,toId:keeper.id,fromName:member.displayName,toName:keeper.displayName,sourceProfessorId:shared,reason});}
@@ -147,6 +161,19 @@ export function reconcileDirectIdentities(input:LocalDataset,profiles:readonly P
   }
   if(!remaps.length&&!withheldRatings.length)return {dataset:input,remaps,withheldRatings};
   const redirects=Object.fromEntries([...Object.entries(input.professorIdRedirects??{}),...replacements].map(([from,to])=>[from,resolve(to)]));
-  const dataset:LocalDataset={...input,professors,professorIdRedirects:redirects,historicalCourseGrades:input.historicalCourseGrades.map(g=>replacements.has(g.professorId)?{...g,professorId:resolve(g.professorId)}:g)};
+  const remapped=input.historicalCourseGrades.map(g=>replacements.has(g.professorId)?{...g,professorId:resolve(g.professorId)}:g);
+  const combined:LocalDataset['historicalCourseGrades'][number][]=[],locations=new Map<string,number>();
+  const verifiedTargets=new Set([...coalesceTargets].map(resolve));
+  const quarterOrder={WI:0,SP:1,S1:2,SU:3,S2:4,FA:5};
+  for(const row of remapped){
+    const key=`${row.professorId}|${courseKey(row)}`,position=locations.get(key);
+    if(position===undefined||!verifiedTargets.has(row.professorId)){locations.set(key,combined.length);combined.push(row);continue;}
+    const prior=combined[position];
+    if(!compatibleTerms(prior,row)){combined.push(row);continue;}
+    const unique=new Map([...(prior.terms??[]),...(row.terms??[])].map(term=>[`${term.year}-${term.quarter}`,term]));
+    const terms=[...unique.values()].sort((a,b)=>b.year-a.year||quarterOrder[b.quarter]-quarterOrder[a.quarter]);
+    combined[position]={...prior,averageGpa:terms[0].averageGpa,gradeDistribution:terms[0].gradeDistribution,offeringCount:terms.length,sampleSize:null,updatedAt:[prior.updatedAt,row.updatedAt].sort().at(-1)!,terms};
+  }
+  const dataset:LocalDataset={...input,professors,professorIdRedirects:redirects,historicalCourseGrades:combined};
   return {dataset,remaps:remaps.map(entry=>({...entry,toId:resolve(entry.toId),toName:professors.find(p=>p.id===resolve(entry.toId))!.displayName})),withheldRatings};
 }
