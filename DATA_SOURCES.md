@@ -81,6 +81,11 @@ requirements should be reviewed and recorded here.
 - The [2026-10-30 primary-source review](docs/primary-source-identity-review-2026-10-30.md)
   documents 19 additional profile corrections, their corroborating pages, and
   limits. Reviewed names persist as aliases across later data imports.
+- The [profile ownership follow-up](docs/primary-source-profile-ownership-2026-10-30.md)
+  resolves the final 12 shared-profile groups. Four name groups are reconciled;
+  eight incorrect links are excluded only with reviewed source-name/department
+  and retained-owner/course evidence. Stale or missing evidence cannot trigger
+  these exclusions. Separate instructors retain separate grade histories.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.

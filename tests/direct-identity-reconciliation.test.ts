@@ -12,6 +12,28 @@ const evidence=(id:string,displayName:string)=>({id,displayName,observedAt:'2026
 function dataset(professors:ProfessorRecord[]):LocalDataset{return {schemaVersion:1,kind:'development',sources:[{id:'rmp',label:'RMP',category:'professor-ratings',homepageUrl:null,termsUrl:null,retrievedAt:'2026-07-23',permissionStatus:'pending',attribution:null},{id:'grades',label:'Grades',category:'historical-grades',homepageUrl:null,termsUrl:null,retrievedAt:'2026-07-23',permissionStatus:'pending',attribution:null}],professors,historicalCourseGrades:[]};}
 
 it.each([
+ ['3033351','Erik Johnson','Management','Johnson, Erik Barry','Johnson, Eric Lynn','MGT','160'],
+ ['1967900','Elizabeth Miller','Writing','Miller, Elizabeth Deen','Miller, Elizabeth Anne','MCWP','50R'],
+ ['762709','Xiao Wang','Languages','Wang, Xiao','Wang, Xiang','CHIN','20AM'],
+ ['2421043','Mark Young','Chemistry','Young, Mark','Young, Mark T','CHEM','6B'],
+ ['287742','John Blanco','Literature','Blanco, John D','Blanco, Juan Carlos','LTEN','28'],
+ ['1505397','Chris Chambers','Economics','Chambers, Christopher P.','Chambers, Christina D','ECON','171'],
+ ['103726','Michael Davidson','Literature','Davidson, R. Michael','Davidson, Michael R','LTEN','174'],
+ ['110483','Joel Watson','Economics','Watson, Joel Christopher','John Watson','ECON','109'],
+])('separates the externally verified owner of shared profile %s',(id,name,department,owner,wrong,subject,catalog)=>{
+ const input={...dataset([person('owner',owner,id),person('wrong',wrong,id)]),historicalCourseGrades:[grade('owner',subject,catalog),grade('wrong','OTHER','1')]};
+ const result=reconcileDirectIdentities(input,[{...evidence(id,name),department}]);
+ expect(result.remaps).toEqual([]);expect(result.withheldRatings).toHaveLength(1);
+ expect(result.dataset.professors.find(p=>p.id==='wrong')).toMatchObject({rating:null});
+ expect(result.dataset.professors.find(p=>p.id==='wrong')?.sourceProfessorId).toBeUndefined();
+ expect(result.dataset.professors.find(p=>p.id==='owner')?.rating).toEqual(input.professors[0].rating);
+ expect(result.dataset.historicalCourseGrades).toEqual(input.historicalCourseGrades);
+ for(const record of [{...evidence(id,name),department:'Unrelated'},evidence(id,name),{...evidence(id,name),department,observedAt:'2026-01-01'}])expect(reconcileDirectIdentities(input,[record]).withheldRatings).toEqual([]);
+ const noOwnerCourse={...input,historicalCourseGrades:[grade('owner','OTHER','2'),grade('wrong','OTHER','1')]};
+ expect(reconcileDirectIdentities(noOwnerCourse,[{...evidence(id,name),department}]).withheldRatings).toEqual([]);
+});
+
+it.each([
  ['983140','Tezcan, Faik','Akif Tezcan','Faik Akif Tezcan'],
  ['585032','Bandaru, Prabhakar','Bandaru, Prab','Prab Bandaru'],
  ['2439345','Styler, William Francis','Will Styler','William Styler'],
@@ -31,6 +53,10 @@ it.each([
  ['289991','Larson, Philip Clarion','Larson, Phillip','Phillip Larson'],
  ['2942764','Molloie Jr., William H','Molloie, William','William Molloie'],
  ['2703985','Wright, Shelley Adams','Wright, Shelly Adams','Shelley Wright'],
+ ['1897314','Oconnor, Joseph M.',"Joseph O'Connor",'Joseph Oconnor'],
+ ['2321551','Pass, Natalye Joann','Pass, Natalye','Natalye Pass'],
+ ['248395','Theodorakis, Emmanuel','Theodorakis, Emmanouil','Emmanuel Theodorakis'],
+ ['2305714','Eliasson, Jenny Veronica','Eliasson, Veronica','Veronica Eliasson'],
 ])('reconciles externally corroborated names within profile %s',(id,canonical,preferred,source)=>{
  const input={...dataset([person('canonical',canonical,id),person('stub',preferred,id)]),historicalCourseGrades:[grade('canonical')]};
  const result=reconcileDirectIdentities(input,[evidence(id,source)]);
@@ -120,14 +146,20 @@ it.each([
  const input=dataset([person('a',name,id),person('b',sourceName,id)]);
  expect(reconcileDirectIdentities(input,[evidence(id,sourceName)]).withheldRatings).toEqual([]);
 });
-it('retains held rename and incompatible or conflicting historical identities',()=>{
- const hold=dataset([person('a','Harpin, Natalye','2321551'),person('b','Pass, Natalye','2321551')]);
- expect(reconcileDirectIdentities(hold,[{id:'2321551',displayName:'Natalye Pass'}]).dataset).toEqual(hold);
+it('retains unreviewed renames and incompatible or conflicting historical identities',()=>{
+ const hold=dataset([person('a','Harpin, Natalye','999'),person('b','Pass, Natalye','999')]);
+ expect(reconcileDirectIdentities(hold,[{id:'999',displayName:'Natalye Pass'}]).dataset).toEqual(hold);
  const original=dataset([person('a','Doe, Jane'),person('b','Jane Doe')]);
  const differentSubjects={...original,historicalCourseGrades:[grade('a','MATH'),grade('b','PHIL')]};
  expect(reconcileDirectIdentities(differentSubjects,[{id:'101',displayName:'Jane Doe'}]).remaps).toEqual([]);
  const conflicting={...original,historicalCourseGrades:[grade('a'),{...grade('b'),averageGpa:2}]};
  expect(reconcileDirectIdentities(conflicting,[{id:'101',displayName:'Jane Doe'}]).remaps).toEqual([]);
+});
+it('resolves Natalye Harpin and Pass only under their primary-source-reviewed profile',()=>{
+ const input=dataset([person('a','Harpin, Natalye','2321551'),person('b','Pass, Natalye','2321551')]);
+ const result=reconcileDirectIdentities(input,[evidence('2321551','Natalye Pass')]);
+ expect(result.remaps).toHaveLength(1);
+ for(const name of ['Natalye Harpin','Natalye Pass','Natalye Joann Pass','Natalye Pass Harpin'])expect(lookupProfessor(result.dataset,name).status).toBe('found');
 });
 it('preserves every term/history, resolves retired IDs, and is pure/idempotent',()=>{
  const input={...dataset([person('a','Doe, Jane'),person('b','Jane Doe')]),historicalCourseGrades:[grade('a'),grade('b','MATH','2')]};

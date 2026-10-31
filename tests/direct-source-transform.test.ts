@@ -13,6 +13,23 @@ function row(overrides={}){const grades={A:60,B:20,C:0,D:0,F:0,W:0,P:0,NP:0};ret
 function archive(rows=[row()]){return {schemaVersion:1,exporterVersion:'0.1.1',kind:'ucsd-browser-session-candidate',sourceUrl:'https://qa-as.ucsd.edu/Home/InstructorGradeArchive',retrievedAt:stamp,query:{quarter:'',year:'',instructor:'',subject:'',courseNumber:''},coverage:{complete:false,recordCount:rows.length,query:'all-filters-blank',requiresPipelineValidation:true},parseIssues:[],rows};}
 
 describe('direct-source transformation',()=>{
+ it('refreshes only a verified shared-profile owner and keeps the other instructor unrated on repeat imports',()=>{
+  const shared={...oldRating,sourceProfessorId:'2421043'};
+  const history=(id:string,subjectCode:string,catalogNumber:string)=>({professorId:id,subjectCode,catalogNumber,averageGpa:3.5,sampleSize:null,offeringCount:1,gradeDistribution:{aPercent:50,bPercent:50,cPercent:0,dPercent:0,fPercent:0,wPercent:0,pPercent:0,npPercent:0},sourceId:'grades',updatedAt:'2026-07-23'});
+  const before:LocalDataset={...baseline(),sources:[source,{...source,id:'grades',category:'historical-grades'}],professors:[
+   {id:'chem',displayName:'Young, Mark',aliases:['Mark Young'],rating:shared},
+   {id:'writing',displayName:'Young, Mark T',aliases:['Mark T Young'],rating:shared},
+  ],historicalCourseGrades:[history('chem','CHEM','6B'),history('writing','WCWP','10A')]};
+  const input=roster([teacher({legacyId:2421043,displayName:'Mark Young',department:'Chemistry'})]);
+  const grades=archive([row({instructor:'Young, Mark',subject:'CHEM',courseNumber:'6B'}),row({instructor:'Young, Mark T',subject:'WCWP',courseNumber:'10A'})]);
+  const first=transformDirectSources(before,input,grades);
+  expect(first.report.identityReconciliation.withheldRatings).toHaveLength(1);
+  expect(first.dataset.professors.find(p=>p.id==='chem')?.rating).toMatchObject({overallRating:4.5,sourceProfessorId:'2421043'});
+  expect(first.dataset.professors.find(p=>p.id==='writing')?.rating).toBeNull();
+  expect(first.dataset.historicalCourseGrades).toHaveLength(2);
+  expect(transformDirectSources(first.dataset,input,grades).dataset).toEqual(first.dataset);
+  expect(before.professors[1].rating).toEqual(shared);
+ });
  it('refreshes an existing profile while preserving reviewed IDs and aliases',()=>{
   const before=baseline();const {dataset,report}=transformDirectSources(before,roster(),archive());
   expect(dataset.professors[0]).toMatchObject({id:'reviewed-jane',aliases:before.professors[0].aliases,rating:{overallRating:4.5,sourceProfessorId:'101',sourceId:'direct-rmp',updatedAt:'2026-10-29'}});

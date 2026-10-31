@@ -37,7 +37,8 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
   const overall=row.rating===null?null:number(row.rating,0,5),difficulty=row.difficulty===null?null:number(row.difficulty,0,5),again=row.wouldTakeAgainPercent===null?null:number(row.wouldTakeAgainPercent,0,100);
   assert(count===0?overall===null:overall!==null&&overall>=1,'Inconsistent rated profile');
   const rating:ProfessorRating|null=count>0&&overall!==null?{overallRating:overall,difficulty,ratingCount:count,wouldTakeAgainPercent:again,sourceId:'direct-rmp',updatedAt:observedAt,sourceProfessorId:id}:null;
-  return {id,displayName,observedAt,rating};
+  const department=typeof row.department==='string'&&row.department.trim()?text(row.department):undefined;
+  return {id,displayName,observedAt,rating,department};
  });
  const reconciliation=reconcileDirectIdentities(baseline,identities);
  baseline=reconciliation.dataset;

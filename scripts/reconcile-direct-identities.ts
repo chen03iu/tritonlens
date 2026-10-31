@@ -2,10 +2,9 @@ import {analyzeNameRelationship} from '../src/data/name-variants';
 import {normalizeInstructorName} from '../src/data/lookup';
 import type {LocalDataset,ProfessorRecord,ProfessorRating} from '../src/data/types';
 
-interface ProfileEvidence {readonly id:string;readonly displayName:string;readonly observedAt?:string;readonly rating?:ProfessorRating|null}
+interface ProfileEvidence {readonly id:string;readonly displayName:string;readonly observedAt?:string;readonly rating?:ProfessorRating|null;readonly department?:string}
 export interface IdentityRemap {readonly fromId:string;readonly toId:string;readonly fromName:string;readonly toName:string;readonly sourceProfessorId:string|null;readonly reason:string}
 export interface WithheldRating {readonly professorId:string;readonly name:string;readonly sourceProfessorId:string;readonly sourceName:string;readonly reason:string}
-const holdouts=new Set(['2321551']);
 // Primary sources corroborate these reviewed variants; profile IDs guard the scope.
 const reviewedVariants=[
   {id:'1315910',names:['Jim Kadonaga','James Kadonaga'],evidence:'https://biology.ucsd.edu/research/faculty/jkadonaga.html'},
@@ -30,6 +29,21 @@ const reviewedVariants=[
   {id:'289991',names:['Philip Clarion Larson','Phillip Larson','Philip Larson'],evidence:'https://music-cms.ucsd.edu/people/faculty/emeritus_faculty/philip-larson/index.html'},
   {id:'2942764',names:['William H Molloie Jr.','William Molloie'],evidence:'https://rady.ucsd.edu/_files/faculty-research/cv/William-Molloie-CV.pdf'},
   {id:'2703985',names:['Shelley Adams Wright','Shelly Adams Wright','Shelley Wright','Shelly Wright'],evidence:'https://www.seti.org/news-archive/news-archive-detail?id=5013'},
+  {id:'1897314',names:["Joseph M. O'Connor",'Joseph M. Oconnor',"Joseph O'Connor",'Joseph Oconnor'],evidence:'https://oconnorgroup.ucsd.edu/Joe.html'},
+  {id:'2321551',names:['Natalye Pass','Natalye Joann Pass','Natalye Harpin','Natalye Pass Harpin'],evidence:'https://natalyeharpin.com/about-me'},
+  {id:'248395',names:['Emmanouil Theodorakis','Emmanuel Theodorakis'],evidence:'https://theodorakisgroup.ucsd.edu/page5.html'},
+  {id:'2305714',names:['Jenny Veronica Eliasson','Veronica Eliasson'],evidence:'https://eliasson.mines.edu/cv.html'},
+];
+// Reviewed ownership exclusions require the expected roster department and owner course.
+const reviewedSeparations=[
+  {id:'3033351',sourceName:'Erik Johnson',department:'Management',owner:'Johnson, Erik Barry',rejected:'Johnson, Eric Lynn',course:'MGT|160'},
+  {id:'1967900',sourceName:'Elizabeth Miller',department:'Writing',owner:'Miller, Elizabeth Deen',rejected:'Miller, Elizabeth Anne',course:'MCWP|50R'},
+  {id:'762709',sourceName:'Xiao Wang',department:'Languages',owner:'Wang, Xiao',rejected:'Wang, Xiang',course:'CHIN|20AM'},
+  {id:'2421043',sourceName:'Mark Young',department:'Chemistry',owner:'Young, Mark',rejected:'Young, Mark T',course:'CHEM|6B'},
+  {id:'287742',sourceName:'John Blanco',department:'Literature',owner:'Blanco, John D',rejected:'Blanco, Juan Carlos',course:'LTEN|28'},
+  {id:'1505397',sourceName:'Chris Chambers',department:'Economics',owner:'Chambers, Christopher P.',rejected:'Chambers, Christina D',course:'ECON|171'},
+  {id:'103726',sourceName:'Michael Davidson',department:'Literature',owner:'Davidson, R. Michael',rejected:'Davidson, Michael R',course:'LTEN|174'},
+  {id:'110483',sourceName:'Joel Watson',department:'Economics',owner:'Watson, Joel Christopher',rejected:'John Watson',course:'ECON|109'},
 ];
 const profile=(p:ProfessorRecord)=>p.sourceProfessorId??p.rating?.sourceProfessorId??null;
 const natural=(name:string)=>{const parts=name.split(',').map(x=>x.trim());return parts.length===2?`${parts[1]} ${parts[0]}`:name;};
@@ -93,9 +107,17 @@ export function reconcileDirectIdentities(input:LocalDataset,profiles:readonly P
   // Withhold ambiguous shared legacy links; never transfer their metrics to a namesake.
   let professors=input.professors.map(p=>{
     const id=profile(p),source=id?sourceProfiles.get(id):undefined,sourceName=source?.displayName;
-    if(!id||!sourceName||holdouts.has(id)||(originalGroups.get(id)?.length??0)<2||possibleVariant(p,sourceName))return p;
+    if(!id||!sourceName||(originalGroups.get(id)?.length??0)<2)return p;
+    const separation=reviewedSeparations.find(entry=>entry.id===id&&nameKey(entry.sourceName)===nameKey(sourceName)
+      &&normalizeInstructorName(source?.department??'')===normalizeInstructorName(entry.department)
+      &&nameKey(p.displayName)===nameKey(entry.rejected)
+      &&originalGroups.get(id)!.some(owner=>nameKey(owner.displayName)===nameKey(entry.owner)
+        &&histories.get(owner.id)?.some(row=>courseKey(row)===entry.course)));
+    if(!separation&&possibleVariant(p,sourceName))return p;
     if(!source?.observedAt||source.observedAt<(p.ratingUpdatedAt??p.rating?.updatedAt??''))return p;
-    withheldRatings.push({professorId:p.id,name:p.displayName,sourceProfessorId:id,sourceName,reason:'Shared legacy profile has incompatible full-name evidence in the direct roster.'});
+    withheldRatings.push({professorId:p.id,name:p.displayName,sourceProfessorId:id,sourceName,reason:separation
+      ?'Reviewed primary-source department and course evidence identifies a different owner of this profile.'
+      :'Shared legacy profile has incompatible full-name evidence in the direct roster.'});
     const {sourceProfessorId:_,ratingUpdatedAt:__,...rest}=p;
     return {...rest,rating:null};
   });
@@ -121,7 +143,7 @@ export function reconcileDirectIdentities(input:LocalDataset,profiles:readonly P
   }
   function rawPair(a:ProfessorRecord,b:ProfessorRecord):boolean {
     const pa=profile(a),pb=profile(b);
-    if((pa&&holdouts.has(pa))||(pb&&holdouts.has(pb))||(pa&&pb&&pa!==pb))return false;
+    if(pa&&pb&&pa!==pb)return false;
     if(pa&&pa===pb&&reviewedPair(pa,a.displayName,b.displayName))return true;
     if(ordinary(a.displayName,b.displayName))return true;
     const sourceName=pa&&pa===pb?sourceNames.get(pa):undefined;
@@ -165,7 +187,7 @@ export function reconcileDirectIdentities(input:LocalDataset,profiles:readonly P
   for(const p of professors){const key=nameKey(p.displayName);const group=exact.get(key)??[];group.push(p);exact.set(key,group);}
   for(const group of exact.values())if(group.every((a,i)=>group.slice(i+1).every(b=>rawPair(a,b))))merge(group,'Exact full-name internal duplicate');
   const byProfile=new Map<string,ProfessorRecord[]>();
-  for(const p of professors){const id=profile(p);if(id&&!holdouts.has(id)){const group=byProfile.get(id)??[];group.push(p);byProfile.set(id,group);}}
+  for(const p of professors){const id=profile(p);if(id){const group=byProfile.get(id)??[];group.push(p);byProfile.set(id,group);}}
   for(const group of byProfile.values()){
     const ambiguous=new Set(group.filter(a=>{
       const targets=group.filter(b=>a.id!==b.id&&rawPair(a,b));
