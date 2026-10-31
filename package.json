@@ -11,6 +11,7 @@
     "import:easy-a": "node scripts/import-easy-a.mjs",
     "import:direct": "node scripts/import-direct-sources.mjs",
     "audit:instructors": "node scripts/audit-instructor-matches.mjs",
+    "audit:runtime": "node scripts/audit-runtime-matches.mjs",
     "recommend:names": "node scripts/recommend-name-matches.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests"

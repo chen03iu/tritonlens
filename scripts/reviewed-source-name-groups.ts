@@ -1,4 +1,4 @@
-export interface ReviewedSourceNameGroup {readonly name:string;readonly course?:string;readonly allowNoHistory?:boolean;readonly ownerId?:string;readonly initialProfileId?:string;readonly createIfMissing?:boolean;readonly stubs?:readonly {id:string;name:string;sourceProfessorId?:string}[];readonly members:readonly {id:string;name:string;department:string}[];readonly evidence?:readonly string[];readonly reviewGroup?:number}
+export interface ReviewedSourceNameGroup {readonly name:string;readonly course?:string;readonly allowNoHistory?:boolean;readonly ownerId?:string;readonly expectedOwnerProfileId?:string|null;readonly initialProfileId?:string;readonly createIfMissing?:boolean;readonly stubs?:readonly {id:string;name:string;sourceProfessorId?:string}[];readonly members:readonly {id:string;name:string;department:string}[];readonly evidence?:readonly string[];readonly reviewGroup?:number}
 
 // Reviewed external evidence, scoped to these names, source IDs and course owners.
 export const REVIEWED_SOURCE_NAME_GROUPS:readonly ReviewedSourceNameGroup[]=[

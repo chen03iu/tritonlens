@@ -3,6 +3,7 @@ import type {LocalDataset,ProfessorRecord,ProfessorRating} from '../src/data/typ
 import {REVIEWED_SOURCE_NAME_GROUPS} from './reviewed-source-name-groups';
 import type {ReviewedSourceNameGroup} from './reviewed-source-name-groups';
 import {prepareReviewedProfileOwners} from './prepare-reviewed-profile-owners';
+import {REVIEWED_RUNTIME_DUPLICATES} from './reviewed-runtime-duplicates';
 
 export interface RosterProfileEvidence {readonly id:string;readonly displayName:string;readonly department?:string;readonly schoolName?:string;readonly sourceId?:string;readonly observedAt?:string;readonly rating?:ProfessorRating|null}
 export interface ProfileDecision {readonly professorId:string;readonly previousId:string|null;readonly selectedId:string;readonly action:'replaced-wrong-link'|'retained-reviewed-profile'|'reselected-reviewed-profile'|'assigned-reviewed-profile';readonly reason:string;readonly alternateIds?:readonly string[]}
@@ -41,7 +42,7 @@ const replacementsByName=new Map(replacements.map(rule=>[key(rule.name),rule]));
 export function selectReviewedProfiles(input:LocalDataset,profiles:readonly RosterProfileEvidence[],policy:'most-ratings'|'keep-current'='most-ratings'){
  const decisions:ProfileDecision[]=[],skippedProfileIds=new Set<string>();
  if(input.kind!=='development')return {dataset:input,decisions,skippedProfileIds,remaps:[]};
- const prepared=prepareReviewedProfileOwners(input,profiles,REVIEWED_SOURCE_NAME_GROUPS);
+ const prepared=prepareReviewedProfileOwners(input,profiles,[...REVIEWED_SOURCE_NAME_GROUPS,...REVIEWED_RUNTIME_DUPLICATES]);
  input=prepared.dataset;
  const byId=new Map(profiles.map(p=>[p.id,p]));
  const nameOwners=new Map<string,Set<string>>();

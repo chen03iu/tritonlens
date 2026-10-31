@@ -113,6 +113,12 @@ requirements should be reviewed and recorded here.
   only in the explicitly verified ANTH87 context. Expected identity/name/profile
   ownership and unique history are checked. This is runtime identity lookup,
   not a new score source or an association with the held Writing profile.
+- The [runtime lookup audit](docs/runtime-lookup-audit-2026-10-31.md) corroborates
+  three existing declared aliases against UCSD/RMP and retires four exact,
+  history-free duplicate IDs. Leo Porter's existing rated record donates its
+  unchanged observation to the retained course-history owner; the other three
+  retired records are empty. No grade ownership, raw term, source date or
+  permission status changes. The nine held source profiles stay held.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.

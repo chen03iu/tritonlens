@@ -19,6 +19,7 @@ export function prepareReviewedProfileOwners(input:LocalDataset,profiles:readonl
   if(owner&&!stubs.length)continue;
   blockedGroups.add(group.name);
   if(owner&&key(owner.displayName)!==key(group.name))continue;
+  if(group.expectedOwnerProfileId!==undefined&&(owner?current(owner)??null:null)!==group.expectedOwnerProfileId)continue;
   if(group.course&&(!owner||!hasCourse(input,owner.id,group.course)))continue;
   if(owner&&current(owner)&&!group.members.some(m=>m.id===current(owner!)))continue;
   if(stubs.some(({rule,record})=>key(record.displayName)!==key(rule.name)||current(record)!==rule.sourceProfessorId||record.rmpProfiles?.length||input.historicalCourseGrades.some(g=>g.professorId===record.id)))continue;

@@ -4,6 +4,39 @@ Last updated: 2026-10-31
 
 ## Current Milestone
 
+### Actual-runtime roster audit and duplicate cleanup (2026-10-31)
+
+`npm.cmd run audit:runtime -- reports/instructor-audit.json` now checks the direct
+snapshot through the extension's actual pending-permission providers/service,
+with separate identity, rating and course-history results and input hashes.
+The saved July roster has 1,995 names / 4,543 pairs; it is not a live TSS capture.
+
+The first run exposed existing aliases blocked by duplicate records for
+Ahmed-Waeil Elgamal, Dhananjay Bambah-Mukku and Leo Porter. UCSD/RMP evidence
+corroborated three exact-ID cleanup rules; four history-free records retire,
+with Leo's existing rated observation preserved in the retained history owner.
+All 17 affected pairs now resolve. No fuzzy runtime policy was broadened.
+
+The resulting audit has 4,052 found pairs, zero ambiguous pairs and 491 unmatched
+pairs, representing 1,680 matched names and 315 unmatched names. Of those 315,
+211 have prior rated candidates for the next automatic primary-evidence review.
+These are candidate leads, not identity proof or 315 new manual user decisions.
+The separate nine held incoming RMP profiles and the user's keep-separate
+Kevin Cao / David Jordan decisions remain unchanged.
+
+All earlier names and primary/alternate ratings survive under retained or
+explicitly redirected IDs; all 11,120 histories / 30,146 terms and source metadata
+are unchanged. Identities: 5,677; redirects: 63. Repeat candidate import is
+byte-identical, SHA-256 `68ad8c85caf5adc2b67ee798b681926ce7c7fe889f13fc0c7333b728e07f7814`.
+
+Verification: 491 tests across 41 files, typecheck and default build pass.
+Fresh code review caught a potential Leo donor-loss before-state; a failing
+regression and an exact expected-owner-profile guard address it. Review has no
+remaining actionable finding. Local branch `chore/runtime-lookup-audit`; no push
+or release. Reload the existing worktree `dist` to test the refreshed snapshot.
+
+Details and primary evidence: [runtime audit review](docs/runtime-lookup-audit-2026-10-31.md).
+
 ### Reviewed course-specific short-name fix (2026-10-31)
 
 The live ANTH-087 screenshot exposed a runtime lookup gap: David Jordan did not

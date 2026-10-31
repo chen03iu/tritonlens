@@ -111,6 +111,12 @@ file is retained in ignored `.cache/` before same-directory replacement.
 An optional `--outdir=<directory>` stages a candidate without replacing the runtime
 file. Raw inputs, reports, backups, and collection scripts are excluded from builds.
 
+For an incremental candidate, first copy the current generated direct snapshot
+into the candidate directory under the same filename. An empty candidate
+directory starts from the legacy baseline and does not inherit later curated
+identity decisions. Compare retained aliases, ratings and histories before
+replacing the runtime snapshot.
+
 The import reconciles compatible internal duplicates before refreshing metrics.
 Retired IDs retain validated redirects; aliases and course history are preserved.
 Incompatible reused profile links are withheld rather than used as rating donors.
@@ -127,6 +133,27 @@ coverage rather than declaring it complete. RMP metrics were retrieved on
 dates and appear in the local identity-review report. A readable review queue is
 written to `reports/data-sync/direct-source-identity-review.md`. Source permission remains
 pending. Building or importing does not publish a GitHub release.
+
+## Offline Runtime Matching Audit
+
+After a data refresh, check the saved roster with the same local providers and
+insight service used by the extension's pending-permission snapshot build:
+
+```powershell
+npm.cmd run audit:runtime -- reports/instructor-audit.json
+```
+
+The deterministic report is written to ignored
+`reports/data-sync/runtime-instructor-audit.json`. It checks each distinct
+instructor/course pair and separately reports identity, rating and course-history
+results. It records the original roster date/hash, input report hash and bundled
+dataset hash. A found history does not imply a numeric GPA or usable percentages.
+
+The supplied roster is the July 2026 Easy-A snapshot, not a live TSS capture.
+This command makes no network requests and changes no aliases or source metrics;
+it does not approve source permissions or validate a link-only/release build.
+The [runtime audit review](docs/runtime-lookup-audit-2026-10-31.md) records the
+first full run and the three reviewed duplicate-record fixes it exposed.
 
 ## Quality Checks
 
