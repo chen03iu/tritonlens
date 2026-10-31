@@ -4,6 +4,38 @@ Last updated: 2026-10-31
 
 ## Current Milestone
 
+### Source-name evidence review (2026-10-31)
+
+Local branch `fix/source-name-profile-review` reviews the 87 remaining name
+buckets and reduces the held queue from 101 to nine source profiles in eight
+names. Only Kevin Cao and David Jordan have rated incoming profiles needing
+identity evidence; seven other profiles are unrated. Existing useful scores
+are preserved. On 2026-10-31 the user chose to keep the two rated cases separate
+and unassociated. This is a conservative user decision, not new identity proof;
+no further user decision is currently required for these held profiles.
+
+The [evidence and remaining decisions](docs/source-name-profile-review-2026-10-31.md)
+record 76 further exact-ID same-person groups and two distinct-person profile
+assignments. Writing Mark T. Young and engineering Michael R. Davidson receive
+their own verified sources, separate from their chemistry/literature namesakes.
+Their colliding short aliases are not added. Eight roster-only people are added;
+four explicit grade-free stubs retire with redirects, including the Mia Minnes
+variants. All previous names/aliases and rating observations survive.
+
+The snapshot now has 5,681 identities, 59 direct redirects, 86 multi-profile
+groups and 174 independent observations. All 11,120 histories and 30,146 source
+terms are exactly unchanged. A fresh review found preparation rejection and
+alternate-ownership gaps; failing regressions reproduced both before fixes.
+Rejected preparations now block selection, other owners' alternate IDs are
+protected, and new or merged aliases cannot collide with retained identities.
+Fresh guarded regeneration from `1461ef0` and its repeat import are byte-identical.
+The preview directory remains unchanged; all work remains local.
+
+Verification: 467 tests across 37 files pass with two workers; typecheck and
+default build pass. Cached normalized-name/group indexes remove repeated scans
+introduced by the larger review table; the measured selector run fell from
+2,957 ms to 74 ms without relaxing test timeouts or changing matching results.
+
 ### Multiple RMP profile preview (2026-10-31)
 
 Local branch `feat/multiple-rmp-profiles` adds a native `Other RMP profiles`

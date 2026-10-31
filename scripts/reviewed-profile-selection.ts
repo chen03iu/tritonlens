@@ -1,15 +1,18 @@
 import {normalizeInstructorName} from '../src/data/lookup';
 import type {LocalDataset,ProfessorRecord,ProfessorRating} from '../src/data/types';
+import {REVIEWED_SOURCE_NAME_GROUPS} from './reviewed-source-name-groups';
+import type {ReviewedSourceNameGroup} from './reviewed-source-name-groups';
+import {prepareReviewedProfileOwners} from './prepare-reviewed-profile-owners';
 
 export interface RosterProfileEvidence {readonly id:string;readonly displayName:string;readonly department?:string;readonly schoolName?:string;readonly sourceId?:string;readonly observedAt?:string;readonly rating?:ProfessorRating|null}
-export interface ProfileDecision {readonly professorId:string;readonly previousId:string;readonly selectedId:string;readonly action:'replaced-wrong-link'|'retained-reviewed-profile'|'reselected-reviewed-profile';readonly reason:string;readonly alternateIds?:readonly string[]}
+export interface ProfileDecision {readonly professorId:string;readonly previousId:string|null;readonly selectedId:string;readonly action:'replaced-wrong-link'|'retained-reviewed-profile'|'reselected-reviewed-profile'|'assigned-reviewed-profile';readonly reason:string;readonly alternateIds?:readonly string[]}
 const replacements=[
  {name:'Wong, Thomas Hong Tsun',from:'1807235',fromName:'Tom Wong',fromDepartment:'Political Science',to:'3107722',toName:'Thomas Hong Tsun Wong',toDepartment:'Physics',course:'PHYS/1B'},
  {name:'Simpson, Junko Tokuda',from:'1003907',fromName:'Joseph Simpson',fromDepartment:'Chemistry',to:'2265866',toName:'Junko Tokuda Simpson',toDepartment:'Languages',course:'JAPN/137C'},
  {name:'Lee, Siu Hei',from:'1589053',fromName:'Seung Lee',fromDepartment:'Mathematics',to:'2173971',toName:'Siu Hei Lee',toDepartment:'Music',course:'MUS/4'},
  {name:'Moore, John C.',from:'155212',fromName:'Jim Moore',fromDepartment:'Anthropology',to:'570304',toName:'John C. Moore',toDepartment:'Linguistics',course:'LIGN/150'},
 ];
-interface ReviewedGroup {name:string;course:string;members:readonly {id:string;name:string;department:string}[];existingSourceId?:string}
+interface ReviewedGroup extends ReviewedSourceNameGroup {existingSourceId?:string}
 const groups:readonly ReviewedGroup[]=[
  {name:'Ho, Ching Wei',course:'MATH/20A',members:[{id:'3080826',name:'Ching Ho',department:'Mathematics'},{id:'3046145',name:'Ching Wei Ho',department:'Mathematics'}]},
  {name:'Tan, Tzer Han',course:'PHYS/2B',members:[{id:'3127092',name:'Tzer Tan',department:'Physics'},{id:'3137624',name:'Tzer Han Tan',department:'Physics'}]},
@@ -21,24 +24,48 @@ const groups:readonly ReviewedGroup[]=[
  {name:'Lott, Margaret S.',course:'LISL/1D',members:[{id:'1116044',name:'Margaret Lott',department:'American Sign Language'},{id:'783702',name:'Peggy Lott',department:'Languages'}]},
  {name:'Frisch, Joshua R',course:'MATH/100A',members:[{id:'2966292',name:'Joshua Frisch',department:'Mathematics'},{id:'2987357',name:'Joshua R Frisch',department:'Mathematics'}]},
  {name:'Shalev, Aaron D',course:'CSE/29',members:[{id:'3050657',name:'Aaron Schulman',department:'Computer Science'},{id:'3157537',name:'Aaron Schulman',department:'Computer Science'}],existingSourceId:'reviewed-aaron-rmp'},
+ ...REVIEWED_SOURCE_NAME_GROUPS,
+];
+const distinctAssignments=[
+ {ownerId:'easy-a-young-mark-t-4516fe6851',name:'Young, Mark T',course:'WCWP/100',id:'2066567',sourceName:'Mark Young',department:'English'},
+ {ownerId:'easy-a-davidson-michael-r-1334bed5e3',name:'Davidson, Michael R',course:'MAE/107',id:'2589536',sourceName:'Michael Davidson',department:'Engineering'},
 ];
 const currentId=(p:ProfessorRecord)=>p.sourceProfessorId??p.rating?.sourceProfessorId;
 const key=normalizeInstructorName;
 const matches=(p:RosterProfileEvidence|undefined,name:string,department:string)=>!!p&&key(p.displayName)===key(name)&&key(p.department??'')===key(department);
 const fresh=(p:RosterProfileEvidence|undefined,stamp:string)=>!!p?.observedAt&&Number.isFinite(Date.parse(p.observedAt))&&p.observedAt>=stamp;
+const groupsByName=new Map(groups.map(group=>[key(group.name),group]));
+const replacementsByName=new Map(replacements.map(rule=>[key(rule.name),rule]));
 
 /** Offline, reviewed corrections only; grades and internal identities are never reassigned. */
 export function selectReviewedProfiles(input:LocalDataset,profiles:readonly RosterProfileEvidence[],policy:'most-ratings'|'keep-current'='most-ratings'){
  const decisions:ProfileDecision[]=[],skippedProfileIds=new Set<string>();
- if(input.kind!=='development')return {dataset:input,decisions,skippedProfileIds};
+ if(input.kind!=='development')return {dataset:input,decisions,skippedProfileIds,remaps:[]};
+ const prepared=prepareReviewedProfileOwners(input,profiles,REVIEWED_SOURCE_NAME_GROUPS);
+ input=prepared.dataset;
  const byId=new Map(profiles.map(p=>[p.id,p]));
+ const nameOwners=new Map<string,Set<string>>();
+ for(const p of input.professors)for(const name of [p.displayName,...p.aliases]){const normalized=key(name),owners=nameOwners.get(normalized)??new Set<string>();owners.add(p.id);nameOwners.set(normalized,owners);}
  const hasCourse=(p:ProfessorRecord,course:string)=>input.historicalCourseGrades.some(g=>g.professorId===p.id&&`${g.subjectCode.trim().toUpperCase()}/${g.catalogNumber.trim().toUpperCase().replace(/^0+(?=\d)/,'')}`===course);
  const professors=input.professors.map(p=>{
-  const rule=replacements.find(r=>key(r.name)===key(p.displayName)&&r.from===currentId(p));
+  const assignment=distinctAssignments.find(r=>r.ownerId===p.id&&key(r.name)===key(p.displayName)&&!currentId(p));
+  if(assignment){
+   const source=byId.get(assignment.id),stamp=p.ratingUpdatedAt??p.rating?.updatedAt??'';
+   if(matches(source,assignment.sourceName,assignment.department)&&fresh(source,stamp)&&source?.rating!==undefined&&(!source.rating||source.rating.sourceProfessorId===source.id&&source.rating.updatedAt===source.observedAt)&&hasCourse(p,assignment.course)&&!input.professors.some(other=>other.id!==p.id&&(currentId(other)===source.id||other.rmpProfiles?.some(r=>r.sourceProfessorId===source.id)))){
+    decisions.push({professorId:p.id,previousId:null,selectedId:source.id,action:'assigned-reviewed-profile',reason:'Reviewed distinct names, department and exact retained course; colliding short alias is not added.'});
+    return {...p,sourceProfessorId:source.id,rating:source.rating,ratingUpdatedAt:source.observedAt!};
+   }
+  }
+  const localName=key(p.displayName),replacementRule=replacementsByName.get(localName);
+  const rule=replacementRule?.from===currentId(p)?replacementRule:undefined;
   if(!rule){
-   const group=groups.find(g=>key(g.name)===key(p.displayName)&&g.members.some(m=>m.id===currentId(p)));
-   if(!group||!hasCourse(p,group.course))return p;
-   if(input.professors.some(other=>other.id!==p.id&&group.members.some(m=>m.id===currentId(other))))return p;
+   const namedGroup=groupsByName.get(localName);
+   const group=namedGroup&&(namedGroup.members.some(m=>m.id===currentId(p))||!currentId(p)&&namedGroup.ownerId===p.id)?namedGroup:undefined;
+   if(!group||prepared.blockedGroups.has(group.name)||(group.course?!hasCourse(p,group.course):!group.allowNoHistory))return p;
+   if(input.professors.some(other=>other.id!==p.id&&group.members.some(m=>m.id===currentId(other)||other.rmpProfiles?.some(profile=>profile.sourceProfessorId===m.id))))return p;
+   const existingNames=new Set([p.displayName,...p.aliases].map(key));
+   const addedNames=group.members.map(m=>key(m.name)).filter(name=>!existingNames.has(name));
+   if(addedNames.some(name=>[...(nameOwners.get(name)??[])].some(id=>id!==p.id)))return p;
    const stamp=p.ratingUpdatedAt??p.rating?.updatedAt??'',candidates:RosterProfileEvidence[]=[];
    for(const member of group.members){
     let candidate=byId.get(member.id);
@@ -52,11 +79,12 @@ export function selectReviewedProfiles(input:LocalDataset,profiles:readonly Rost
     if(candidate.rating&&(candidate.rating.sourceProfessorId!==candidate.id||candidate.rating.updatedAt!==candidate.observedAt))return p;
     candidates.push(candidate);
    }
-   const current=currentId(p)!;
+   const current=currentId(p)??group.initialProfileId!;
+   if(!current||!candidates.some(c=>c.id===current))return p;
    const selected=policy==='keep-current'?candidates.find(c=>c.id===current)!:[...candidates].sort((a,b)=>(b.rating?.ratingCount??0)-(a.rating?.ratingCount??0)||Number(b.id===current)-Number(a.id===current)||a.id.localeCompare(b.id))[0];
    const alternateIds=candidates.filter(c=>c.id!==selected.id).map(c=>c.id);
    alternateIds.forEach(id=>skippedProfileIds.add(id));
-   decisions.push({professorId:p.id,previousId:current,selectedId:selected.id,alternateIds,action:current===selected.id?'retained-reviewed-profile':'reselected-reviewed-profile',reason:policy==='keep-current'?'Reviewed same-person profiles; current profile retained.':'Reviewed same-person profiles; most reported ratings selected, current profile retained on ties. Aggregates are not pooled.'});
+   decisions.push({professorId:p.id,previousId:currentId(p)??null,selectedId:selected.id,alternateIds,action:!currentId(p)?'assigned-reviewed-profile':current===selected.id?'retained-reviewed-profile':'reselected-reviewed-profile',reason:policy==='keep-current'?'Reviewed same-person profiles; current profile retained.':'Reviewed same-person profiles; most reported ratings selected, current profile retained on ties. Aggregates are not pooled.'});
    const rmpProfiles=[...(p.rmpProfiles??[]).filter(profile=>!candidates.some(c=>c.id===profile.sourceProfessorId)),...candidates.map(c=>({sourceProfessorId:c.id,displayName:c.displayName,schoolName:c.schoolName??'University of California San Diego',department:c.department??null,sourceId:c.sourceId??c.rating?.sourceId??'direct-rmp',updatedAt:c.observedAt!,rating:c.rating??null}))];
    return {...p,aliases:[...new Set([...p.aliases,...group.members.map(m=>m.name)])].filter(name=>name!==p.displayName),sourceProfessorId:selected.id,rating:selected.rating??null,ratingUpdatedAt:selected.observedAt!,rmpProfiles};
   }
@@ -68,5 +96,5 @@ export function selectReviewedProfiles(input:LocalDataset,profiles:readonly Rost
   decisions.push({professorId:p.id,previousId:rule.from,selectedId:rule.to,action:'replaced-wrong-link',reason:'Reviewed profile names, departments and local course identify the previous link as another instructor.'});
   return {...p,sourceProfessorId:to.id,rating:to.rating,ratingUpdatedAt:to.observedAt!};
  });
- return {dataset:decisions.length?{...input,professors}:input,decisions,skippedProfileIds};
+ return {dataset:decisions.length?{...input,professors}:input,decisions,skippedProfileIds,remaps:prepared.remaps};
 }

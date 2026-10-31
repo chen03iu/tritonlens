@@ -45,7 +45,7 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
  const reconciliation=reconcileDirectIdentities(baseline,identities);
  const selection=selectReviewedProfiles(reconciliation.dataset,identities);
  baseline=selection.dataset;
- const report={identityReconciliation:{remaps:reconciliation.remaps,withheldRatings:reconciliation.withheldRatings,profileDecisions:selection.decisions},ratings:{inputRows:rmp.rows.length,refreshed:0,addedProfiles:0,retained:0},grades:{inputRows:archive.rows.length,matchedRows:0,unmatchedRows:0,addedIdentities:0,courseRecords:0,allZeroRows:0,shortTotalRows:0},archive:{complete:false,environment:'qa',observedTerms:[] as string[]},identityReview:[] as {reason:string;sourceProfessorId?:string;name:string;candidateIds:string[];course?:string;term?:string}[]};
+ const report={identityReconciliation:{remaps:[...reconciliation.remaps,...selection.remaps],withheldRatings:reconciliation.withheldRatings,profileDecisions:selection.decisions},ratings:{inputRows:rmp.rows.length,refreshed:0,addedProfiles:0,retained:0},grades:{inputRows:archive.rows.length,matchedRows:0,unmatchedRows:0,addedIdentities:0,courseRecords:0,allZeroRows:0,shortTotalRows:0},archive:{complete:false,environment:'qa',observedTerms:[] as string[]},identityReview:[] as {reason:string;sourceProfessorId?:string;name:string;candidateIds:string[];course?:string;term?:string}[]};
  let professors:ProfessorRecord[]=baseline.professors.map(p=>({...p,aliases:[...p.aliases]}));
  const byId=new Map(professors.map(p=>[p.id,p]));
  const sourceNames=new Map<string,Set<string>>();

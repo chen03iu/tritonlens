@@ -101,6 +101,13 @@ requirements should be reviewed and recorded here.
   missing inputs do not refresh prior observation dates or erase alternates.
   Unrated profiles show no invented zero score. Production approval checks
   apply to every displayed profile, including unrated observations.
+- The [source-name evidence review](docs/source-name-profile-review-2026-10-31.md)
+  adds 76 scoped same-person groups and independently assigns the writing and
+  engineering profiles of two same-name pairs. It never joins the two different
+  instructors' histories. Four explicit grade-free duplicate records retire
+  with direct redirects, retaining all names and observed ratings. Nine incoming
+  profiles remain held; two have ratings and seven are empty. Source permission
+  status, source dates, and partial grade coverage remain unchanged.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.
