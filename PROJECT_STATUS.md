@@ -4,6 +4,37 @@ Last updated: 2026-10-31
 
 ## Current Milestone
 
+### Reviewed runtime short-name batch (2026-10-31)
+
+Thirty-one aliases were individually corroborated against primary UCSD pages
+and the saved Oct29 RMP roster, then added to exact retained IDs/source IDs and
+owned course markers. The [per-person evidence](docs/reviewed-runtime-alias-batch-2026-10-31.md)
+records every binding. No generic fuzzy matching or frozen rating values are
+introduced. The helper runs during normal imports; future numeric updates can
+retain valid aliases without changing the reviewed identity binding.
+
+The full July-roster audit now has 1,711 matched names and 284 unmatched names.
+All 75 affected pairs regain ratings; 68 regain their own course history.
+Totals: 4,127 identity-found pairs, zero ambiguous pairs, 2,669 rating-found pairs
+and 822 history-found pairs. Of the remaining 284 names, 180 still have prior
+rated candidates for subsequent primary-evidence review. These are candidates,
+not 180 new manual decisions. The separate nine held source profiles stay held.
+
+Preservation comparison confirms exactly 31 added aliases and no other dataset
+field changes. All 5,677 identities, 63 redirects, 11,120 histories / 30,146 terms,
+primary/alternate metrics, source dates and permission states remain intact.
+Candidate promotion and repeat import share SHA-256
+`c78f5b5d1e2bb4e631051fa00ba16fa7b028649fdb0b6dadc1a8741cf45077e4`.
+
+Fresh review exposed previously promoted aliases surviving contradictory future
+evidence. A preflight now stops that import before reconciliation or matching;
+the final guard also catches new conflicts. Failing regressions for promoted
+baselines and actual transformation now pass. Review has no remaining finding.
+
+Verification: 531 tests / 42 files, typecheck, default build and diff check pass.
+Local branch `fix/reviewed-runtime-short-names`; nothing pushed or released.
+Reload the same worktree `dist` and refresh TSS to use the updated aliases.
+
 ### Actual-runtime roster audit and duplicate cleanup (2026-10-31)
 
 `npm.cmd run audit:runtime -- reports/instructor-audit.json` now checks the direct

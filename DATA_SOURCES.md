@@ -119,6 +119,12 @@ requirements should be reviewed and recorded here.
   unchanged observation to the retained course-history owner; the other three
   retired records are empty. No grade ownership, raw term, source date or
   permission status changes. The nine held source profiles stay held.
+- The [31-name runtime alias batch](docs/reviewed-runtime-alias-batch-2026-10-31.md)
+  individually corroborates UCSD pages and the saved 2026-10-29 RMP roster.
+  Only declared aliases are added to stable owned records; numeric ratings,
+  raw grades and provenance do not change. Future contradictions involving
+  already-promoted aliases stop import for revalidation before matching. This
+  review adds no source permissions or archive coverage.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.

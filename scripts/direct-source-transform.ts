@@ -3,6 +3,7 @@ import {normalizeInstructorName} from '../src/data/lookup';
 import {validateLocalDataset} from '../src/data/validation';
 import {reconcileDirectIdentities} from './reconcile-direct-identities';
 import {selectReviewedProfiles} from './reviewed-profile-selection';
+import {applyReviewedRuntimeAliases} from './reviewed-runtime-aliases';
 
 const buckets=['A','B','C','D','F','W','P','NP'] as const;
 const fields=['aPercent','bPercent','cPercent','dPercent','fPercent','wPercent','pPercent','npPercent'] as const;
@@ -42,6 +43,8 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
   const schoolName=row.schoolName===undefined?'University of California San Diego':text(row.schoolName);
   return {id,displayName,observedAt,rating,department,schoolName};
  });
+ // Reject stale promoted aliases before they can influence any identity matching.
+ applyReviewedRuntimeAliases(baseline,identities);
  const reconciliation=reconcileDirectIdentities(baseline,identities);
  const selection=selectReviewedProfiles(reconciliation.dataset,identities);
  baseline=selection.dataset;
@@ -124,8 +127,9 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
  const newer=new Set(retained.map(g=>`${g.professorId}\0${course(g.subjectCode,g.catalogNumber)}`));
  const latestDate=(id:string,incoming:string)=>[baseline.sources.find(s=>s.id===id)?.retrievedAt??'',incoming].sort().at(-1)!;
  const sources=[...baseline.sources.filter(s=>!['direct-rmp','direct-ucsd-grades'].includes(s.id)),source('direct-rmp','professor-ratings',latestDate('direct-rmp',rmpDates.sort().at(-1)??gradeDate),'https://www.ratemyprofessors.com/school/1079','RateMyProfessors'),source('direct-ucsd-grades','historical-grades',latestDate('direct-ucsd-grades',gradeDate),String(archive.sourceUrl),'UCSD A.S. grade archive (QA; partial coverage)')];
- const dataset:LocalDataset={...baseline,sources,professors:professors.sort((a,b)=>a.id.localeCompare(b.id)),historicalCourseGrades:[...retained,...replacements.filter(g=>!newer.has(`${g.professorId}\0${course(g.subjectCode,g.catalogNumber)}`))].sort((a,b)=>`${a.professorId}\0${course(a.subjectCode,a.catalogNumber)}`.localeCompare(`${b.professorId}\0${course(b.subjectCode,b.catalogNumber)}`))};
+ const candidate:LocalDataset={...baseline,sources,professors:professors.sort((a,b)=>a.id.localeCompare(b.id)),historicalCourseGrades:[...retained,...replacements.filter(g=>!newer.has(`${g.professorId}\0${course(g.subjectCode,g.catalogNumber)}`))].sort((a,b)=>`${a.professorId}\0${course(a.subjectCode,a.catalogNumber)}`.localeCompare(`${b.professorId}\0${course(b.subjectCode,b.catalogNumber)}`))};
+ const reviewedAliases=applyReviewedRuntimeAliases(candidate,identities),dataset=reviewedAliases.dataset;
  report.grades.courseRecords=replacements.length;report.archive.observedTerms=[...observedTerms].sort();
  assert(validateLocalDataset(dataset).valid,'Transformed dataset failed validation');
- return {dataset,report};
+ return {dataset,report:{...report,reviewedRuntimeAliases:{applied:reviewedAliases.applied,blocked:reviewedAliases.blocked}}};
 }

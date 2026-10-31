@@ -1,0 +1,384 @@
+{
+  "reviewedAt": "2026-10-31",
+  "instructorSnapshotSha256": "b746016b93791acaaea1554e1a7ae3f75e7fbc6f64cd6bc53d6d9ae470b6266f",
+  "rmpSnapshotSha256": "3950b97735d772328c0520f2c465fb310c46cda2fb14a352ac490ed292887d84",
+  "note": "Individually corroborated UCSD primary pages and the saved 2026-10-29 UCSD RMP roster. RMP display name matches the alias under strict normalization. No numeric rating is pinned by this review.",
+  "entries": [
+    {
+      "alias": "Vinciane Van Moer",
+      "professorId": "easy-a-van-moer-vinciane-g-d3aea7a293",
+      "expectedName": "Van Moer, Vinciane G",
+      "sourceProfessorId": "2820657",
+      "department": "Linguistics",
+      "course": "LIFR/1A",
+      "evidence": [
+        "https://llp.ucsd.edu/contact/index.html",
+        "https://www.ratemyprofessors.com/professor/2820657"
+      ]
+    },
+    {
+      "alias": "Mary Boyle",
+      "professorId": "easy-a-boyle-mary-e-t-afc94cec5a",
+      "expectedName": "Boyle, Mary E. T.",
+      "sourceProfessorId": "156170",
+      "department": "Cognitive Science",
+      "course": "COGS/160",
+      "evidence": [
+        "https://cogsci.ucsd.edu/people/lecturers/index.html",
+        "https://www.ratemyprofessors.com/professor/156170"
+      ]
+    },
+    {
+      "alias": "Thomas Bussey",
+      "professorId": "easy-a-bussey-thomas-j-e205684fd2",
+      "expectedName": "Bussey, Thomas J",
+      "sourceProfessorId": "1967497",
+      "department": "Chemistry",
+      "course": "CHEM/4",
+      "evidence": [
+        "https://www.chem.ucsd.edu/faculty/profiles/thomas-bussey",
+        "https://www.ratemyprofessors.com/professor/1967497"
+      ]
+    },
+    {
+      "alias": "Hoan Nguyen",
+      "professorId": "easy-a-nguyen-hoan-thi-4e78d81d69",
+      "expectedName": "Nguyen, Hoan Thi",
+      "sourceProfessorId": "3017920",
+      "department": "Languages",
+      "course": "LIHL/114F",
+      "evidence": [
+        "https://llp.ucsd.edu/hlp/vietnamese.html",
+        "https://www.ratemyprofessors.com/professor/3017920"
+      ]
+    },
+    {
+      "alias": "John Eggers",
+      "professorId": "easy-a-eggers-john-dietrich-17ba8b25d1",
+      "expectedName": "Eggers, John Dietrich",
+      "sourceProfessorId": "105784",
+      "department": "Mathematics",
+      "course": "MATH/120A",
+      "evidence": [
+        "https://math.ucsd.edu/people/profiles/john-eggers",
+        "https://www.ratemyprofessors.com/professor/105784"
+      ]
+    },
+    {
+      "alias": "Frances Hammock",
+      "professorId": "easy-a-hammock-frances-h-4e78e67d5c",
+      "expectedName": "Hammock, Frances H",
+      "sourceProfessorId": "2454762",
+      "department": "Mathematics",
+      "course": "MATH/20C",
+      "evidence": [
+        "https://math.ucsd.edu/room-schedules/daily",
+        "https://www.ratemyprofessors.com/professor/2454762"
+      ]
+    },
+    {
+      "alias": "Christine Johnson",
+      "professorId": "easy-a-johnson-christine-m-45823a4538",
+      "expectedName": "Johnson, Christine M.",
+      "sourceProfessorId": "128225",
+      "department": "Cognitive Science",
+      "course": "COGS/143",
+      "evidence": [
+        "https://cogsci.ucsd.edu/people/lecturers/index.html",
+        "https://www.ratemyprofessors.com/professor/128225"
+      ]
+    },
+    {
+      "alias": "Harold Buchanan",
+      "professorId": "easy-a-buchanan-harold-g-56b6f0905b",
+      "expectedName": "Buchanan, Harold G",
+      "sourceProfessorId": "2235841",
+      "department": "Business",
+      "course": "MGT/16",
+      "evidence": [
+        "https://rady.ucsd.edu/faculty-research/other-faculty/continuing-lecturers/harold-buchanan.html",
+        "https://www.ratemyprofessors.com/professor/2235841"
+      ]
+    },
+    {
+      "alias": "Jeremy Klosterman",
+      "professorId": "easy-a-klosterman-jeremy-k-0d0a37a709",
+      "expectedName": "Klosterman, Jeremy K",
+      "sourceProfessorId": "2327392",
+      "department": "Chemistry",
+      "course": "CHEM/143B",
+      "evidence": [
+        "https://prod.chem.ucsd.edu/faculty/profiles/klosterman__jeremy__k.html",
+        "https://www.ratemyprofessors.com/professor/2327392"
+      ]
+    },
+    {
+      "alias": "David Fisk",
+      "professorId": "easy-a-fisk-david-lee-58b78b4b4f",
+      "expectedName": "Fisk, David Lee",
+      "sourceProfessorId": "1034875",
+      "department": "Political Science",
+      "course": "POLI/145C",
+      "evidence": [
+        "https://polisci.ucsd.edu/people/faculty/faculty-directory/instructors/index.html",
+        "https://www.ratemyprofessors.com/professor/1034875"
+      ]
+    },
+    {
+      "alias": "Christopher Day",
+      "professorId": "easy-a-day-christopher-d-32f49a33c1",
+      "expectedName": "Day, Christopher D",
+      "sourceProfessorId": "2232364",
+      "department": "Biology",
+      "course": "BICD/100",
+      "evidence": [
+        "https://biology.ucsd.edu/education/undergrad/course/course-offerings.html",
+        "https://www.ratemyprofessors.com/professor/2232364"
+      ]
+    },
+    {
+      "alias": "Eric Steiner",
+      "professorId": "easy-a-steiner-eric-tomas-6e740352eb",
+      "expectedName": "Steiner, Eric Tomas",
+      "sourceProfessorId": "2309769",
+      "department": "Psychology",
+      "course": "PSYC/132",
+      "evidence": [
+        "https://profiles.ucsd.edu/eric.steiner",
+        "https://www.ratemyprofessors.com/professor/2309769"
+      ]
+    },
+    {
+      "alias": "Shannon Ellis",
+      "professorId": "easy-a-ellis-shannon-elizabeth-c760dd1b64",
+      "expectedName": "Ellis, Shannon Elizabeth",
+      "sourceProfessorId": "2467209",
+      "department": "Cognitive Science",
+      "course": "COGS/108",
+      "evidence": [
+        "https://cogsopenhouse.ucsd.edu/meet-the-faculty",
+        "https://www.ratemyprofessors.com/professor/2467209"
+      ]
+    },
+    {
+      "alias": "Clarissa Reese",
+      "professorId": "easy-a-reese-clarissa-jane-63e168fded",
+      "expectedName": "Reese, Clarissa Jane",
+      "sourceProfessorId": "952993",
+      "department": "Human Development",
+      "course": "HDS/1",
+      "evidence": [
+        "https://hdsciences.ucsd.edu/about/faculty-staff/index.html",
+        "https://www.ratemyprofessors.com/professor/952993"
+      ]
+    },
+    {
+      "alias": "Geoffrey Cook",
+      "professorId": "easy-a-cook-geoffrey-w-ea5a95ad43",
+      "expectedName": "Cook, Geoffrey W",
+      "sourceProfessorId": "1700632",
+      "department": "Geology",
+      "course": "SIO/170",
+      "evidence": [
+        "https://gwcook.scrippsprofiles.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/1700632"
+      ]
+    },
+    {
+      "alias": "Kevin Lewis",
+      "professorId": "easy-a-lewis-kevin-michael-d542f46635",
+      "expectedName": "Lewis, Kevin Michael",
+      "sourceProfessorId": "1995729",
+      "department": "Sociology",
+      "course": "SOCI/122",
+      "evidence": [
+        "https://css.ucsd.edu/people/faculty.html",
+        "https://www.ratemyprofessors.com/professor/1995729"
+      ]
+    },
+    {
+      "alias": "Daniel Vitkus",
+      "professorId": "easy-a-vitkus-daniel-j-5f42b3d224",
+      "expectedName": "Vitkus, Daniel J.",
+      "sourceProfessorId": "2241503",
+      "department": "Literature",
+      "course": "LTEN/110",
+      "evidence": [
+        "https://literature.ucsd.edu/people/faculty/dvitkus.html",
+        "https://www.ratemyprofessors.com/professor/2241503"
+      ]
+    },
+    {
+      "alias": "Geoffrey West",
+      "professorId": "easy-a-west-geoffrey-scott-22406ce470",
+      "expectedName": "West, Geoffrey Scott",
+      "sourceProfessorId": "2607170",
+      "department": "Humanities",
+      "course": "HUM/100",
+      "evidence": [
+        "https://revelle.ucsd.edu/humanities/people.html",
+        "https://www.ratemyprofessors.com/professor/2607170"
+      ]
+    },
+    {
+      "alias": "Julia Adrian",
+      "professorId": "easy-a-adrian-julia-anna-d87b4c6c8e",
+      "expectedName": "Adrian, Julia Anna",
+      "sourceProfessorId": "2914132",
+      "department": "Psychology",
+      "course": "PSYC/108",
+      "evidence": [
+        "https://psychology.ucsd.edu/people/non-senate-instructors.html",
+        "https://www.ratemyprofessors.com/professor/2914132"
+      ]
+    },
+    {
+      "alias": "Meredith Crane",
+      "professorId": "easy-a-crane-meredith-helen-0a5e76d49d",
+      "expectedName": "Crane, Meredith Helen",
+      "sourceProfessorId": "2840841",
+      "department": "Economics",
+      "course": "ECON/100B",
+      "evidence": [
+        "https://economics.ucsd.edu/faculty-and-research/faculty-profiles/index.html",
+        "https://www.ratemyprofessors.com/professor/2840841"
+      ]
+    },
+    {
+      "alias": "Jessica D'elena-Tweed",
+      "professorId": "easy-a-d-elena-tweed-jessica-erin-0a6289e8d6",
+      "expectedName": "D'Elena-Tweed, Jessica Erin",
+      "sourceProfessorId": "2467412",
+      "department": "Visual Arts",
+      "course": "VIS/133A",
+      "evidence": [
+        "https://visarts.ucsd.edu/people/faculty/jessica-delena-tweed.html",
+        "https://www.ratemyprofessors.com/professor/2467412"
+      ]
+    },
+    {
+      "alias": "Katherine Petrie",
+      "professorId": "easy-a-petrie-katherine-lynn-70a475fa91",
+      "expectedName": "Petrie, Katherine Lynn",
+      "sourceProfessorId": "2411419",
+      "department": "Biology",
+      "course": "BIEB/146",
+      "evidence": [
+        "https://biology.ucsd.edu/research/faculty/kpetrie",
+        "https://www.ratemyprofessors.com/professor/2411419"
+      ]
+    },
+    {
+      "alias": "Troy Kokinis",
+      "professorId": "easy-a-kokinis-troy-andreas-e07112fb94",
+      "expectedName": "Kokinis, Troy Andreas",
+      "sourceProfessorId": "2576509",
+      "department": "Ethnic Studies",
+      "course": "LATI/166",
+      "evidence": [
+        "https://academicconnections.ucsd.edu/instructors/tkokinis.html",
+        "https://las.ucsd.edu/people/faculty/index.html",
+        "https://www.ratemyprofessors.com/professor/2576509"
+      ]
+    },
+    {
+      "alias": "Carrie Wastal",
+      "professorId": "easy-a-wastal-carrie-king-3b4b357fad",
+      "expectedName": "Wastal, Carrie King",
+      "sourceProfessorId": "881701",
+      "department": "Writing",
+      "course": "MCWP/40",
+      "evidence": [
+        "https://muir.ucsd.edu/contactus/college-staff-directory.html",
+        "https://www.ratemyprofessors.com/professor/881701"
+      ]
+    },
+    {
+      "alias": "Edward Kelting",
+      "professorId": "easy-a-kelting-edward-william-ae9c2da3fe",
+      "expectedName": "Kelting, Edward William",
+      "sourceProfessorId": "2670294",
+      "department": "Classics",
+      "course": "LTLA/100",
+      "evidence": [
+        "https://literature.ucsd.edu/people/faculty/ekelting.html",
+        "https://roosevelt.ucsd.edu/about/faculty.html",
+        "https://www.ratemyprofessors.com/professor/2670294"
+      ]
+    },
+    {
+      "alias": "Jordan Rose",
+      "professorId": "easy-a-rose-jordan-m-cb93d69c8b",
+      "expectedName": "Rose, Jordan M",
+      "sourceProfessorId": "2238305",
+      "department": "Visual Arts",
+      "course": "VIS/124E",
+      "evidence": [
+        "https://visarts.ucsd.edu/people/faculty/jordan-rose.html",
+        "https://www.ratemyprofessors.com/professor/2238305"
+      ]
+    },
+    {
+      "alias": "Jennifer Marchisotto",
+      "professorId": "easy-a-marchisotto-jennifer-anne-ae0c504321",
+      "expectedName": "Marchisotto, Jennifer Anne",
+      "sourceProfessorId": "2871744",
+      "department": "English",
+      "course": "CAT/1",
+      "evidence": [
+        "https://sixth.ucsd.edu/about/news-archive/faculty-spotlights/jennifer-marchisotto.html",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=77474&selectedTerm=SP26&tabNum=tabs-sec",
+        "https://www.ratemyprofessors.com/professor/2871744"
+      ]
+    },
+    {
+      "alias": "Joshua Tonies",
+      "professorId": "easy-a-tonies-joshua-vanjaymes-7d83245273",
+      "expectedName": "Tonies, Joshua Vanjaymes",
+      "sourceProfessorId": "2645883",
+      "department": "Art",
+      "course": "VIS/1",
+      "evidence": [
+        "https://visarts.ucsd.edu/people/cont-lecturers.html",
+        "https://courses.ucsd.edu/profMain.aspx?profname=Tonies%2C+Joshua+Vanjaymes",
+        "https://www.ratemyprofessors.com/professor/2645883"
+      ]
+    },
+    {
+      "alias": "Melissa Warstadt",
+      "professorId": "easy-a-warstadt-melissa-fawn-43a9cd273b",
+      "expectedName": "Warstadt, Melissa Fawn",
+      "sourceProfessorId": "2966167",
+      "department": "Human Development",
+      "course": "HDS/124",
+      "evidence": [
+        "https://hdsciences.ucsd.edu/about/faculty-staff/index.html",
+        "https://www.ratemyprofessors.com/professor/2966167"
+      ]
+    },
+    {
+      "alias": "Kayoko Ross",
+      "professorId": "easy-a-ross-kayoko-f-b0a48a7d5c",
+      "expectedName": "Ross, Kayoko F",
+      "sourceProfessorId": "2698713",
+      "department": "Languages",
+      "course": "JAPN/10A",
+      "evidence": [
+        "https://isp.ucsd.edu/_files/offerings/sp18offerings/sp18---languages-course-offerings.pdf",
+        "https://www.ratemyprofessors.com/professor/2698713"
+      ]
+    },
+    {
+      "alias": "David Quarfoot",
+      "professorId": "easy-a-quarfoot-david-james-1a18a4a20e",
+      "expectedName": "Quarfoot, David James",
+      "sourceProfessorId": "2163309",
+      "department": "Mathematics",
+      "course": "MATH/20A",
+      "evidence": [
+        "https://math.ucsd.edu/people/profiles/david-quarfoot",
+        "https://www.ratemyprofessors.com/professor/2163309"
+      ]
+    }
+  ]
+}

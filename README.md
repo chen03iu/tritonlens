@@ -155,6 +155,13 @@ it does not approve source permissions or validate a link-only/release build.
 The [runtime audit review](docs/runtime-lookup-audit-2026-10-31.md) records the
 first full run and the three reviewed duplicate-record fixes it exposed.
 
+The [reviewed short-name batch](docs/reviewed-runtime-alias-batch-2026-10-31.md)
+adds 31 individually corroborated aliases during normal direct imports. The
+rules bind stable identity/source IDs and an owned history marker; they do not
+pin numeric scores. Same-name collisions block acceptance. If an already
+promoted alias fails its guards on a future refresh, import stops for review
+before identity matching and keeps the previous snapshot.
+
 ## Quality Checks
 
 ```powershell
