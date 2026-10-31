@@ -13,6 +13,30 @@ function row(overrides={}){const grades={A:60,B:20,C:0,D:0,F:0,W:0,P:0,NP:0};ret
 function archive(rows=[row()]){return {schemaVersion:1,exporterVersion:'0.1.1',kind:'ucsd-browser-session-candidate',sourceUrl:'https://qa-as.ucsd.edu/Home/InstructorGradeArchive',retrievedAt:stamp,query:{quarter:'',year:'',instructor:'',subject:'',courseNumber:''},coverage:{complete:false,recordCount:rows.length,query:'all-filters-blank',requiresPipelineValidation:true},parseIssues:[],rows};}
 
 describe('direct-source transformation',()=>{
+ it('records reviewed alternate profiles without creating duplicate teachers or holding their known IDs again',()=>{
+  const old='3080826',next='3046145';
+  const before:LocalDataset={...baseline(),sources:[source,{...source,id:'grades',category:'historical-grades'}],professors:[{id:'ho',displayName:'Ho, Ching Wei',aliases:['Ching Wei Ho'],rating:{...oldRating,sourceProfessorId:old}}],historicalCourseGrades:[{professorId:'ho',subjectCode:'MATH',catalogNumber:'20A',averageGpa:3.5,sampleSize:null,offeringCount:1,gradeDistribution:{aPercent:50,bPercent:50,cPercent:0,dPercent:0,fPercent:0,wPercent:0,pPercent:0,npPercent:0},sourceId:'grades',updatedAt:'2026-07-23'}]};
+  const oldRow=teacher({legacyId:Number(old),displayName:'Ching Ho',department:'Mathematics',ratingCount:3});
+  const input=roster([oldRow,teacher({legacyId:Number(next),displayName:'Ching Wei Ho',department:'Mathematics',ratingCount:58})]);
+  const grades=archive([row({courseNumber:'20A',instructor:'Ho, Ching Wei'})]);
+  const first=transformDirectSources(before,input,grades);
+  expect(first.dataset.professors).toHaveLength(1);expect(first.dataset.professors[0].rating).toMatchObject({sourceProfessorId:next,ratingCount:58});
+  expect(first.report.identityReview).toEqual([]);expect(first.report.identityReconciliation.profileDecisions[0].alternateIds).toEqual([old]);
+  expect(transformDirectSources(first.dataset,input,grades).dataset).toEqual(first.dataset);
+  expect(()=>transformDirectSources(before,roster([...input.rows,oldRow]),grades)).toThrow('Duplicate source profile');
+  expect(()=>transformDirectSources(before,roster([{...oldRow,rating:99},input.rows[1]]),grades)).toThrow('Invalid source number');
+ });
+ it('replaces a reviewed link to another department without giving the other teacher its grades',()=>{
+  const before:LocalDataset={...baseline(),sources:[source,{...source,id:'grades',category:'historical-grades'}],professors:[{id:'phys',displayName:'Wong, Thomas Hong Tsun',aliases:['Thomas Hong Tsun Wong'],rating:{...oldRating,sourceProfessorId:'1807235'}}],historicalCourseGrades:[{professorId:'phys',subjectCode:'PHYS',catalogNumber:'1B',averageGpa:3.5,sampleSize:null,offeringCount:1,gradeDistribution:{aPercent:50,bPercent:50,cPercent:0,dPercent:0,fPercent:0,wPercent:0,pPercent:0,npPercent:0},sourceId:'grades',updatedAt:'2026-07-23'}]};
+  const input=roster([teacher({legacyId:1807235,displayName:'Tom Wong',department:'Political Science'}),teacher({legacyId:3107722,displayName:'Thomas Hong Tsun Wong',department:'Physics'})]);
+  const grades=archive([row({subject:'PHYS',courseNumber:'1B',instructor:'Wong, Thomas Hong Tsun'})]);
+  const first=transformDirectSources(before,input,grades);
+  expect(first.report.identityReconciliation.profileDecisions).toContainEqual(expect.objectContaining({professorId:'phys',previousId:'1807235',selectedId:'3107722'}));
+  expect(first.dataset.professors.find(p=>p.id==='phys')?.rating?.sourceProfessorId).toBe('3107722');
+  expect(first.dataset.historicalCourseGrades.every(g=>g.professorId==='phys')).toBe(true);
+  expect(first.dataset.professors.find(p=>p.sourceProfessorId==='1807235')?.id).not.toBe('phys');
+  expect(transformDirectSources(first.dataset,input,grades).dataset).toEqual(first.dataset);
+ });
  it('refreshes only a verified shared-profile owner and keeps the other instructor unrated on repeat imports',()=>{
   const shared={...oldRating,sourceProfessorId:'2421043'};
   const history=(id:string,subjectCode:string,catalogNumber:string)=>({professorId:id,subjectCode,catalogNumber,averageGpa:3.5,sampleSize:null,offeringCount:1,gradeDistribution:{aPercent:50,bPercent:50,cPercent:0,dPercent:0,fPercent:0,wPercent:0,pPercent:0,npPercent:0},sourceId:'grades',updatedAt:'2026-07-23'});

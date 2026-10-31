@@ -2,6 +2,7 @@ import type {DataSourceReference,HistoricalCourseGradeRecord,HistoricalGradeDist
 import {normalizeInstructorName} from '../src/data/lookup';
 import {validateLocalDataset} from '../src/data/validation';
 import {reconcileDirectIdentities} from './reconcile-direct-identities';
+import {selectReviewedProfiles} from './reviewed-profile-selection';
 
 const buckets=['A','B','C','D','F','W','P','NP'] as const;
 const fields=['aPercent','bPercent','cPercent','dPercent','fPercent','wPercent','pPercent','npPercent'] as const;
@@ -41,8 +42,9 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
   return {id,displayName,observedAt,rating,department};
  });
  const reconciliation=reconcileDirectIdentities(baseline,identities);
- baseline=reconciliation.dataset;
- const report={identityReconciliation:{remaps:reconciliation.remaps,withheldRatings:reconciliation.withheldRatings},ratings:{inputRows:rmp.rows.length,refreshed:0,addedProfiles:0,retained:0},grades:{inputRows:archive.rows.length,matchedRows:0,unmatchedRows:0,addedIdentities:0,courseRecords:0,allZeroRows:0,shortTotalRows:0},archive:{complete:false,environment:'qa',observedTerms:[] as string[]},identityReview:[] as {reason:string;sourceProfessorId?:string;name:string;candidateIds:string[];course?:string;term?:string}[]};
+ const selection=selectReviewedProfiles(reconciliation.dataset,identities);
+ baseline=selection.dataset;
+ const report={identityReconciliation:{remaps:reconciliation.remaps,withheldRatings:reconciliation.withheldRatings,profileDecisions:selection.decisions},ratings:{inputRows:rmp.rows.length,refreshed:0,addedProfiles:0,retained:0},grades:{inputRows:archive.rows.length,matchedRows:0,unmatchedRows:0,addedIdentities:0,courseRecords:0,allZeroRows:0,shortTotalRows:0},archive:{complete:false,environment:'qa',observedTerms:[] as string[]},identityReview:[] as {reason:string;sourceProfessorId?:string;name:string;candidateIds:string[];course?:string;term?:string}[]};
  let professors:ProfessorRecord[]=baseline.professors.map(p=>({...p,aliases:[...p.aliases]}));
  const byId=new Map(professors.map(p=>[p.id,p]));
  const sourceNames=new Map<string,Set<string>>();
@@ -54,6 +56,7 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
  for(const row of identities){
   const {id,rating}=row;assert(!rmpIds.has(id),'Duplicate source profile');rmpIds.add(id);
   const name=row.displayName,updatedAt=row.observedAt;rmpDates.push(updatedAt);
+  if(selection.skippedProfileIds.has(id))continue;
   const linked=professors.filter(p=>(p.sourceProfessorId??p.rating?.sourceProfessorId)===id);
   const named=linked.length?linked:[...new Set(forms(name).flatMap(form=>[...(ratingNames.get(form)??[])]))].map(id=>byId.get(id)!);
   if(!linked.length){

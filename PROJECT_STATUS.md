@@ -7,8 +7,8 @@ Last updated: 2026-10-30
 ### Identity-cleanup preview (2026-10-30)
 
 Local branch `fix/direct-identity-duplicates` reconciles 55 internal duplicate
-records with validated old-ID redirects. The runtime snapshot has 5,673 retained
-identities, 3,352 direct-source ratings and 4 older sourced observations. All
+records with validated old-ID redirects. The runtime snapshot has 5,677 retained
+identities, 3,356 direct-source ratings and 4 older sourced observations. All
 30,146 downloaded UCSD term rows now attach safely to 11,120 course/instructor
 histories; none remain ambiguous. Archive coverage itself is still partial.
 
@@ -17,9 +17,9 @@ correct identity evidence. They are not used as rating donors. Possible initials
 preferred middle names, prefixes, spelling/token-order variants, and reviewed
 aliases are protected from being treated as definitive mismatches. Natalye's
 own biography and UCSD DOC page now resolve the previous Harpin/Pass holdout.
-The shared-profile queue is clear. Remaining source ambiguity holds 115 roster
-profiles: 101 competing source-name cases and 14 conflicting-profile cases.
-These are profiles, not 115 distinct people.
+The shared-profile and conflicting-profile queues are clear. Remaining source
+ambiguity holds 101 roster profiles with competing source names. These are
+profiles, not necessarily 101 distinct people.
 
 Jim/James Kadonaga, Nadia/Nadezhda Polikarpova, and Alexander Niema/Niema Moshiri
 have profile-scoped primary-source evidence in `scripts/reconcile-direct-identities.ts`;
@@ -49,7 +49,15 @@ failing tests and fixed. Source freshness gates link revocation, initials need
 full-name corroboration, and newer same-profile observations may settle tied
 legacy metric rounding without selecting the more favorable value.
 
-Verification: 363/363 tests across 34 files pass; typecheck and default build pass.
+The [distinct-profile follow-up](docs/reviewed-profile-selection-2026-10-30.md)
+corrects four links to different instructors and resolves ten reviewed pairs
+of same-person profiles. It selects one complete aggregate by reported rating
+count, preserving the current profile on ties. Grade histories never move to
+the old wrong-linked people; alternate scores/counts are not pooled. The older
+reviewed Aaron observation keeps its original source/date over an unrated
+main-campus alternate.
+
+Verification: 379/379 tests across 35 files pass; typecheck and default build pass.
 Real repeat import is byte
 identical with no further remaps or withheld links. No course keys or earlier
 terms were lost. Original legacy generated data is unchanged. Reports and

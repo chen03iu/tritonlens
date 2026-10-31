@@ -1,6 +1,6 @@
 # TritonLens Data Sources
 
-Last reviewed: 2026-10-29
+Last reviewed: 2026-10-30
 
 The default TritonLens build bundles a normalized direct-source snapshot and
 shows professor ratings and historical grade metrics locally. Its detail card
@@ -29,7 +29,7 @@ requirements should be reviewed and recorded here.
 | [TritonPlan](https://github.com/hfjddjksaj/tritonplan) | TSS integration and parser architecture research | Public GitHub repository | MIT at the time reviewed | MIT terms permit reuse with required notices | Study architecture; attribute any code later adapted | No TritonPlan code is currently included |
 | [UCSD Easy-A Radar](https://github.com/Edwardwang66/ucsd-easy-a-radar) | Professor aliases, RMP snapshot metrics, and aggregate historical grade distributions | Author's public static `data.json`, transformed locally by `scripts/import-easy-a.mjs` | No public license found; the user reports that the author directly granted TritonLens unrestricted noncommercial use with no additional conditions | Easy-A author permission reported; upstream RMP/UCSD public redistribution remains unresolved | Bundle in the default build with an explicit pending-permission label; retain a link-only fallback | Snapshot generated 2026-07-23; 4,864 professor identity records and 11,159 historical course × professor records after normalization |
 | [Sahir Sharma WebReg](https://github.com/SahirSSharma/WebReg) | TSS OData research, tools, and course data | Public GitHub repository | MIT at the time reviewed | MIT terms permit reuse with required notices | Study research; attribute any code or data later adapted | No WebReg code or data is currently included |
-| [RateMyProfessors](https://www.ratemyprofessors.com/terms-of-use) | Professor rating, difficulty, rating count, would-take-again | Aggregate roster collected separately in the private pipeline; offline JSON import here | Official terms restrict automated collection and redistribution; written permission unresolved | Pending; not described as approved | Developer-run dated imports; no requests from the extension | 4,039 main-campus profiles retrieved 2026-10-29; conflicting IDs and ambiguous identities are not substituted |
+| [RateMyProfessors](https://www.ratemyprofessors.com/terms-of-use) | Professor rating, difficulty, rating count, would-take-again | Aggregate roster collected separately in the private pipeline; offline JSON import here | Official terms restrict automated collection and redistribution; written permission unresolved | Pending; not described as approved | Developer-run dated imports; no requests from the extension | 4,039 main-campus profiles retrieved 2026-10-29; unreviewed conflicting IDs and ambiguous identities remain held |
 | [UCSD A.S. Instructor Grade Archive](https://qa-as.ucsd.edu/Home/InstructorGradeArchive) | Aggregate course × instructor × term GPA and grade distributions | User-initiated export from an existing authorized QA browser session; offline JSON import here | Access to a session is not redistribution permission; written permission unresolved | Pending; not described as approved | Retain actual term values and provenance; ask A.S. about missing terms and unexplained shares | 30,146 rows through Spring 2026; 2018/2019 and other terms absent; QA provenance and full coverage unconfirmed |
 | [UCSD Campus Grades](https://blink.ucsd.edu/instructors/student-reporting/enroll-grades/grades.html) | Internal student-, section-, and instructor-level grading reports | Restricted Business Analytics Hub access requiring training and authorization | Restricted institutional data containing student-level fields | Prohibited source for TritonLens | Do not access, request, collect, or use | This is not the public A.S. aggregate archive |
 | [UCSD CAPE statistics](https://cape.ucsd.edu/scripts/stats.asp) and SET-related data | Historical public numerical teaching feedback and possible aggregate grade metrics | Public CAPE search page; SET availability varies | UCSD-controlled content; general UCSD redistribution terms require explicit permission | Not approved pending written permission | Evaluate only after core rating and grade sources are resolved | Keep teaching-feedback metrics distinct from grades and RMP ratings |
@@ -86,6 +86,14 @@ requirements should be reviewed and recorded here.
   eight incorrect links are excluded only with reviewed source-name/department
   and retained-owner/course evidence. Stale or missing evidence cannot trigger
   these exclusions. Separate instructors retain separate grade histories.
+- The [distinct-profile review](docs/reviewed-profile-selection-2026-10-30.md)
+  corrects four links to other instructors and resolves ten reviewed alternate
+  profile pairs. One complete aggregate is selected by reported rating count,
+  with current-profile ties retained; no ratings or counts are pooled. Expected
+  source IDs, names, departments, owner course, and freshness gate selection.
+  Alternate IDs remain in the import audit. Aaron's older Extended Studies
+  observation retains its existing source and date over an unrated main-campus
+  alternate. The remaining 101 held profiles need source-name disambiguation.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.
