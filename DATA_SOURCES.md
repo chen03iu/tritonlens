@@ -108,6 +108,11 @@ requirements should be reviewed and recorded here.
   with direct redirects, retaining all names and observed ratings. Nine incoming
   profiles remain held; two have ratings and seven are empty. Source permission
   status, source dates, and partial grade coverage remain unchanged.
+- The [reviewed ANTH87 short name](docs/reviewed-course-alias-2026-10-31.md)
+  links the TSS display name David Jordan to the existing Anthropology identity
+  only in the explicitly verified ANTH87 context. Expected identity/name/profile
+  ownership and unique history are checked. This is runtime identity lookup,
+  not a new score source or an association with the held Writing profile.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.

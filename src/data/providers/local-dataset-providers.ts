@@ -2,6 +2,7 @@ import {
   lookupHistoricalCourseGrades,
   lookupProfessor,
 } from '../lookup';
+import {lookupReviewedCourseAlias} from '../reviewed-course-aliases';
 import type {
   DataSourceReference,
   LocalDataset,
@@ -38,8 +39,8 @@ export function createLocalDatasetProviderSet(
 ): LocalDatasetProviderSet {
   return {
     identityProvider: {
-      lookup(displayName) {
-        const result = lookupProfessor(dataset, displayName);
+      lookup(displayName, course) {
+        const result = lookupReviewedCourseAlias(dataset, displayName, course, lookupProfessor(dataset, displayName));
 
         if (result.status === 'ambiguous') {
           return { status: 'ambiguous' };

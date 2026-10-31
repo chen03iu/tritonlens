@@ -14,6 +14,7 @@ import {
 import { closeProfessorDetailCard } from '../src/professor-detail-card';
 import type { LocalDataset } from '../src/data/types';
 import {multipleProfileDataset} from './fixtures/multiple-rmp-profiles';
+import {DIRECT_DATASET} from '../src/data/direct-dataset';
 import type {
   InstructorDataService,
   ProviderMode,
@@ -118,6 +119,22 @@ describe('enhanceVisibleInstructorLinks', () => {
   beforeEach(() => {
     closeProfessorDetailCard();
     document.body.replaceChildren();
+  });
+
+  it('shows the ANTH-087 David Jordan rating and actual P/NP history from the screenshot context',()=>{
+    const link=renderInstructorLink('David Jordan');
+    const context={...createContext(link,'David Jordan','087'),course:{subjectCode:'ANTH',catalogNumber:'087',title:'Freshman Seminar'}};
+    enhanceVisibleInstructorLinks(document,[context],createSnapshotService(DIRECT_DATASET));
+    const badge=document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!;
+    const owner=DIRECT_DATASET.professors.find(p=>p.id==='easy-a-jordan-david-k-6c0ae66fe9')!;
+    const history=DIRECT_DATASET.historicalCourseGrades.find(g=>g.professorId===owner.id&&g.subjectCode==='ANTH'&&g.catalogNumber==='87')!;
+    expect(badge.textContent).toContain(owner.rating!.overallRating.toFixed(1));badge.click();
+    const card=document.querySelector('.tritonlens-detail-card')!;
+    expect(card.textContent).toContain(`${owner.rating!.ratingCount} ratings`);expect(card.textContent).toContain(`${history.offeringCount} offerings`);
+    if(history.gradeDistribution.pPercent!==null)expect(card.textContent).toContain(`${history.gradeDistribution.pPercent}%`);
+    expect(card.textContent).not.toContain('Historical grade data unavailable');
+    expect(card.querySelector('a[href="https://www.ratemyprofessors.com/professor/32591"]')).not.toBeNull();
+    expect(card.querySelector('a[href="https://www.ratemyprofessors.com/professor/2404677"]')).toBeNull();
   });
 
   it('reveals other reviewed RMP profiles with their own metrics, school, source dates and links',()=>{

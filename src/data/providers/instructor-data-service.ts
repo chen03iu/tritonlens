@@ -50,6 +50,7 @@ export function createInstructorDataService(
       try {
         identity = options.identityProvider.lookup(
           context.instructor.displayName,
+          context.course,
         );
       } catch {
         identity = NO_IDENTITY;

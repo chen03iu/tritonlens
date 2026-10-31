@@ -1,4 +1,5 @@
 import type { ProfessorMatchMethod } from '../lookup';
+import type {InstructorCourseKey} from '../reviewed-course-aliases';
 import type {
   DataSourceReference,
   HistoricalCourseGradeRecord,
@@ -83,7 +84,7 @@ export interface InstructorDataService {
 }
 
 export interface InstructorIdentityProvider {
-  lookup(displayName: string): IdentityLookupResult;
+  lookup(displayName: string, course?: InstructorCourseKey): IdentityLookupResult;
 }
 
 export interface ProfessorRatingProvider {

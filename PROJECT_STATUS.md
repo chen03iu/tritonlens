@@ -4,6 +4,25 @@ Last updated: 2026-10-31
 
 ## Current Milestone
 
+### Reviewed course-specific short-name fix (2026-10-31)
+
+The live ANTH-087 screenshot exposed a runtime lookup gap: David Jordan did not
+match the retained David K. Jordan record, although its rating and seven grade
+terms were already bundled. A reviewed course-scoped alias now resolves only
+David Jordan / ANTH87 to RMP32591. Provider lookup receives the optional course
+key; ordinary ambiguity, conflicting names, source ownership and history guards
+remain conservative. Writing2404677 stays held and no global alias/data merge
+is introduced. The source snapshot is unchanged. Null GPA for these P/NP terms
+remains unavailable while actual percentages and historical terms render.
+
+Evidence and safeguards: [course alias review](docs/reviewed-course-alias-2026-10-31.md).
+
+Verification: 472 tests across 38 files pass with two workers, typecheck and
+default build pass. Actual-data provider/DOM regressions and an isolated Chrome
+preview show the expected rating link and all seven terms. The generated
+snapshot is byte-identical and Writing2404677 remains held. Fresh read-only
+code review found no actionable issue. Work remains local.
+
 ### Source-name evidence review (2026-10-31)
 
 Local branch `fix/source-name-profile-review` reviews the 87 remaining name
