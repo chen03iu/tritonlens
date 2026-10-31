@@ -19,6 +19,9 @@ snapshot permissions as pending.
 - Handles TSS navigation and dynamic rendering with `MutationObserver`.
 - Displays local professor ratings and course-specific historical grade data
   when a safe match exists.
+- Expands `Other RMP profiles` for explicitly reviewed same-person profiles.
+  Each keeps its own rating, count, school, source date, and profile link;
+  scores and review counts are never combined.
 - Shows compact historical grade distributions without inventing unavailable
   student sample sizes.
 - Lets you select individual historical terms, initially showing the latest

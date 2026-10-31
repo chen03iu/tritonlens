@@ -21,11 +21,11 @@ function releaseApprovedRating(
   mode: InstructorDataServiceOptions['mode'],
   result: ProfessorRatingLookupResult,
 ): ProfessorRatingLookupResult {
-  return mode === 'production-snapshot' &&
-    result.status === 'found' &&
-    result.data.source.permissionStatus !== 'approved'
-    ? NO_RATING
-    : result;
+  if (mode !== 'production-snapshot') return result;
+  const profiles = result.profiles?.filter(item => item.source.permissionStatus === 'approved' && item.source.category === 'professor-ratings');
+  const released = result.status === 'found' && result.data.source.permissionStatus !== 'approved' ? NO_RATING : result;
+  if (!result.profiles) return released;
+  return {...released, profiles};
 }
 
 function releaseApprovedGrades(

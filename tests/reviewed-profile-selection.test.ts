@@ -42,6 +42,7 @@ it.each([
  expect([...result.skippedProfileIds]).toEqual([expected===old?next:old]);
  expect(result.dataset.historicalCourseGrades).toEqual(input.historicalCourseGrades);
  expect(result.dataset.professors[0].aliases).toEqual(expect.arrayContaining(['Preserved alias',oldName,nextName]));
+ expect(result.dataset.professors[0].rmpProfiles?.map(p=>({id:p.sourceProfessorId,count:p.rating?.ratingCount??0,observed:p.updatedAt}))).toEqual([{id:old,count:oldCount,observed:'2026-10-29'},{id:next,count:nextCount,observed:'2026-10-29'}]);
  expect(selectReviewedProfiles(result.dataset,records).dataset).toEqual(result.dataset);
  const keep=selectReviewedProfiles(input,records,'keep-current');expect(keep.dataset.professors[0].rating?.sourceProfessorId).toBe(old);
  const tie=selectReviewedProfiles(input,records.map(p=>profile(p.id,p.displayName,p.department!,5)));expect(tie.dataset.professors[0].rating?.sourceProfessorId).toBe(old);
@@ -57,6 +58,7 @@ it('retains the explicitly reviewed Aaron observation over an unrated main-campu
  const result=selectReviewedProfiles(input,records);
  expect(result.dataset.professors[0].rating).toEqual(input.professors[0].rating);expect([...result.skippedProfileIds]).toEqual(['3157537']);
  expect(result.dataset.professors[0].ratingUpdatedAt).toBe('2026-09-15');
+ expect(result.dataset.professors[0].rmpProfiles?.[0]).toMatchObject({sourceId:'reviewed-aaron-rmp',updatedAt:'2026-09-15',schoolName:'UC San Diego Extended Studies'});
  expect(selectReviewedProfiles(input,[profile('3157537','Aaron Schulman','Computer Science',8)]).dataset.professors[0].rating?.sourceProfessorId).toBe('3157537');
  const unreviewed={...input,professors:[{...input.professors[0],rating:{...input.professors[0].rating,sourceId:'direct-rmp'}}]};
  expect(selectReviewedProfiles(unreviewed,records).skippedProfileIds.size).toBe(0);

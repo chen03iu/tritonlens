@@ -1,6 +1,7 @@
 import type {
   DataSourceReference,
   HistoricalGradeDistribution,
+  ProfessorRating,
 } from './data/types';
 import type {
   ExternalDataLink,
@@ -147,21 +148,7 @@ function appendSource(
   section.append(sourceLine);
 }
 
-function appendProfessorRating(
-  card: HTMLDivElement,
-  insight: InstructorInsight,
-): void {
-  const section = document.createElement('section');
-  section.className = 'tritonlens-detail-section';
-  appendTextElement(section, 'h4', 'tritonlens-detail-heading', 'Professor rating');
-  card.append(section);
-
-  if (insight.professorRating.status !== 'found') {
-    appendTextElement(section, 'p', 'tritonlens-detail-unavailable', 'Professor rating unavailable');
-    return;
-  }
-
-  const { rating, source } = insight.professorRating.data;
+function appendRatingMetrics(section: HTMLElement, rating: ProfessorRating): void {
   const metrics = document.createElement('dl');
   metrics.className = 'tritonlens-detail-metrics';
   section.append(metrics);
@@ -179,12 +166,47 @@ function appendProfessorRating(
       ? 'Unavailable'
       : `${rating.wouldTakeAgainPercent}%`,
   );
-  appendSource(
-    section,
-    source,
-    rating.updatedAt,
-    insight.links.find((link) => link.kind === 'professor-ratings') ?? null,
-  );
+}
+
+function profileLink(id: string): ExternalDataLink | null {
+  return /^\d+$/.test(id) ? {kind:'professor-ratings',label:'RateMyProfessors profile',url:`https://www.ratemyprofessors.com/professor/${id}`} : null;
+}
+
+function appendProfessorRating(card: HTMLDivElement, insight: InstructorInsight): void {
+  const section=document.createElement('section');
+  section.className='tritonlens-detail-section';
+  appendTextElement(section,'h4','tritonlens-detail-heading','Professor rating');
+  card.append(section);
+  const result=insight.professorRating,profiles=result.profiles??[];
+  const primary=profiles.find(item=>item.isPrimary),others=profiles.filter(item=>!item.isPrimary);
+  if (primary && others.length) {
+    appendTextElement(section,'h5','tritonlens-detail-subheading',`Primary RMP profile: ${primary.profile.displayName}`);
+    appendTextElement(section,'p','tritonlens-profile-context',[primary.profile.schoolName,primary.profile.department].filter(Boolean).join(' · '));
+  }
+  if (result.status==='found') {
+    appendRatingMetrics(section,result.data.rating);
+    appendSource(section,result.data.source,result.data.rating.updatedAt,insight.links.find(link=>link.kind==='professor-ratings')??null);
+  } else {
+    appendTextElement(section,'p','tritonlens-detail-unavailable',primary?'No ratings reported':'Professor rating unavailable');
+    if (primary) appendSource(section,primary.source,primary.profile.updatedAt,profileLink(primary.profile.sourceProfessorId));
+  }
+  if (!others.length) return;
+  const details=document.createElement('details');
+  details.className='tritonlens-other-profiles';
+  appendTextElement(details,'summary','tritonlens-other-profiles-summary',`Other RMP profiles (${others.length})`);
+  appendTextElement(details,'p','tritonlens-detail-note','Each profile is shown separately. Ratings and counts are not combined.');
+  for (const {profile,source} of others) {
+    const other=document.createElement('section');other.className='tritonlens-other-profile';
+    other.setAttribute('aria-label',`Other RMP profile: ${profile.displayName}`);
+    appendTextElement(other,'h5','tritonlens-detail-heading',profile.displayName);
+    appendTextElement(other,'p','tritonlens-profile-context',[profile.schoolName,profile.department].filter(Boolean).join(' · '));
+    if (profile.rating) appendRatingMetrics(other,profile.rating);
+    else appendTextElement(other,'p','tritonlens-detail-unavailable','No ratings reported');
+    appendSource(other,source,profile.updatedAt,profileLink(profile.sourceProfessorId));
+    details.append(other);
+  }
+  section.append(details);
+  details.addEventListener('toggle',()=>{if(activeCard===card&&activeTrigger)positionCard(card,activeTrigger);});
 }
 
 function appendHistoricalGrades(

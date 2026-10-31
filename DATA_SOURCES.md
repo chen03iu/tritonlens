@@ -1,6 +1,6 @@
 # TritonLens Data Sources
 
-Last reviewed: 2026-10-30
+Last reviewed: 2026-10-31
 
 The default TritonLens build bundles a normalized direct-source snapshot and
 shows professor ratings and historical grade metrics locally. Its detail card
@@ -94,6 +94,13 @@ requirements should be reviewed and recorded here.
   Alternate IDs remain in the import audit. Aaron's older Extended Studies
   observation retains its existing source and date over an unrated main-campus
   alternate. The remaining 101 held profiles need source-name disambiguation.
+- The [multiple-profile card](docs/multiple-rmp-profiles-2026-10-31.md) now retains
+  the primary and reviewed alternate observations in the runtime snapshot.
+  All twenty observations have independent school, department, source/date,
+  and nullable rating fields. Ten primary choices remain unchanged. Older or
+  missing inputs do not refresh prior observation dates or erase alternates.
+  Unrated profiles show no invented zero score. Production approval checks
+  apply to every displayed profile, including unrated observations.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.

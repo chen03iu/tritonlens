@@ -1,0 +1,7 @@
+import {MOCK_DATASET} from '../../src/data/mock-dataset';
+import type {LocalDataset} from '../../src/data/types';
+
+const source={id:'rmp-main',label:'RMP main observation',category:'professor-ratings' as const,homepageUrl:'https://www.ratemyprofessors.com/school/1079',termsUrl:null,retrievedAt:'2026-10-29',permissionStatus:'approved' as const,attribution:null};
+export const PRIMARY_PROFILE={sourceProfessorId:'101',displayName:'Libby Butler',schoolName:'University of California San Diego',department:'Languages',sourceId:source.id,updatedAt:'2026-10-29',rating:{overallRating:4.2,difficulty:2.5,ratingCount:58,wouldTakeAgainPercent:80,sourceId:source.id,updatedAt:'2026-10-29',sourceProfessorId:'101'}};
+export const ALTERNATE_PROFILE={sourceProfessorId:'202',displayName:'Elizabeth Butler',schoolName:'UC San Diego Extended Studies',department:'Languages',sourceId:'rmp-older',updatedAt:'2026-09-15',rating:{overallRating:3.1,difficulty:3.8,ratingCount:3,wouldTakeAgainPercent:50,sourceId:'rmp-older',updatedAt:'2026-09-15',sourceProfessorId:'202'}};
+export function multipleProfileDataset():LocalDataset{return {...MOCK_DATASET,kind:'development',sources:[...MOCK_DATASET.sources,source,{...source,id:'rmp-older',label:'RMP older observation',retrievedAt:'2026-09-15',permissionStatus:'pending'}],professors:MOCK_DATASET.professors.map((p,i)=>i===0?{...p,sourceProfessorId:PRIMARY_PROFILE.sourceProfessorId,ratingUpdatedAt:PRIMARY_PROFILE.updatedAt,rating:PRIMARY_PROFILE.rating,rmpProfiles:[PRIMARY_PROFILE,ALTERNATE_PROFILE]}:p)};}

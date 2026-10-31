@@ -40,6 +40,18 @@ export interface ProfessorRecord {
   /** Stable identity link, retained even when a profile has no ratings. */
   readonly sourceProfessorId?: string;
   readonly ratingUpdatedAt?: string;
+  /** Independently sourced observations for explicitly reviewed RMP profiles. */
+  readonly rmpProfiles?: readonly ProfessorRatingProfile[];
+}
+
+export interface ProfessorRatingProfile {
+  readonly sourceProfessorId: string;
+  readonly displayName: string;
+  readonly schoolName: string;
+  readonly department: string | null;
+  readonly sourceId: string;
+  readonly updatedAt: string;
+  readonly rating: ProfessorRating | null;
 }
 
 export interface HistoricalGradeDistribution {

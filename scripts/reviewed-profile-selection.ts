@@ -1,7 +1,7 @@
 import {normalizeInstructorName} from '../src/data/lookup';
 import type {LocalDataset,ProfessorRecord,ProfessorRating} from '../src/data/types';
 
-export interface RosterProfileEvidence {readonly id:string;readonly displayName:string;readonly department?:string;readonly observedAt?:string;readonly rating?:ProfessorRating|null}
+export interface RosterProfileEvidence {readonly id:string;readonly displayName:string;readonly department?:string;readonly schoolName?:string;readonly sourceId?:string;readonly observedAt?:string;readonly rating?:ProfessorRating|null}
 export interface ProfileDecision {readonly professorId:string;readonly previousId:string;readonly selectedId:string;readonly action:'replaced-wrong-link'|'retained-reviewed-profile'|'reselected-reviewed-profile';readonly reason:string;readonly alternateIds?:readonly string[]}
 const replacements=[
  {name:'Wong, Thomas Hong Tsun',from:'1807235',fromName:'Tom Wong',fromDepartment:'Political Science',to:'3107722',toName:'Thomas Hong Tsun Wong',toDepartment:'Physics',course:'PHYS/1B'},
@@ -42,10 +42,13 @@ export function selectReviewedProfiles(input:LocalDataset,profiles:readonly Rost
    const stamp=p.ratingUpdatedAt??p.rating?.updatedAt??'',candidates:RosterProfileEvidence[]=[];
    for(const member of group.members){
     let candidate=byId.get(member.id);
+    const saved=p.rmpProfiles?.find(profile=>profile.sourceProfessorId===member.id);
+    if(candidate&&!matches(candidate,member.name,member.department))return p;
+    if(saved&&(!candidate||!fresh(candidate,saved.updatedAt)))candidate={id:saved.sourceProfessorId,displayName:saved.displayName,department:saved.department??undefined,schoolName:saved.schoolName,sourceId:saved.sourceId,observedAt:saved.updatedAt,rating:saved.rating};
     // The explicitly reviewed Extended Studies observation keeps its original provenance.
     if(!candidate&&member.id===currentId(p)&&group.existingSourceId&&p.rating?.sourceId===group.existingSourceId
-      &&input.sources.some(s=>s.id===group.existingSourceId&&s.homepageUrl===`https://www.ratemyprofessors.com/professor/${member.id}`))candidate={id:member.id,displayName:member.name,department:member.department,observedAt:stamp,rating:p.rating};
-    if(!matches(candidate,member.name,member.department)||!fresh(candidate,stamp)||candidate?.rating===undefined)return p;
+      &&input.sources.some(s=>s.id===group.existingSourceId&&s.homepageUrl===`https://www.ratemyprofessors.com/professor/${member.id}`))candidate={id:member.id,displayName:member.name,department:member.department,schoolName:'UC San Diego Extended Studies',observedAt:stamp,rating:p.rating};
+    if(!matches(candidate,member.name,member.department)||!fresh(candidate,saved?.updatedAt??stamp)||candidate?.rating===undefined)return p;
     if(candidate.rating&&(candidate.rating.sourceProfessorId!==candidate.id||candidate.rating.updatedAt!==candidate.observedAt))return p;
     candidates.push(candidate);
    }
@@ -54,7 +57,8 @@ export function selectReviewedProfiles(input:LocalDataset,profiles:readonly Rost
    const alternateIds=candidates.filter(c=>c.id!==selected.id).map(c=>c.id);
    alternateIds.forEach(id=>skippedProfileIds.add(id));
    decisions.push({professorId:p.id,previousId:current,selectedId:selected.id,alternateIds,action:current===selected.id?'retained-reviewed-profile':'reselected-reviewed-profile',reason:policy==='keep-current'?'Reviewed same-person profiles; current profile retained.':'Reviewed same-person profiles; most reported ratings selected, current profile retained on ties. Aggregates are not pooled.'});
-   return {...p,aliases:[...new Set([...p.aliases,...group.members.map(m=>m.name)])].filter(name=>name!==p.displayName),sourceProfessorId:selected.id,rating:selected.rating??null,ratingUpdatedAt:selected.observedAt!};
+   const rmpProfiles=[...(p.rmpProfiles??[]).filter(profile=>!candidates.some(c=>c.id===profile.sourceProfessorId)),...candidates.map(c=>({sourceProfessorId:c.id,displayName:c.displayName,schoolName:c.schoolName??'University of California San Diego',department:c.department??null,sourceId:c.sourceId??c.rating?.sourceId??'direct-rmp',updatedAt:c.observedAt!,rating:c.rating??null}))];
+   return {...p,aliases:[...new Set([...p.aliases,...group.members.map(m=>m.name)])].filter(name=>name!==p.displayName),sourceProfessorId:selected.id,rating:selected.rating??null,ratingUpdatedAt:selected.observedAt!,rmpProfiles};
   }
   const from=byId.get(rule.from),to=byId.get(rule.to),stamp=p.ratingUpdatedAt??p.rating?.updatedAt??'';
   if(!matches(from,rule.fromName,rule.fromDepartment)||!matches(to,rule.toName,rule.toDepartment)||!fresh(from,stamp)||!fresh(to,stamp)||to?.rating===undefined)return p;

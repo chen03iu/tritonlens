@@ -1,4 +1,4 @@
-import type { LocalDataset } from './types';
+import type { LocalDataset, ProfessorRecord } from './types';
 
 export type DatasetValidationIssueCode =
   | 'unknown-source'
@@ -124,6 +124,37 @@ export function validateLocalDataset(
   });
 
   const seenProfessorIds = new Set<string>();
+  const validateProfiles = (professor: ProfessorRecord, index: number): void => {
+    if (professor.rmpProfiles === undefined) return;
+    const root = `professors[${index}].rmpProfiles`;
+    const invalid = (path: string, message: string): void => {issues.push({code:'invalid-history',path,message});};
+    if (!Array.isArray(professor.rmpProfiles) || !professor.rmpProfiles.length) {invalid(root,'Expected nonempty independent profile observations.');return;}
+    const ids = new Set<string>();
+    professor.rmpProfiles.forEach((profile, profileIndex) => {
+      const path = `${root}[${profileIndex}]`;
+      if (!profile || typeof profile !== 'object') {invalid(path,'Expected a profile observation.');return;}
+      if (typeof profile.sourceProfessorId !== 'string' || !/^\d+$/.test(profile.sourceProfessorId) || ids.has(profile.sourceProfessorId)) invalid(`${path}.sourceProfessorId`,'Profile IDs must be unique numeric strings.');
+      ids.add(profile.sourceProfessorId);
+      if (![profile.displayName,profile.schoolName].every(value=>typeof value==='string'&&value.trim()) || (profile.department!==null&&(typeof profile.department!=='string'||!profile.department.trim()))) invalid(path,'Expected profile name, school and nullable department.');
+      validateSourceReference(profile.sourceId,`${path}.sourceId`);
+      validateDate(profile.updatedAt,`${path}.updatedAt`);
+      const category=sourcesById.get(profile.sourceId)?.category;
+      if (category && !['mock','professor-ratings'].includes(category)) invalid(`${path}.sourceId`,'Profile observations require a ratings source.');
+      if (dataset.professors.some(other=>other.id!==professor.id&&((other.sourceProfessorId??other.rating?.sourceProfessorId)===profile.sourceProfessorId||(Array.isArray(other.rmpProfiles)&&other.rmpProfiles.some(p=>p?.sourceProfessorId===profile.sourceProfessorId))))) invalid(`${path}.sourceProfessorId`,'A reviewed profile cannot belong to another identity.');
+      const rating=profile.rating;
+      if (rating===null) return;
+      if (!rating || typeof rating!=='object') {invalid(`${path}.rating`,'Expected a nullable rating observation.');return;}
+      if (rating.sourceProfessorId!==profile.sourceProfessorId||rating.sourceId!==profile.sourceId||rating.updatedAt!==profile.updatedAt) invalid(`${path}.rating`,'Rating provenance must agree with its own profile.');
+      for (const [field,max,nullable] of [['overallRating',5,false],['difficulty',5,true],['wouldTakeAgainPercent',100,true]] as const) {
+        const value=rating[field];
+        if (!(nullable&&value===null)&&(!Number.isFinite(value)||value!<0||value!>max)) addInvalidNumber(`${path}.rating.${field}`,'Invalid profile metric.');
+      }
+      if (!Number.isInteger(rating.ratingCount)||rating.ratingCount<=0) addInvalidNumber(`${path}.rating.ratingCount`,'Rated profiles require a positive reported rating count.');
+    });
+    const selected=professor.rmpProfiles.find(p=>p?.sourceProfessorId===(professor.sourceProfessorId??professor.rating?.sourceProfessorId));
+    const fields=['overallRating','difficulty','ratingCount','wouldTakeAgainPercent','sourceId','updatedAt','sourceProfessorId'] as const;
+    if (!selected || selected.updatedAt!==(professor.ratingUpdatedAt??professor.rating?.updatedAt) || (selected.rating===null?professor.rating!==null:!selected.rating||!professor.rating||fields.some(field=>selected.rating![field]!==professor.rating![field]))) invalid(root,'Selected profile must agree with the primary observation.');
+  };
   dataset.professors.forEach((professor, index) => {
     if (seenProfessorIds.has(professor.id)) {
       issues.push({
@@ -134,6 +165,7 @@ export function validateLocalDataset(
     }
 
     seenProfessorIds.add(professor.id);
+    validateProfiles(professor,index);
     if (professor.ratingUpdatedAt !== undefined) validateDate(professor.ratingUpdatedAt, `professors[${index}].ratingUpdatedAt`);
     if (professor.sourceProfessorId !== undefined && (!/^\d+$/.test(professor.sourceProfessorId) || (professor.rating?.sourceProfessorId && professor.rating.sourceProfessorId !== professor.sourceProfessorId))) {
       issues.push({code:'invalid-history',path:`professors[${index}].sourceProfessorId`,message:'Stable profile ID must be numeric and agree with the rating profile.'});

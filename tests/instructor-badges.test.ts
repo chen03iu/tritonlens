@@ -13,6 +13,7 @@ import {
 } from '../src/data/providers/local-dataset-providers';
 import { closeProfessorDetailCard } from '../src/professor-detail-card';
 import type { LocalDataset } from '../src/data/types';
+import {multipleProfileDataset} from './fixtures/multiple-rmp-profiles';
 import type {
   InstructorDataService,
   ProviderMode,
@@ -117,6 +118,31 @@ describe('enhanceVisibleInstructorLinks', () => {
   beforeEach(() => {
     closeProfessorDetailCard();
     document.body.replaceChildren();
+  });
+
+  it('reveals other reviewed RMP profiles with their own metrics, school, source dates and links',()=>{
+    const link=renderInstructorLink('Libby Butler'),dataset=multipleProfileDataset();
+    enhanceVisibleInstructorLinks(document,[createContext(link)],createSnapshotService(dataset));
+    const badge=document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!;badge.click();
+    const card=document.querySelector<HTMLElement>('.tritonlens-detail-card')!,details=card.querySelector<HTMLDetailsElement>('.tritonlens-other-profiles')!;
+    expect(badge.textContent).toContain('4.2');expect(details).not.toBeNull();expect(details.open).toBe(false);
+    expect(details.querySelector('summary')?.textContent).toBe('Other RMP profiles (1)');
+    details.querySelector('summary')!.click();expect(details.open).toBe(true);details.dispatchEvent(new Event('toggle'));
+    expect(details.textContent).toContain('Elizabeth Butler');expect(details.textContent).toContain('UC San Diego Extended Studies');
+    expect(details.textContent).toContain('3.1 / 5');expect(details.textContent).toContain('3 ratings');expect(details.textContent).toContain('2026-09-15');
+    const profileLink=details.querySelector<HTMLAnchorElement>('a[href$="/202"]')!;expect(profileLink.rel).toBe('noopener noreferrer');expect(profileLink.target).toBe('_blank');
+    details.querySelector('summary')!.click();expect(details.open).toBe(false);expect(document.querySelector('.tritonlens-detail-card')).toBe(card);
+    document.body.click();expect(document.querySelector('.tritonlens-detail-card')).toBeNull();
+  });
+
+  it('shows unrated profiles without inventing a zero score and omits the disclosure for single-profile data',()=>{
+    const link=renderInstructorLink('Libby Butler'),dataset=multipleProfileDataset();
+    const changed={...dataset,professors:dataset.professors.map((p,i)=>i===0?{...p,rmpProfiles:p.rmpProfiles!.map((profile,j)=>j===1?{...profile,rating:null}:profile)}:p)};
+    enhanceVisibleInstructorLinks(document,[createContext(link)],createSnapshotService(changed));document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!.click();
+    const other=document.querySelector('.tritonlens-other-profiles')!;expect(other?.textContent).toContain('No ratings reported');expect(other?.textContent).not.toContain('0.0 / 5');
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'}));expect(document.querySelector('.tritonlens-detail-card')).toBeNull();
+    enhanceVisibleInstructorLinks(document,[createContext(link)],MOCK_SERVICE);document.querySelector<HTMLButtonElement>('.tritonlens-rating-badge')!.click();
+    expect(document.querySelector('.tritonlens-other-profiles')).toBeNull();
   });
 
   it('adds a rating badge for a named instructor', () => {

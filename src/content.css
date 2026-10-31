@@ -116,6 +116,37 @@
   border-top: 1px solid #dfe4ea;
 }
 
+.tritonlens-other-profiles {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #dfe4ea;
+}
+
+.tritonlens-other-profiles-summary {
+  color: #005ea8;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.tritonlens-other-profiles-summary:focus-visible {
+  outline: 2px solid #005ea8;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.tritonlens-other-profile {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #dfe4ea;
+}
+
+.tritonlens-profile-context {
+  margin: 4px 0 8px;
+  color: #42526e;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
 .tritonlens-detail-heading {
   margin-bottom: 8px;
   color: #172b4d;

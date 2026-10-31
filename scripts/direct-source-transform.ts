@@ -39,7 +39,8 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
   assert(count===0?overall===null:overall!==null&&overall>=1,'Inconsistent rated profile');
   const rating:ProfessorRating|null=count>0&&overall!==null?{overallRating:overall,difficulty,ratingCount:count,wouldTakeAgainPercent:again,sourceId:'direct-rmp',updatedAt:observedAt,sourceProfessorId:id}:null;
   const department=typeof row.department==='string'&&row.department.trim()?text(row.department):undefined;
-  return {id,displayName,observedAt,rating,department};
+  const schoolName=row.schoolName===undefined?'University of California San Diego':text(row.schoolName);
+  return {id,displayName,observedAt,rating,department,schoolName};
  });
  const reconciliation=reconcileDirectIdentities(baseline,identities);
  const selection=selectReviewedProfiles(reconciliation.dataset,identities);
@@ -70,7 +71,7 @@ export function transformDirectSources(baseline:LocalDataset,rmpInput:unknown,gr
    const oldId=existing.sourceProfessorId??existing.rating?.sourceProfessorId;
    if(oldId&&oldId!==id){report.identityReview.push({reason:'conflicting-profile',sourceProfessorId:id,name,candidateIds:[existing.id]});continue;}
    if((existing.ratingUpdatedAt??existing.rating?.updatedAt??'')>updatedAt){report.ratings.retained++;continue;}
-   const refreshed={...existing,sourceProfessorId:id,ratingUpdatedAt:updatedAt,rating};
+   const refreshed={...existing,sourceProfessorId:id,ratingUpdatedAt:updatedAt,rating,...(existing.rmpProfiles?{rmpProfiles:existing.rmpProfiles.map(profile=>profile.sourceProfessorId===id?{...profile,displayName:name,schoolName:row.schoolName,department:row.department??null,sourceId:'direct-rmp',updatedAt,rating}:profile)}:{})};
    professors=professors.map(p=>p.id===existing.id?refreshed:p);byId.set(existing.id,refreshed);report.ratings.refreshed++;
   }else{
    const added={id:`direct-rmp-${id}`,displayName:name,aliases:[],sourceProfessorId:id,ratingUpdatedAt:updatedAt,rating};

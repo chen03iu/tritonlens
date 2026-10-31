@@ -23,6 +23,16 @@ describe('direct-source transformation',()=>{
   expect(first.dataset.professors).toHaveLength(1);expect(first.dataset.professors[0].rating).toMatchObject({sourceProfessorId:next,ratingCount:58});
   expect(first.report.identityReview).toEqual([]);expect(first.report.identityReconciliation.profileDecisions[0].alternateIds).toEqual([old]);
   expect(transformDirectSources(first.dataset,input,grades).dataset).toEqual(first.dataset);
+  const newer=roster([{...input.rows[1],rating:4.8,ratingCount:70,retrievedAt:'2026-10-30T00:00:00Z'}]);
+  const refreshed=transformDirectSources(first.dataset,newer,grades);
+  expect(refreshed.dataset.professors[0].rmpProfiles?.find(p=>p.sourceProfessorId===next)).toMatchObject({updatedAt:'2026-10-30',rating:{overallRating:4.8,ratingCount:70}});
+  expect(refreshed.dataset.professors[0].rmpProfiles?.find(p=>p.sourceProfessorId===old)).toMatchObject({updatedAt:'2026-10-29',rating:{ratingCount:3}});
+  expect(transformDirectSources(refreshed.dataset,newer,grades).dataset).toEqual(refreshed.dataset);
+  const alternateUpdate=roster([{...oldRow,rating:3.3,ratingCount:80,retrievedAt:'2026-10-31T00:00:00Z'}]);
+  const reselected=transformDirectSources(refreshed.dataset,alternateUpdate,grades);
+  expect(reselected.dataset.professors[0].rating).toMatchObject({sourceProfessorId:old,overallRating:3.3,ratingCount:80});
+  expect(reselected.dataset.professors[0].rmpProfiles?.find(p=>p.sourceProfessorId===next)).toMatchObject({updatedAt:'2026-10-30',rating:{ratingCount:70}});
+  expect(transformDirectSources(reselected.dataset,input,grades).dataset).toEqual(reselected.dataset);
   expect(()=>transformDirectSources(before,roster([...input.rows,oldRow]),grades)).toThrow('Duplicate source profile');
   expect(()=>transformDirectSources(before,roster([{...oldRow,rating:99},input.rows[1]]),grades)).toThrow('Invalid source number');
  });

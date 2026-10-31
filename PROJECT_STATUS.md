@@ -1,8 +1,38 @@
 # TritonLens Project Status
 
-Last updated: 2026-10-30
+Last updated: 2026-10-31
 
 ## Current Milestone
+
+### Multiple RMP profile preview (2026-10-31)
+
+Local branch `feat/multiple-rmp-profiles` adds a native `Other RMP profiles`
+disclosure beneath the primary professor rating. Ten already reviewed groups
+retain twenty independent observations, including two unrated profiles. Each
+shows its own name, school, department, metrics, source date, and numeric RMP
+link. No scores or counts are pooled. Profiles without ratings say `No ratings
+reported`. Primary selection still uses reported rating count, keeping ties.
+
+Optional schema-1 profile observations validate dates, metrics, source approval,
+primary agreement, and exclusive ownership. Missing or older files retain each
+profile's own observation; normal refreshes keep primary fields synchronized.
+Aaron's Extended Studies record preserves its original source and 2026-09-15
+date. Ambiguous identities and link-only mode do not reveal profile metrics.
+
+All earlier primary metrics, identities, names/aliases, sources, redirects,
+and the complete grade array are unchanged from `6281e2d`. There remain 101 held
+source-name profiles and all 30,146 historical terms. Real repeated import is
+byte-identical. A fresh read-only review found no actionable issues. Actual
+Chrome checks confirm collapsed/expanded layouts and an exact 360-pixel-wide
+viewport with contained scrolling and no horizontal overflow. Changes remain
+local; the same preview `dist` path is retained.
+
+Verification: 385 tests across 36 files pass with two test workers; typecheck
+and default build pass. Default parallel runs hit the existing five-second
+CLI integration timeout under load; assertions passed in focused runs and
+the bounded full run. The timeout and test configuration were not relaxed.
+
+Details: [multiple-profile implementation](docs/multiple-rmp-profiles-2026-10-31.md).
 
 ### Identity-cleanup preview (2026-10-30)
 

@@ -61,19 +61,26 @@ export function createLocalDatasetProviderSet(
     },
     ratingProvider: {
       lookup(identity) {
-        const rating = findProfessor(dataset, identity)?.rating;
+        const professor = findProfessor(dataset, identity);
+        const rating = professor?.rating;
+        const profiles = (professor?.rmpProfiles ?? []).flatMap(profile => {
+          const source = findSource(dataset, profile.sourceId);
+          return source ? [{profile,source,isPrimary:profile.sourceProfessorId===(professor?.sourceProfessorId??rating?.sourceProfessorId)}] : [];
+        });
+        const profileData = profiles.length ? {profiles} : {};
         if (!rating) {
-          return { status: 'not-found' };
+          return { status: 'not-found', ...profileData };
         }
 
         const source = findSource(dataset, rating.sourceId);
         if (!source) {
-          return { status: 'not-found' };
+          return { status: 'not-found', ...profileData };
         }
 
         return {
           status: 'found',
           data: { rating, source },
+          ...profileData,
         };
       },
     },

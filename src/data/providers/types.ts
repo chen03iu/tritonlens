@@ -3,6 +3,7 @@ import type {
   DataSourceReference,
   HistoricalCourseGradeRecord,
   ProfessorRating,
+  ProfessorRatingProfile,
 } from '../types';
 import type {
   RenderedInstructorContext,
@@ -34,6 +35,12 @@ export interface SourcedProfessorRating {
   readonly source: DataSourceReference;
 }
 
+export interface SourcedProfessorProfile {
+  readonly profile: ProfessorRatingProfile;
+  readonly source: DataSourceReference;
+  readonly isPrimary: boolean;
+}
+
 export interface SourcedHistoricalGrades {
   readonly record: HistoricalCourseGradeRecord;
   readonly source: DataSourceReference;
@@ -43,8 +50,9 @@ export type ProfessorRatingLookupResult =
   | {
       readonly status: 'found';
       readonly data: SourcedProfessorRating;
+      readonly profiles?: readonly SourcedProfessorProfile[];
     }
-  | { readonly status: 'not-found' };
+  | { readonly status: 'not-found'; readonly profiles?: readonly SourcedProfessorProfile[] };
 
 export type HistoricalGradesLookupResult =
   | {
