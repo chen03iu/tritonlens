@@ -4,6 +4,34 @@ Last updated: 2026-11-02
 
 ## Current Milestone
 
+### Reviewed singleton source-binding corrections (2026-11-02)
+
+[Three primary-source-verified wrong links](docs/reviewed-incorrect-bindings-2026-11-02.md)
+are detached: Christopher Tingkuang Lee / Cynthia Lee, Ellen L. Beck / Erika Beck,
+and Bernard Joseph Brown / Barry Brown. The existing shared-profile pass skipped
+unique owners; an exact reviewed rejection registry now handles these cases
+without a generic fuzzy-name rejection policy. Contradictory active evidence
+stops import. Other alternate IDs also require review; no replacement score
+is selected automatically.
+
+The original histories and aliases remain on their original identities. The
+three exact rating observations remain unchanged on native source identities
+for Cynthia, Erika and Barry. Every unrelated record, all 11,120 histories /
+30,146 terms, 63 redirects, 204 reviewed aliases, nine held profiles and
+Michael Landry's entire record are unchanged. Profile count is 5,680.
+
+Saved-roster coverage stays at 1,884 matched / 111 unmatched names, 2,930
+rating-found pairs and 950 history-found pairs, with no ambiguous pairs.
+The rejected short names were already unmatched; this fixes incorrect scores
+under their full retained names.
+
+Normal and repeated imports match SHA-256
+`1c24f9d8e3cf2ca5a056df38709c447f409131ae0da0be6cfb9baa06f0f7447f`.
+Verification: 724 tests / 43 files, typecheck, default build and diff checks pass.
+Independent review's alternate-array finding was reproduced and fixed; bounded
+follow-up review found no remaining actionable issue. Local branch
+`fix/reviewed-single-owner-profile-links`; no push, merge or release.
+
 ### Explicit reviewed source-name aliases (2026-11-02)
 
 Twenty-three independently corroborated aliases extend the manifest to 204.

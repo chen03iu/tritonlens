@@ -1,0 +1,51 @@
+{
+  "reviewedAt": "2026-11-02",
+  "note": "Individually verified different instructors. Detach only the exact guarded legacy association; source observations remain available to their native profiles. No numeric rating is pinned.",
+  "entries": [
+    {
+      "professorId": "easy-a-lee-christopher-tingkuang-9e8bd3100f",
+      "expectedName": "Lee, Christopher Tingkuang",
+      "sourceProfessorId": "1161380",
+      "sourceDisplayName": "Cynthia Lee",
+      "department": "Computer Science",
+      "course": "BILD/5",
+      "evidence": [
+        "https://biology.ucsd.edu/research/faculty/ctlee",
+        "https://act.ucsd.edu/scheduleOfClasses/scheduleOfClassesStudentResult.htm?sections=94088&selectedTerm=SP26&tabNum=tabs-sec",
+        "https://cseweb.ucsd.edu/classes/su07/cse141/",
+        "https://www.ratemyprofessors.com/professor/1161380"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "professorId": "easy-a-beck-ellen-l-cc67afa562",
+      "expectedName": "Beck, Ellen L.",
+      "sourceProfessorId": "103179",
+      "sourceDisplayName": "Erika Beck",
+      "department": "Psychology",
+      "course": "PH/191",
+      "evidence": [
+        "https://familymedicine.ucsd.edu/education-training/freeclinic/about/faculty-staff.html",
+        "https://hwsph.ucsd.edu/people/faculty/faculty-directory.html",
+        "https://www.csun.edu/office-of-the-president/erika-d-beck-phd-biography",
+        "https://www.ratemyprofessors.com/professor/103179"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "professorId": "easy-a-brown-bernard-joseph-2fc482a7ae",
+      "expectedName": "Brown, Bernard Joseph",
+      "sourceProfessorId": "1197967",
+      "sourceDisplayName": "Barry Brown",
+      "department": "Communication",
+      "course": "TDTR/10",
+      "evidence": [
+        "https://theatre.ucsd.edu/people/faculty/dance/index.html",
+        "https://catalog.ucsd.edu/faculty/CSE.html",
+        "https://sciencestudies.ucsd.edu/colloquium/2008-2009.html",
+        "https://www.ratemyprofessors.com/professor/1197967"
+      ],
+      "reviewedAt": "2026-11-02"
+    }
+  ]
+}

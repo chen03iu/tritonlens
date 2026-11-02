@@ -156,6 +156,13 @@ requirements should be reviewed and recorded here.
   Only aliases change in the dataset; all metrics, histories, source dates and
   permissions stay unchanged. Suspicious source associations are excluded.
 
+- The [reviewed singleton binding correction](docs/reviewed-incorrect-bindings-2026-11-02.md)
+  detaches three independently verified cross-person profile links. Numeric
+  observations keep their exact values, IDs and dates on native source identities;
+  the rejected instructors retain all historical grades without an invented
+  replacement score. Source permissions, existing held profiles and Landry's
+  pending mixed-profile decision remain unchanged.
+
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.
 

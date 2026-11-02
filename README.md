@@ -187,6 +187,12 @@ pairs. Optional `sourceDisplayName` declares a verified RMP nickname or full
 name; both forms retain collision checks and future source revalidation.
 Runtime fuzzy matching remains unchanged.
 
+The [reviewed singleton binding corrections](docs/reviewed-incorrect-bindings-2026-11-02.md)
+remove three cross-person rating associations while retaining every owned
+grade record. Exact source observations remain on separate native identities;
+missing or contradictory correction evidence stops import without overwriting
+the previous dataset. Other alternate profiles require review.
+
 ## Quality Checks
 
 ```powershell

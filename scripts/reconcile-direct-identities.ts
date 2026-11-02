@@ -1,8 +1,9 @@
 import {analyzeNameRelationship} from '../src/data/name-variants';
+import incorrectBindings from './reviewed-incorrect-profile-bindings.json';
 import {normalizeInstructorName} from '../src/data/lookup';
 import type {LocalDataset,ProfessorRecord,ProfessorRating} from '../src/data/types';
 
-interface ProfileEvidence {readonly id:string;readonly displayName:string;readonly observedAt?:string;readonly rating?:ProfessorRating|null;readonly department?:string}
+interface ProfileEvidence {readonly id:string;readonly displayName:string;readonly observedAt?:string;readonly rating?:ProfessorRating|null;readonly department?:string;readonly schoolName?:string}
 export interface IdentityRemap {readonly fromId:string;readonly toId:string;readonly fromName:string;readonly toName:string;readonly sourceProfessorId:string|null;readonly reason:string}
 export interface WithheldRating {readonly professorId:string;readonly name:string;readonly sourceProfessorId:string;readonly sourceName:string;readonly reason:string}
 // Primary sources corroborate these reviewed variants; profile IDs guard the scope.
@@ -107,18 +108,33 @@ export function reconcileDirectIdentities(input:LocalDataset,profiles:readonly P
   // Withhold ambiguous shared legacy links; never transfer their metrics to a namesake.
   let professors=input.professors.map(p=>{
     const id=profile(p),source=id?sourceProfiles.get(id):undefined,sourceName=source?.displayName;
-    if(!id||!sourceName||(originalGroups.get(id)?.length??0)<2)return p;
+    const incorrect=incorrectBindings.entries.find(rule=>rule.professorId===p.id&&rule.sourceProfessorId===id);
+    if(incorrect){
+      const observed=Date.parse(source?.observedAt??''),saved=Date.parse(p.ratingUpdatedAt??p.rating?.updatedAt??'');
+      if(!source||profiles.filter(row=>row.id===id).length!==1||nameKey(p.displayName)!==nameKey(incorrect.expectedName)
+        ||nameKey(source.displayName)!==nameKey(incorrect.sourceDisplayName)||normalizeInstructorName(source.department??'')!==normalizeInstructorName(incorrect.department)
+        ||normalizeInstructorName(source.schoolName??'')!=='university of california san diego'
+        ||!Number.isFinite(observed)||!Number.isFinite(saved)||observed<saved||source.rating===undefined
+        ||p.rating&&p.rating.sourceProfessorId!==id
+        ||p.rmpProfiles?.some(row=>row.sourceProfessorId!==id)
+        ||source.rating&&(source.rating.sourceProfessorId!==id||source.rating.updatedAt!==source.observedAt)
+        ||histories.get(p.id)?.filter(row=>courseKey(row)===incorrect.course.replace('/','|')).length!==1){
+        throw new Error('Reviewed incorrect profile binding requires revalidation: '+p.displayName+'. Import stopped.');
+      }
+    }
+    if(!id||!sourceName||!incorrect&&(originalGroups.get(id)?.length??0)<2)return p;
     const separation=reviewedSeparations.find(entry=>entry.id===id&&nameKey(entry.sourceName)===nameKey(sourceName)
       &&normalizeInstructorName(source?.department??'')===normalizeInstructorName(entry.department)
       &&nameKey(p.displayName)===nameKey(entry.rejected)
       &&originalGroups.get(id)!.some(owner=>nameKey(owner.displayName)===nameKey(entry.owner)
         &&histories.get(owner.id)?.some(row=>courseKey(row)===entry.course)));
-    if(!separation&&possibleVariant(p,sourceName))return p;
+    if(!incorrect&&!separation&&possibleVariant(p,sourceName))return p;
     if(!source?.observedAt||source.observedAt<(p.ratingUpdatedAt??p.rating?.updatedAt??''))return p;
-    withheldRatings.push({professorId:p.id,name:p.displayName,sourceProfessorId:id,sourceName,reason:separation
+    withheldRatings.push({professorId:p.id,name:p.displayName,sourceProfessorId:id,sourceName,reason:incorrect?'Reviewed primary-source evidence identifies this profile as a different instructor.':separation
       ?'Reviewed primary-source department and course evidence identifies a different owner of this profile.'
       :'Shared legacy profile has incompatible full-name evidence in the direct roster.'});
     const {sourceProfessorId:_,ratingUpdatedAt:__,...rest}=p;
+    if(incorrect){const {rmpProfiles:_profiles,...withoutProfiles}=rest;return {...withoutProfiles,rating:null};}
     return {...rest,rating:null};
   });
   const replacements=new Map<string,string>();
