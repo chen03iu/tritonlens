@@ -36,8 +36,9 @@ export function applyReviewedRuntimeAliases(dataset:LocalDataset,profiles:readon
   const candidates=dataset.professors.filter(p=>p.id===rule.professorId),p=candidates[0];
   if(candidates.length!==1||key(p.displayName)!==key(rule.expectedName)){reject('retained-identity-changed');continue;}
   if((p.sourceProfessorId??p.rating?.sourceProfessorId)!==rule.sourceProfessorId||p.rating&&p.rating.sourceProfessorId!==rule.sourceProfessorId){reject('source-binding-changed');continue;}
+  const reviewedNames=new Set([key(rule.alias),key(rule.sourceDisplayName??rule.alias)]);
   const sourceRows=profiles.filter(row=>row.id===rule.sourceProfessorId),source=sourceRows[0];
-  if(sourceRows.length!==1||key(source.displayName)!==key(rule.alias)||key(source.department??'')!==key(rule.department)||key(source.schoolName??'')!=='university of california san diego'){
+  if(sourceRows.length!==1||key(source.displayName)!==key(rule.sourceDisplayName??rule.alias)||key(source.department??'')!==key(rule.department)||key(source.schoolName??'')!=='university of california san diego'){
    reject('source-evidence-changed');continue;
   }
   const observed=Date.parse(source.observedAt??''),saved=Date.parse(p.ratingUpdatedAt??p.rating?.updatedAt??'');
@@ -48,8 +49,8 @@ export function applyReviewedRuntimeAliases(dataset:LocalDataset,profiles:readon
    reject('profile-ownership-conflict');continue;
   }
   const ownProfiles=new Set([rule.sourceProfessorId,...(p.rmpProfiles??[]).map(r=>r.sourceProfessorId)]);
-  if(profiles.some(row=>key(row.displayName)===key(rule.alias)&&!ownProfiles.has(row.id))){reject('source-name-collision');continue;}
-  if([...(names.get(key(rule.alias))??[])].some(id=>id!==p.id)){reject('name-collision');continue;}
+  if(profiles.some(row=>reviewedNames.has(key(row.displayName))&&!ownProfiles.has(row.id))){reject('source-name-collision');continue;}
+  if([...reviewedNames].some(name=>[...(names.get(name)??[])].some(id=>id!==p.id))){reject('name-collision');continue;}
   const [subject,catalog]=rule.course.split('/');
   if(dataset.historicalCourseGrades.filter(g=>g.professorId===p.id&&g.subjectCode===subject&&g.catalogNumber===catalog).length!==1){reject('course-ownership-changed');continue;}
   const current=aliases.get(p.id)??[...p.aliases];

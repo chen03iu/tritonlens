@@ -181,6 +181,12 @@ history coverage remains unchanged. A mixed-course RMP profile for Michael
 Landry is separately marked for review; its existing data is preserved by
 explicit user choice.
 
+The [explicit source-name review](docs/reviewed-source-name-aliases-2026-11-02.md)
+adds 23 aliases (204 total), recovering 44 rating-found and 26 exact-history
+pairs. Optional `sourceDisplayName` declares a verified RMP nickname or full
+name; both forms retain collision checks and future source revalidation.
+Runtime fuzzy matching remains unchanged.
+
 ## Quality Checks
 
 ```powershell

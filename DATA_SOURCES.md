@@ -149,6 +149,13 @@ requirements should be reviewed and recorded here.
   existing data pending review; no new Landry alias is added. All non-alias
   data, nine held source profiles and source permissions remain unchanged.
 
+- The [explicit source-name review](docs/reviewed-source-name-aliases-2026-11-02.md)
+  adds 23 individually corroborated aliases (204 total). The importer now accepts
+  an optional exact reviewed `sourceDisplayName`, checking both source and alias
+  names for conflicts and preserving all previous freshness/ownership guards.
+  Only aliases change in the dataset; all metrics, histories, source dates and
+  permissions stay unchanged. Suspicious source associations are excluded.
+
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.
 

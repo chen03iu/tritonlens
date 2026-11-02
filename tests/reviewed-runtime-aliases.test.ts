@@ -12,7 +12,7 @@ function fixture(rule:typeof reviews.entries[number]){
  const owner={...saved,aliases:saved.aliases.filter(n=>normalizeInstructorName(n)!==normalizeInstructorName(rule.alias))};
  const history=DIRECT_DATASET.historicalCourseGrades.find(g=>g.professorId===owner.id&&`${g.subjectCode}/${g.catalogNumber}`===rule.course)!;
  const dataset:LocalDataset={...DIRECT_DATASET,professors:[owner],historicalCourseGrades:[history],professorIdRedirects:undefined};
- const source={id:rule.sourceProfessorId,displayName:rule.alias,department:rule.department,schoolName:'University of California San Diego',observedAt:owner.rating!.updatedAt,rating:owner.rating};
+ const source={id:rule.sourceProfessorId,displayName:rule.sourceDisplayName??rule.alias,department:rule.department,schoolName:'University of California San Diego',observedAt:owner.rating!.updatedAt,rating:owner.rating};
  return {dataset,source,owner,history};
 }
 
@@ -85,8 +85,8 @@ it('stops a refresh when a previously promoted alias no longer passes its eviden
  expect(JSON.stringify(promoted)).toBe(before);
 });
 
-it('preflights promoted aliases before source reconciliation or grade identity matching',()=>{
- const rule=reviews.entries.find(e=>e.alias==='Mary Boyle')!,{dataset,source,history}=fixture(rule);
+it.each(['Mary Boyle','Joseph Pecore'])('preflights promoted alias %s before source reconciliation or grade identity matching',alias=>{
+ const rule=reviews.entries.find(e=>e.alias===alias)!,{dataset,source,history}=fixture(rule);
  const promoted=applyReviewedRuntimeAliases(dataset,[source]).dataset;
  const rmp={coverage:{complete:true,recordCount:1},rows:[{legacyId:Number(source.id),displayName:'Different instructor',schoolGraphId:'U2Nob29sLTEwNzk=',schoolName:source.schoolName,department:source.department,rating:4,difficulty:2,ratingCount:5,wouldTakeAgainPercent:80,retrievedAt:source.observedAt}]};
  const grades={A:60,B:20,C:10,D:5,F:5,W:0,P:0,NP:0};
@@ -95,7 +95,7 @@ it('preflights promoted aliases before source reconciliation or grade identity m
 });
 
 it('records primary evidence without storing frozen rating values in the alias manifest',()=>{
- expect(reviews.entries).toHaveLength(181);expect(new Set(reviews.entries.map(e=>e.alias)).size).toBe(181);
+ expect(reviews.entries).toHaveLength(204);expect(new Set(reviews.entries.map(e=>e.alias)).size).toBe(204);
  for(const entry of reviews.entries){
   expect(entry.evidence.some(url=>new URL(url).hostname.endsWith('.ucsd.edu'))).toBe(true);
   expect(entry.evidence).toContain(`https://www.ratemyprofessors.com/professor/${entry.sourceProfessorId}`);
@@ -109,4 +109,30 @@ it('bundles all reviewed names through the actual runtime with their own rating 
   expect(result.counts,rule.alias).toMatchObject({pairs:1,identityFound:1,ratingFound:1,historyFound:1,bothFound:1});
   expect(result.entries[0],rule.alias).toMatchObject({identity:{status:'found',identity:{id:rule.professorId}},sourceProfessorId:rule.sourceProfessorId});
  }
+});
+
+it('requires the exact reviewed source name and revalidates promoted preferred names',()=>{
+ const rule=reviews.entries.find(e=>e.alias==='Joseph Pecore')!,{dataset,source}=fixture(rule);
+ const result=applyReviewedRuntimeAliases(dataset,[source]);
+ expect(result.applied).toContainEqual({professorId:rule.professorId,alias:rule.alias});
+ for(const displayName of ['Joseph Pecore','Joey Pecore']){
+  const changed={...source,displayName};
+  expect(applyReviewedRuntimeAliases(dataset,[changed]).blocked).toContainEqual({professorId:rule.professorId,alias:rule.alias,reason:'source-evidence-changed'});
+  expect(()=>applyReviewedRuntimeAliases(result.dataset,[changed])).toThrow(/requires revalidation.*source-evidence-changed/);
+ }
+});
+
+it.each(['Joseph Pecore','Joe Pecore'])('rejects another raw profile using reviewed name %s',displayName=>{
+ const rule=reviews.entries.find(e=>e.alias==='Joseph Pecore')!,{dataset,source}=fixture(rule);
+ const result=applyReviewedRuntimeAliases(dataset,[source,{...source,id:'unreviewed-profile',displayName}]);
+ expect(result.dataset).toBe(dataset);
+ expect(result.blocked).toContainEqual({professorId:rule.professorId,alias:rule.alias,reason:'source-name-collision'});
+});
+
+it('rejects a retained full-name collision under the preferred source name',()=>{
+ const rule=reviews.entries.find(e=>e.alias==='Joseph Pecore')!,{dataset,source}=fixture(rule);
+ const changed={...dataset,professors:[...dataset.professors,{id:'other-joe',displayName:'Pecore, Joe X.',aliases:[],rating:null}]};
+ const result=applyReviewedRuntimeAliases(changed,[source]);
+ expect(result.dataset).toBe(changed);
+ expect(result.blocked).toContainEqual({professorId:rule.professorId,alias:rule.alias,reason:'name-collision'});
 });

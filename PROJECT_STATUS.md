@@ -4,6 +4,35 @@ Last updated: 2026-11-02
 
 ## Current Milestone
 
+### Explicit reviewed source-name aliases (2026-11-02)
+
+Twenty-three independently corroborated aliases extend the manifest to 204.
+Optional `sourceDisplayName` binds a requested runtime alias to its exact
+reviewed RMP name; existing rules still default to the alias. Both forms
+are checked for source and retained-name collisions. Stable identity/source
+IDs, department/school, freshness, owned history and early revalidation guards
+remain mandatory. No runtime nickname or fuzzy-matching rule is added.
+[Evidence, design and measured results](docs/reviewed-source-name-aliases-2026-11-02.md)
+include Joseph/Joe Pecore, Mohammad/Yousef Bahadori and Patricia/Rebecca Wells.
+
+The same July-roster audit now has 1,884 matched names / 111 unmatched names.
+This change restores 44 rating-found pairs and 26 exact course-history pairs.
+Totals: 4,388 identity-found pairs, zero ambiguous pairs, 2,930 rating-found
+pairs, 950 history-found pairs and 847 pairs with both metrics.
+
+Preservation confirms only the 23 approved aliases change: every other data
+field and all previous aliases remain intact. The nine held profiles and
+Michael Landry's entire record remain unchanged. Suspicious Christopher/Cynthia
+Lee, Ellen/Erika Beck and Ronald Evans Math/Bioengineering candidate bindings
+are excluded and recorded for separate source-association review.
+
+Normal promotion and repeat import are byte-identical at SHA-256
+`c6b4f0ba6cb17cae76297ff9e6a0acda97c8fe5cd7b56457bf707084dde9882f`.
+Verification: 709 tests / 42 files, typecheck, default build and diff checks pass.
+Independent read-only review found no actionable issues. Work stays local on
+`fix/reviewed-source-name-aliases`; no push, merge or release. Reload the same
+worktree `dist` and refresh TSS to use the rebuilt extension.
+
 ### Reviewed runtime short-name batch five (2026-11-02)
 
 Thirty-seven more individually corroborated aliases extend the unchanged

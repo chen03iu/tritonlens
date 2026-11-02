@@ -2,7 +2,7 @@
   "reviewedAt": "2026-11-02",
   "instructorSnapshotSha256": "b746016b93791acaaea1554e1a7ae3f75e7fbc6f64cd6bc53d6d9ae470b6266f",
   "rmpSnapshotSha256": "3950b97735d772328c0520f2c465fb310c46cda2fb14a352ac490ed292887d84",
-  "note": "Individually corroborated UCSD primary pages and the saved 2026-10-29 UCSD RMP roster. RMP display name matches the alias under strict normalization. No numeric rating is pinned by this review.",
+  "note": "Individually corroborated UCSD primary pages and the saved 2026-10-29 UCSD RMP roster. RMP display name matches the alias or an explicitly reviewed sourceDisplayName under strict normalization. No numeric rating is pinned by this review.",
   "entries": [
     {
       "alias": "Vinciane Van Moer",
@@ -2390,6 +2390,335 @@
       "evidence": [
         "https://ssandin.scrippsprofiles.ucsd.edu/",
         "https://www.ratemyprofessors.com/professor/2351424"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Daniel Martinico",
+      "professorId": "easy-a-martinico-daniel-j-9702c2d96f",
+      "expectedName": "Martinico, Daniel J",
+      "sourceProfessorId": "781098",
+      "sourceDisplayName": "Dan Martinico",
+      "department": "Communication",
+      "course": "COMM/101D",
+      "evidence": [
+        "https://communication.ucsd.edu/people/faculty/martinico-daniel.html",
+        "https://www.ratemyprofessors.com/professor/781098"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Joseph Pecore",
+      "professorId": "easy-a-pecore-joseph-p-c5c399111b",
+      "expectedName": "Pecore, Joseph P.",
+      "sourceProfessorId": "1687063",
+      "sourceDisplayName": "Joe Pecore",
+      "department": "Accounting",
+      "course": "MGT/12",
+      "evidence": [
+        "https://rady.ucsd.edu/faculty-research/other-faculty/continuing-lecturers/joseph-pecore.html",
+        "https://www.ratemyprofessors.com/professor/1687063"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Junko Simpson",
+      "professorId": "easy-a-simpson-junko-tokuda-4bfa70b038",
+      "expectedName": "Simpson, Junko Tokuda",
+      "sourceProfessorId": "2265866",
+      "sourceDisplayName": "Junko Tokuda Simpson",
+      "department": "Languages",
+      "course": "JAPN/10A",
+      "evidence": [
+        "https://japan.ucsd.edu/people/lecturers.html",
+        "https://roosevelt.ucsd.edu/about/faculty.html",
+        "https://www.ratemyprofessors.com/professor/2265866"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Katharine Lacefield",
+      "professorId": "easy-a-lacefield-katharine-i-c755290b89",
+      "expectedName": "Lacefield, Katharine I",
+      "sourceProfessorId": "2279389",
+      "sourceDisplayName": "Kathy Lacefield",
+      "department": "Psychology",
+      "course": "PSYC/154",
+      "evidence": [
+        "https://psychology.ucsd.edu/people/non-senate-instructors.html",
+        "https://profiles.ucsd.edu/katharine.lacefield",
+        "https://www.ratemyprofessors.com/professor/2279389"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Kimberly Prather",
+      "professorId": "easy-a-prather-kimberly-a-7fcfe27fc0",
+      "expectedName": "Prather, Kimberly A",
+      "sourceProfessorId": "415312",
+      "sourceDisplayName": "Kim Prather",
+      "department": "Chemistry",
+      "course": "CCS/102",
+      "evidence": [
+        "https://www.chem.ucsd.edu/faculty/profiles/kimberly-prather",
+        "https://www.ratemyprofessors.com/professor/415312"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Maria Candido",
+      "professorId": "easy-a-candido-maria-teresa-ab55d1019c",
+      "expectedName": "Candido, Maria Teresa",
+      "sourceProfessorId": "521611",
+      "sourceDisplayName": "Maria Teresa Candido",
+      "department": "Economics",
+      "course": "ECON/120B",
+      "evidence": [
+        "https://economics.ucsd.edu/faculty-and-research/faculty-profiles/candido.html",
+        "https://www.ratemyprofessors.com/professor/521611"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Mattheus Stephens",
+      "professorId": "easy-a-stephens-mattheus-e-f6d918b8fb",
+      "expectedName": "Stephens, Mattheus E",
+      "sourceProfessorId": "61356",
+      "sourceDisplayName": "M.E. Stephens",
+      "department": "Political Science",
+      "course": "POLI/104M",
+      "evidence": [
+        "https://polisci.ucsd.edu/people/faculty/faculty-directory/instructors/index.html",
+        "https://www.ratemyprofessors.com/professor/61356"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Mayumi Mckee",
+      "professorId": "easy-a-mckee-mayumi-mochizuki-79fcec2beb",
+      "expectedName": "McKee, Mayumi Mochizuki",
+      "sourceProfessorId": "433291",
+      "sourceDisplayName": "Mayumi Mochizuki McKee",
+      "department": "Languages",
+      "course": "JAPN/10A",
+      "evidence": [
+        "https://japan.ucsd.edu/people/lecturers.html",
+        "https://roosevelt.ucsd.edu/about/faculty.html",
+        "https://www.ratemyprofessors.com/professor/433291"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Michael Burkart",
+      "professorId": "easy-a-burkart-michael-d-e354c3fb66",
+      "expectedName": "Burkart, Michael D",
+      "sourceProfessorId": "571875",
+      "sourceDisplayName": "Mike Burkart",
+      "department": "Chemistry",
+      "course": "CHEM/40B",
+      "evidence": [
+        "https://profiles.ucsd.edu/michael.burkart",
+        "https://www.ratemyprofessors.com/professor/571875"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Michael Calderon-Zaks",
+      "professorId": "easy-a-calderon-zaks-michael-aar-b64c594214",
+      "expectedName": "Calderon-Zaks, Michael Aar",
+      "sourceProfessorId": "2375048",
+      "sourceDisplayName": "Michael Calderon-Zak's",
+      "department": "Sociology",
+      "course": "SOCI/125",
+      "evidence": [
+        "https://www.sociology.ucsd.edu/people/faculty/index.html",
+        "https://www.ratemyprofessors.com/professor/2375048"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Michael Sailor",
+      "professorId": "easy-a-sailor-michael-joseph-35f1f4271d",
+      "expectedName": "Sailor, Michael Joseph",
+      "sourceProfessorId": "105783",
+      "sourceDisplayName": "Mike Sailor",
+      "department": "Chemistry",
+      "course": "CHEM/120B",
+      "evidence": [
+        "https://sailorgroup.ucsd.edu/people/",
+        "https://www.ratemyprofessors.com/professor/105783"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Mohammad Bahadori",
+      "professorId": "easy-a-bahadori-mohammad-yousef-6834350429",
+      "expectedName": "Bahadori, Mohammad Yousef",
+      "sourceProfessorId": "439973",
+      "sourceDisplayName": "Yousef Bahadori",
+      "department": "Engineering",
+      "course": "MAE/181",
+      "evidence": [
+        "https://maeweb.ucsd.edu/faculty-profiles/lecturers",
+        "https://profiles.ucsd.edu/mohammad.bahadori",
+        "https://www.ratemyprofessors.com/professor/439973"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Niall Twohig",
+      "professorId": "easy-a-twohig-niall-ivan-fec6785071",
+      "expectedName": "Twohig, Niall Ivan",
+      "sourceProfessorId": "2395461",
+      "sourceDisplayName": "Niall Ivan Twohig",
+      "department": "English",
+      "course": "WCWP/10A",
+      "evidence": [
+        "https://profiles.ucsd.edu/niall.twohig",
+        "https://www.ratemyprofessors.com/professor/2395461"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Patricia Wells",
+      "professorId": "easy-a-wells-patricia-rebecca-bf7ccf5543",
+      "expectedName": "Wells, Patricia Rebecca",
+      "sourceProfessorId": "1632861",
+      "sourceDisplayName": "Rebecca Wells",
+      "department": "Languages",
+      "course": "LTRU/104B",
+      "evidence": [
+        "https://roosevelt.ucsd.edu/about/faculty.html",
+        "https://advising.ucsd.edu/students/courses-enrollment/placement-exams.html",
+        "https://literature.ucsd.edu/people/faculty/rwells.html",
+        "https://www.ratemyprofessors.com/professor/1632861"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Ronald Burton",
+      "professorId": "easy-a-burton-ronald-s-94c49e14f2",
+      "expectedName": "Burton, Ronald S.",
+      "sourceProfessorId": "623111",
+      "sourceDisplayName": "Ronald S Burton",
+      "department": "Biology",
+      "course": "SIO/127",
+      "evidence": [
+        "https://profiles.ucsd.edu/ronald.burton",
+        "https://scrippsprofiles.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/623111"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Seth Cohen",
+      "professorId": "easy-a-cohen-seth-m-8d8e92d0f2",
+      "expectedName": "Cohen, Seth M",
+      "sourceProfessorId": "295561",
+      "sourceDisplayName": "Seth M Cohen",
+      "department": "Chemistry",
+      "course": "CHEM/125",
+      "evidence": [
+        "https://mrsec.ucsd.edu/faculty/",
+        "https://www.ratemyprofessors.com/professor/295561"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Sherry Hayes",
+      "professorId": "easy-a-hayes-sherry-lorine-a217254633",
+      "expectedName": "Hayes, Sherry Lorine",
+      "sourceProfessorId": "2563725",
+      "sourceDisplayName": "Sherri Hayes",
+      "department": "Business",
+      "course": "MGT/173",
+      "evidence": [
+        "https://rady.ucsd.edu/faculty-research/other-faculty/continuing-lecturers/sherry-hayes.html",
+        "https://www.ratemyprofessors.com/professor/2563725"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Stefan Llewellyn Smith",
+      "professorId": "easy-a-llewellyn-smith-stefan-g-b17c29b65b",
+      "expectedName": "Llewellyn Smith, Stefan G.",
+      "sourceProfessorId": "879883",
+      "sourceDisplayName": "Stefan G Llewellyn Smith",
+      "department": "Engineering",
+      "course": "MAE/152",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/faculty/profile?id=138",
+        "https://www.ratemyprofessors.com/professor/879883"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Steven Levkoff",
+      "professorId": "easy-a-levkoff-steven-b-b792741631",
+      "expectedName": "Levkoff, Steven B.",
+      "sourceProfessorId": "1739027",
+      "sourceDisplayName": "Steve Levkoff",
+      "department": "Economics",
+      "course": "ECON/1",
+      "evidence": [
+        "https://economics.ucsd.edu/about/contact-us.html",
+        "https://www.ratemyprofessors.com/professor/1739027"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Todd Henry",
+      "professorId": "easy-a-henry-todd-a-ed41a56dbb",
+      "expectedName": "Henry, Todd A.",
+      "sourceProfessorId": "1413866",
+      "sourceDisplayName": "Todd A. Henry",
+      "department": "History",
+      "course": "HIEA/150",
+      "evidence": [
+        "https://historyweb.ucsd.edu/people/faculty/henry.html",
+        "https://www.ratemyprofessors.com/professor/1413866"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Vu Nguyen",
+      "professorId": "easy-a-nguyen-vu-quang-a7a47b43b8",
+      "expectedName": "Nguyen, Vu Quang",
+      "sourceProfessorId": "3018411",
+      "sourceDisplayName": "Vu Quang Nguyen",
+      "department": "Biology",
+      "course": "BICD/100",
+      "evidence": [
+        "https://biology.ucsd.edu/research/faculty/vnguyen",
+        "https://www.ratemyprofessors.com/professor/3018411"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Wouter Rappel",
+      "professorId": "easy-a-rappel-wouter-jan-e7539226fd",
+      "expectedName": "Rappel, Wouter Jan",
+      "sourceProfessorId": "1857337",
+      "sourceDisplayName": "Wouter Jan Rappel",
+      "department": "Physics",
+      "course": "PHYS/2A",
+      "evidence": [
+        "https://bioengineering.ucsd.edu/graduate/training-program-in-quantitative-integrative-biology",
+        "https://www.ratemyprofessors.com/professor/1857337"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Yuan Tang",
+      "professorId": "easy-a-tang-yuan-emily-96679efb8d",
+      "expectedName": "Tang, Yuan Emily",
+      "sourceProfessorId": "1050427",
+      "sourceDisplayName": "Yuan Emily Tang",
+      "department": "Economics",
+      "course": "ECON/130",
+      "evidence": [
+        "https://profiles.ucsd.edu/yuan.tang",
+        "https://www.ratemyprofessors.com/professor/1050427"
       ],
       "reviewedAt": "2026-11-02"
     }
