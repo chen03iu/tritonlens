@@ -135,6 +135,13 @@ requirements should be reviewed and recorded here.
   question; internal image filenames are not used as identity evidence.
   Only aliases change; all source metrics, histories and permissions remain intact.
 
+- The [fourth alias batch](docs/reviewed-runtime-alias-batch-four-2026-11-02.md)
+  adds 40 individually corroborated names (144 total) through the same guards.
+  An owned historical marker need not be a current roster course; it confirms
+  identity without replacing exact course-by-professor grade lookup. Every
+  non-alias value and all nine held profiles remain unchanged. No permissions
+  or archive coverage are added.
+
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.
 

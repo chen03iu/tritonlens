@@ -170,6 +170,11 @@ The [third reviewed batch](docs/reviewed-runtime-alias-batch-three-2026-11-02.md
 adds another 39 aliases (104 total), restoring 55 rating-found pairs and 39
 course-history-found pairs in the same saved-roster audit.
 
+The [fourth reviewed batch](docs/reviewed-runtime-alias-batch-four-2026-11-02.md)
+adds 40 aliases (144 total), recovering 56 rating-found pairs and 15 exact
+course-history-found pairs. An owned history marker from another course
+corroborates professor identity without supplying that other course's grades.
+
 ## Quality Checks
 
 ```powershell

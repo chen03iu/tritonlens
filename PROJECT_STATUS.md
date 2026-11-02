@@ -4,6 +4,30 @@ Last updated: 2026-11-02
 
 ## Current Milestone
 
+### Reviewed runtime short-name batch four (2026-11-02)
+
+Forty more individually corroborated aliases extend the unchanged guarded
+manifest to 144. [Per-person evidence and preservation proof](docs/reviewed-runtime-alias-batch-four-2026-11-02.md)
+cover 15 names with current-roster course histories and 25 whose owned history
+marker differs from their listed course. Ratings resolve at professor level;
+only exact queried-course histories are shown. No grades are borrowed.
+
+The same July-roster audit now has 1,824 matched names / 171 unmatched names.
+This batch restores 56 rating-found pairs and 15 exact course-history pairs.
+Totals: 4,297 identity-found pairs, zero ambiguous pairs, 2,839 rating-found
+pairs, 924 history-found pairs and 821 pairs with both metrics.
+
+Preservation confirms exactly 40 allowed alias additions and no other dataset
+field changes. All 5,677 identities, 63 redirects, 11,120 histories / 30,146 terms,
+metrics, source dates/permissions and nine held source profiles remain intact.
+Normal promotion and repeat import are byte-identical at SHA-256
+`664d6c4ad45a428f82b8e87fdce61267f772ccfaaa3ccd399fc0d4cd8f16932b`.
+
+Verification: 644 tests / 42 files, typecheck, default build and diff check pass.
+Independent read-only review found no actionable issues. Work is local on
+`fix/reviewed-runtime-aliases-batch-four`; no push, merge or release. Reload the
+same worktree `dist` and refresh TSS to use the rebuilt extension.
+
 ### Reviewed runtime short-name batch three (2026-11-02)
 
 Thirty-nine more primary-source-corroborated aliases extend the guarded

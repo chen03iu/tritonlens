@@ -1382,6 +1382,530 @@
         "https://www.ratemyprofessors.com/professor/2500048"
       ],
       "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Kyle Blair",
+      "professorId": "easy-a-blair-kyle-adam-10cdd2343b",
+      "expectedName": "Blair, Kyle Adam",
+      "sourceProfessorId": "3147173",
+      "department": "Music",
+      "course": "MUS/32VM",
+      "evidence": [
+        "https://www-theatre.ucsd.edu/people/faculty/acting/kyle-blair.html",
+        "https://www.ratemyprofessors.com/professor/3147173"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Louis Dunn",
+      "professorId": "easy-a-dunn-louis-jean-3f6e409264",
+      "expectedName": "Dunn, Louis Jean",
+      "sourceProfessorId": "2334627",
+      "department": "Business",
+      "course": "MGT/187",
+      "evidence": [
+        "https://rady.ucsd.edu/faculty-research/faculty-directory/",
+        "https://www.ratemyprofessors.com/professor/2334627"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Nathan Moeder",
+      "professorId": "easy-a-moeder-nathan-l-ac7345f24f",
+      "expectedName": "Moeder, Nathan L",
+      "sourceProfessorId": "2717946",
+      "department": "Urban Planning",
+      "course": "USP/152B",
+      "evidence": [
+        "https://hh-usp.ucsd.edu/about/faculty/index.html",
+        "https://www.ratemyprofessors.com/professor/2717946"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jill Gladstein",
+      "professorId": "easy-a-gladstein-jill-m-cdefab3571",
+      "expectedName": "Gladstein, Jill M",
+      "sourceProfessorId": "2778607",
+      "department": "English",
+      "course": "SYN/100",
+      "evidence": [
+        "https://seventh.ucsd.edu/about/staff/index.html",
+        "https://writingcensus.ucsd.edu/profile/jill-gladstein",
+        "https://www.ratemyprofessors.com/professor/2778607"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Samantha Trumbo",
+      "professorId": "easy-a-trumbo-samantha-kathleen-206c8a1b28",
+      "expectedName": "Trumbo, Samantha Kathleen",
+      "sourceProfessorId": "3151508",
+      "department": "Science",
+      "course": "ASTR/65",
+      "evidence": [
+        "https://astro.ucsd.edu/people/faculty/index.html",
+        "https://www.ratemyprofessors.com/professor/3151508"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Lauren Gilmore",
+      "professorId": "easy-a-gilmore-lauren-monica-624cbf10f7",
+      "expectedName": "Gilmore, Lauren Monica",
+      "sourceProfessorId": "3086395",
+      "department": "Writing",
+      "course": "AWP/4B",
+      "evidence": [
+        "https://awp.ucsd.edu/about/people.html",
+        "https://www.ratemyprofessors.com/professor/3086395"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Margaret Roberts",
+      "professorId": "easy-a-roberts-margaret-earling-0856e26566",
+      "expectedName": "Roberts, Margaret Earling",
+      "sourceProfessorId": "2703476",
+      "department": "Political Science",
+      "course": "POLI/121D",
+      "evidence": [
+        "https://today.ucsd.edu/story/margaret-roberts-named-director-of-uc-san-diegos-21st-century-china-center",
+        "https://www.ratemyprofessors.com/professor/2703476"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Vabianna Santos",
+      "professorId": "easy-a-santos-vabianna-daria-886059356b",
+      "expectedName": "Santos, Vabianna Daria",
+      "sourceProfessorId": "2386515",
+      "department": "Writing",
+      "course": "CCE/2",
+      "evidence": [
+        "https://eighth.ucsd.edu/about/staff.html",
+        "https://www.ratemyprofessors.com/professor/2386515"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jackson Kroopf",
+      "professorId": "easy-a-kroopf-jackson-stanford-1a45972927",
+      "expectedName": "Kroopf, Jackson Stanford",
+      "sourceProfessorId": "3156237",
+      "department": "Film",
+      "course": "FILM/72",
+      "evidence": [
+        "https://surajisranicenter.ucsd.edu/fellows/meet-our-fellows.html",
+        "https://www.ratemyprofessors.com/professor/3156237"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Julie Wartell",
+      "professorId": "easy-a-wartell-julie-dara-0cc4db8571",
+      "expectedName": "Wartell, Julie Dara",
+      "sourceProfessorId": "1100652",
+      "department": "Urban Studies",
+      "course": "USP/161",
+      "evidence": [
+        "https://usp.ucsd.edu/about/faculty/index.html",
+        "https://www.ratemyprofessors.com/professor/1100652"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Ryan Betschart",
+      "professorId": "easy-a-betschart-ryan-michael-e45e368313",
+      "expectedName": "Betschart, Ryan Michael",
+      "sourceProfessorId": "3145354",
+      "department": "Film",
+      "course": "FILM/73",
+      "evidence": [
+        "https://calendar.ucsd.edu/event/film-festivals-media-lab-panel",
+        "https://calendar.ucsd.edu/event/san-diego-underground-film-festival",
+        "https://www.ratemyprofessors.com/professor/3145354"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Helen Wang",
+      "professorId": "easy-a-wang-helen-shan-c1952fe945",
+      "expectedName": "Wang, Helen Shan",
+      "sourceProfessorId": "3018598",
+      "department": "Management",
+      "course": "MGT/121A",
+      "evidence": [
+        "https://rady.ucsd.edu/faculty-research/faculty-directory/",
+        "https://www.ratemyprofessors.com/professor/3018598"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Joel Wertheim",
+      "professorId": "easy-a-wertheim-joel-okrent-a409be2940",
+      "expectedName": "Wertheim, Joel Okrent",
+      "sourceProfessorId": "2968006",
+      "department": "Biological Sciences",
+      "course": "BISP/194",
+      "evidence": [
+        "https://bioinformatics.ucsd.edu/faculty/ra",
+        "https://www.ratemyprofessors.com/professor/2968006"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Michael Holmes",
+      "professorId": "easy-a-holmes-michael-joseph-32036c2edd",
+      "expectedName": "Holmes, Michael Joseph",
+      "sourceProfessorId": "3109947",
+      "department": "Urban Studies",
+      "course": "USP/150",
+      "evidence": [
+        "https://hh-usp.ucsd.edu/about/faculty/index.html",
+        "https://www.ratemyprofessors.com/professor/3109947"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Nora Schwaller",
+      "professorId": "easy-a-schwaller-nora-louise-6462982bee",
+      "expectedName": "Schwaller, Nora Louise",
+      "sourceProfessorId": "3159160",
+      "department": "Urban Planning",
+      "course": "USP/4",
+      "evidence": [
+        "https://nschwaller.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/3159160"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Terrence Sejnowski",
+      "professorId": "easy-a-sejnowski-terrence-j-a6228da1b4",
+      "expectedName": "Sejnowski, Terrence J",
+      "sourceProfessorId": "1829878",
+      "department": "Biology",
+      "course": "BIPN/146",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/people/profile/terrence-sejnowski",
+        "https://www.ratemyprofessors.com/professor/1829878"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Douglas Smith",
+      "professorId": "easy-a-smith-douglas-e-c6bac7f1ef",
+      "expectedName": "Smith, Douglas E",
+      "sourceProfessorId": "505577",
+      "department": "Physics",
+      "course": "PHYS/1B",
+      "evidence": [
+        "https://physics.ucsd.edu/people/faculty",
+        "https://www.ratemyprofessors.com/professor/505577"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Judy Kim",
+      "professorId": "easy-a-kim-judy-e-e9d2bfcd90",
+      "expectedName": "Kim, Judy E.",
+      "sourceProfessorId": "785953",
+      "department": "Chemistry",
+      "course": "CHEM/126B",
+      "evidence": [
+        "https://www.chem.ucsd.edu/faculty/index.shtml",
+        "https://www.ratemyprofessors.com/professor/785953"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Ivan Schuller",
+      "professorId": "easy-a-schuller-ivan-k-dcb8fd1c73",
+      "expectedName": "Schuller, Ivan K",
+      "sourceProfessorId": "7853",
+      "department": "Physics",
+      "course": "PHYS/2B",
+      "evidence": [
+        "https://matsci.ucsd.edu/faculty/ivan-schuller",
+        "https://www.ratemyprofessors.com/professor/7853"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Daniel Donoghue",
+      "professorId": "easy-a-donoghue-daniel-j-d805514b79",
+      "expectedName": "Donoghue, Daniel J.",
+      "sourceProfessorId": "104038",
+      "department": "Chemistry",
+      "course": "CHEM/118",
+      "evidence": [
+        "https://biochemistry.ucsd.edu/research/profiles/16",
+        "https://www.ratemyprofessors.com/professor/104038"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Emily Troemel",
+      "professorId": "easy-a-troemel-emily-ruth-fe532b3c57",
+      "expectedName": "Troemel, Emily Ruth",
+      "sourceProfessorId": "1411109",
+      "department": "Biology",
+      "course": "BICD/100",
+      "evidence": [
+        "https://troemellab.biosci.ucsd.edu/people-contact/",
+        "https://www.ratemyprofessors.com/professor/1411109"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jacques Verstraete",
+      "professorId": "easy-a-verstraete-jacques-allan-cd7ef3b766",
+      "expectedName": "Verstraete, Jacques Allan",
+      "sourceProfessorId": "1172776",
+      "department": "Mathematics",
+      "course": "MATH/154",
+      "evidence": [
+        "https://mathematicalsciences.ucsd.edu/people/profiles/jacques-verstraete",
+        "https://www.ratemyprofessors.com/professor/1172776"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Elizabeth Komives",
+      "professorId": "easy-a-komives-elizabeth-a-9d98a80151",
+      "expectedName": "Komives, Elizabeth A",
+      "sourceProfessorId": "343826",
+      "department": "Chemistry",
+      "course": "CHEM/114B",
+      "evidence": [
+        "https://bpmsf.ucsd.edu/_files/komives_CV.pdf",
+        "https://biochemistry.ucsd.edu/research/profiles/10",
+        "https://www.ratemyprofessors.com/professor/343826"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Clifford Kubiak",
+      "professorId": "easy-a-kubiak-clifford-paul-99703429ea",
+      "expectedName": "Kubiak, Clifford Paul",
+      "sourceProfessorId": "1262517",
+      "department": "Chemistry",
+      "course": "CHEM/6CH",
+      "evidence": [
+        "https://www.chem.ucsd.edu/faculty/profiles/clifford-kubiak",
+        "https://www.ratemyprofessors.com/professor/1262517"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Claus Sorensen",
+      "professorId": "easy-a-sorensen-claus-m-b9897f58a3",
+      "expectedName": "Sorensen, Claus M",
+      "sourceProfessorId": "1831929",
+      "department": "Mathematics",
+      "course": "MATH/103A",
+      "evidence": [
+        "https://mathematics.ucsd.edu/people/profiles/claus-sorensen",
+        "https://www.ratemyprofessors.com/professor/1831929"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Erik Romero",
+      "professorId": "easy-a-romero-erik-anthony-5942fc7338",
+      "expectedName": "Romero, Erik Anthony",
+      "sourceProfessorId": "2768420",
+      "department": "Chemistry",
+      "course": "CHEM/40B",
+      "evidence": [
+        "https://chemistry-biochemistry.ucsd.edu/faculty/profiles/erik-romero",
+        "https://www.ratemyprofessors.com/professor/2768420"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Patricia Jennings",
+      "professorId": "easy-a-jennings-patricia-a-a56e8d7cc2",
+      "expectedName": "Jennings, Patricia A.",
+      "sourceProfessorId": "805667",
+      "department": "Chemistry",
+      "course": "CHEM/108",
+      "evidence": [
+        "https://chemistry.ucsd.edu/faculty/index.shtml",
+        "https://www.ratemyprofessors.com/professor/805667"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Michael Fogler",
+      "professorId": "easy-a-fogler-michael-m-8d63a017f1",
+      "expectedName": "Fogler, Michael M.",
+      "sourceProfessorId": "741549",
+      "department": "Physics",
+      "course": "PHYS/140A",
+      "evidence": [
+        "https://fogler.physics.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/741549"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Victor Vianu",
+      "professorId": "easy-a-vianu-victor-dan-e726ecbfaf",
+      "expectedName": "Vianu, Victor Dan",
+      "sourceProfessorId": "454461",
+      "department": "Computer Science",
+      "course": "CSE/132A",
+      "evidence": [
+        "https://profiles.ucsd.edu/victor.vianu",
+        "https://jacobsschool.ucsd.edu/people/profile/victor-vianu",
+        "https://www.ratemyprofessors.com/professor/454461"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Heidi Cook-Andersen",
+      "professorId": "easy-a-cook-andersen-heidi-leigh-ff0d418fba",
+      "expectedName": "Cook-Andersen, Heidi Leigh",
+      "sourceProfessorId": "2648428",
+      "department": "Biology",
+      "course": "BIMM/100",
+      "evidence": [
+        "https://www.bioinformatics.ucsd.edu/faculty/bmi",
+        "https://www.ratemyprofessors.com/professor/2648428"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Pavel Pevzner",
+      "professorId": "easy-a-pevzner-pavel-arkadjevich-011068f646",
+      "expectedName": "Pevzner, Pavel Arkadjevich",
+      "sourceProfessorId": "443549",
+      "department": "Computer Science",
+      "course": "BENG/181",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/faculty/profile?id=119",
+        "https://www.ratemyprofessors.com/professor/443549"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Sergey Kryazhimskiy",
+      "professorId": "easy-a-kryazhimskiy-sergey-a-9101cb4361",
+      "expectedName": "Kryazhimskiy, Sergey A",
+      "sourceProfessorId": "2906606",
+      "department": "Biology",
+      "course": "BICD/156",
+      "evidence": [
+        "https://profiles.ucsd.edu/sergey.kryazhimskiy",
+        "https://www.ratemyprofessors.com/professor/2906606"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Eran Mukamel",
+      "professorId": "easy-a-mukamel-eran-a-7d3a410419",
+      "expectedName": "Mukamel, Eran A",
+      "sourceProfessorId": "2006642",
+      "department": "Cognitive Science",
+      "course": "COGS/118C",
+      "evidence": [
+        "https://www.bioinformatics.ucsd.edu/faculty/ra",
+        "https://www.ratemyprofessors.com/professor/2006642"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Ludmil Alexandrov",
+      "professorId": "easy-a-alexandrov-ludmil-b-4fb8c6b321",
+      "expectedName": "Alexandrov, Ludmil B",
+      "sourceProfessorId": "2463168",
+      "department": "Engineering",
+      "course": "BENG/100",
+      "evidence": [
+        "https://igm.ucsd.edu/faculty/ludmil-alexandrov",
+        "https://www.ratemyprofessors.com/professor/2463168"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Dionicio Siegel",
+      "professorId": "easy-a-siegel-dionicio-r-d84d7b04b3",
+      "expectedName": "Siegel, Dionicio R.",
+      "sourceProfessorId": "2131837",
+      "department": "Chemistry",
+      "course": "CHEM/140B",
+      "evidence": [
+        "https://profiles.ucsd.edu/dionicio.siegel",
+        "https://www.ratemyprofessors.com/professor/2131837"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Nathan Romero",
+      "professorId": "easy-a-romero-nathan-a-fe0addbc6e",
+      "expectedName": "Romero, Nathan A",
+      "sourceProfessorId": "2687486",
+      "department": "Chemistry",
+      "course": "CHEM/152",
+      "evidence": [
+        "https://www.chem.ucsd.edu/faculty/profiles/nathan-romero",
+        "https://www.ratemyprofessors.com/professor/2687486"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Curtis Marez",
+      "professorId": "easy-a-marez-curtis-f-fc1f33048e",
+      "expectedName": "Marez, Curtis F.",
+      "sourceProfessorId": "1699602",
+      "department": "Ethnic Studies",
+      "course": "ETHN/101",
+      "evidence": [
+        "https://ethnicstudies.ucsd.edu/people/marez.html",
+        "https://www.ratemyprofessors.com/professor/1699602"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jeffrey Gee",
+      "professorId": "easy-a-gee-jeffrey-s-513940766b",
+      "expectedName": "Gee, Jeffrey S",
+      "sourceProfessorId": "975001",
+      "department": "Geology",
+      "course": "SIO/16",
+      "evidence": [
+        "https://profiles.ucsd.edu/jeffrey.gee",
+        "https://www.ratemyprofessors.com/professor/975001"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Richard Averitt",
+      "professorId": "easy-a-averitt-richard-douglas-fe0f87a5d2",
+      "expectedName": "Averitt, Richard Douglas",
+      "sourceProfessorId": "2261073",
+      "department": "Physics",
+      "course": "PHYS/133",
+      "evidence": [
+        "https://matsci.ucsd.edu/faculty/richard-averitt",
+        "https://www.ratemyprofessors.com/professor/2261073"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Farhat Beg",
+      "professorId": "easy-a-beg-farhat-n-7b9bbf3cdd",
+      "expectedName": "Beg, Farhat N.",
+      "sourceProfessorId": "877041",
+      "department": "Engineering",
+      "course": "MAE/170",
+      "evidence": [
+        "https://fbeg.ucsd.edu/people.html",
+        "https://www.ratemyprofessors.com/professor/877041"
+      ],
+      "reviewedAt": "2026-11-02"
     }
   ]
 }
