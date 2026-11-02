@@ -1,8 +1,37 @@
 # TritonLens Project Status
 
-Last updated: 2026-10-31
+Last updated: 2026-11-02
 
 ## Current Milestone
+
+### Reviewed runtime short-name batch two (2026-11-02)
+
+This data-only batch adds 34 individually corroborated aliases to the existing
+guarded manifest (65 total). The earlier Oct31 review date is now explicit on
+each prior entry; new entries are dated Nov2. No
+matching/import helper code changes. [Primary evidence and results](docs/reviewed-runtime-alias-batch-2026-11-02.md)
+include the exact retained identities, RMP source IDs/departments and owned
+course markers. Elizabeth Miller's competing full-name owner remains excluded.
+
+The July-roster audit now has 1,745 matched and 250 unmatched names. The batch
+restores ratings for 59 name/course pairs and their own course histories for
+48 pairs, with no new ambiguity. Totals: 4,186 identity-found pairs, zero
+ambiguous pairs, 2,728 rating-found pairs, 870 history-found pairs and 767 pairs
+with both metrics. Of the remaining 250 names, 146 have prior rated candidates
+for subsequent primary-evidence review, not new manual user decisions.
+
+Exactly 34 allowed aliases change. Every non-alias dataset field is unchanged,
+including all 5,677 identities, 63 redirects, 11,120 histories / 30,146 terms,
+primary/alternate metrics, source dates and permission states. The nine held
+source profiles and the user's Kevin Cao / David Jordan decisions remain held.
+Normal promotion and repeat candidate import are byte-identical at SHA-256
+`053a96ae02f5c06d8f8bbef54f5cb4793a2f1eee18c09b50c8e3724a6fffc05f`.
+
+Verification: 565 tests across 42 files, typecheck, default build and diff check
+pass. Independent read-only review verified all source/history bindings and
+preservation with no actionable findings. Local branch
+`fix/reviewed-runtime-aliases-batch-two`; no push or release. Reload the same
+worktree `dist` and refresh TSS to use the refreshed aliases.
 
 ### Reviewed runtime short-name batch (2026-10-31)
 

@@ -162,6 +162,10 @@ pin numeric scores. Same-name collisions block acceptance. If an already
 promoted alias fails its guards on a future refresh, import stops for review
 before identity matching and keeps the previous snapshot.
 
+The [second reviewed batch](docs/reviewed-runtime-alias-batch-2026-11-02.md)
+adds 34 further verified aliases (65 total) using the same guards, with no
+matching-policy or numeric-data changes.
+
 ## Quality Checks
 
 ```powershell

@@ -125,6 +125,10 @@ requirements should be reviewed and recorded here.
   raw grades and provenance do not change. Future contradictions involving
   already-promoted aliases stop import for revalidation before matching. This
   review adds no source permissions or archive coverage.
+- The [2026-11-02 alias batch](docs/reviewed-runtime-alias-batch-2026-11-02.md)
+  adds 34 further primary-source-corroborated aliases using the unchanged helper.
+  Earlier review dates are retained per entry. All non-alias dataset values,
+  source dates/permissions and nine held source profiles remain unchanged.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.
