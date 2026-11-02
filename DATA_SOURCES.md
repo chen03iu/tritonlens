@@ -142,6 +142,13 @@ requirements should be reviewed and recorded here.
   non-alias value and all nine held profiles remain unchanged. No permissions
   or archive coverage are added.
 
+- The [fifth alias batch](docs/reviewed-runtime-alias-batch-five-2026-11-02.md)
+  adds 37 primary-source-corroborated aliases using the unchanged guards.
+  The same report records Michael Landry RMP859966 as a source-quality concern
+  because its reviews span law and oceanography. The user chose to retain
+  existing data pending review; no new Landry alias is added. All non-alias
+  data, nine held source profiles and source permissions remain unchanged.
+
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.
 

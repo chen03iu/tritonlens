@@ -95,7 +95,7 @@ it('preflights promoted aliases before source reconciliation or grade identity m
 });
 
 it('records primary evidence without storing frozen rating values in the alias manifest',()=>{
- expect(reviews.entries).toHaveLength(144);expect(new Set(reviews.entries.map(e=>e.alias)).size).toBe(144);
+ expect(reviews.entries).toHaveLength(181);expect(new Set(reviews.entries.map(e=>e.alias)).size).toBe(181);
  for(const entry of reviews.entries){
   expect(entry.evidence.some(url=>new URL(url).hostname.endsWith('.ucsd.edu'))).toBe(true);
   expect(entry.evidence).toContain(`https://www.ratemyprofessors.com/professor/${entry.sourceProfessorId}`);

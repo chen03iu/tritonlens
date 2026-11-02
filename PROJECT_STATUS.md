@@ -4,6 +4,33 @@ Last updated: 2026-11-02
 
 ## Current Milestone
 
+### Reviewed runtime short-name batch five (2026-11-02)
+
+Thirty-seven more individually corroborated aliases extend the unchanged
+guarded manifest to 181. [Per-person evidence and results](docs/reviewed-runtime-alias-batch-five-2026-11-02.md)
+record exact source bindings and uniquely owned historical markers.
+
+The same July-roster audit now has 1,861 matched names / 134 unmatched names.
+This batch restores 47 rating-found pairs. Totals: 4,344 identity-found pairs,
+zero ambiguous pairs and 2,886 rating-found pairs. Exact-course histories stay
+at 924 and both-metric pairs at 821: the new names' currently listed courses
+differ from their history markers, so no unrelated grades are substituted.
+
+Michael Landry RMP859966 contains SIO134 and law-course reviews in one aggregate.
+By explicit user decision, retain the whole existing record and metrics and
+mark the source-quality concern pending review. No new Landry runtime alias
+is added. This concern is separate from the nine importer-held source profiles.
+
+Preservation confirms exactly 37 approved alias additions and every other
+dataset field unchanged, including all previous aliases and the entire Landry
+record. Normal promotion and repeat import are byte-identical at SHA-256
+`dbd93e3202b2233099ccb58f391779ab878c75d512950df0e204a814092bd531`.
+
+Verification: 681 tests / 42 files, typecheck, default build and diff check pass.
+Independent read-only review found no actionable issues. Local branch
+`fix/reviewed-runtime-aliases-batch-five`; no push, merge or release. Reload the
+same worktree `dist` and refresh TSS to use the rebuilt extension.
+
 ### Reviewed runtime short-name batch four (2026-11-02)
 
 Forty more individually corroborated aliases extend the unchanged guarded

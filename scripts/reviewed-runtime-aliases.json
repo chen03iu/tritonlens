@@ -1906,6 +1906,492 @@
         "https://www.ratemyprofessors.com/professor/877041"
       ],
       "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jennifer Haase",
+      "professorId": "easy-a-haase-jennifer-susan-a56b947d56",
+      "expectedName": "Haase, Jennifer Susan",
+      "sourceProfessorId": "2986819",
+      "department": "Biology",
+      "course": "ESYS/102",
+      "evidence": [
+        "https://jhaase.scrippsprofiles.ucsd.edu/bio/",
+        "https://scripps.ucsd.edu/system/files/2025-01/ESYS%20102%20Haase%20W25_0.pdf",
+        "https://www.ratemyprofessors.com/professor/2986819"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Quinn Konopacky",
+      "professorId": "easy-a-konopacky-quinn-morgan-4d147930e6",
+      "expectedName": "Konopacky, Quinn Morgan",
+      "sourceProfessorId": "2148135",
+      "department": "Physics",
+      "course": "PHYS/164",
+      "evidence": [
+        "https://konopackygroup.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/2148135"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "David Sworder",
+      "professorId": "easy-a-sworder-david-d-fb31b79fa3",
+      "expectedName": "Sworder, David D.",
+      "sourceProfessorId": "896282",
+      "department": "Engineering",
+      "course": "ECE/171A",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/faculty/profile?id=75",
+        "https://www.ece.ucsd.edu/people/faculty/emeritus",
+        "https://www.ratemyprofessors.com/professor/896282"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Terry Jernigan",
+      "professorId": "easy-a-jernigan-terry-lynne-d94170afe7",
+      "expectedName": "Jernigan, Terry Lynne",
+      "sourceProfessorId": "1297711",
+      "department": "Cognitive Science",
+      "course": "COGS/178",
+      "evidence": [
+        "https://terryjernigan.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/1297711"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Julia Stauber",
+      "professorId": "easy-a-stauber-julia-megan-b313d1aea5",
+      "expectedName": "Stauber, Julia Megan",
+      "sourceProfessorId": "2732537",
+      "department": "Chemistry",
+      "course": "CHEM/120A",
+      "evidence": [
+        "https://prod.chem.ucsd.edu/faculty/profiles/stauber_julia.html",
+        "https://www.ratemyprofessors.com/professor/2732537"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Vitali Nesterenko",
+      "professorId": "easy-a-nesterenko-vitali-f-e7bbc5fdb4",
+      "expectedName": "Nesterenko, Vitali F",
+      "sourceProfessorId": "580498",
+      "department": "Engineering",
+      "course": "MAE/130",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/people/profile/vitali-nesterenko",
+        "https://www.ratemyprofessors.com/professor/580498"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Sarah Gille",
+      "professorId": "easy-a-gille-sarah-t-5f9a79ea97",
+      "expectedName": "Gille, Sarah T",
+      "sourceProfessorId": "861211",
+      "department": "Engineering",
+      "course": "SIO/119",
+      "evidence": [
+        "https://www-pord.ucsd.edu/sgille/",
+        "https://www-pord.ucsd.edu/sgille/sio119/index.html",
+        "https://www.ratemyprofessors.com/professor/861211"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "John Haviland",
+      "professorId": "easy-a-haviland-john-b-fc30434b30",
+      "expectedName": "Haviland, John B.",
+      "sourceProfessorId": "892917",
+      "department": "Anthropology",
+      "course": "ANSC/118",
+      "evidence": [
+        "https://global.ucsd.edu/about/contacts/faculty-directors.html",
+        "https://www.ratemyprofessors.com/professor/892917"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Mark Herzik",
+      "professorId": "easy-a-herzik-mark-anthony-f5396a53b8",
+      "expectedName": "Herzik, Mark Anthony",
+      "sourceProfessorId": "2552950",
+      "department": "Chemistry",
+      "course": "CHEM/165",
+      "evidence": [
+        "https://prod.chem.ucsd.edu/faculty/profiles/herzik__mark__a.html",
+        "https://www.ratemyprofessors.com/professor/2552950"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Richard Norris",
+      "professorId": "easy-a-norris-richard-d-32f1fc3aee",
+      "expectedName": "Norris, Richard D.",
+      "sourceProfessorId": "360610",
+      "department": "Science",
+      "course": "SIO/104",
+      "evidence": [
+        "https://rnorris.scrippsprofiles.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/360610"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "George Fuller",
+      "professorId": "easy-a-fuller-george-michael-38864e90f6",
+      "expectedName": "Fuller, George Michael",
+      "sourceProfessorId": "286453",
+      "department": "Physics",
+      "course": "PHYS/161",
+      "evidence": [
+        "https://today.ucsd.edu/story/what-is-a-neutrino-anyway",
+        "https://www.ratemyprofessors.com/professor/286453"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Emma Farley",
+      "professorId": "easy-a-farley-emma-kristen-307759b500",
+      "expectedName": "Farley, Emma Kristen",
+      "sourceProfessorId": "2683801",
+      "department": "Biology",
+      "course": "BIMM/100",
+      "evidence": [
+        "https://www.bioinformatics.ucsd.edu/faculty",
+        "https://www.ratemyprofessors.com/professor/2683801"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Patrick Rohner",
+      "professorId": "easy-a-rohner-patrick-thomas-ba79a1b21d",
+      "expectedName": "Rohner, Patrick Thomas",
+      "sourceProfessorId": "3052861",
+      "department": "Biology",
+      "course": "BIEB/150",
+      "evidence": [
+        "https://evc.ucsd.edu/resources/hellman-fellowship-recipients.html",
+        "https://www.ratemyprofessors.com/professor/3052861"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Rommie Amaro",
+      "professorId": "easy-a-amaro-rommie-e-23feb622cd",
+      "expectedName": "Amaro, Rommie E",
+      "sourceProfessorId": "1906792",
+      "department": "Chemistry",
+      "course": "BIBC/100",
+      "evidence": [
+        "https://amarolab.ucsd.edu/files/Amaro_Full_CV_Jan2024.pdf",
+        "https://www.ratemyprofessors.com/professor/1906792"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Tatiana Mishanina",
+      "professorId": "easy-a-mishanina-tatiana-v-838e11d78f",
+      "expectedName": "Mishanina, Tatiana V",
+      "sourceProfessorId": "2490077",
+      "department": "Chemistry",
+      "course": "CHEM/114B",
+      "evidence": [
+        "https://prod.chem.ucsd.edu/faculty/profiles/mishanina__tatiana__v.html",
+        "https://www.ratemyprofessors.com/professor/2490077"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Frank Talke",
+      "professorId": "easy-a-talke-frank-e-9c1cb893f0",
+      "expectedName": "Talke, Frank E",
+      "sourceProfessorId": "1265589",
+      "department": "Engineering",
+      "course": "MAE/150",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/giving/founding-faculty-and-emeriti/frank-talke",
+        "https://www.ratemyprofessors.com/professor/1265589"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jean Wang",
+      "professorId": "easy-a-wang-jean-yin-jen-b25ec477b4",
+      "expectedName": "Wang, Jean Yin Jen",
+      "sourceProfessorId": "642167",
+      "department": "Biology",
+      "course": "BILD/40",
+      "evidence": [
+        "https://profiles.ucsd.edu/jean.wang",
+        "https://www.ratemyprofessors.com/professor/642167"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jeff Bowman",
+      "professorId": "easy-a-bowman-jeff-shovlowsky-1d6958e20f",
+      "expectedName": "Bowman, Jeff Shovlowsky",
+      "sourceProfessorId": "3064199",
+      "department": "Biological Sciences",
+      "course": "SIO/121",
+      "evidence": [
+        "https://soilhealthcenter.ucsd.edu/people/",
+        "https://www.ratemyprofessors.com/professor/3064199"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Monika Gosin",
+      "professorId": "easy-a-gosin-monika-n-fca6f23758",
+      "expectedName": "Gosin, Monika N.",
+      "sourceProfessorId": "3001543",
+      "department": "Ethnic Studies",
+      "course": "ETHN/138",
+      "evidence": [
+        "https://www.ethnicstudies.ucsd.edu/people/gosin.html",
+        "https://www.ratemyprofessors.com/professor/3001543"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Nuno Bandeira",
+      "professorId": "easy-a-bandeira-nuno-filipe-cabrita-7c0c29c058",
+      "expectedName": "Bandeira, Nuno Filipe Cabrita",
+      "sourceProfessorId": "2068019",
+      "department": "Computer Science",
+      "course": "CSE/190",
+      "evidence": [
+        "https://pharmacy.ucsd.edu/people/faculty/bandeira.html",
+        "https://cse.ucsd.edu/graduate/cse-graduate-advisors",
+        "https://www.ratemyprofessors.com/professor/2068019"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Carlos Coimbra",
+      "professorId": "easy-a-coimbra-carlos-f-1b444a5533",
+      "expectedName": "Coimbra, Carlos F.",
+      "sourceProfessorId": "2042707",
+      "department": "Engineering",
+      "course": "ENG/100L",
+      "evidence": [
+        "https://mae.ucsd.edu/faculty/carlos-coimbra",
+        "https://www.ratemyprofessors.com/professor/2042707"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "John Hwang",
+      "professorId": "easy-a-hwang-john-t-3cd1192501",
+      "expectedName": "Hwang, John T",
+      "sourceProfessorId": "2656930",
+      "department": "Engineering",
+      "course": "MAE/155B",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/faculty/profile?id=473",
+        "https://www.ratemyprofessors.com/professor/2656930"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Mamadou Diagne",
+      "professorId": "easy-a-diagne-mamadou-lamine-a5057a5ec5",
+      "expectedName": "Diagne, Mamadou Lamine",
+      "sourceProfessorId": "3113339",
+      "department": "Engineering",
+      "course": "MAE/143B",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/people/profile/mamadou-diagne-0",
+        "https://www.ratemyprofessors.com/professor/3113339"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Noah Rose",
+      "professorId": "easy-a-rose-noah-hartmann-75588927d3",
+      "expectedName": "Rose, Noah Hartmann",
+      "sourceProfessorId": "2999303",
+      "department": "Biology",
+      "course": "BIEB/148",
+      "evidence": [
+        "https://biology.ucsd.edu/research/faculty/nrose",
+        "https://www.ratemyprofessors.com/professor/2999303"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "James Friend",
+      "professorId": "easy-a-friend-james-robert-36492cbabc",
+      "expectedName": "Friend, James Robert",
+      "sourceProfessorId": "2089985",
+      "department": "Engineering",
+      "course": "MAE/150",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/node/3556",
+        "https://www.ratemyprofessors.com/professor/2089985"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Colleen McHugh",
+      "professorId": "easy-a-mchugh-colleen-a-325cfa4d71",
+      "expectedName": "McHugh, Colleen A",
+      "sourceProfessorId": "2483354",
+      "department": "Chemistry",
+      "course": "CHEM/109",
+      "evidence": [
+        "https://profiles.ucsd.edu/colleen.mchugh",
+        "https://www.ratemyprofessors.com/professor/2483354"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jeffrey Omens",
+      "professorId": "easy-a-omens-jeffrey-howard-fcd2985c05",
+      "expectedName": "Omens, Jeffrey Howard",
+      "sourceProfessorId": "1235186",
+      "department": "Engineering",
+      "course": "BENG/172",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/node/3507",
+        "https://www.ratemyprofessors.com/professor/1235186"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "May Elsherif",
+      "professorId": "easy-a-elsherif-may-elhussein-fe301ad2f3",
+      "expectedName": "Elsherif, May Elhussein",
+      "sourceProfessorId": "2867906",
+      "department": "Computer Science",
+      "course": "CSE/8A",
+      "evidence": [
+        "https://podcast.ucsd.edu/CourseList.aspx?show=past",
+        "https://cse.ucsd.edu/graduate/graduate-course-home-pages-spring-2023",
+        "https://www.ratemyprofessors.com/professor/2867906"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Pamela Smith",
+      "professorId": "easy-a-smith-pamela-karen-e5d2c582d9",
+      "expectedName": "Smith, Pamela Karen",
+      "sourceProfessorId": "1800140",
+      "department": "Management",
+      "course": "MGT/164",
+      "evidence": [
+        "https://rady.ucsd.edu/faculty-research/faculty/distinguished-rady-faculty/pamela-smith.html",
+        "https://www.ratemyprofessors.com/professor/1800140"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Ryan Hibbs",
+      "professorId": "easy-a-hibbs-ryan-e-718c5fbfe8",
+      "expectedName": "Hibbs, Ryan E.",
+      "sourceProfessorId": "3018540",
+      "department": "Biological Sciences",
+      "course": "BIPN/140",
+      "evidence": [
+        "https://www.biosci.ucsd.edu/research/faculty/rhibbs.html",
+        "https://www.ratemyprofessors.com/professor/3018540"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Christopher Charles",
+      "professorId": "easy-a-charles-christopher-d-c64627f883",
+      "expectedName": "Charles, Christopher D.",
+      "sourceProfessorId": "2855917",
+      "department": "Geology",
+      "course": "SIO/108",
+      "evidence": [
+        "https://ccharles.scrippsprofiles.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/2855917"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Douglas Bartlett",
+      "professorId": "easy-a-bartlett-douglas-h-4cd9833715",
+      "expectedName": "Bartlett, Douglas H",
+      "sourceProfessorId": "2915847",
+      "department": "Oceanography",
+      "course": "SIO/128",
+      "evidence": [
+        "https://dbartlett.scrippsprofiles.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/2915847"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Lynne Talley",
+      "professorId": "easy-a-talley-lynne-d-f7a01481f0",
+      "expectedName": "Talley, Lynne D",
+      "sourceProfessorId": "2845300",
+      "department": "Environment",
+      "course": "ESYS/90",
+      "evidence": [
+        "https://ltalley.scrippsprofiles.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/2845300"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Monica Allen",
+      "professorId": "easy-a-allen-monica-t-caff612bbe",
+      "expectedName": "Allen, Monica T",
+      "sourceProfessorId": "2992163",
+      "department": "Physics",
+      "course": "PHYS/133",
+      "evidence": [
+        "https://imdd.ucsd.edu/faculty",
+        "https://www.ratemyprofessors.com/professor/2992163"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Paterno Castillo",
+      "professorId": "easy-a-castillo-paterno-r-e0f5964c33",
+      "expectedName": "Castillo, Paterno R.",
+      "sourceProfessorId": "2872271",
+      "department": "Oceanography",
+      "course": "SIO/30",
+      "evidence": [
+        "https://profiles.ucsd.edu/paterno.castillo",
+        "https://www.ratemyprofessors.com/professor/2872271"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Steven Constable",
+      "professorId": "easy-a-constable-steven-c-3f2794d790",
+      "expectedName": "Constable, Steven C",
+      "sourceProfessorId": "2472639",
+      "department": "Geology",
+      "course": "SIO/182",
+      "evidence": [
+        "https://sconstable.scrippsprofiles.ucsd.edu/biography/",
+        "https://www.ratemyprofessors.com/professor/2472639"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Stuart Sandin",
+      "professorId": "easy-a-sandin-stuart-adrian-627d209294",
+      "expectedName": "Sandin, Stuart Adrian",
+      "sourceProfessorId": "2351424",
+      "department": "Oceanography",
+      "course": "SIO/190",
+      "evidence": [
+        "https://ssandin.scrippsprofiles.ucsd.edu/",
+        "https://www.ratemyprofessors.com/professor/2351424"
+      ],
+      "reviewedAt": "2026-11-02"
     }
   ]
 }

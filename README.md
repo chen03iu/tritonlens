@@ -175,6 +175,12 @@ adds 40 aliases (144 total), recovering 56 rating-found pairs and 15 exact
 course-history-found pairs. An owned history marker from another course
 corroborates professor identity without supplying that other course's grades.
 
+The [fifth reviewed batch](docs/reviewed-runtime-alias-batch-five-2026-11-02.md)
+adds 37 aliases (181 total), recovering 47 rating-found pairs. Exact-course
+history coverage remains unchanged. A mixed-course RMP profile for Michael
+Landry is separately marked for review; its existing data is preserved by
+explicit user choice.
+
 ## Quality Checks
 
 ```powershell
