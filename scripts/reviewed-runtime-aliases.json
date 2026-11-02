@@ -864,6 +864,524 @@
         "https://www.ratemyprofessors.com/professor/2946772"
       ],
       "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Patrick Adamiak",
+      "professorId": "easy-a-adamiak-patrick-john-49d2eb0ab2",
+      "expectedName": "Adamiak, Patrick John",
+      "sourceProfessorId": "2710478",
+      "department": "History",
+      "course": "MMW/11",
+      "evidence": [
+        "https://roosevelt.ucsd.edu/mmw/people/index.html",
+        "https://www.ratemyprofessors.com/professor/2710478"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Dennis Trinidad",
+      "professorId": "easy-a-trinidad-dennis-ryan-cd4c0b3af8",
+      "expectedName": "Trinidad, Dennis Ryan",
+      "sourceProfessorId": "2240021",
+      "department": "Public Health",
+      "course": "PH/40",
+      "evidence": [
+        "https://profiles.ucsd.edu/dennis.trinidad",
+        "https://www.ratemyprofessors.com/professor/2240021"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Ulrich Muller",
+      "professorId": "easy-a-muller-ulrich-k-21cb64c35c",
+      "expectedName": "Muller, Ulrich K.",
+      "sourceProfessorId": "1063454",
+      "department": "Chemistry",
+      "course": "CHEM/109",
+      "evidence": [
+        "https://podcast.ucsd.edu/watch/sp22-b/chem109_a00",
+        "https://biochemistry.ucsd.edu/research/profiles/10",
+        "https://www.ratemyprofessors.com/professor/1063454"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jessica Graham",
+      "professorId": "easy-a-graham-jessica-lynn-f97779b93e",
+      "expectedName": "Graham, Jessica Lynn",
+      "sourceProfessorId": "1834832",
+      "department": "History",
+      "course": "HILD/7A",
+      "evidence": [
+        "https://history.ucsd.edu/people/faculty/graham.html",
+        "https://www.ratemyprofessors.com/professor/1834832"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Kam Arnold",
+      "professorId": "easy-a-arnold-kam-s-39f361e34a",
+      "expectedName": "Arnold, Kam S",
+      "sourceProfessorId": "2286244",
+      "department": "Physics",
+      "course": "ASTR/18",
+      "evidence": [
+        "https://astro.ucsd.edu/people/faculty/",
+        "https://cosmology.ucsd.edu/people.php",
+        "https://www.ratemyprofessors.com/professor/2286244"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Leslie Lewis",
+      "professorId": "easy-a-lewis-leslie-r-336dc532e3",
+      "expectedName": "Lewis, Leslie R",
+      "sourceProfessorId": "1360887",
+      "department": "Urban Studies",
+      "course": "USP/141A",
+      "evidence": [
+        "https://anthropology.ucsd.edu/undergraduate-studies/opps/study-abroad-and-field-schools/dept.html",
+        "https://www.ratemyprofessors.com/professor/1360887"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Hieu Pham",
+      "professorId": "easy-a-pham-hieu-tan-f427cdad05",
+      "expectedName": "Pham, Hieu Tan",
+      "sourceProfessorId": "2000417",
+      "department": "Engineering",
+      "course": "MAE/150",
+      "evidence": [
+        "https://cfdlab.ucsd.edu/people.html",
+        "https://www.ratemyprofessors.com/professor/2000417"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Kenneth Bates",
+      "professorId": "easy-a-bates-kenneth-walter-f29f2c11ba",
+      "expectedName": "Bates, Kenneth Walter",
+      "sourceProfessorId": "2128139",
+      "department": "Management",
+      "course": "MGT/105",
+      "evidence": [
+        "https://rady.ucsd.edu/faculty-research/other-faculty/lecturers/kenneth-bates.html",
+        "https://www.ratemyprofessors.com/professor/2128139"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "William Mceneaney",
+      "professorId": "easy-a-mceneaney-william-michael-4149656003",
+      "expectedName": "McEneaney, William Michael",
+      "sourceProfessorId": "343336",
+      "department": "Mathematics",
+      "course": "MAE/180",
+      "evidence": [
+        "https://jacobsschool.ucsd.edu/people/profile/william-mceneaney",
+        "https://ccsd.eng.ucsd.edu/people",
+        "https://www.ratemyprofessors.com/professor/343336"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "John Anderson",
+      "professorId": "easy-a-anderson-john-charles-2d0b52f1e7",
+      "expectedName": "Anderson, John Charles",
+      "sourceProfessorId": "1470755",
+      "department": "Accounting",
+      "course": "MGT/135",
+      "evidence": [
+        "https://rady.ucsd.edu/faculty-research/faculty-directory/",
+        "https://profiles.ucsd.edu/john.anderson",
+        "https://www.ratemyprofessors.com/professor/1470755"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "David Kirsh",
+      "professorId": "easy-a-kirsh-david-joel-80832fb4bc",
+      "expectedName": "Kirsh, David Joel",
+      "sourceProfessorId": "264396",
+      "department": "Cognitive Science",
+      "course": "COGS/187A",
+      "evidence": [
+        "https://cogsci.ucsd.edu/people/faculty/index.html",
+        "https://interactivity.ucsd.edu/contact.html",
+        "https://www.ratemyprofessors.com/professor/264396"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Elina Zuniga",
+      "professorId": "easy-a-zuniga-elina-i-879a762166",
+      "expectedName": "Zuniga, Elina I",
+      "sourceProfessorId": "1295359",
+      "department": "Biology",
+      "course": "BICD/140",
+      "evidence": [
+        "https://profiles.ucsd.edu/elina.zuniga",
+        "https://www.ratemyprofessors.com/professor/1295359"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Vincent Pham",
+      "professorId": "easy-a-pham-vincent-minhduc-f13e07852c",
+      "expectedName": "Pham, Vincent Minhduc",
+      "sourceProfessorId": "2822962",
+      "department": "Writing",
+      "course": "MCWP/40",
+      "evidence": [
+        "https://muir.ucsd.edu/writing/bios.html",
+        "https://www.ratemyprofessors.com/professor/2822962"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "King Britt",
+      "professorId": "easy-a-britt-king-james-aa2cc067a1",
+      "expectedName": "Britt, King James",
+      "sourceProfessorId": "2602728",
+      "department": "Music",
+      "course": "MUS/19R",
+      "evidence": [
+        "https://music-cms.ucsd.edu/people/faculty/regular_faculty/king-britt/index.html",
+        "https://www.ratemyprofessors.com/professor/2602728"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Michael Morshed",
+      "professorId": "easy-a-morshed-michael-james-46b39411e2",
+      "expectedName": "Morshed, Michael James",
+      "sourceProfessorId": "2883933",
+      "department": "English",
+      "course": "MCWP/40",
+      "evidence": [
+        "https://muir.ucsd.edu/writing/mcwp-courses/course_schedule.html",
+        "https://www.ratemyprofessors.com/professor/2883933"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Neal Driscoll",
+      "professorId": "easy-a-driscoll-neal-w-f20944b843",
+      "expectedName": "Driscoll, Neal W.",
+      "sourceProfessorId": "665760",
+      "department": "Geology",
+      "course": "SIO/105",
+      "evidence": [
+        "https://scripps.ucsd.edu/profiles/ndriscoll",
+        "https://www.ratemyprofessors.com/professor/665760"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Tatiana Zavodny",
+      "professorId": "easy-a-zavodny-tatiana-sophia-c97f306026",
+      "expectedName": "Zavodny, Tatiana Sophia",
+      "sourceProfessorId": "2750053",
+      "department": "Literature",
+      "course": "HUM/100",
+      "evidence": [
+        "https://revelle.ucsd.edu/humanities/people.html",
+        "https://www.ratemyprofessors.com/professor/2750053"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Todd Kontje",
+      "professorId": "easy-a-kontje-todd-curtis-a2b625de61",
+      "expectedName": "Kontje, Todd Curtis",
+      "sourceProfessorId": "1196863",
+      "department": "Literature",
+      "course": "LTEU/110",
+      "evidence": [
+        "https://hh-literature.ucsd.edu/people/faculty/emeriti-tkontje.html",
+        "https://www.ratemyprofessors.com/professor/1196863"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Matthew Crum",
+      "professorId": "easy-a-crum-matthew-stephen-c7cd8ae542",
+      "expectedName": "Crum, Matthew Stephen",
+      "sourceProfessorId": "3075224",
+      "department": "Humanities",
+      "course": "HUM/100",
+      "evidence": [
+        "https://profiles.ucsd.edu/matthew.crum",
+        "https://revelle.ucsd.edu/humanities/people.html",
+        "https://www.ratemyprofessors.com/professor/3075224"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Keith Mccleary",
+      "professorId": "easy-a-mccleary-keith-long-75955c64b8",
+      "expectedName": "McCleary, Keith Long",
+      "sourceProfessorId": "2136213",
+      "department": "Writing",
+      "course": "WCWP/10A",
+      "evidence": [
+        "https://warren.ucsd.edu/warren-writing/faculty-staff.html",
+        "https://www.ratemyprofessors.com/professor/2136213"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jon Bialecki",
+      "professorId": "easy-a-bialecki-jon-anthony-6785eff8ac",
+      "expectedName": "Bialecki, Jon Anthony",
+      "sourceProfessorId": "1416604",
+      "department": "Anthropology",
+      "course": "ANSC/124",
+      "evidence": [
+        "https://anthropology.ucsd.edu/people/lecturers/lecturer-profiles/jon-bialecki.html",
+        "https://www.ratemyprofessors.com/professor/1416604"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Lynn Russell",
+      "professorId": "easy-a-russell-lynn-m-898fbae6c4",
+      "expectedName": "Russell, Lynn M.",
+      "sourceProfessorId": "856833",
+      "department": "Chemistry",
+      "course": "SIO/20R",
+      "evidence": [
+        "https://aerosols.ucsd.edu/staff-members/lynn-russell/",
+        "https://lmrussell.scrippsprofiles.ucsd.edu/classes/",
+        "https://www.ratemyprofessors.com/professor/856833"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Kelly Silva",
+      "professorId": "easy-a-silva-kelly-b-56514c091f",
+      "expectedName": "Silva, Kelly B",
+      "sourceProfessorId": "2212719",
+      "department": "Writing",
+      "course": "MCWP/40",
+      "evidence": [
+        "https://muir.ucsd.edu/writing/mcwp-courses/course_schedule.html",
+        "https://profiles.ucsd.edu/kelly.silva",
+        "https://www.ratemyprofessors.com/professor/2212719"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Sandra Brown",
+      "professorId": "easy-a-brown-sandra-a-d2a49e6efd",
+      "expectedName": "Brown, Sandra A",
+      "sourceProfessorId": "559032",
+      "department": "Psychology",
+      "course": "PSYC/112",
+      "evidence": [
+        "https://chd.ucsd.edu/people/profile-ExecutiveCommittee.html",
+        "https://www.ratemyprofessors.com/professor/559032"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Michele Bigley",
+      "professorId": "easy-a-bigley-michele-heather-8d8d2282cd",
+      "expectedName": "Bigley, Michele Heather",
+      "sourceProfessorId": "2884511",
+      "department": "Writing",
+      "course": "CCE/120",
+      "evidence": [
+        "https://eighth.ucsd.edu/engagement-program/our-team.html",
+        "https://www.ratemyprofessors.com/professor/2884511"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jordan Escobar",
+      "professorId": "easy-a-escobar-jordan-christophe-cf93cd4de1",
+      "expectedName": "Escobar, Jordan Christophe",
+      "sourceProfessorId": "3063495",
+      "department": "Writing",
+      "course": "WCWP/10B",
+      "evidence": [
+        "https://warren.ucsd.edu/warren-writing/faculty-staff.html",
+        "https://www.ratemyprofessors.com/professor/3063495"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Dominik Wodarz",
+      "professorId": "easy-a-wodarz-dominik-franz-xave-f0c93666b1",
+      "expectedName": "Wodarz, Dominik Franz Xave",
+      "sourceProfessorId": "3077756",
+      "department": "Biology",
+      "course": "BIEB/152",
+      "evidence": [
+        "https://bioinformatics.ucsd.edu/faculty/bmi",
+        "https://www.ratemyprofessors.com/professor/3077756"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Matthew Henson",
+      "professorId": "easy-a-henson-matthew-alexander-1be9c91db4",
+      "expectedName": "Henson, Matthew Alexander",
+      "sourceProfessorId": "3146505",
+      "department": "Music",
+      "course": "MUS/95E",
+      "evidence": [
+        "https://music-cms.ucsd.edu/people/faculty/adjunct_faculty/matthew-henson.html",
+        "https://www.ratemyprofessors.com/professor/3146505"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Eric Mooshagian",
+      "professorId": "easy-a-mooshagian-eric-frederick-f5e18b1242",
+      "expectedName": "Mooshagian, Eric Frederick",
+      "sourceProfessorId": "2904527",
+      "department": "Science",
+      "course": "COGS/107A",
+      "evidence": [
+        "https://cogsci.ucsd.edu/people/lecturers/index.html",
+        "https://www.ratemyprofessors.com/professor/2904527"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jennifer Deal",
+      "professorId": "easy-a-deal-jennifer-jean-23eaf26ece",
+      "expectedName": "Deal, Jennifer Jean",
+      "sourceProfessorId": "2627312",
+      "department": "Business",
+      "course": "MGT/52",
+      "evidence": [
+        "https://rady.ucsd.edu/faculty-research/other-faculty/lecturers/jennifer-deal.html",
+        "https://www.ratemyprofessors.com/professor/2627312"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Lauryn Smith",
+      "professorId": "easy-a-smith-lauryn-alissa-1bb0afcd51",
+      "expectedName": "Smith, Lauryn Alissa",
+      "sourceProfessorId": "3053174",
+      "department": "English",
+      "course": "CAT/125R",
+      "evidence": [
+        "https://www.sixth.ucsd.edu/cat/courses/cat-125-and-cat-125r.html",
+        "https://profiles.ucsd.edu/lauryn.smith",
+        "https://www.ratemyprofessors.com/professor/3053174"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Philip Guo",
+      "professorId": "easy-a-guo-philip-j-c7553272f3",
+      "expectedName": "Guo, Philip J",
+      "sourceProfessorId": "2189764",
+      "department": "Cognitive Science",
+      "course": "COGS/124",
+      "evidence": [
+        "https://css.ucsd.edu/people/profiles/pguo.html",
+        "https://pg.ucsd.edu/philip-guo-cv-2026-03-19.pdf",
+        "https://www.ratemyprofessors.com/professor/2189764"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Ryan Hechinger",
+      "professorId": "easy-a-hechinger-ryan-f-4e06b51abd",
+      "expectedName": "Hechinger, Ryan F.",
+      "sourceProfessorId": "2306850",
+      "department": "Oceanography",
+      "course": "SIO/132",
+      "evidence": [
+        "https://nrs.ucsd.edu/contact/faculty-and-staff.html",
+        "https://blink.ucsd.edu/technology/help-desk/directory/departments/s-z.html",
+        "https://www.ratemyprofessors.com/professor/2306850"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Celeste Morales",
+      "professorId": "easy-a-morales-celeste-georgianna-b19e56aff8",
+      "expectedName": "Morales, Celeste Georgianna",
+      "sourceProfessorId": "3139019",
+      "department": "English",
+      "course": "CAT/125",
+      "evidence": [
+        "https://profiles.ucsd.edu/celeste.morales",
+        "https://www.ratemyprofessors.com/professor/3139019"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Camille Campion",
+      "professorId": "easy-a-campion-camille-e-48d93ca561",
+      "expectedName": "Campion, Camille E",
+      "sourceProfessorId": "2237169",
+      "department": "Communication",
+      "course": "COMM/102C",
+      "evidence": [
+        "https://communication.ucsd.edu/people/lecturers/index.html",
+        "https://www.ratemyprofessors.com/professor/2237169"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Matthew Stone",
+      "professorId": "easy-a-stone-matthew-david-9158b15ed0",
+      "expectedName": "Stone, Matthew David",
+      "sourceProfessorId": "3068436",
+      "department": "Public Health",
+      "course": "PH/45",
+      "evidence": [
+        "https://profiles.ucsd.edu/matthew.stone",
+        "https://www.ratemyprofessors.com/professor/3068436"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Haleema Welji",
+      "professorId": "easy-a-welji-haleema-nazir-4a49476318",
+      "expectedName": "Welji, Haleema Nazir",
+      "sourceProfessorId": "2107081",
+      "department": "Anthropology",
+      "course": "WCWP/10A",
+      "evidence": [
+        "https://warren.ucsd.edu/warren-writing/faculty-staff.html",
+        "https://www.ratemyprofessors.com/professor/2107081"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Jennifer Carter",
+      "professorId": "easy-a-carter-jennifer-a-59fc7d2835",
+      "expectedName": "Carter, Jennifer A",
+      "sourceProfessorId": "3107555",
+      "department": "English",
+      "course": "MCWP/40",
+      "evidence": [
+        "https://muir.ucsd.edu/writing/mcwp-courses/course_schedule.html",
+        "https://www.ratemyprofessors.com/professor/3107555"
+      ],
+      "reviewedAt": "2026-11-02"
+    },
+    {
+      "alias": "Kensy Cooperrider",
+      "professorId": "easy-a-cooperrider-kensy-a-ffe5b03a44",
+      "expectedName": "Cooperrider, Kensy A",
+      "sourceProfessorId": "2500048",
+      "department": "Cognitive Science",
+      "course": "COGS/155",
+      "evidence": [
+        "https://cogsci.ucsd.edu/people/lecturers/index.html",
+        "https://www.ratemyprofessors.com/professor/2500048"
+      ],
+      "reviewedAt": "2026-11-02"
     }
   ]
 }

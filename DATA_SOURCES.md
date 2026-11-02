@@ -129,6 +129,11 @@ requirements should be reviewed and recorded here.
   adds 34 further primary-source-corroborated aliases using the unchanged helper.
   Earlier review dates are retained per entry. All non-alias dataset values,
   source dates/permissions and nine held source profiles remain unchanged.
+- The [third alias batch](docs/reviewed-runtime-alias-batch-three-2026-11-02.md)
+  adds 39 more individually corroborated names through the unchanged helper.
+  The official CHEM109 course page and RMP course tags resolve the Muller name
+  question; internal image filenames are not used as identity evidence.
+  Only aliases change; all source metrics, histories and permissions remain intact.
 
 Ready-to-send requests are maintained in
 `SOURCE_PERMISSION_REQUESTS.md`.

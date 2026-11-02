@@ -4,6 +4,34 @@ Last updated: 2026-11-02
 
 ## Current Milestone
 
+### Reviewed runtime short-name batch three (2026-11-02)
+
+Thirty-nine more primary-source-corroborated aliases extend the guarded
+manifest to 104, with no matching/import helper code changes. The
+[per-person evidence](docs/reviewed-runtime-alias-batch-three-2026-11-02.md)
+includes Ulrich Muller's official CHEM109 listing as Ulrich K., resolving the
+initial concern from internal image metadata without an initial-substitution
+rule. Earlier entries and held-profile decisions remain unchanged.
+
+The same July-roster audit now has 1,784 matched names / 211 unmatched names.
+The batch restores 55 rating-found pairs and 39 exact course-history pairs.
+Totals: 4,241 identity-found pairs, zero ambiguous pairs, 2,783 rating-found
+pairs, 909 history-found pairs and 806 pairs with both metrics. Of the remaining
+211 names, 107 have prior rated candidates for further primary-evidence review,
+not new manual user decisions.
+
+Preservation confirms exactly 39 allowed alias additions and no other dataset
+field changes: all 5,677 identities, 63 redirects, 11,120 histories / 30,146 terms,
+primary/alternate metrics, source dates/permissions and nine held source profiles
+remain intact. Normal promotion and repeat candidate import are byte-identical
+at SHA-256 `6144cc33afb83b26bd737720da0441bf9707cf4a6a6f2195d4ebce89fb8f57fd`.
+
+Verification: 604 tests / 42 files, typecheck, default build and diff check pass.
+Independent read-only review verified the source bindings, history ownership
+and full preservation with no actionable findings. Local branch
+`fix/reviewed-runtime-aliases-batch-three`; no push or release. Reload the same
+worktree `dist` and refresh TSS to use the updated aliases.
+
 ### Reviewed runtime short-name batch two (2026-11-02)
 
 This data-only batch adds 34 individually corroborated aliases to the existing

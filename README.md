@@ -166,6 +166,10 @@ The [second reviewed batch](docs/reviewed-runtime-alias-batch-2026-11-02.md)
 adds 34 further verified aliases (65 total) using the same guards, with no
 matching-policy or numeric-data changes.
 
+The [third reviewed batch](docs/reviewed-runtime-alias-batch-three-2026-11-02.md)
+adds another 39 aliases (104 total), restoring 55 rating-found pairs and 39
+course-history-found pairs in the same saved-roster audit.
+
 ## Quality Checks
 
 ```powershell
