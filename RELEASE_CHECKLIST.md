@@ -30,12 +30,12 @@ the no-snapshot fallback.
 
 - [x] Add extension icons and copy them into the build output.
 - [x] Choose a release version and keep package and manifest versions aligned.
-- [ ] Run `npm.cmd test`, `npm.cmd run typecheck`, and `npm.cmd run build`.
+- [x] Run `npm.cmd test`, `npm.cmd run typecheck`, and `npm.cmd run build`.
 - [ ] Confirm the default badge shows available ratings and its card shows the
   pending-permission label, source dates, and historical-not-prediction note.
 - [ ] Confirm neither opening TSS nor scanning its DOM makes an automatic RMP
   or UCSD grade-source request; requests occur only after a user clicks a link.
-- [ ] Inspect `dist/content.js` for the pending-permission marker and a known
+- [x] Inspect `dist/content.js` for the pending-permission marker and a known
   generated identity; separately verify `npm.cmd run build:link-only` excludes
   both.
 - [x] Review the release package: include runtime files and the install guide;

@@ -4,13 +4,15 @@ Last updated: 2026-11-02
 
 ## Current Milestone
 
-### GitHub 0.2.0 release preparation (2026-11-02)
+### GitHub 0.2.0 integrated release candidate (2026-11-02)
 
 Version metadata is aligned at 0.2.0. English installation/release notes and a
 verified eight-file ZIP are prepared; the package contains runtime assets and
 INSTALL.txt only. [Package verification](docs/releases/0.2.0-verification.md)
 records hashes, privacy/manifest scope and the lack of a new signed-in browser
-check. Final integrated-main checks, push and release publication follow.
+check. Integrated main passes 724 tests / 43 files, typecheck and build. Its runtime
+bundle matches the reviewed ZIP exactly. Push and verified draft publication
+are the remaining final steps.
 
 
 ### Reviewed singleton source-binding corrections (2026-11-02)
