@@ -1,19 +1,27 @@
 # TritonLens Project Status
 
-Last updated: 2026-11-02
+Last updated: 2026-11-03
 
 ## Current Milestone
 
-### GitHub 0.2.0 integrated release candidate (2026-11-02)
+### GitHub 0.2.0 published (2026-11-03)
 
-Version metadata is aligned at 0.2.0. English installation/release notes and a
-verified eight-file ZIP are prepared; the package contains runtime assets and
-INSTALL.txt only. [Package verification](docs/releases/0.2.0-verification.md)
-records hashes, privacy/manifest scope and the lack of a new signed-in browser
-check. Integrated main passes 724 tests / 43 files, typecheck and build. Its runtime
-bundle matches the reviewed ZIP exactly. Push and verified draft publication
-are the remaining final steps.
+[TritonLens 0.2.0](https://github.com/chen03iu/tritonlens/releases/tag/v0.2.0)
+is published as the latest public GitHub release. Main was fast-forwarded and
+pushed; annotated tag v0.2.0 targets 2aa18de. The English install guide is
+included in the verified eight-file ZIP (1,135,777 bytes). GitHub's asset digest
+matches local SHA-256 f4ffae79447b90fb865af68c709b725731edb4bed58aba96c8818a3f5f51057c.
+[Download ZIP](https://github.com/chen03iu/tritonlens/releases/download/v0.2.0/TritonLens-0.2.0.zip)
 
+Integrated-main verification: 724 tests / 43 files, typecheck, build and package
+checks pass. The runtime bundle matches the staged package exactly. No new
+signed-in TSS or clean-profile check was run because browser control was
+unavailable; prior user acceptance remains recorded.
+
+[Release verification](docs/releases/0.2.0-verification.md) records the package
+proof and publication status. Source permissions remain pending as disclosed;
+this is not a Chrome Web Store submission. The prior release, untracked user
+files and direct-data worktree/dist are preserved.
 
 ### Reviewed singleton source-binding corrections (2026-11-02)
 
