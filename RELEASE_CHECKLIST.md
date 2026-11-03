@@ -21,15 +21,15 @@ the no-snapshot fallback.
 
 - [x] Draft privacy documentation for the current implementation.
 - [x] Document why TSS-only content-script access is necessary.
-- [ ] Review privacy claims against the final bundle and manifest.
-- [ ] Add a public support/contact channel and stable privacy-document URL.
+- [x] Review privacy claims against the final bundle and manifest.
+- [x] Add a public support/contact channel and stable privacy-document URL.
 - [ ] Prepare an accurate store description without grade predictions or
   claims of UCSD affiliation.
 
 ## Packaging and Verification
 
 - [x] Add extension icons and copy them into the build output.
-- [ ] Choose a release version and keep package and manifest versions aligned.
+- [x] Choose a release version and keep package and manifest versions aligned.
 - [ ] Run `npm.cmd test`, `npm.cmd run typecheck`, and `npm.cmd run build`.
 - [ ] Confirm the default badge shows available ratings and its card shows the
   pending-permission label, source dates, and historical-not-prediction note.
@@ -38,7 +38,7 @@ the no-snapshot fallback.
 - [ ] Inspect `dist/content.js` for the pending-permission marker and a known
   generated identity; separately verify `npm.cmd run build:link-only` excludes
   both.
-- [ ] Review the production package: include only required runtime files;
+- [x] Review the release package: include runtime files and the install guide;
   exclude `AGENTS.md`, raw captures, credentials, tests, and source maps.
 - [ ] Test loading the package in a clean Chrome profile. Any authenticated
   TSS checks must use manual login without recording credentials.
@@ -55,3 +55,11 @@ On 2026-09-15, the user reported passing the latest live-TSS smoke checklist:
 course switching, repeated card use, empty-instructor behavior, no duplicate
 badges, and ordinary TSS actions. This is user-reported validation, not a
 clean-profile package test or proof of every department/layout.
+
+## GitHub 0.2.0 preparation (2026-11-02)
+
+See [release verification](docs/releases/0.2.0-verification.md) for package
+contents, hashes and completed automated checks. Existing user acceptance
+was recorded on 2026-10-29. A new authenticated TSS/clean-profile browser check
+was not performed because browser control is unavailable. This preparation
+does not complete the source-permission or Chrome Web Store items above.

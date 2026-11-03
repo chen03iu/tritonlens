@@ -4,7 +4,7 @@ TritonLens is a privacy-focused Chrome extension that adds instructor and
 historical course context directly to UC San Diego's Triton Student System
 (TSS).
 
-The project is currently an early prototype. Its default build uses a
+The project is an early public test release. Its default build uses a
 normalized direct-source snapshot for conservative professor matching,
 course-specific historical-data lookup, and inline UI states. Reviewed names
 and the migration baseline come from the earlier Easy-A Radar snapshot. The user reports
@@ -51,6 +51,14 @@ practices. See [PRIVACY.md](PRIVACY.md) for the current privacy documentation.
 
 The extension must never automate enrollment or perform TSS actions on a
 student's behalf.
+
+## Install from GitHub
+
+Download **TritonLens-0.2.0.zip** from the [latest release](https://github.com/chen03iu/tritonlens/releases/latest), extract it into a permanent folder, then open `chrome://extensions`, enable **Developer mode**, and use **Load unpacked** to select the folder containing `manifest.json`.
+
+To update an existing installation, replace its files, click **Reload**, and refresh TSS. Keep one enabled copy. The package includes [INSTALL.txt](INSTALL.txt). GitHub's source archives require the development build below.
+
+Support: [GitHub Issues](https://github.com/chen03iu/tritonlens/issues).
 
 ## Local Development
 

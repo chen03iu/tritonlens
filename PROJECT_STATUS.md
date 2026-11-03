@@ -4,6 +4,15 @@ Last updated: 2026-11-02
 
 ## Current Milestone
 
+### GitHub 0.2.0 release preparation (2026-11-02)
+
+Version metadata is aligned at 0.2.0. English installation/release notes and a
+verified eight-file ZIP are prepared; the package contains runtime assets and
+INSTALL.txt only. [Package verification](docs/releases/0.2.0-verification.md)
+records hashes, privacy/manifest scope and the lack of a new signed-in browser
+check. Final integrated-main checks, push and release publication follow.
+
+
 ### Reviewed singleton source-binding corrections (2026-11-02)
 
 [Three primary-source-verified wrong links](docs/reviewed-incorrect-bindings-2026-11-02.md)

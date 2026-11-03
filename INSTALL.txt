@@ -1,0 +1,29 @@
+TritonLens 0.2.0 for Chrome
+
+INSTALL
+1. Download TritonLens-0.2.0.zip from:
+   https://github.com/chen03iu/tritonlens/releases/tag/v0.2.0
+2. Extract the ZIP into a folder you will keep on your computer.
+3. Open chrome://extensions in Chrome.
+4. Turn on Developer mode.
+5. Click Load unpacked and select the extracted folder containing manifest.json.
+6. Open https://tss.ucsd.edu/ and sign in normally.
+7. Refresh an open TSS page after loading the extension.
+
+UPDATE AN EXISTING INSTALLATION
+Replace the files in your existing extension folder with this ZIP's contents.
+Open chrome://extensions, click Reload on TritonLens, then refresh TSS.
+If using a new folder, remove or disable the older copy before loading this one.
+
+DATA AND PRIVACY
+Available ratings and historical course grades are looked up locally.
+Missing or uncertain matches can remain unavailable.
+Historical grades are not predictions.
+The interface retains the "Data snapshot — source permissions pending" notice.
+TritonLens collects no analytics and makes no automatic rating/grade-source requests.
+Clicking a source link opens that website under its own privacy practices.
+
+SUPPORT
+https://github.com/chen03iu/tritonlens/issues
+Privacy: https://github.com/chen03iu/tritonlens/blob/main/PRIVACY.md
+Report issues without including student information or session data.

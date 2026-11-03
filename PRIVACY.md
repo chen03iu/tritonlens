@@ -1,6 +1,6 @@
 # TritonLens Privacy
 
-Last updated: 2026-10-29
+Last updated: 2026-11-02
 
 This document describes the default TritonLens build, which includes a static
 data snapshot, and the optional link-only build. It must be reviewed again if
@@ -57,5 +57,6 @@ not transmitted anywhere.
 You can disable or remove TritonLens in Chrome's extension settings. There is
 no extension-maintained persistent user data to delete.
 
-Before public release, add a public support/contact channel, review this
-document against the packaged implementation, and publish it at a stable URL.
+Support: [GitHub Issues](https://github.com/chen03iu/tritonlens/issues).
+The stable public copy of this policy is [PRIVACY.md](https://github.com/chen03iu/tritonlens/blob/main/PRIVACY.md).
+Report issues without including student information or session data.
