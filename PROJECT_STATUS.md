@@ -4,14 +4,15 @@ Last updated: 2026-11-04
 
 ## Current Milestone
 
-### Local card notice removal (2026-11-04)
+### GitHub 0.2.1 published (2026-11-04)
 
 Removed the production card's top-level snapshot/permission notice at the
 user's request. Empty mode labels no longer create a blank paragraph. Source
 links, observation dates, provider mode and permission records are unchanged.
-The v0.2.1 release package is prepared and verified: 724 tests, typecheck,
-build and eight ZIP entries passed. Publication is pending. See
-[verification](docs/releases/0.2.1-verification.md).
+[TritonLens v0.2.1](https://github.com/chen03iu/tritonlens/releases/tag/v0.2.1)
+is published as Latest. Main and tag v0.2.1 were pushed; 724 tests, typecheck,
+build and all eight ZIP entries passed. Uploaded SHA-256 matches the local ZIP.
+See [verification](docs/releases/0.2.1-verification.md).
 
 ### GitHub 0.2.0 published (2026-11-03)
 
