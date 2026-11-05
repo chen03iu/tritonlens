@@ -1,6 +1,6 @@
 {
   "name": "tritonlens",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "type": "module",
   "description": "Instructor ratings and historical course context inside UC San Diego TSS.",

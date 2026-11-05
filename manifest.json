@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TritonLens",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Instructor ratings and historical course context inside UC San Diego TSS.",
   "icons": {
     "16": "icons/icon-16.png",

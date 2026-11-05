@@ -1,8 +1,8 @@
-TritonLens 0.2.0 for Chrome
+TritonLens 0.2.1 for Chrome
 
 INSTALL
-1. Download TritonLens-0.2.0.zip from:
-   https://github.com/chen03iu/tritonlens/releases/tag/v0.2.0
+1. Download TritonLens-0.2.1.zip from:
+   https://github.com/chen03iu/tritonlens/releases/tag/v0.2.1
 2. Extract the ZIP into a folder you will keep on your computer.
 3. Open chrome://extensions in Chrome.
 4. Turn on Developer mode.
@@ -19,7 +19,6 @@ DATA AND PRIVACY
 Available ratings and historical course grades are looked up locally.
 Missing or uncertain matches can remain unavailable.
 Historical grades are not predictions.
-The interface retains the "Data snapshot — source permissions pending" notice.
 TritonLens collects no analytics and makes no automatic rating/grade-source requests.
 Clicking a source link opens that website under its own privacy practices.
 

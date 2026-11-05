@@ -361,12 +361,14 @@ function createDetailCard(
   );
   title.id = `${card.id}-title`;
   card.setAttribute('aria-labelledby', title.id);
-  appendTextElement(
-    titleGroup,
-    'p',
-    'tritonlens-detail-demo-label',
-    insight.modeLabel,
-  );
+  if (insight.modeLabel) {
+    appendTextElement(
+      titleGroup,
+      'p',
+      'tritonlens-detail-demo-label',
+      insight.modeLabel,
+    );
+  }
   const closeButton = appendTextElement(header, 'button', 'tritonlens-detail-close', '×');
   closeButton.type = 'button';
   closeButton.setAttribute('aria-label', 'Close instructor details');

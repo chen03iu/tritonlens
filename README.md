@@ -54,7 +54,7 @@ student's behalf.
 
 ## Install from GitHub
 
-Download **TritonLens-0.2.0.zip** from the [latest release](https://github.com/chen03iu/tritonlens/releases/latest), extract it into a permanent folder, then open `chrome://extensions`, enable **Developer mode**, and use **Load unpacked** to select the folder containing `manifest.json`.
+Download **TritonLens-0.2.1.zip** from the [latest release](https://github.com/chen03iu/tritonlens/releases/latest), extract it into a permanent folder, then open `chrome://extensions`, enable **Developer mode**, and use **Load unpacked** to select the folder containing `manifest.json`.
 
 To update an existing installation, replace its files, click **Reload**, and refresh TSS. Keep one enabled copy. The package includes [INSTALL.txt](INSTALL.txt). GitHub's source archives require the development build below.
 

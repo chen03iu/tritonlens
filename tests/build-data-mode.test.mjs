@@ -27,7 +27,7 @@ function build(name, ...flags) {
 
 test('default metrics and explicit link-only builds use isolated data graphs', () => {
   const release = build('release');
-  expect(release.content).toContain(
+  expect(release.content).not.toContain(
     'Data snapshot — source permissions pending',
   );
   expect(release.content).toContain('easy-a-radar-rmp');

@@ -10,7 +10,7 @@ import {
 startTritonLens(
   createInstructorDataService({
     mode: 'pending-permission-snapshot',
-    modeLabel: 'Data snapshot — source permissions pending',
+    modeLabel: '',
     ...createLocalDatasetProviderSet(DIRECT_DATASET),
   }),
 );
